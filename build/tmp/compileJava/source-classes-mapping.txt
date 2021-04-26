@@ -1,4 +1,6 @@
-FXMLController.java
- FXMLController
+view/MainViewer.java
+ view.MainViewer
+apps/authentication/view/FXMLController.java
+ apps.authentication.view.FXMLController
 MainApp.java
  MainApp
