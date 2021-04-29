@@ -1,22 +1,22 @@
 view/firstpage/FirstPage.java
  view.firstpage.FirstPage
-apps/authentication/view/SignUpFXML.java
- apps.authentication.view.SignUpFXML
 apps/authentication/view/LoginFXML.java
  apps.authentication.view.LoginFXML
+apps/authentication/logic/LoginAgent.java
+ apps.authentication.logic.LoginAgent
 listeners/StringListener.java
  listeners.StringListener
 view/firstpage/FirstPageFXML.java
  view.firstpage.FirstPageFXML
-MainApp.java
- MainApp
+apps/authentication/logic/SignUpAgent.java
+ apps.authentication.logic.SignUpAgent
 apps/authentication/view/LoginPage.java
  apps.authentication.view.LoginPage
 apps/authentication/view/SignUpPage.java
  apps.authentication.view.SignUpPage
+MainApp.java
+ MainApp
 view/MainStage.java
  view.MainStage
-apps/authentication/logic/SignUpAgent.java
- apps.authentication.logic.SignUpAgent
-apps/authentication/logic/LoginAgent.java
- apps.authentication.logic.LoginAgent
+apps/authentication/view/SignUpFXML.java
+ apps.authentication.view.SignUpFXML
