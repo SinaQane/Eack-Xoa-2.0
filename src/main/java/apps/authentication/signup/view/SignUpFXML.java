@@ -28,11 +28,6 @@ public class SignUpFXML
     public Button loginButton;
     public CheckBox checkBox;
 
-    public void setListener(SignUpFormListener listener)
-    {
-        this.listener = listener;
-    }
-
     public void login()
     {
         listener.eventOccurred(new SignUpFormEvent(loginButton));
@@ -48,13 +43,24 @@ public class SignUpFXML
         String bio = bioTextField.getText();
         Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
         if (birthDatePicker.getValue() != null)
+        {
             birthDate = java.sql.Date.valueOf(birthDatePicker.getValue());
+        }
         listener.eventOccurred(new SignUpFormEvent(signUpButton, username, password, name, email, phoneNumber, bio, birthDate));
-        // TODO set messageText after db
     }
 
     public void checkbox()
     {
         signUpButton.setDisable(!checkBox.isSelected());
+    }
+
+    public void setListener(SignUpFormListener listener)
+    {
+        this.listener = listener;
+    }
+
+    public Text getMessageText()
+    {
+        return this.messageText;
     }
 }
