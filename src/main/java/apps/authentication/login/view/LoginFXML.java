@@ -4,9 +4,11 @@ import apps.authentication.login.event.LoginFormEvent;
 import apps.authentication.login.listener.LoginFormListener;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class LoginFXML
 {
+    public Text messageText;
     private LoginFormListener listener;
 
     public TextField usernameTextField;
@@ -24,6 +26,7 @@ public class LoginFXML
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         listener.eventOccurred(new LoginFormEvent(enterButton, username, password));
+        // TODO set messageText after db
     }
 
     public void signUp()

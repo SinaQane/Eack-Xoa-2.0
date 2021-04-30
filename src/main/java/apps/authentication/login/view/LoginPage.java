@@ -14,7 +14,7 @@ public class LoginPage
 
     public LoginPage() throws IOException
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../fxml/apps/authentication/login/LoginPage.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../fxml/authentication/login/LoginPage.fxml")));
         Parent root = loader.load();
         this.scene = new Scene(root);
     }

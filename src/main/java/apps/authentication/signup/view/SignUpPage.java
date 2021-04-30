@@ -14,7 +14,7 @@ public class SignUpPage
 
     public SignUpPage() throws IOException
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../fxml/apps/authentication/signup/SignUpPage.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../fxml/authentication/signup/SignUpPage.fxml")));
         Parent root = loader.load();
         this.scene = new Scene(root);
     }
