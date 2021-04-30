@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,7 @@ import java.util.Date;
 
 public class SignUpFXML
 {
+    public Text messageText;
     private SignUpFormListener listener;
 
     public TextField usernameTextField;
@@ -48,6 +50,7 @@ public class SignUpFXML
         if (birthDatePicker.getValue() != null)
             birthDate = java.sql.Date.valueOf(birthDatePicker.getValue());
         listener.eventOccurred(new SignUpFormEvent(signUpButton, username, password, name, email, phoneNumber, bio, birthDate));
+        // TODO set messageText after db
     }
 
     public void checkbox()

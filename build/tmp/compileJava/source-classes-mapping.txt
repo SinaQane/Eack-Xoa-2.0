@@ -4,8 +4,8 @@ listeners/StringListener.java
  listeners.StringListener
 apps/authentication/login/view/LoginPage.java
  apps.authentication.login.view.LoginPage
-apps/firstpage/view/FirstPage.java
- apps.firstpage.view.FirstPage
+apps/authentication/login/listener/LoginFormListener.java
+ apps.authentication.login.listener.LoginFormListener
 apps/authentication/signup/logic/SignUpAgent.java
  apps.authentication.signup.logic.SignUpAgent
 apps/authentication/signup/view/SignUpPage.java
@@ -26,8 +26,8 @@ apps/authentication/signup/listener/SignUpFormListener.java
  apps.authentication.signup.listener.SignUpFormListener
 apps/authentication/login/view/LoginFXML.java
  apps.authentication.login.view.LoginFXML
-apps/authentication/login/listener/LoginFormListener.java
- apps.authentication.login.listener.LoginFormListener
+apps/firstpage/view/FirstPage.java
+ apps.firstpage.view.FirstPage
 view/MainStage.java
  view.MainStage
 apps/authentication/signup/view/SignUpFXML.java

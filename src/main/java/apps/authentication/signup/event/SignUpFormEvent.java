@@ -13,8 +13,6 @@ public class SignUpFormEvent extends EventObject
     private final String bio;
     private final Date birthDate;
 
-
-
     public SignUpFormEvent(Object source)
     {
         super(source);
