@@ -16,21 +16,25 @@ public class LoginFXML
     public Button enterButton;
     public Button signUpButton;
 
-    public void setListener(LoginFormListener listener)
-    {
-        this.listener = listener;
-    }
-
     public void enter()
     {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         listener.eventOccurred(new LoginFormEvent(enterButton, username, password));
-        // TODO set messageText after db
     }
 
     public void signUp()
     {
         listener.eventOccurred(new LoginFormEvent(signUpButton));
+    }
+
+    public void setListener(LoginFormListener listener)
+    {
+        this.listener = listener;
+    }
+
+    public Text getMessageText()
+    {
+        return this.messageText;
     }
 }

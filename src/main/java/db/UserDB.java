@@ -19,6 +19,7 @@ import java.util.Objects;
 public class UserDB implements DBSet<User>
 {
     private static final Logger logger = LogManager.getLogger(UserDB.class);
+
     static UserDB userDB;
 
     private UserDB() {}

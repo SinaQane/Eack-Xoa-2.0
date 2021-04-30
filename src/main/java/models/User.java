@@ -15,10 +15,10 @@ public class User
     private String username;
     private String password;
     private String name;
-    private Date birthDate;
     private String email;
     private String phoneNumber;
     private String bio;
+    private Date birthDate;
 
     public User(String username, String password)
     {
@@ -72,18 +72,6 @@ public class User
         UserDB.getUserDB().save(this);
     }
 
-    public Date getBirthDate()
-    {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate)
-    {
-        this.birthDate = birthDate;
-        logger.warn(this.id + "'s birthdate was changed.");
-        UserDB.getUserDB().save(this);
-    }
-
     public String getEmail()
     {
         return email;
@@ -119,6 +107,18 @@ public class User
     {
         this.bio = bio;
         logger.info(this.id + " changed their bio.");
+        UserDB.getUserDB().save(this);
+    }
+
+    public Date getBirthDate()
+    {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate)
+    {
+        this.birthDate = birthDate;
+        logger.warn(this.id + "'s birthdate was changed.");
         UserDB.getUserDB().save(this);
     }
 }
