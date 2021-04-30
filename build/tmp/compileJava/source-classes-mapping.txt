@@ -1,22 +1,34 @@
-view/firstpage/FirstPage.java
- view.firstpage.FirstPage
-apps/authentication/view/LoginFXML.java
- apps.authentication.view.LoginFXML
-apps/authentication/logic/LoginAgent.java
- apps.authentication.logic.LoginAgent
+apps/authentication/login/logic/LoginAgent.java
+ apps.authentication.login.logic.LoginAgent
 listeners/StringListener.java
  listeners.StringListener
-view/firstpage/FirstPageFXML.java
- view.firstpage.FirstPageFXML
-apps/authentication/logic/SignUpAgent.java
- apps.authentication.logic.SignUpAgent
-apps/authentication/view/LoginPage.java
- apps.authentication.view.LoginPage
-apps/authentication/view/SignUpPage.java
- apps.authentication.view.SignUpPage
+apps/authentication/login/view/LoginPage.java
+ apps.authentication.login.view.LoginPage
+apps/firstpage/view/FirstPage.java
+ apps.firstpage.view.FirstPage
+apps/authentication/signup/logic/SignUpAgent.java
+ apps.authentication.signup.logic.SignUpAgent
+apps/authentication/signup/view/SignUpPage.java
+ apps.authentication.signup.view.SignUpPage
+listeners/EventListener.java
+ listeners.EventListener
+apps/firstpage/listener/FirstPageListener.java
+ apps.firstpage.listener.FirstPageListener
+apps/authentication/login/event/LoginFormEvent.java
+ apps.authentication.login.event.LoginFormEvent
+apps/firstpage/view/FirstPageFXML.java
+ apps.firstpage.view.FirstPageFXML
+apps/authentication/signup/event/SignUpFormEvent.java
+ apps.authentication.signup.event.SignUpFormEvent
 MainApp.java
  MainApp
+apps/authentication/signup/listener/SignUpFormListener.java
+ apps.authentication.signup.listener.SignUpFormListener
+apps/authentication/login/view/LoginFXML.java
+ apps.authentication.login.view.LoginFXML
+apps/authentication/login/listener/LoginFormListener.java
+ apps.authentication.login.listener.LoginFormListener
 view/MainStage.java
  view.MainStage
-apps/authentication/view/SignUpFXML.java
- apps.authentication.view.SignUpFXML
+apps/authentication/signup/view/SignUpFXML.java
+ apps.authentication.signup.view.SignUpFXML
