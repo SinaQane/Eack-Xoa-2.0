@@ -42,9 +42,9 @@ public class Validations
     }
 
     // Search in file "where" for string "what". returns true if "what" isn't in "where".
-    public boolean search(String where, String what)
+    public boolean newLine(String where, String what)
     {
-        File file = new File("./resources/database/" + where + ".txt");
+        File file = new File("./src/main/resources/database/" + where + ".txt");
         try
         {
             Scanner scanner = new Scanner(file);
@@ -66,19 +66,18 @@ public class Validations
 
     public boolean usernameIsAvailable(String username)
     {
-        return search("usernames", username);
+        return newLine("Usernames", username);
     }
 
     public boolean usernameIsValid(String username)
     {
-        Matcher matcher = VALID_USERNAME_REGEX
-                .matcher(username);
+        Matcher matcher = VALID_USERNAME_REGEX.matcher(username);
         return matcher.find();
     }
 
     public boolean emailIsAvailable(String email)
     {
-        return search("emails", email);
+        return newLine("Emails", email);
     }
 
     public boolean emailIsValid(String email)
@@ -93,7 +92,7 @@ public class Validations
         {
             return true;
         }
-        return search("phonenumbers", phoneNumber);
+        return newLine("PhoneNumbers", phoneNumber);
     }
 
     public boolean phoneNumberIsValid(String phoneNumber)

@@ -1,6 +1,7 @@
 package apps.authentication.login.event;
 
 import java.util.EventObject;
+import java.util.Locale;
 
 public class LoginFormEvent extends EventObject
 {
@@ -16,7 +17,7 @@ public class LoginFormEvent extends EventObject
     public LoginFormEvent(Object source, String username, String password)
     {
         super(source);
-        this.username = username;
+        this.username = username.toLowerCase(Locale.ROOT);
         this.password = password;
     }
 
