@@ -2,6 +2,7 @@ package apps.authentication.signup.event;
 
 import java.util.Date;
 import java.util.EventObject;
+import java.util.Locale;
 
 public class SignUpFormEvent extends EventObject
 {
@@ -24,10 +25,10 @@ public class SignUpFormEvent extends EventObject
                            String email, String phoneNumber, String bio, Date birthDate)
     {
         super(source);
-        this.username = username;
+        this.username = username.toLowerCase(Locale.ROOT);
         this.password = password;
         this.name = name;
-        this.email = email;
+        this.email = email.toLowerCase(Locale.ROOT);
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.bio = bio;

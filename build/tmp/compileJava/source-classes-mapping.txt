@@ -1,46 +1,46 @@
-apps/authentication/signup/event/SignUpFormEvent.java
- apps.authentication.signup.event.SignUpFormEvent
-apps/firstpage/listener/FirstPageListener.java
- apps.firstpage.listener.FirstPageListener
-apps/authentication/login/logic/LoginAgent.java
- apps.authentication.login.logic.LoginAgent
-db/DBSet.java
- db.DBSet
-apps/firstpage/view/FirstPage.java
- apps.firstpage.view.FirstPage
-models/Message.java
- models.Message
-apps/authentication/login/view/LoginPage.java
- apps.authentication.login.view.LoginPage
-apps/firstpage/view/FirstPageFXML.java
- apps.firstpage.view.FirstPageFXML
 apps/authentication/login/listener/LoginFormListener.java
  apps.authentication.login.listener.LoginFormListener
+apps/firstpage/listener/FirstPageListener.java
+ apps.firstpage.listener.FirstPageListener
+listeners/EventListener.java
+ listeners.EventListener
+db/DBSet.java
+ db.DBSet
+view/MainStage.java
+ view.MainStage
+models/Message.java
+ models.Message
+apps/authentication/signup/view/SignUpFXML.java
+ apps.authentication.signup.view.SignUpFXML
+apps/firstpage/view/FirstPageFXML.java
+ apps.firstpage.view.FirstPageFXML
+models/Tweet.java
+ models.Tweet
 MainApp.java
  MainApp
 apps/authentication/signup/view/SignUpPage.java
  apps.authentication.signup.view.SignUpPage
 listeners/StringListener.java
  listeners.StringListener
-models/Tweet.java
- models.Tweet
+apps/firstpage/view/FirstPage.java
+ apps.firstpage.view.FirstPage
+apps/authentication/login/view/LoginPage.java
+ apps.authentication.login.view.LoginPage
+utils/Validations.java
+ utils.Validations
+apps/authentication/signup/event/SignUpFormEvent.java
+ apps.authentication.signup.event.SignUpFormEvent
+apps/authentication/signup/logic/SignUpAgent.java
+ apps.authentication.signup.logic.SignUpAgent
+apps/authentication/signup/listener/SignUpFormListener.java
+ apps.authentication.signup.listener.SignUpFormListener
 apps/authentication/login/event/LoginFormEvent.java
  apps.authentication.login.event.LoginFormEvent
 apps/authentication/login/view/LoginFXML.java
  apps.authentication.login.view.LoginFXML
-listeners/EventListener.java
- listeners.EventListener
-utils/Validations.java
- utils.Validations
-apps/authentication/signup/logic/SignUpAgent.java
- apps.authentication.signup.logic.SignUpAgent
 models/User.java
  models.User
-apps/authentication/signup/listener/SignUpFormListener.java
- apps.authentication.signup.listener.SignUpFormListener
-view/MainStage.java
- view.MainStage
+apps/authentication/login/logic/LoginAgent.java
+ apps.authentication.login.logic.LoginAgent
 db/UserDB.java
  db.UserDB
-apps/authentication/signup/view/SignUpFXML.java
- apps.authentication.signup.view.SignUpFXML

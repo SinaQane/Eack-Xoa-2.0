@@ -22,6 +22,9 @@ public class UserDB implements DBSet<User>
 
     static UserDB userDB;
 
+    private final GsonBuilder gsonBuilder = new GsonBuilder();
+    private final Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat("MMM dd, yyyy").create();
+
     private UserDB() {}
 
     public static UserDB getUserDB()
@@ -36,11 +39,8 @@ public class UserDB implements DBSet<User>
     @Override
     public User get(String username)
     {
-        String path = "./src/main/resources/users";
+        String path = "./src/main/resources/database/users";
         File usersDirectory = new File(path);
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
         User result = null;
         for (String userName : Objects.requireNonNull(usersDirectory.list()))
         {
@@ -59,10 +59,7 @@ public class UserDB implements DBSet<User>
 
     public User get(long id)
     {
-        String path = "./src/main/resources/users/" + id;
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
+        String path = "./src/main/resources/database/users/" + id;
         User result;
         try
         {
@@ -78,9 +75,8 @@ public class UserDB implements DBSet<User>
     @Override
     public void save(User user)
     {
-        String path = "./src/main/resources/users/" + user.getId();
+        String path = "./src/main/resources/database/users/" + user.getId();
         File file = new File(path);
-
         if(file.getParentFile().mkdirs())
         {
             logger.warn("users directory was created.");
@@ -97,9 +93,7 @@ public class UserDB implements DBSet<User>
             } catch (IOException ignored) {}
         }
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
+
         String data = gson.toJson(user);
 
         FileOutputStream fileOutputStream = null;
@@ -126,16 +120,13 @@ public class UserDB implements DBSet<User>
     @Override
     public boolean exists(String username)
     {
-        File usersDirectory = new File("./src/main/resources/users");
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
+        File usersDirectory = new File("./src/main/resources/database/users");
         for (String userName : Objects.requireNonNull(usersDirectory.list()))
         {
             User tempUser;
             try
             {
-                tempUser = gson.fromJson(Files.readString(Paths.get("./src/main/resources/users/" + userName)), User.class);
+                tempUser = gson.fromJson(Files.readString(Paths.get("./src/main/resources/database/users/" + userName)), User.class);
                 if (tempUser.getUsername().equals(username))
                 {
                     return true;

@@ -54,7 +54,7 @@ public class SignUpAgent
     {
         User user = new User(signUpFormEvent.getUsername(), signUpFormEvent.getPassword());
         user.setName(signUpFormEvent.getName());
-        user.setEmail(signUpFormEvent.getBio());
+        user.setEmail(signUpFormEvent.getEmail());
         user.setBio(signUpFormEvent.getBio());
         user.setPhoneNumber(signUpFormEvent.getPhoneNumber());
         user.setBirthDate(signUpFormEvent.getBirthDate());
