@@ -5,6 +5,7 @@ import apps.authentication.login.logic.LoginAgent;
 import apps.authentication.login.view.LoginFXML;
 import apps.authentication.login.view.LoginPage;
 import apps.authentication.signup.view.SignUpPage;
+import apps.mainpage.view.MainPage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -15,12 +16,14 @@ public class LoginFormListener
     private final Stage stage;
     private final LoginPage loginPage;
     private final SignUpPage signUpPage;
+    private final MainPage mainPage;
 
-    public LoginFormListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage)
+    public LoginFormListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage, MainPage mainPage)
     {
         this.stage = stage;
         this.loginPage = loginPage;
         this.signUpPage = signUpPage;
+        this.mainPage = mainPage;
     }
 
     public void eventOccurred(LoginFormEvent eventObject)
@@ -42,7 +45,8 @@ public class LoginFormListener
             else
             {
                 User loggedInUser = loginAgent.login();
-                System.out.println("Welcome " + loggedInUser.getUsername());
+                // System.out.println("Welcome " + loggedInUser.getUsername());
+                stage.setScene(mainPage.getScene());
             }
         }
     }

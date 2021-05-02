@@ -41,7 +41,7 @@ public class SignUpFXML
         String email = emailTextField.getText();
         String phoneNumber = phoneNumberTextField.getText();
         String bio = bioTextField.getText();
-        Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
+        Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1000-01-01");
         if (birthDatePicker.getValue() != null)
         {
             birthDate = java.sql.Date.valueOf(birthDatePicker.getValue());
