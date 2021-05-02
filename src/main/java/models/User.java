@@ -20,24 +20,35 @@ public class User
     private String bio;
     private Date birthDate;
 
+    private boolean isActive; // "true" if the page is active, "false" if it's deactivated.
+
+    private long permittedUntil; // 0 if the user isn't permitted
+    private int reports;
+
+    private Profile profile;
+
     public User(String username, String password)
     {
         UserDB.getUserDB().setLastId(UserDB.getUserDB().getLastId() + 1);
         this.id = UserDB.getUserDB().getLastId();
         this.username = username;
         this.password = password;
+        this.isActive = true;
+        this.permittedUntil = 0;
+        this.reports = 0;
+        this.profile = new Profile(this.id);
         UserDB.getUserDB().changeUsername("0", this.username);
         UserDB.getUserDB().save(this);
     }
 
     public Long getId()
     {
-        return id;
+        return this.id;
     }
 
     public String getUsername()
     {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username)
@@ -50,7 +61,7 @@ public class User
 
     public String getPassword()
     {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password)
@@ -62,7 +73,7 @@ public class User
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public void setName(String name)
@@ -87,7 +98,7 @@ public class User
 
     public String getPhoneNumber()
     {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber)
@@ -100,7 +111,7 @@ public class User
 
     public String getBio()
     {
-        return bio;
+        return this.bio;
     }
 
     public void setBio(String bio)
@@ -112,7 +123,7 @@ public class User
 
     public Date getBirthDate()
     {
-        return birthDate;
+        return this.birthDate;
     }
 
     public void setBirthDate(Date birthDate)
@@ -120,5 +131,50 @@ public class User
         this.birthDate = birthDate;
         logger.warn(this.id + "'s birthdate was changed.");
         UserDB.getUserDB().save(this);
+    }
+
+    public boolean isActive()
+    {
+        return this.isActive;
+    }
+
+    public void setActive(boolean active)
+    {
+        this.isActive = active;
+    }
+
+    public boolean isPermitted()
+    {
+        return this.permittedUntil == 0;
+    }
+
+    public long getPermittedUntil()
+    {
+        return this.permittedUntil;
+    }
+
+    public void setPermittedUntil(long permittedUntil)
+    {
+        this.permittedUntil = permittedUntil;
+    }
+
+    public int getReports()
+    {
+        return this.reports;
+    }
+
+    public void setReports(int reports)
+    {
+        this.reports = reports;
+    }
+
+    public Profile getProfile()
+    {
+        return this.profile;
+    }
+
+    public void setProfile(Profile profile)
+    {
+        this.profile = profile;
     }
 }

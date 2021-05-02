@@ -12,12 +12,21 @@ public class FirstPage
     private final Scene scene;
     private final FXMLLoader loader;
 
-    public FirstPage() throws IOException
+    public FirstPage()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../fxml/firstpage/FirstPage.fxml")));
-        Parent root = loader.load();
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../graphic/firstpage/FirstPage.fxml")));
+        Parent root = null;
+        try
+        {
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        assert root != null;
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("../../../fxml/firstpage/FirstPage.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("../../../graphic/firstpage/FirstPage.css")).toExternalForm());
         this.scene = scene;
     }
 

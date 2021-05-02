@@ -12,10 +12,19 @@ public class SignUpPage
     private final Scene scene;
     private final FXMLLoader loader;
 
-    public SignUpPage() throws IOException
+    public SignUpPage()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../fxml/authentication/signup/SignUpPage.fxml")));
-        Parent root = loader.load();
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/authentication/signup/SignUpPage.fxml")));
+        Parent root = null;
+        try
+        {
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        assert root != null;
         this.scene = new Scene(root);
     }
 

@@ -5,6 +5,7 @@ import apps.authentication.signup.event.SignUpFormEvent;
 import apps.authentication.signup.logic.SignUpAgent;
 import apps.authentication.signup.view.SignUpFXML;
 import apps.authentication.signup.view.SignUpPage;
+import apps.mainpage.view.MainPage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -15,12 +16,14 @@ public class SignUpFormListener
     private final Stage stage;
     private final LoginPage loginPage;
     private final SignUpPage signUpPage;
+    private final MainPage mainPage;
 
-    public SignUpFormListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage)
+    public SignUpFormListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage, MainPage mainPage)
     {
         this.stage = stage;
         this.loginPage = loginPage;
         this.signUpPage = signUpPage;
+        this.mainPage = mainPage;
     }
 
     public void eventOccurred(SignUpFormEvent eventObject)
@@ -42,7 +45,8 @@ public class SignUpFormListener
             else
             {
                 User signedUpUser = signUpAgent.signUp();
-                System.out.println("Welcome " + signedUpUser.getUsername());
+                // System.out.println("Welcome " + signedUpUser.getUsername());
+                stage.setScene(mainPage.getScene());
             }
         }
     }
