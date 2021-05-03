@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="440.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/1">
+    <Text fill="WHITE" layoutX="106.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="334.603515625">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </Text>
+    <Text fill="WHITE" layoutX="106.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\@username" wrappingWidth="334.15380859375">
+        <font>
+          <Font size="9.0" />
+        </font>
+    </Text>
+    <Text fill="WHITE" layoutX="106.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email: N/A" wrappingWidth="334.482421875">
+        <font>
+          <Font size="10.0" />
+        </font>
+    </Text>
+    <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="16.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+    <Text fill="WHITE" layoutX="106.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday: N/A" wrappingWidth="334.140625">
+        <font>
+          <Font size="10.0" />
+        </font>
+    </Text>
+    <Text fill="WHITE" layoutX="106.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number: N/A" wrappingWidth="334.564453125">
+        <font>
+          <Font size="10.0" />
+        </font>
+    </Text>
+</Pane>

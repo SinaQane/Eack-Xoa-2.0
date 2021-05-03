@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.mainpage.view.MainPageFXML">
-    <Pane fx:id="mainPane" layoutX="149.0" layoutY="62.0" prefHeight="311.0" prefWidth="439.0" style="-fx-background-color: #1E2425;" />
+    <Pane fx:id="mainPane" layoutX="145.0" layoutY="60.0" prefHeight="310.0" prefWidth="440.0" style="-fx-background-color: #1E2425;" />
     <Text fx:id="mainPageLabel" fill="WHITE" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eack Xoa" textAlignment="CENTER" wrappingWidth="600.0">
         <font>
           <Font size="17.0" />
