@@ -20,12 +20,12 @@ public class User
     private String bio;
     private Date birthDate;
 
-    private boolean isActive; // "true" if the page is active, "false" if it's deactivated.
+    private boolean isActive = true; // "true" if the page is active, "false" if it's deactivated.
 
-    private long permittedUntil; // 0 if the user isn't permitted
-    private int reports;
+    private long reportedUntil = 0; // 0 if the user isn't reported
+    private int reports = 0;
 
-    private Profile profile;
+    private final Profile profile;
 
     public User(String username, String password)
     {
@@ -33,10 +33,9 @@ public class User
         this.id = UserDB.getUserDB().getLastId();
         this.username = username;
         this.password = password;
-        this.isActive = true;
-        this.permittedUntil = 0;
-        this.reports = 0;
         this.profile = new Profile(this.id);
+
+        // "0" is just a dummy number so that I don't write the same code over again for "setUsername" instead of "changeUsername".
         UserDB.getUserDB().changeUsername("0", this.username);
         UserDB.getUserDB().save(this);
     }
@@ -138,24 +137,35 @@ public class User
         return this.isActive;
     }
 
-    public void setActive(boolean active)
+    public void deactivate()
     {
-        this.isActive = active;
+        this.isActive = false;
+        logger.fatal(this.id + " deactivated their account.");
+        UserDB.getUserDB().save(this);
     }
 
-    public boolean isPermitted()
+    public void reactivate()
     {
-        return this.permittedUntil == 0;
+        this.isActive = true;
+        logger.fatal(this.id + " reactivated their account.");
+        UserDB.getUserDB().save(this);
     }
 
-    public long getPermittedUntil()
+    public boolean isReported()
     {
-        return this.permittedUntil;
+        return this.reportedUntil == 0;
     }
 
-    public void setPermittedUntil(long permittedUntil)
+    public long getReportedUntil()
     {
-        this.permittedUntil = permittedUntil;
+        return this.reportedUntil;
+    }
+
+    public void setReportedUntil(long reportedUntil)
+    {
+        this.reportedUntil = reportedUntil;
+        logger.warn(this.id + " got reported until " + reportedUntil + ".");
+        UserDB.getUserDB().save(this);
     }
 
     public int getReports()
@@ -166,15 +176,12 @@ public class User
     public void setReports(int reports)
     {
         this.reports = reports;
+        logger.warn(this.id + "'s reports changed to " + reports + ".");
+        UserDB.getUserDB().save(this);
     }
 
     public Profile getProfile()
     {
         return this.profile;
-    }
-
-    public void setProfile(Profile profile)
-    {
-        this.profile = profile;
     }
 }

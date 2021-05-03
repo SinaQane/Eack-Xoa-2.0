@@ -65,4 +65,9 @@ public class MainPageFXML
     {
         this.listener = mainPageListener;
     }
+
+    public void setMainPane(Pane mainPane)
+    {
+        this.mainPane = mainPane;
+    }
 }

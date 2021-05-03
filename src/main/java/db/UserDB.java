@@ -77,11 +77,11 @@ public class UserDB implements DBSet<User>
     {
         String path = "./src/main/resources/database/users/" + user.getId();
         File file = new File(path);
+
         if(file.getParentFile().mkdirs())
         {
             logger.warn("users directory was created.");
         }
-
         if (!file.exists())
         {
             try
@@ -90,29 +90,14 @@ public class UserDB implements DBSet<User>
                 {
                     logger.debug(user.getId() + "th user's file was created.");
                 }
-            } catch (IOException ignored) {}
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
 
-
-        String data = gson.toJson(user);
-
-        FileOutputStream fileOutputStream = null;
-        try
-        {
-            fileOutputStream = new FileOutputStream(path, false);
-        } catch (FileNotFoundException ignored) {}
-
-        assert fileOutputStream != null;
-        PrintStream printStream = new PrintStream(fileOutputStream);
-        printStream.println(data);
-
-        printStream.flush();
-        printStream.close();
-        try
-        {
-            fileOutputStream.flush();
-            fileOutputStream.close();
-        } catch (IOException ignored) {}
+        DBUtil.saveToGson(path, gson.toJson(user));
 
         logger.debug(user.getId() + "th user's file was saved.");
     }
@@ -142,7 +127,8 @@ public class UserDB implements DBSet<User>
         try
         {
             fileContent = new ArrayList<>(Files.readAllLines(Paths.get("./src/main/resources/database/LastUserId.txt"), StandardCharsets.UTF_8));
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             return 0;
         }
@@ -155,12 +141,19 @@ public class UserDB implements DBSet<User>
         try
         {
             fileContent = new ArrayList<>(Files.readAllLines(Paths.get("./src/main/resources/database/LastUserId.txt"), StandardCharsets.UTF_8));
-        } catch (IOException ignored) {}
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
         Objects.requireNonNull(fileContent).set(0, newId + "");
         try
         {
             Files.write(Paths.get("./src/main/resources/database/LastUserId.txt"), fileContent, StandardCharsets.UTF_8);
-        } catch (IOException ignored) {}
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
         logger.info("last id was changed.");
     }
 
@@ -189,7 +182,11 @@ public class UserDB implements DBSet<User>
         try
         {
             Files.write(Paths.get(path), fileContent, StandardCharsets.UTF_8);
-        } catch (IOException ignored) {}
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void changeUsername(String oldUsername, String username)
