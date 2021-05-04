@@ -14,8 +14,8 @@ import java.util.Date;
 
 public class SignUpFXML
 {
-    public Text messageText;
     private SignUpFormListener listener;
+    public Text messageText;
 
     public TextField usernameTextField;
     public TextField passwordTextField;

@@ -1,7 +1,7 @@
 apps/authentication/login/event/LoginFormEvent.java
  apps.authentication.login.event.LoginFormEvent
-db/UserDB.java
- db.UserDB
+apps/authentication/signup/view/SignUpPage.java
+ apps.authentication.signup.view.SignUpPage
 listeners/EventListener.java
  listeners.EventListener
 db/DBSet.java
@@ -14,43 +14,59 @@ utils/Validations.java
  utils.Validations
 apps/firstpage/view/FirstPageFXML.java
  apps.firstpage.view.FirstPageFXML
-models/Tweet.java
- models.Tweet
-apps/authentication/login/logic/LoginAgent.java
- apps.authentication.login.logic.LoginAgent
-models/User.java
- models.User
-listeners/StringListener.java
- listeners.StringListener
-apps/authentication/signup/logic/SignUpAgent.java
- apps.authentication.signup.logic.SignUpAgent
-apps/authentication/login/listener/LoginFormListener.java
- apps.authentication.login.listener.LoginFormListener
 apps/firstpage/listener/FirstPageListener.java
  apps.firstpage.listener.FirstPageListener
-MainApp.java
- MainApp
 apps/mainpage/view/MainPage.java
  apps.mainpage.view.MainPage
-apps/authentication/signup/view/SignUpPage.java
- apps.authentication.signup.view.SignUpPage
-apps/mainpage/logic/MainPageAgent.java
- apps.mainpage.logic.MainPageAgent
-apps/authentication/signup/listener/SignUpFormListener.java
- apps.authentication.signup.listener.SignUpFormListener
-apps/authentication/login/view/LoginFXML.java
- apps.authentication.login.view.LoginFXML
-apps/authentication/signup/view/SignUpFXML.java
- apps.authentication.signup.view.SignUpFXML
-apps/authentication/login/view/LoginPage.java
- apps.authentication.login.view.LoginPage
 apps/firstpage/view/FirstPage.java
  apps.firstpage.view.FirstPage
+listeners/StringListener.java
+ listeners.StringListener
+apps/authentication/login/view/LoginPage.java
+ apps.authentication.login.view.LoginPage
+apps/mainpage/pages/profile/view/ProfilePaneFXML.java
+ apps.mainpage.pages.profile.view.ProfilePaneFXML
+utils/HashMapUtil.java
+ utils.HashMapUtil
+apps/authentication/signup/view/SignUpFXML.java
+ apps.authentication.signup.view.SignUpFXML
+apps/authentication/login/logic/LoginAgent.java
+ apps.authentication.login.logic.LoginAgent
+db/UserDB.java
+ db.UserDB
+apps/mainpage/pages/profile/view/ProfilePane.java
+ apps.mainpage.pages.profile.view.ProfilePane
+db/DBUtil.java
+ db.DBUtil
+apps/authentication/signup/logic/SignUpAgent.java
+ apps.authentication.signup.logic.SignUpAgent
+models/Group.java
+ models.Group
+models/User.java
+ models.User
+MainApp.java
+ MainApp
+db/TweetDB.java
+ db.TweetDB
+models/Notification.java
+ models.Notification
+models/Profile.java
+ models.Profile
+apps/mainpage/logic/MainPageAgent.java
+ apps.mainpage.logic.MainPageAgent
+apps/mainpage/logic/PanesController.java
+ apps.mainpage.logic.PanesController
+apps/authentication/login/view/LoginFXML.java
+ apps.authentication.login.view.LoginFXML
+models/Tweet.java
+ models.Tweet
 apps/mainpage/view/MainPageFXML.java
  apps.mainpage.view.MainPageFXML
+apps/authentication/signup/listener/SignUpFormListener.java
+ apps.authentication.signup.listener.SignUpFormListener
 apps/mainpage/listener/MainPageListener.java
  apps.mainpage.listener.MainPageListener
 view/MainStage.java
  view.MainStage
-models/Profile.java
- models.Profile
+apps/authentication/login/listener/LoginFormListener.java
+ apps.authentication.login.listener.LoginFormListener

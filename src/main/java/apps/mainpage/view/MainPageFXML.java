@@ -20,6 +20,7 @@ public class MainPageFXML
     public Button groupsButton;
     public Button profileButton;
     public Button settingsButton;
+    public Button logoutButton;
 
     public void home()
     {
@@ -61,9 +62,19 @@ public class MainPageFXML
         listener.eventOccurred(settingsButton);
     }
 
+    public void logout()
+    {
+        listener.eventOccurred(logoutButton);
+    }
+
     public void setListener(MainPageListener mainPageListener)
     {
         this.listener = mainPageListener;
+    }
+
+    public Pane getMainPane()
+    {
+        return this.mainPane;
     }
 
     public void setMainPane(Pane mainPane)

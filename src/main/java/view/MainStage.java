@@ -39,7 +39,7 @@ public class MainStage
 
         FXMLLoader mainPageLoader = mainPage.getLoader();
         MainPageFXML mainPageController = mainPageLoader.getController();
-        mainPageController.setListener(new MainPageListener(stage));
+        mainPageController.setListener(new MainPageListener(stage, loginPage, mainPage));
 
         stage.setTitle("Eack Xoa");
         stage.setScene(firstPage.getScene());
