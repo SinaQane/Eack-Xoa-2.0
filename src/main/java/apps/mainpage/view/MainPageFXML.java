@@ -79,6 +79,7 @@ public class MainPageFXML
 
     public void setMainPane(Pane mainPane)
     {
-        this.mainPane = mainPane;
+        this.mainPane.getChildren().clear();
+        this.mainPane.getChildren().add(mainPane);
     }
 }

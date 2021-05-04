@@ -37,4 +37,14 @@ public class LoginFXML
     {
         return this.messageText;
     }
+
+    public TextField getUsernameTextField()
+    {
+        return usernameTextField;
+    }
+
+    public TextField getPasswordTextField()
+    {
+        return passwordTextField;
+    }
 }

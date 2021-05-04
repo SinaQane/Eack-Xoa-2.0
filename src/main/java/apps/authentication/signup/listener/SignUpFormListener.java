@@ -32,6 +32,7 @@ public class SignUpFormListener
     {
         if (((Button) eventObject.getSource()).getId().equals("loginButton"))
         {
+            loginPage.clear();
             stage.setScene(loginPage.getScene());
         }
         else if (((Button) eventObject.getSource()).getId().equals("signUpButton"))
@@ -51,7 +52,9 @@ public class SignUpFormListener
                 FXMLLoader fxmlLoader = mainPage.getLoader();
                 MainPageFXML fxmlController = fxmlLoader.getController();
                 fxmlController.profile();
+                signUpPage.clear();
                 stage.setScene(mainPage.getScene());
+                // TODO start timer
             }
         }
     }

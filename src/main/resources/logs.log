@@ -1,0 +1,5 @@
+2021-05-04 21:24:16.725 [JavaFX Application Thread] DEBUG db.UserDB - usernames list was updated.
+2021-05-04 21:24:16.728 [JavaFX Application Thread] FATAL models.User - 1's username was changed.
+2021-05-04 21:24:16.728 [JavaFX Application Thread] WARN  models.User - 1's name was changed.
+2021-05-04 21:24:16.728 [JavaFX Application Thread] INFO  models.User - 1 changed their bio.
+2021-05-04 21:24:16.732 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
