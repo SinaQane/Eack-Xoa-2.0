@@ -1,29 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.authentication.signup.view.SignUpFXML">
-   <Label alignment="CENTER" layoutY="27.0" prefHeight="16.0" prefWidth="600.0" text="Sign Up Page" textAlignment="CENTER" textFill="WHITE">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Label>
-   <TextField fx:id="usernameTextField" layoutX="92.0" layoutY="94.0" prefHeight="26.0" prefWidth="179.0" promptText="Username" />
-   <TextField fx:id="nameTextField" layoutX="92.0" layoutY="187.0" prefHeight="26.0" prefWidth="179.0" promptText="Name" />
-   <TextField fx:id="emailTextField" layoutX="92.0" layoutY="234.0" prefHeight="26.0" prefWidth="179.0" promptText="Email" />
-   <TextField fx:id="bioTextField" layoutX="333.0" layoutY="187.0" prefHeight="26.0" prefWidth="179.0" promptText="Bio (optional)" />
-   <DatePicker fx:id="birthDatePicker" layoutX="333.0" layoutY="141.0" prefHeight="26.0" prefWidth="179.0" promptText="Birth date (optional)" />
-   <TextField fx:id="phoneNumberTextField" alignment="CENTER" layoutX="333.0" layoutY="94.0" prefHeight="26.0" prefWidth="179.0" promptText="Phone Number (optional)" />
-   <Button fx:id="signUpButton" disable="true" layoutX="266.0" layoutY="288.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
-   <Text fill="WHITE" layoutX="131.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
-   <Button fx:id="loginButton" layoutX="315.0" layoutY="342.0" mnemonicParsing="false" onAction="#login" text="Enter your account" />
-   <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="333.0" layoutY="235.0" mnemonicParsing="false" onAction="#checkbox" prefHeight="24.0" prefWidth="179.0" text=" I agree the terms and conditions " textFill="WHITE">
-      <font>
-         <Font size="9.0" />
-      </font>
-   </CheckBox>
-   <PasswordField fx:id="passwordTextField" layoutX="92.0" layoutY="142.0" prefHeight="24.0" prefWidth="179.0" promptText="Password" />
-   <Text fx:id="messageText" fill="RED" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" textAlignment="CENTER" visible="false" wrappingWidth="600.0" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.authentication.signup.view.SignUpFXML">
+    <Label alignment="CENTER" layoutY="64.0" prefHeight="25.0" prefWidth="1000.0" text="Sign Up Page" textAlignment="CENTER" textFill="WHITE">
+        <font>
+          <Font size="20.0" />
+        </font>
+    </Label>
+    <TextField fx:id="usernameTextField" layoutX="218.0" layoutY="182.0" prefHeight="28.0" prefWidth="209.0" promptText="Username">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </TextField>
+    <PasswordField fx:id="passwordTextField" layoutX="218.0" layoutY="248.0" prefHeight="28.0" prefWidth="209.0" promptText="Password">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </PasswordField>
+    <TextField fx:id="nameTextField" layoutX="218.0" layoutY="314.0" prefHeight="28.0" prefWidth="209.0" promptText="Name">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="emailTextField" layoutX="218.0" layoutY="380.0" prefHeight="28.0" prefWidth="209.0" promptText="Email">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="phoneNumberTextField" alignment="CENTER" layoutX="587.0" layoutY="182.0" prefHeight="28.0" prefWidth="209.0" promptText="Phone Number (optional)">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </TextField>
+    <DatePicker fx:id="birthDatePicker" layoutX="587.0" layoutY="248.0" prefHeight="28.0" prefWidth="209.0" promptText="Birth date (optional)" />
+    <TextField fx:id="bioTextField" layoutX="587.0" layoutY="314.0" prefHeight="28.0" prefWidth="209.0" promptText="Bio (optional)">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </TextField>
+    <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="587.0" layoutY="382.0" mnemonicParsing="false" onAction="#checkbox" prefHeight="24.0" prefWidth="209.0" text=" I agree the terms and conditions " textFill="WHITE">
+        <font>
+          <Font size="11.0" />
+        </font>
+    </CheckBox>
+    <Button fx:id="signUpButton" disable="true" layoutX="464.0" layoutY="460.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </Button>
+    <Text fill="WHITE" layoutX="331.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+    <Button fx:id="loginButton" layoutX="523.0" layoutY="548.0" mnemonicParsing="false" onAction="#login" text="Enter your account" />
+    <Text fx:id="messageText" fill="RED" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" textAlignment="CENTER" visible="false" wrappingWidth="1000.0">
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Text>
 </Pane>

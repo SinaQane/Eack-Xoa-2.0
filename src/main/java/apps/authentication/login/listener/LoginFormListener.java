@@ -5,7 +5,9 @@ import apps.authentication.login.logic.LoginAgent;
 import apps.authentication.login.view.LoginFXML;
 import apps.authentication.login.view.LoginPage;
 import apps.authentication.signup.view.SignUpPage;
+import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.view.MainPage;
+import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -45,7 +47,10 @@ public class LoginFormListener
             else
             {
                 User loggedInUser = loginAgent.login();
-                // System.out.println("Welcome " + loggedInUser.getUsername());
+                MainPageAgent.getMainPageAgent().setUser(loggedInUser);
+                FXMLLoader fxmlLoader = mainPage.getLoader();
+                MainPageFXML fxmlController = fxmlLoader.getController();
+                fxmlController.profile();
                 stage.setScene(mainPage.getScene());
             }
         }

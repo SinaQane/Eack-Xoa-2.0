@@ -6,20 +6,71 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.mainpage.view.MainPageFXML">
-    <Pane fx:id="mainPane" layoutX="145.0" layoutY="60.0" prefHeight="310.0" prefWidth="440.0" style="-fx-background-color: #1E2425;" />
-    <Text fx:id="mainPageLabel" fill="WHITE" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eack Xoa" textAlignment="CENTER" wrappingWidth="600.0">
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+      prefWidth="1000.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.mainpage.view.MainPageFXML">
+    <Text fx:id="mainPageLabel" fill="WHITE" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eack Xoa"
+          textAlignment="CENTER" wrappingWidth="1000.0">
         <font>
-          <Font size="17.0" />
+          <Font size="24.0"/>
         </font>
     </Text>
-    <Line endX="-100.0" endY="310.0" layoutX="234.0" layoutY="62.0" startX="-100.0" stroke="#2b3132" />
-    <Button fx:id="homeButton" alignment="CENTER" layoutX="18.0" layoutY="65.0" mnemonicParsing="false" onAction="#home" prefHeight="24.0" prefWidth="100.0" text="Home" textAlignment="CENTER" />
-    <Button fx:id="exploreButton" alignment="CENTER" layoutX="18.0" layoutY="104.0" mnemonicParsing="false" onAction="#explore" prefHeight="24.0" prefWidth="100.0" text="Explore" textAlignment="CENTER" />
-    <Button fx:id="notificationsButton" alignment="CENTER" layoutX="18.0" layoutY="144.0" mnemonicParsing="false" onAction="#notifications" prefHeight="24.0" prefWidth="100.0" text="Notifications" textAlignment="CENTER" />
-    <Button fx:id="messagesButton" alignment="CENTER" layoutX="18.0" layoutY="183.0" mnemonicParsing="false" onAction="#messages" prefHeight="24.0" prefWidth="100.0" text="Messages" textAlignment="CENTER" />
-    <Button fx:id="bookmarksButton" alignment="CENTER" layoutX="18.0" layoutY="223.0" mnemonicParsing="false" onAction="#bookmarks" prefHeight="24.0" prefWidth="100.0" text="Bookmarks" textAlignment="CENTER" />
-    <Button fx:id="groupsButton" alignment="CENTER" layoutX="18.0" layoutY="263.0" mnemonicParsing="false" onAction="#groups" prefHeight="24.0" prefWidth="100.0" text="Groups" textAlignment="CENTER" />
-    <Button fx:id="profileButton" alignment="CENTER" layoutX="18.0" layoutY="302.0" mnemonicParsing="false" onAction="#profile" prefHeight="24.0" prefWidth="100.0" text="Profile" textAlignment="CENTER" />
-    <Button fx:id="settingsButton" alignment="CENTER" layoutX="18.0" layoutY="341.0" mnemonicParsing="false" onAction="#settings" prefHeight="24.0" prefWidth="100.0" text="Settings" textAlignment="CENTER" />
+    <Button fx:id="homeButton" alignment="CENTER" layoutX="23.0" layoutY="101.0" mnemonicParsing="false"
+            onAction="#home" prefHeight="28.0" prefWidth="116.0" text="Home" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="exploreButton" alignment="CENTER" layoutX="23.0" layoutY="157.0" mnemonicParsing="false"
+            onAction="#explore" prefHeight="28.0" prefWidth="116.0" text="Explore" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="notificationsButton" alignment="CENTER" layoutX="23.0" layoutY="214.0" mnemonicParsing="false"
+            onAction="#notifications" prefHeight="28.0" prefWidth="116.0" text="Notifications" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="messagesButton" alignment="CENTER" layoutX="23.0" layoutY="272.0" mnemonicParsing="false"
+            onAction="#messages" prefHeight="28.0" prefWidth="116.0" text="Messages" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="bookmarksButton" alignment="CENTER" layoutX="23.0" layoutY="329.0" mnemonicParsing="false"
+            onAction="#bookmarks" prefHeight="28.0" prefWidth="116.0" text="Bookmarks" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="groupsButton" alignment="CENTER" layoutX="23.0" layoutY="385.0" mnemonicParsing="false"
+            onAction="#groups" prefHeight="28.0" prefWidth="116.0" text="Groups" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="profileButton" alignment="CENTER" layoutX="23.0" layoutY="442.0" mnemonicParsing="false"
+            onAction="#profile" prefHeight="28.0" prefWidth="116.0" text="Profile" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="settingsButton" alignment="CENTER" layoutX="23.0" layoutY="498.0" mnemonicParsing="false"
+            onAction="#settings" prefHeight="28.0" prefWidth="116.0" text="Settings" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="logoutButton" alignment="CENTER" layoutX="23.0" layoutY="553.0" mnemonicParsing="false"
+            onAction="#logout" prefHeight="28.0" prefWidth="116.0" text="Log Out" textAlignment="CENTER">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Button>
+    <Line endX="-100.0" endY="511.0" layoutX="257.0" layoutY="92.0" startX="-100.0" startY="-11.0" stroke="#2b3132"/>
+    <Pane fx:id="mainPane" layoutX="176.0" layoutY="93.0" prefHeight="500.0" prefWidth="800.0"
+          style="-fx-background-color: #1E2425;"/>
 </Pane>

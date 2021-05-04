@@ -8,8 +8,8 @@ import javafx.scene.text.Text;
 
 public class LoginFXML
 {
-    public Text messageText;
     private LoginFormListener listener;
+    public Text messageText;
 
     public TextField usernameTextField;
     public TextField passwordTextField;
