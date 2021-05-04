@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Tweet
 {
-    static private final Logger logger = LogManager.getLogger(Tweet.class);
+    static private final Logger logger = LogManager.getLogger(Tweet.class); // TODO use logger
 
     // Tweet info
 

@@ -2,6 +2,8 @@ package apps.mainpage.listener;
 
 import apps.authentication.login.view.LoginPage;
 import apps.mainpage.logic.PanesController;
+import apps.mainpage.pages.settings.listener.EditFormListener;
+import apps.mainpage.pages.settings.view.SettingsPaneFXML;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;
@@ -23,19 +25,35 @@ public class MainPageListener
 
     public void eventOccurred(Object source)
     {
-        if (((Button) source).getId().equals("logoutButton"))
+        switch (((Button) source).getId())
         {
-            stage.setScene(loginPage.getScene());
-        }
-        else if (((Button) source).getId().equals("profileButton"))
-        {
-            FXMLLoader fxmlLoader = mainPage.getLoader();
-            MainPageFXML fxmlController = fxmlLoader.getController();
-            fxmlController.setMainPane(PanesController.getPanesController().getProfilePane().getProfilePane());
-        }
-        else
-        {
-            System.out.println("Not added yet...");
+            case "logoutButton":
+                // TODO save and set lastSeen and close the app...
+                stage.setScene(loginPage.getScene());
+                break;
+            case "profileButton":
+            {
+                FXMLLoader fxmlLoader = mainPage.getLoader();
+                MainPageFXML fxmlController = fxmlLoader.getController();
+                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane().getProfilePane());
+
+                // TODO set listener
+                break;
+            }
+            case "settingsButton":
+            {
+                FXMLLoader fxmlLoader = mainPage.getLoader();
+                MainPageFXML fxmlController = fxmlLoader.getController();
+                fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
+
+                FXMLLoader settingsPaneLoader = PanesController.getPanesController().getSettingsPane().getLoader();
+                SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
+                settingsPaneController.setListener(new EditFormListener(PanesController.getPanesController().getSettingsPane()));
+                break;
+            }
+            default:
+                System.out.println("Not  added yet...");
+                break;
         }
     }
 }

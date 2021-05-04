@@ -1,5 +1,7 @@
 package apps.authentication.signup.view;
 
+import apps.authentication.login.view.LoginFXML;
+import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,5 +38,11 @@ public class SignUpPage
     public Scene getScene()
     {
         return this.scene;
+    }
+
+    public void clear()
+    {
+        SignUpFXML fxmlController = this.loader.getController();
+        fxmlController.getMessageText().setVisible(false);
     }
 }

@@ -33,7 +33,7 @@ public class SignUpFXML
         listener.eventOccurred(new SignUpFormEvent(loginButton));
     }
 
-    public void signUp() throws ParseException
+    public void signUp()
     {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
@@ -41,7 +41,15 @@ public class SignUpFXML
         String email = emailTextField.getText();
         String phoneNumber = phoneNumberTextField.getText();
         String bio = bioTextField.getText();
-        Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1000-01-01");
+        Date birthDate = null;
+        try
+        {
+            birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1000-01-01");
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
         if (birthDatePicker.getValue() != null)
         {
             birthDate = java.sql.Date.valueOf(birthDatePicker.getValue());
