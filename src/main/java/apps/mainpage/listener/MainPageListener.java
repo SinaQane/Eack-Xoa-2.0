@@ -7,6 +7,8 @@ import apps.mainpage.pages.profile.listener.ProfileListener;
 import apps.mainpage.pages.profile.view.ProfilePaneFXML;
 import apps.mainpage.pages.settings.listener.EditFormListener;
 import apps.mainpage.pages.settings.view.SettingsPaneFXML;
+import apps.mainpage.pages.timeline_bookmarks.listener.TimelineListener;
+import apps.mainpage.pages.timeline_bookmarks.view.TimelinePaneFXML;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;
@@ -53,6 +55,18 @@ public class MainPageListener
                 fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
                 break;
             }
+            case "homeButton":
+                FXMLLoader timelinePaneLoader = PanesController.getPanesController().getTimelinePane("timeline", 0).getLoader();
+                TimelinePaneFXML timelinePaneController = timelinePaneLoader.getController();
+                timelinePaneController.setListener(new TimelineListener());
+                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("timeline", 0).getTimelinePane());
+                break;
+            case "bookmarksButton":
+                FXMLLoader bookmarksPaneLoader = PanesController.getPanesController().getTimelinePane("bookmarks", 0).getLoader();
+                TimelinePaneFXML bookmarksPaneController = bookmarksPaneLoader.getController();
+                bookmarksPaneController.setListener(new TimelineListener());
+                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("bookmarks", 0).getTimelinePane());
+                break;
             default:
                 System.out.println("Not  added yet...");
                 break;
