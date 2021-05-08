@@ -62,16 +62,16 @@ apps/firstpage/listener/FirstPageListener.java
  apps.firstpage.listener.FirstPageListener
 utils/HashMapUtil.java
  utils.HashMapUtil
-apps/mainpage/logic/PanesController.java
- apps.mainpage.logic.PanesController
-apps/mainpage/view/MainPageFXML.java
- apps.mainpage.view.MainPageFXML
+models/Profile.java
+ models.Profile
+apps/mainpage/pages/profile/view/TweetsPaneFXML.java
+ apps.mainpage.pages.profile.view.TweetsPaneFXML
 apps/mainpage/pages/profile/view/AddTweetPane.java
  apps.mainpage.pages.profile.view.AddTweetPane
 apps/mainpage/pages/profile/event/TweetFormEvent.java
  apps.mainpage.pages.profile.event.TweetFormEvent
-view/MainStage.java
- view.MainStage
+apps/components/tweetpane/view/TweetPaneFXML.java
+ apps.components.tweetpane.view.TweetPaneFXML
 apps/components/tweetpane/logic/TweetPaneAgent.java
  apps.components.tweetpane.logic.TweetPaneAgent
 apps/mainpage/pages/profile/view/ProfilePaneFXML.java
@@ -80,14 +80,14 @@ apps/mainpage/pages/timeline_bookmarks/view/EmptyTimelinePane.java
  apps.mainpage.pages.timeline_bookmarks.view.EmptyTimelinePane
 apps/mainpage/pages/profile/view/AddTweetPaneFXML.java
  apps.mainpage.pages.profile.view.AddTweetPaneFXML
-apps/mainpage/pages/profile/listener/ProfileListener.java
- apps.mainpage.pages.profile.listener.ProfileListener
+apps/mainpage/logic/MainPageAgent.java
+ apps.mainpage.logic.MainPageAgent
 apps/authentication/login/logic/LoginAgent.java
  apps.authentication.login.logic.LoginAgent
 db/UserDB.java
  db.UserDB
-apps/mainpage/pages/timeline_bookmarks/listener/TimelineListener.java
- apps.mainpage.pages.timeline_bookmarks.listener.TimelineListener
+apps/mainpage/pages/profile/logic/ProfileAgent.java
+ apps.mainpage.pages.profile.logic.ProfileAgent
 apps/mainpage/pages/profile/view/ProfilePane.java
  apps.mainpage.pages.profile.view.ProfilePane
 apps/mainpage/pages/timeline_bookmarks/view/EmptyBookmarkPane.java
@@ -96,27 +96,29 @@ apps/authentication/signup/logic/SignUpAgent.java
  apps.authentication.signup.logic.SignUpAgent
 models/User.java
  models.User
-apps/mainpage/pages/timeline_bookmarks/logic/TimelineAgent.java
- apps.mainpage.pages.timeline_bookmarks.logic.TimelineAgent
+models/Tweet.java
+ models.Tweet
 apps/mainpage/pages/settings/view/SettingsPaneFXML.java
  apps.mainpage.pages.settings.view.SettingsPaneFXML
 apps/mainpage/pages/settings/logic/EditAgent.java
  apps.mainpage.pages.settings.logic.EditAgent
-models/Profile.java
- models.Profile
-apps/mainpage/pages/timeline_bookmarks/view/TimelinePane.java
- apps.mainpage.pages.timeline_bookmarks.view.TimelinePane
-apps/mainpage/logic/MainPageAgent.java
- apps.mainpage.logic.MainPageAgent
+apps/mainpage/pages/timeline_bookmarks/event/TimelineEvent.java
+ apps.mainpage.pages.timeline_bookmarks.event.TimelineEvent
+apps/mainpage/logic/PanesController.java
+ apps.mainpage.logic.PanesController
+apps/mainpage/pages/timeline_bookmarks/listener/TimelineListener.java
+ apps.mainpage.pages.timeline_bookmarks.listener.TimelineListener
+apps/mainpage/view/MainPageFXML.java
+ apps.mainpage.view.MainPageFXML
 apps/mainpage/listener/MainPageListener.java
  apps.mainpage.listener.MainPageListener
-apps/components/tweetpane/view/TweetPaneFXML.java
- apps.components.tweetpane.view.TweetPaneFXML
+view/MainStage.java
+ view.MainStage
 apps/mainpage/pages/timeline_bookmarks/view/TimelinePaneFXML.java
  apps.mainpage.pages.timeline_bookmarks.view.TimelinePaneFXML
-apps/mainpage/pages/profile/view/TweetsPaneFXML.java
- apps.mainpage.pages.profile.view.TweetsPaneFXML
-apps/mainpage/pages/profile/logic/ProfileAgent.java
- apps.mainpage.pages.profile.logic.ProfileAgent
-models/Tweet.java
- models.Tweet
+apps/mainpage/pages/profile/listener/ProfileListener.java
+ apps.mainpage.pages.profile.listener.ProfileListener
+apps/mainpage/pages/timeline_bookmarks/logic/TimelineAgent.java
+ apps.mainpage.pages.timeline_bookmarks.logic.TimelineAgent
+apps/mainpage/pages/timeline_bookmarks/view/TimelinePane.java
+ apps.mainpage.pages.timeline_bookmarks.view.TimelinePane
