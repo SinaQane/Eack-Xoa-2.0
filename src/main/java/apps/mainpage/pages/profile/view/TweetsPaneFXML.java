@@ -1,6 +1,8 @@
 package apps.mainpage.pages.profile.view;
 
+import apps.mainpage.pages.profile.event.PageFormEvent;
 import apps.mainpage.pages.profile.event.ProfileEvent;
+import apps.mainpage.pages.profile.event.TweetFormEvent;
 import apps.mainpage.pages.profile.listener.ProfileListener;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -10,6 +12,8 @@ import javafx.scene.text.Text;
 public class TweetsPaneFXML
 {
     private ProfileListener listener;
+
+    private int page;
 
     public Pane tweetsPane;
     public Button previousButton;
@@ -24,6 +28,11 @@ public class TweetsPaneFXML
     public void setListener(ProfileListener listener)
     {
         this.listener = listener;
+    }
+
+    public void setPage(int page)
+    {
+        this.page = page;
     }
 
     public void setFirstTweetPane(Pane firstTweetPane)
@@ -60,12 +69,14 @@ public class TweetsPaneFXML
 
     public void previous()
     {
-        listener.eventOccurred(new ProfileEvent(previousButton));
+        PageFormEvent pageEvent = new PageFormEvent(this.page);
+        listener.eventOccurred(new ProfileEvent(previousButton, pageEvent));
     }
 
     public void next()
     {
-        listener.eventOccurred(new ProfileEvent(nextButton));
+        PageFormEvent pageEvent = new PageFormEvent(this.page);
+        listener.eventOccurred(new ProfileEvent(nextButton, pageEvent));
     }
 
     public void tweet()

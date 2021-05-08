@@ -1,19 +1,17 @@
 package models;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import db.TweetDB;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import utils.HashMapUtil;
 
 public class Profile
 {
     static private final Logger logger = LogManager.getLogger(Profile.class); // TODO use logger
 
-    private final long ownersId; // TODO find a way to save user after changes in profile
+    private final long ownerId; // TODO find a way to save user after changes in profile
     private long lastTweetId = 0;
 
     // Interactions with other users
@@ -37,9 +35,9 @@ public class Profile
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
     private int lastSeenState; // "0" for no one, "1" for followings only and "2" for everyone.
 
-    Profile(long ownersId)
+    Profile(long ownerId)
     {
-        this.ownersId = ownersId;
+        this.ownerId = ownerId;
         this.privateState = false;
         this.infoState = false;
         this.lastSeenState = 1;
@@ -288,22 +286,9 @@ public class Profile
 
         List<String[]> result = new LinkedList<>();
 
-        for (Map.Entry<String[], Long> e : homePageTweets.entrySet())
+        for (Map.Entry<String[], Long> e : HashMapUtil.sortByValue(homePageTweets).entrySet())
         {
-            result.add(e.getKey());
-        }
-
-        for (int i = 0; i < result.size(); i++)
-        {
-            for (int j = 0; j < i; j++)
-            {
-                if (homePageTweets.get(result.get(i)) > homePageTweets.get(result.get(j)))
-                {
-                    String[] temp = result.get(i);
-                    result.set(i, result.get(j));
-                    result.set(j, temp);
-                }
-            }
+            result.add(0, e.getKey());
         }
 
         return result;
