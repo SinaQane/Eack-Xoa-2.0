@@ -11,8 +11,8 @@
   "reportedUntil": 0,
   "reports": 0,
   "profile": {
-    "ownersId": 1,
-    "lastTweetId": 0,
+    "ownerId": 0,
+    "lastTweetId": 4,
     "followers": [],
     "followings": [],
     "blocked": [],
@@ -20,7 +20,12 @@
     "reported": [],
     "requests": [],
     "pending": [],
-    "userTweets": [],
+    "userTweets": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4"
+    ],
     "retweetedTweets": [],
     "upvotedTweets": [],
     "downvotedTweets": [],

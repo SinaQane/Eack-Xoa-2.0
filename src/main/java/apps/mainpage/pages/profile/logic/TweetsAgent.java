@@ -2,7 +2,6 @@ package apps.mainpage.pages.profile.logic;
 
 import models.User;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -84,7 +83,7 @@ public class TweetsAgent
             return false;
         }
 
-        return page != this.getNumberOfPages();
+        return page != this.getNumberOfPages() - 1;
     }
 
     public boolean hasPreviousPage(int page)
@@ -95,10 +94,5 @@ public class TweetsAgent
         }
 
         return page != 0;
-    }
-
-    public void upvote(int page, int tweet)
-    {
-
     }
 }

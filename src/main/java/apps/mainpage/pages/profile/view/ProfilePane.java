@@ -1,6 +1,9 @@
 package apps.mainpage.pages.profile.view;
 
+import apps.components.tweetpane.view.TweetPane;
+import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.logic.MainPageAgent;
+import apps.components.tweetpane.listener.TweetPaneListener;
 import apps.mainpage.pages.profile.logic.TweetsAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
@@ -46,6 +49,7 @@ public class ProfilePane
 
         ProfilePaneFXML controller = this.loader.getController();
         tweetsPaneFXML.setListener(controller.getListener());
+        tweetsPaneFXML.setPage(page);
 
         TweetsAgent tweetsAgent = new TweetsAgent(MainPageAgent.getMainPageAgent().getUser());
 
@@ -66,7 +70,7 @@ public class ProfilePane
 
             TweetPane firstTweetPane = new TweetPane();
             TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
-            firstTweetFXML.setListener(controller.getListener());
+            firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
             firstTweetFXML.setTweetPane(tweetsAgent.getPage(page).get(0));
             tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getTweetPane());
 
@@ -74,7 +78,7 @@ public class ProfilePane
             {
                 TweetPane secondTweetPane = new TweetPane();
                 TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
-                secondTweetFXML.setListener(controller.getListener());
+                secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
                 secondTweetFXML.setTweetPane(tweetsAgent.getPage(page).get(1));
                 tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getTweetPane());
             }

@@ -16,8 +16,8 @@ apps/firstpage/view/FirstPageFXML.java
  apps.firstpage.view.FirstPageFXML
 MainApp.java
  MainApp
-apps/mainpage/pages/profile/view/TweetPane.java
- apps.mainpage.pages.profile.view.TweetPane
+apps/mainpage/pages/profile/event/ProfileEvent.java
+ apps.mainpage.pages.profile.event.ProfileEvent
 apps/firstpage/view/FirstPage.java
  apps.firstpage.view.FirstPage
 listeners/StringListener.java
@@ -26,12 +26,12 @@ apps/mainpage/pages/settings/event/EditFormEvent.java
  apps.mainpage.pages.settings.event.EditFormEvent
 apps/mainpage/view/MainPage.java
  apps.mainpage.view.MainPage
-apps/mainpage/pages/profile/view/ProfilePane.java
- apps.mainpage.pages.profile.view.ProfilePane
+db/TweetDB.java
+ db.TweetDB
 models/Notification.java
  models.Notification
-apps/mainpage/pages/profile/view/TweetsPaneFXML.java
- apps.mainpage.pages.profile.view.TweetsPaneFXML
+models/Profile.java
+ models.Profile
 models/Group.java
  models.Group
 apps/authentication/login/view/LoginPage.java
@@ -44,8 +44,8 @@ apps/mainpage/pages/profile/view/TweetsPane.java
  apps.mainpage.pages.profile.view.TweetsPane
 apps/authentication/login/view/LoginFXML.java
  apps.authentication.login.view.LoginFXML
-apps/mainpage/pages/profile/view/NewTweetPaneFXML.java
- apps.mainpage.pages.profile.view.NewTweetPaneFXML
+db/UserDB.java
+ db.UserDB
 apps/mainpage/pages/profile/view/EmptyTweetPane.java
  apps.mainpage.pages.profile.view.EmptyTweetPane
 apps/mainpage/pages/settings/view/SettingsPane.java
@@ -54,49 +54,57 @@ apps/mainpage/pages/settings/listener/EditFormListener.java
  apps.mainpage.pages.settings.listener.EditFormListener
 apps/authentication/login/listener/LoginFormListener.java
  apps.authentication.login.listener.LoginFormListener
-apps/mainpage/pages/profile/event/ProfileEvent.java
- apps.mainpage.pages.profile.event.ProfileEvent
+apps/authentication/signup/logic/SignUpAgent.java
+ apps.authentication.signup.logic.SignUpAgent
 apps/authentication/signup/view/SignUpFXML.java
  apps.authentication.signup.view.SignUpFXML
 apps/firstpage/listener/FirstPageListener.java
  apps.firstpage.listener.FirstPageListener
-apps/mainpage/listener/MainPageListener.java
- apps.mainpage.listener.MainPageListener
-apps/mainpage/pages/profile/event/TweetFormEvent.java
- apps.mainpage.pages.profile.event.TweetFormEvent
+apps/authentication/login/logic/LoginAgent.java
+ apps.authentication.login.logic.LoginAgent
+models/Tweet.java
+ models.Tweet
 apps/mainpage/view/MainPageFXML.java
  apps.mainpage.view.MainPageFXML
-apps/mainpage/logic/PanesController.java
- apps.mainpage.logic.PanesController
-apps/mainpage/pages/profile/view/ProfilePaneFXML.java
- apps.mainpage.pages.profile.view.ProfilePaneFXML
+apps/mainpage/pages/settings/logic/EditAgent.java
+ apps.mainpage.pages.settings.logic.EditAgent
+apps/mainpage/pages/profile/event/TweetFormEvent.java
+ apps.mainpage.pages.profile.event.TweetFormEvent
 view/MainStage.java
  view.MainStage
 apps/mainpage/pages/profile/view/NewTweetPane.java
  apps.mainpage.pages.profile.view.NewTweetPane
-apps/mainpage/pages/profile/listener/ProfileListener.java
- apps.mainpage.pages.profile.listener.ProfileListener
-apps/authentication/login/logic/LoginAgent.java
- apps.authentication.login.logic.LoginAgent
-db/UserDB.java
- db.UserDB
-apps/authentication/signup/logic/SignUpAgent.java
- apps.authentication.signup.logic.SignUpAgent
-models/User.java
- models.User
-db/TweetDB.java
- db.TweetDB
-apps/mainpage/pages/settings/view/SettingsPaneFXML.java
- apps.mainpage.pages.settings.view.SettingsPaneFXML
-apps/mainpage/pages/settings/logic/EditAgent.java
- apps.mainpage.pages.settings.logic.EditAgent
-models/Profile.java
- models.Profile
 apps/mainpage/logic/MainPageAgent.java
  apps.mainpage.logic.MainPageAgent
-apps/mainpage/pages/profile/view/TweetPaneFXML.java
- apps.mainpage.pages.profile.view.TweetPaneFXML
+apps/mainpage/pages/settings/view/SettingsPaneFXML.java
+ apps.mainpage.pages.settings.view.SettingsPaneFXML
+utils/HashMapUtil.java
+ utils.HashMapUtil
+models/User.java
+ models.User
+apps/mainpage/pages/profile/event/PageFormEvent.java
+ apps.mainpage.pages.profile.event.PageFormEvent
+apps/mainpage/pages/profile/view/ProfilePaneFXML.java
+ apps.mainpage.pages.profile.view.ProfilePaneFXML
+apps/components/tweetpane/view/TweetPane.java
+ apps.components.tweetpane.view.TweetPane
+apps/mainpage/pages/profile/view/NewTweetPaneFXML.java
+ apps.mainpage.pages.profile.view.NewTweetPaneFXML
+apps/mainpage/listener/MainPageListener.java
+ apps.mainpage.listener.MainPageListener
+apps/components/tweetpane/view/TweetPaneFXML.java
+ apps.components.tweetpane.view.TweetPaneFXML
+apps/components/tweetpane/listener/TweetPaneListener.java
+ apps.components.tweetpane.listener.TweetPaneListener
+apps/mainpage/pages/profile/listener/ProfileListener.java
+ apps.mainpage.pages.profile.listener.ProfileListener
+apps/mainpage/pages/profile/view/TweetsPaneFXML.java
+ apps.mainpage.pages.profile.view.TweetsPaneFXML
+apps/mainpage/logic/PanesController.java
+ apps.mainpage.logic.PanesController
+apps/components/tweetpane/logic/TweetPaneAgent.java
+ apps.components.tweetpane.logic.TweetPaneAgent
+apps/mainpage/pages/profile/view/ProfilePane.java
+ apps.mainpage.pages.profile.view.ProfilePane
 apps/mainpage/pages/profile/logic/TweetsAgent.java
  apps.mainpage.pages.profile.logic.TweetsAgent
-models/Tweet.java
- models.Tweet

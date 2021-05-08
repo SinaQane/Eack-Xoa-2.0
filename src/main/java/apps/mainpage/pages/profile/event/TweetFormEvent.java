@@ -13,11 +13,11 @@ public class TweetFormEvent
 
     public String getTweetText()
     {
-        return tweetText;
+        return this.tweetText;
     }
 
     public String getPicPath()
     {
-        return picPath;
+        return this.picPath;
     }
 }
