@@ -26,7 +26,8 @@ public class ProfileListener
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
         int page;
 
-        switch (((Button) eventObject.getSource()).getId()) {
+        switch (((Button) eventObject.getSource()).getId())
+        {
             case "tweetButton":
                 AddTweetPane addTweetPane = new AddTweetPane();
                 AddTweetPaneFXML addTweetPaneController = addTweetPane.getLoader().getController();

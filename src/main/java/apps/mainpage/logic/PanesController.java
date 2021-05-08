@@ -2,6 +2,7 @@ package apps.mainpage.logic;
 
 import apps.mainpage.pages.profile.view.ProfilePane;
 import apps.mainpage.pages.settings.view.SettingsPane;
+import apps.mainpage.pages.timeline_bookmarks.view.TimelinePane;
 
 // A singleton class to return every main pane.
 public class PanesController
@@ -10,6 +11,8 @@ public class PanesController
 
     ProfilePane profilePane = new ProfilePane();
     SettingsPane settingsPane = new SettingsPane();
+    TimelinePane timelinePane = new TimelinePane("timeline");
+    TimelinePane bookmarksPane = new TimelinePane("bookmarks");
 
     private PanesController() {}
 
@@ -32,5 +35,16 @@ public class PanesController
     {
         this.settingsPane.refresh();
         return this.settingsPane;
+    }
+
+    public TimelinePane getTimelinePane(String pageKind, int page)
+    {
+        if (pageKind.equals("bookmarks"))
+        {
+            this.bookmarksPane.refresh(page);
+            return this.bookmarksPane;
+        }
+        this.timelinePane.refresh(page);
+        return this.timelinePane;
     }
 }

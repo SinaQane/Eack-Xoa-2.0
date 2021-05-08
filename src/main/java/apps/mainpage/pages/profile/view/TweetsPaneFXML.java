@@ -2,7 +2,6 @@ package apps.mainpage.pages.profile.view;
 
 import apps.mainpage.pages.profile.event.PageFormEvent;
 import apps.mainpage.pages.profile.event.ProfileEvent;
-import apps.mainpage.pages.profile.event.TweetFormEvent;
 import apps.mainpage.pages.profile.listener.ProfileListener;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;

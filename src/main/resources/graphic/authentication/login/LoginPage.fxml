@@ -33,10 +33,10 @@
           <Font size="14.0"/>
         </font>
     </Button>
-    <Text fill="WHITE" layoutX="338.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Don't have an account yet?" textAlignment="CENTER"/>
     <Button fx:id="signUpButton" layoutX="535.0" layoutY="474.0" mnemonicParsing="false" onAction="#signUp"
             prefHeight="16.0" prefWidth="138.0" text="Create an account"/>
+    <Text fill="WHITE" layoutX="338.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Don't have an account yet?" textAlignment="CENTER"/>
     <Text fx:id="messageText" fill="RED" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message"
           textAlignment="CENTER" visible="false" wrappingWidth="1000.0">
         <font>

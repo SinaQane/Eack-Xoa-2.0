@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<Pane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #1E2425;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apps.mainpage.pages.profile.view.ProfilePaneFXML">
+   <children>
+      <Line fx:id="midLine1" endX="-188.6666717529297" endY="511.0" layoutX="222.0" layoutY="-346.0" startX="536.5" startY="511.0" stroke="#2b3132" />
+      <Pane fx:id="secondTweetPane" layoutX="32.0" layoutY="180.0" prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425 #1E2425;" />
+      <Pane fx:id="firstTweetPane" layoutX="33.0" layoutY="11.0" prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425 #1E2425;" />
+      <Pane fx:id="thirdTweetPane" layoutX="33.0" layoutY="346.0" prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425 #1E2425;" />
+      <Line fx:id="midLine2" endX="-188.6666717529297" endY="511.0" layoutX="221.0" layoutY="-178.0" startX="536.5" startY="511.0" stroke="#2b3132" />
+   </children>
+</Pane>

@@ -34,7 +34,7 @@ public class TweetPaneFXML
     {
         User user = MainPageAgent.getMainPageAgent().getUser();
 
-        if (tweetsId[1].equals("0"))
+        if (tweetsId[1].equals("1"))
         {
             this.retweetText.setVisible(true);
             this.retweetText.setText("retweeted by " + user.getUsername());

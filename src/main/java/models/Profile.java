@@ -29,6 +29,7 @@ public class Profile
     private final List<String> upvotedTweets = new LinkedList<>();
     private final List<String> downvotedTweets = new LinkedList<>();
     private final List<String> reportedTweets = new LinkedList<>();
+    private final List<String> savedTweets = new LinkedList<>();
 
     // Privacy
     private boolean privateState; // "true" if the page is private, "false" if if it's public.
@@ -263,9 +264,24 @@ public class Profile
         return this.reportedTweets;
     }
 
+    public void addToSavedTweets(Tweet tweet)
+    {
+        this.savedTweets.add(tweet.getId());
+    }
+
+    public void removeFromSavedTweets(Tweet tweet)
+    {
+        this.savedTweets.remove(tweet.getId());
+    }
+
+    public List<String> getSavedTweets()
+    {
+        return this.savedTweets;
+    }
+
     /*
     A HashMap that links every tweet to 2 variables:
-    1. A bit that shows that is this tweet a retweet ("0") or the user's tweet ("1").
+    1. A bit that shows that is this tweet a retweet ("1") or the user's tweet ("0").
     2. A long that shows the time that this tweet was tweeted, in milliseconds.
     */
     public List<String[]> getHomePageTweets()
@@ -275,13 +291,13 @@ public class Profile
         for (String userTweet : userTweets)
         {
             Tweet tweet = TweetDB.getTweetDB().get(userTweet);
-            homePageTweets.put(new String[]{userTweet, "1"}, tweet.getTweetDate().getTime());
+            homePageTweets.put(new String[]{userTweet, "0"}, tweet.getTweetDate().getTime());
         }
 
         for (String retweetedTweet : retweetedTweets)
         {
             Tweet tweet = TweetDB.getTweetDB().get(retweetedTweet);
-            homePageTweets.put(new String[]{retweetedTweet, "0"}, tweet.getTweetDate().getTime());
+            homePageTweets.put(new String[]{retweetedTweet, "1"}, tweet.getTweetDate().getTime());
         }
 
         List<String[]> result = new LinkedList<>();
