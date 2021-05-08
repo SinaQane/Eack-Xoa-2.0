@@ -135,6 +135,19 @@ public class TimelineAgent
         return this.getTweets().get(page);
     }
 
+    public int numberOfTweets(int page)
+    {
+        int cnt = 0;
+        for (String[] tweet : this.getPage(page))
+        {
+            if (!tweet[0].equals("null"))
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
     public boolean hasNextPage(int page)
     {
         if (this.getTweets() == null)
