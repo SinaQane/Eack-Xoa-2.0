@@ -18,11 +18,11 @@ public class TweetDB implements DBSet<Tweet>
     static TweetDB tweetDB;
 
     private final GsonBuilder gsonBuilder = new GsonBuilder();
-    private final Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat("MMM dd, yyyy").create();
+    private final Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat("MMM dd, yyyy  HH:mm:ss.SSS").create();
 
     private TweetDB() {}
 
-    public static TweetDB getUserDB()
+    public static TweetDB getTweetDB()
     {
         if (tweetDB == null)
         {

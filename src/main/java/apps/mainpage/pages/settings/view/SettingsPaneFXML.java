@@ -62,7 +62,7 @@ public class SettingsPaneFXML
 
     public void phoneNumberCheckBox()
     {
-        phoneNumberCheckBox.setDisable(!phoneNumberCheckBox.isSelected());
+        phoneNumberTextField.setDisable(!phoneNumberCheckBox.isSelected());
     }
 
     public void birthdateCheckBox()

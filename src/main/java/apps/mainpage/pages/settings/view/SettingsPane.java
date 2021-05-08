@@ -33,4 +33,10 @@ public class SettingsPane
     {
         return loader;
     }
+
+    public void refresh()
+    {
+        SettingsPaneFXML fxmlController = this.loader.getController();
+        fxmlController.getMessageText().setVisible(false);
+    }
 }

@@ -11,11 +11,11 @@ public class FirstPageListener implements StringListener
     private final LoginPage loginPage;
     private final SignUpPage signUpPage;
 
-    public FirstPageListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage)
+    public FirstPageListener(Stage stage)
     {
         this.stage = stage;
-        this.loginPage = loginPage;
-        this.signUpPage = signUpPage;
+        this.loginPage = LoginPage.getLoginPage();
+        this.signUpPage = SignUpPage.getSignUpPage();
     }
 
     @Override

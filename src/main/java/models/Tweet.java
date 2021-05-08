@@ -1,6 +1,7 @@
 package models;
 
 import db.TweetDB;
+import db.UserDB;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -22,6 +23,7 @@ public class Tweet
     private final String id;
     private final long owner;
     private final String text;
+    private final String picturePath;
     private final Date tweetDate;
     private boolean visible = true;
 
@@ -38,14 +40,17 @@ public class Tweet
     private final List<Long> retweets = new ArrayList<>();
     private int reports = 0;
 
-    public Tweet(User owner, String text)
+    public Tweet(User owner, String text, String picturePath)
     {
         owner.getProfile().setLastTweetId(owner.getProfile().getLastTweetId() + 1);
         this.id = owner.getId() + "-" + owner.getProfile().getLastTweetId();
         this.owner = owner.getId();
         this.text = text;
+        this.picturePath = picturePath;
         this.tweetDate = new Date();
-        // TODO add Tweet to it's owner's tweets, save and use logger
+        owner.getProfile().getUserTweets().add(this.id);
+        TweetDB.getTweetDB().save(this);
+        UserDB.getUserDB().save(owner);
     }
 
     public String getId()
@@ -61,6 +66,11 @@ public class Tweet
     public String getText()
     {
         return this.text;
+    }
+
+    public String getPicturePath()
+    {
+        return this.picturePath;
     }
 
     public Date getTweetDate()
@@ -85,7 +95,7 @@ public class Tweet
 
     public Tweet getUpperTweet()
     {
-        return TweetDB.getUserDB().get(this.upperTweetId);
+        return TweetDB.getTweetDB().get(this.upperTweetId);
     }
 
     public void addComment(Tweet comment)

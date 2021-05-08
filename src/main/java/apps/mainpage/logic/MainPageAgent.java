@@ -1,5 +1,6 @@
 package apps.mainpage.logic;
 
+import db.UserDB;
 import models.User;
 
 public class MainPageAgent
@@ -30,6 +31,11 @@ public class MainPageAgent
     public User getUser()
     {
         return this.user;
+    }
+
+    public void refresh()
+    {
+        this.user = UserDB.getUserDB().get(user.getId());
     }
 
 }
