@@ -33,11 +33,13 @@
             <Font size="12.0" />
         </font>
     </Text>
+    <Text fx:id="bioText" fill="WHITE" layoutX="148.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bio" wrappingWidth="630.0">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Text>
+    <Pane fx:id="tweetsPane" layoutX="11.0" layoutY="144.0" prefHeight="355.0" prefWidth="777.0" style="-fx-background-color: #1E2425;" />
    <Line endX="-188.6666717529297" endY="511.0" layoutX="200.0" layoutY="-367.0" startX="587.0" startY="511.0" stroke="#2b3132" />
-   <Pane fx:id="tweetsPane" layoutX="11.0" layoutY="144.0" prefHeight="355.0" prefWidth="777.0" style="-fx-background-color: #1E2425 #1E2425;" />
-   <Text fx:id="bioText" fill="WHITE" layoutX="148.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bio" wrappingWidth="630.0">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
+
+
 </Pane>
