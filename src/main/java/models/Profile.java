@@ -3,11 +3,11 @@ package models;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import db.TweetDB;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import utils.HashMapUtil;
 
 public class Profile
 {
@@ -270,22 +270,42 @@ public class Profile
     1. A bit that shows that is this tweet a retweet ("0") or the user's tweet ("1").
     2. A long that shows the time that this tweet was tweeted, in milliseconds.
     */
-    public HashMap<String[], Long> getHomePageTweets()
+    public List<String[]> getHomePageTweets()
     {
         HashMap<String[], Long> homePageTweets = new HashMap<>();
 
         for (String userTweet : userTweets)
         {
-            Tweet tweet = TweetDB.getUserDB().get(userTweet);
+            Tweet tweet = TweetDB.getTweetDB().get(userTweet);
             homePageTweets.put(new String[]{userTweet, "1"}, tweet.getTweetDate().getTime());
         }
 
         for (String retweetedTweet : retweetedTweets)
         {
-            Tweet tweet = TweetDB.getUserDB().get(retweetedTweet);
+            Tweet tweet = TweetDB.getTweetDB().get(retweetedTweet);
             homePageTweets.put(new String[]{retweetedTweet, "0"}, tweet.getTweetDate().getTime());
         }
 
-        return (HashMap<String[], Long>) HashMapUtil.sortByValue(homePageTweets);
+        List<String[]> result = new LinkedList<>();
+
+        for (Map.Entry<String[], Long> e : homePageTweets.entrySet())
+        {
+            result.add(e.getKey());
+        }
+
+        for (int i = 0; i < result.size(); i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                if (homePageTweets.get(result.get(i)) > homePageTweets.get(result.get(j)))
+                {
+                    String[] temp = result.get(i);
+                    result.set(i, result.get(j));
+                    result.set(j, temp);
+                }
+            }
+        }
+
+        return result;
     }
 }

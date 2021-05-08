@@ -3,7 +3,7 @@ package apps.mainpage.logic;
 import apps.mainpage.pages.profile.view.ProfilePane;
 import apps.mainpage.pages.settings.view.SettingsPane;
 
-// A class to return every pane.
+// A singleton class to return every main pane.
 public class PanesController
 {
     static PanesController panesController;
@@ -22,13 +22,15 @@ public class PanesController
         return panesController;
     }
 
-    public ProfilePane getProfilePane()
+    public ProfilePane getProfilePane(int page)
     {
+        this.profilePane.refresh(page);
         return this.profilePane;
     }
 
     public SettingsPane getSettingsPane()
     {
+        this.settingsPane.refresh();
         return this.settingsPane;
     }
 }

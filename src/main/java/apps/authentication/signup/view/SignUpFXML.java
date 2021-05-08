@@ -44,7 +44,7 @@ public class SignUpFXML
         Date birthDate = null;
         try
         {
-            birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1000-01-01");
+            birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
         }
         catch (ParseException e)
         {

@@ -1,7 +1,5 @@
 package apps.authentication.signup.view;
 
-import apps.authentication.login.view.LoginFXML;
-import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,10 +9,12 @@ import java.util.Objects;
 
 public class SignUpPage
 {
+    static SignUpPage signUpPage;
+
     private final Scene scene;
     private final FXMLLoader loader;
 
-    public SignUpPage()
+    private SignUpPage()
     {
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/authentication/signup/SignUpPage.fxml")));
         Parent root = null;
@@ -28,6 +28,15 @@ public class SignUpPage
         }
         assert root != null;
         this.scene = new Scene(root);
+    }
+
+    public static SignUpPage getSignUpPage()
+    {
+        if (signUpPage == null)
+        {
+            signUpPage = new SignUpPage();
+        }
+        return signUpPage;
     }
 
     public FXMLLoader getLoader()

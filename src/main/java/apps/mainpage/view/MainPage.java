@@ -9,10 +9,12 @@ import java.util.Objects;
 
 public class MainPage
 {
+    static MainPage mainPage;
+
     private final Scene scene;
     private final FXMLLoader loader;
 
-    public MainPage()
+    private MainPage()
     {
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../graphic/mainpage/MainPage.fxml")));
         Parent root = null;
@@ -26,6 +28,15 @@ public class MainPage
         }
         assert root != null;
         this.scene = new Scene(root);
+    }
+
+    public static MainPage getMainPage()
+    {
+        if (mainPage == null)
+        {
+            mainPage = new MainPage();
+        }
+        return mainPage;
     }
 
     public FXMLLoader getLoader()

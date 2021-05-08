@@ -1,7 +1,10 @@
 package apps.mainpage.listener;
 
 import apps.authentication.login.view.LoginPage;
+import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
+import apps.mainpage.pages.profile.listener.ProfileListener;
+import apps.mainpage.pages.profile.view.ProfilePaneFXML;
 import apps.mainpage.pages.settings.listener.EditFormListener;
 import apps.mainpage.pages.settings.view.SettingsPaneFXML;
 import apps.mainpage.view.MainPage;
@@ -16,15 +19,18 @@ public class MainPageListener
     private final LoginPage loginPage;
     private final MainPage mainPage;
 
-    public MainPageListener(Stage stage, LoginPage loginPage, MainPage mainPage)
+    public MainPageListener(Stage stage)
     {
         this.stage = stage;
-        this.loginPage = loginPage;
-        this.mainPage = mainPage;
+        this.loginPage = LoginPage.getLoginPage();
+        this.mainPage = MainPage.getMainPage();
     }
 
     public void eventOccurred(Object source)
     {
+        MainPageAgent.getMainPageAgent().refresh();
+        FXMLLoader fxmlLoader = mainPage.getLoader();
+        MainPageFXML fxmlController = fxmlLoader.getController();
         switch (((Button) source).getId())
         {
             case "logoutButton":
@@ -33,22 +39,18 @@ public class MainPageListener
                 break;
             case "profileButton":
             {
-                FXMLLoader fxmlLoader = mainPage.getLoader();
-                MainPageFXML fxmlController = fxmlLoader.getController();
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane().getProfilePane());
-
-                // TODO set listener
+                FXMLLoader profilePaneLoader = PanesController.getPanesController().getProfilePane(0).getLoader();
+                ProfilePaneFXML profilePaneController = profilePaneLoader.getController();
+                profilePaneController.setListener(new ProfileListener(PanesController.getPanesController().getProfilePane(0)));
+                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(0).getProfilePane());
                 break;
             }
             case "settingsButton":
             {
-                FXMLLoader fxmlLoader = mainPage.getLoader();
-                MainPageFXML fxmlController = fxmlLoader.getController();
-                fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
-
                 FXMLLoader settingsPaneLoader = PanesController.getPanesController().getSettingsPane().getLoader();
                 SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
                 settingsPaneController.setListener(new EditFormListener(PanesController.getPanesController().getSettingsPane()));
+                fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
                 break;
             }
             default:

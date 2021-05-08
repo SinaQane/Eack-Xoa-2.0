@@ -20,12 +20,12 @@ public class LoginFormListener
     private final SignUpPage signUpPage;
     private final MainPage mainPage;
 
-    public LoginFormListener(Stage stage, LoginPage loginPage, SignUpPage signUpPage, MainPage mainPage)
+    public LoginFormListener(Stage stage)
     {
         this.stage = stage;
-        this.loginPage = loginPage;
-        this.signUpPage = signUpPage;
-        this.mainPage = mainPage;
+        this.loginPage = LoginPage.getLoginPage();
+        this.signUpPage = SignUpPage.getSignUpPage();
+        this.mainPage = MainPage.getMainPage();
     }
 
     public void eventOccurred(LoginFormEvent eventObject)
