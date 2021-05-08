@@ -1,10 +1,11 @@
 package apps.mainpage.pages.profile.view;
 
+import apps.components.tweetpane.view.EmptyTweetPane;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.logic.MainPageAgent;
 import apps.components.tweetpane.listener.TweetPaneListener;
-import apps.mainpage.pages.profile.logic.TweetsAgent;
+import apps.mainpage.pages.profile.logic.ProfileAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import models.User;
@@ -51,12 +52,12 @@ public class ProfilePane
         tweetsPaneFXML.setListener(controller.getListener());
         tweetsPaneFXML.setPage(page);
 
-        TweetsAgent tweetsAgent = new TweetsAgent(MainPageAgent.getMainPageAgent().getUser());
+        ProfileAgent profileAgent = new ProfileAgent(MainPageAgent.getMainPageAgent().getUser());
 
-        tweetsPaneFXML.getPreviousButton().setDisable(!tweetsAgent.hasPreviousPage(page));
-        tweetsPaneFXML.getNextButton().setDisable(!tweetsAgent.hasNextPage(page));
+        tweetsPaneFXML.getPreviousButton().setDisable(!profileAgent.hasPreviousPage(page));
+        tweetsPaneFXML.getNextButton().setDisable(!profileAgent.hasNextPage(page));
 
-        if (tweetsAgent.getNumberOfPages() == 0)
+        if (profileAgent.getNumberOfPages() == 0)
         {
             tweetsPaneFXML.getMidLine().setVisible(false);
             tweetsPaneFXML.getNoTweetsText().setVisible(true);
@@ -71,15 +72,15 @@ public class ProfilePane
             TweetPane firstTweetPane = new TweetPane();
             TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
             firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
-            firstTweetFXML.setTweetPane(tweetsAgent.getPage(page).get(0));
+            firstTweetFXML.setTweetPane(profileAgent.getPage(page).get(0));
             tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getTweetPane());
 
-            if (!tweetsAgent.getPage(page).get(1)[0].equals("null"))
+            if (!profileAgent.getPage(page).get(1)[0].equals("null"))
             {
                 TweetPane secondTweetPane = new TweetPane();
                 TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
                 secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
-                secondTweetFXML.setTweetPane(tweetsAgent.getPage(page).get(1));
+                secondTweetFXML.setTweetPane(profileAgent.getPage(page).get(1));
                 tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getTweetPane());
             }
             else
