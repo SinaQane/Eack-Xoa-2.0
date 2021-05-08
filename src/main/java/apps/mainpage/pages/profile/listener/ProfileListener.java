@@ -3,8 +3,8 @@ package apps.mainpage.pages.profile.listener;
 import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile.event.ProfileEvent;
-import apps.mainpage.pages.profile.view.NewTweetPane;
-import apps.mainpage.pages.profile.view.NewTweetPaneFXML;
+import apps.mainpage.pages.profile.view.AddTweetPane;
+import apps.mainpage.pages.profile.view.AddTweetPaneFXML;
 import apps.mainpage.pages.profile.view.ProfilePane;
 import apps.mainpage.pages.profile.view.ProfilePaneFXML;
 import apps.mainpage.view.MainPage;
@@ -28,10 +28,10 @@ public class ProfileListener
 
         switch (((Button) eventObject.getSource()).getId()) {
             case "tweetButton":
-                NewTweetPane newTweetPane = new NewTweetPane();
-                NewTweetPaneFXML newTweetPaneController = newTweetPane.getLoader().getController();
-                newTweetPaneController.setListener(((ProfilePaneFXML) profilePane.getLoader().getController()).getListener());
-                fxmlController.setMainPane(newTweetPane.getNewTweetPane());
+                AddTweetPane addTweetPane = new AddTweetPane();
+                AddTweetPaneFXML addTweetPaneController = addTweetPane.getLoader().getController();
+                addTweetPaneController.setListener(((ProfilePaneFXML) profilePane.getLoader().getController()).getListener());
+                fxmlController.setMainPane(addTweetPane.getNewTweetPane());
                 break;
             case "nextButton":
                 page = eventObject.getPageEvent().getPage();

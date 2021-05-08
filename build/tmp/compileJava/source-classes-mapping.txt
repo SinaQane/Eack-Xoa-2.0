@@ -46,8 +46,8 @@ apps/authentication/login/view/LoginFXML.java
  apps.authentication.login.view.LoginFXML
 db/UserDB.java
  db.UserDB
-apps/mainpage/pages/profile/view/EmptyTweetPane.java
- apps.mainpage.pages.profile.view.EmptyTweetPane
+apps/components/tweetpane/listener/TweetPaneListener.java
+ apps.components.tweetpane.listener.TweetPaneListener
 apps/mainpage/pages/settings/view/SettingsPane.java
  apps.mainpage.pages.settings.view.SettingsPane
 apps/mainpage/pages/settings/listener/EditFormListener.java
@@ -72,8 +72,8 @@ apps/mainpage/pages/profile/event/TweetFormEvent.java
  apps.mainpage.pages.profile.event.TweetFormEvent
 view/MainStage.java
  view.MainStage
-apps/mainpage/pages/profile/view/NewTweetPane.java
- apps.mainpage.pages.profile.view.NewTweetPane
+apps/components/tweetpane/logic/TweetPaneAgent.java
+ apps.components.tweetpane.logic.TweetPaneAgent
 apps/mainpage/logic/MainPageAgent.java
  apps.mainpage.logic.MainPageAgent
 apps/mainpage/pages/settings/view/SettingsPaneFXML.java
@@ -84,27 +84,27 @@ models/User.java
  models.User
 apps/mainpage/pages/profile/event/PageFormEvent.java
  apps.mainpage.pages.profile.event.PageFormEvent
-apps/mainpage/pages/profile/view/ProfilePaneFXML.java
- apps.mainpage.pages.profile.view.ProfilePaneFXML
-apps/components/tweetpane/view/TweetPane.java
- apps.components.tweetpane.view.TweetPane
-apps/mainpage/pages/profile/view/NewTweetPaneFXML.java
- apps.mainpage.pages.profile.view.NewTweetPaneFXML
-apps/mainpage/listener/MainPageListener.java
- apps.mainpage.listener.MainPageListener
 apps/components/tweetpane/view/TweetPaneFXML.java
  apps.components.tweetpane.view.TweetPaneFXML
-apps/components/tweetpane/listener/TweetPaneListener.java
- apps.components.tweetpane.listener.TweetPaneListener
+apps/components/tweetpane/view/TweetPane.java
+ apps.components.tweetpane.view.TweetPane
+apps/mainpage/pages/profile/view/AddTweetPane.java
+ apps.mainpage.pages.profile.view.AddTweetPane
+apps/components/tweetpane/view/EmptyTweetPane.java
+ apps.components.tweetpane.view.EmptyTweetPane
+apps/mainpage/pages/profile/view/ProfilePaneFXML.java
+ apps.mainpage.pages.profile.view.ProfilePaneFXML
+apps/mainpage/listener/MainPageListener.java
+ apps.mainpage.listener.MainPageListener
+apps/mainpage/pages/profile/view/AddTweetPaneFXML.java
+ apps.mainpage.pages.profile.view.AddTweetPaneFXML
 apps/mainpage/pages/profile/listener/ProfileListener.java
  apps.mainpage.pages.profile.listener.ProfileListener
 apps/mainpage/pages/profile/view/TweetsPaneFXML.java
  apps.mainpage.pages.profile.view.TweetsPaneFXML
+apps/mainpage/pages/profile/logic/ProfileAgent.java
+ apps.mainpage.pages.profile.logic.ProfileAgent
 apps/mainpage/logic/PanesController.java
  apps.mainpage.logic.PanesController
-apps/components/tweetpane/logic/TweetPaneAgent.java
- apps.components.tweetpane.logic.TweetPaneAgent
 apps/mainpage/pages/profile/view/ProfilePane.java
  apps.mainpage.pages.profile.view.ProfilePane
-apps/mainpage/pages/profile/logic/TweetsAgent.java
- apps.mainpage.pages.profile.logic.TweetsAgent
