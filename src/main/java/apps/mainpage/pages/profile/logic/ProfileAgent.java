@@ -33,12 +33,12 @@ public class ProfileAgent
             String[] secondTweet = new String[2];
 
             firstTweet[0] = userTweets.get(i)[0];
-            firstTweet[1] = userTweets.get(i)[1];
+            firstTweet[1] = userTweets.get(i)[1].equals("0") ? "0" : this.user.getId().toString();
 
             if (i + 1 != userTweets.size())
             {
                 secondTweet[0] = userTweets.get(i + 1)[0];
-                secondTweet[1] = userTweets.get(i + 1)[1];
+                secondTweet[1] = userTweets.get(i + 1)[1].equals("0") ? "0" : this.user.getId().toString();
             }
             else
             {

@@ -34,7 +34,6 @@ public class User
         this.username = username;
         this.password = password;
         this.profile = new Profile(this.id);
-
         // "0" is just a dummy number so that I don't write the same code over again for "setUsername" instead of "changeUsername".
         UserDB.getUserDB().changeUsername("0", this.username);
         UserDB.getUserDB().save(this);
@@ -52,9 +51,12 @@ public class User
 
     public void setUsername(String username)
     {
-        if (this.username.equals(username))
+        if (this.username != null)
         {
-            return;
+            if (this.username.equals(username))
+            {
+                return;
+            }
         }
         UserDB.getUserDB().changeUsername(Objects.requireNonNullElse(this.username, "0"), username);
         this.username = username;
@@ -68,9 +70,12 @@ public class User
 
     public void setPassword(String password)
     {
-        if (this.password.equals(password))
+        if(this.password != null)
         {
-            return;
+            if (this.password.equals(password))
+            {
+                return;
+            }
         }
         this.password = password;
         logger.error(this.id + "'s password was changed.");
@@ -94,9 +99,12 @@ public class User
 
     public void setEmail(String email)
     {
-        if (this.email.equals(email))
+        if(this.email != null)
         {
-            return;
+            if (this.email.equals(email))
+            {
+                return;
+            }
         }
         UserDB.getUserDB().changeEmail(Objects.requireNonNullElse(this.email, "0"), email);
         this.email = email;
@@ -110,9 +118,12 @@ public class User
 
     public void setPhoneNumber(String phoneNumber)
     {
-        if (this.phoneNumber.equals(phoneNumber))
+        if (this.phoneNumber != null)
         {
-            return;
+            if (this.phoneNumber.equals(phoneNumber))
+            {
+                return;
+            }
         }
         UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(this.phoneNumber, "0"), phoneNumber);
         this.phoneNumber = phoneNumber;
@@ -126,9 +137,12 @@ public class User
 
     public void setBio(String bio)
     {
-        if (this.bio.equals(bio))
+        if(this.bio != null)
         {
-            return;
+            if (this.bio.equals(bio))
+            {
+                return;
+            }
         }
         this.bio = bio;
         logger.info(this.id + " changed their bio.");
@@ -141,9 +155,12 @@ public class User
 
     public void setBirthDate(Date birthDate)
     {
-        if (this.birthDate.equals(birthDate))
+        if (this.birthDate != null)
         {
-            return;
+            if (this.birthDate.equals(birthDate))
+            {
+                return;
+            }
         }
         this.birthDate = birthDate;
         logger.warn(this.id + "'s birthdate was changed.");
