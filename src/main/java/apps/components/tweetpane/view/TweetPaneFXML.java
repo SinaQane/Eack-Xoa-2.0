@@ -3,6 +3,7 @@ package apps.components.tweetpane.view;
 import apps.mainpage.logic.MainPageAgent;
 import apps.components.tweetpane.listener.TweetPaneListener;
 import db.TweetDB;
+import db.UserDB;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import models.User;
@@ -32,19 +33,18 @@ public class TweetPaneFXML
 
     public void setTweetPane(String[] tweetsId)
     {
-        User user = MainPageAgent.getMainPageAgent().getUser();
-
-        if (tweetsId[1].equals("1"))
-        {
-            this.retweetText.setVisible(true);
-            this.retweetText.setText("retweeted by " + user.getUsername());
-        }
-        else
+        if (tweetsId[1].equals("0"))
         {
             this.retweetText.setVisible(false);
         }
+        else
+        {
+            this.retweetText.setVisible(true);
+            this.retweetText.setText("retweeted by " + UserDB.getUserDB().get(tweetsId[1]).getUsername());
+        }
 
-        this.usernameText.setText("@" + user.getUsername());
+        long ownerId = TweetDB.getTweetDB().get(tweetsId[0]).getOwner();
+        this.usernameText.setText("@" + UserDB.getUserDB().get(ownerId).getUsername());
 
         this.tweetText.setText(TweetDB.getTweetDB().get(tweetsId[0]).getText());
 

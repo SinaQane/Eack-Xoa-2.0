@@ -1,6 +1,7 @@
 package apps.authentication.signup.logic;
 
 import apps.authentication.signup.event.SignUpFormEvent;
+import db.UserDB;
 import models.User;
 import utils.Validations;
 
@@ -58,6 +59,7 @@ public class SignUpAgent
         user.setBio(signUpFormEvent.getBio());
         user.setPhoneNumber(signUpFormEvent.getPhoneNumber());
         user.setBirthDate(signUpFormEvent.getBirthDate());
+        UserDB.getUserDB().save(user);
         return user;
     }
 }

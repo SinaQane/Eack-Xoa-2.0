@@ -13,7 +13,7 @@ public class EmptyBookmarkPane
 
     public EmptyBookmarkPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/components/tweetpane/EmptyBookmarkPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/timeline_bookmarks/EmptyBookmarkPane.fxml")));
         try
         {
             emptyPane = loader.load();

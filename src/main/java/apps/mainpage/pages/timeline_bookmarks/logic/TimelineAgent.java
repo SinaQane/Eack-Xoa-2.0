@@ -138,6 +138,10 @@ public class TimelineAgent
     public int numberOfTweets(int page)
     {
         int cnt = 0;
+        if (this.getPage(page) == null)
+        {
+            return 0;
+        }
         for (String[] tweet : this.getPage(page))
         {
             if (!tweet[0].equals("null"))

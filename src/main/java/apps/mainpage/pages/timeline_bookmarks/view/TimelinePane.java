@@ -109,7 +109,7 @@ public class TimelinePane
                     TweetPane thirdTweetPane = new TweetPane();
                     TweetPaneFXML thirdTweetFXML = thirdTweetPane.getLoader().getController();
                     thirdTweetFXML.setListener(new TweetPaneListener(thirdTweetPane));
-                    thirdTweetFXML.setTweetPane(timelineAgent.getPage(page).get(1));
+                    thirdTweetFXML.setTweetPane(timelineAgent.getPage(page).get(2));
                     timelineController.setThirdTweetPane(thirdTweetPane.getTweetPane());
                 }
             }

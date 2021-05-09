@@ -13,7 +13,7 @@ public class EmptyTimelinePane
 
     public EmptyTimelinePane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/components/tweetpane/EmptyTimelinePane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/timeline_bookmarks/EmptyTimelinePane.fxml")));
         try
         {
             emptyPane = loader.load();
