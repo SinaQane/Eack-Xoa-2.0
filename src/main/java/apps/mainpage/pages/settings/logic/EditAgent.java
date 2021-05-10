@@ -16,7 +16,7 @@ public class EditAgent
 
     public String check()
     {
-        if (!Validations.getValidations().usernameIsValid(editFormEvent.getUsername()))
+        if (Validations.getValidations().usernameIsInvalid(editFormEvent.getUsername()))
         {
             return "Please enter a valid username.";
         }
@@ -28,25 +28,25 @@ public class EditAgent
         {
             return "Name cannot be empty.";
         }
-        if (!Validations.getValidations().emailIsValid(editFormEvent.getEmail()))
+        if (Validations.getValidations().emailIsInvalid(editFormEvent.getEmail()))
         {
             return "Please enter a valid email address.";
         }
-        if (!Validations.getValidations().phoneNumberIsValid(editFormEvent.getPhoneNumber()))
+        if (Validations.getValidations().phoneNumberIsInvalid(editFormEvent.getPhoneNumber()))
         {
             return "Please enter a valid phone number.";
         }
-        if (!Validations.getValidations().usernameIsAvailable(editFormEvent.getUsername()) &&
+        if (Validations.getValidations().usernameIsUnavailable(editFormEvent.getUsername()) &&
                 !MainPageAgent.getMainPageAgent().getUser().getUsername().equals(editFormEvent.getUsername()))
         {
             return "There is already an account with this username.";
         }
-        if (!Validations.getValidations().emailIsAvailable(editFormEvent.getEmail()) &&
+        if (Validations.getValidations().emailIsUnavailable(editFormEvent.getEmail()) &&
                 !MainPageAgent.getMainPageAgent().getUser().getEmail().equals(editFormEvent.getEmail()))
         {
             return "There is already an account with this email.";
         }
-        if (!Validations.getValidations().phoneNumberIsAvailable(editFormEvent.getPhoneNumber()) &&
+        if (Validations.getValidations().phoneNumberIsUnavailable(editFormEvent.getPhoneNumber()) &&
                 !MainPageAgent.getMainPageAgent().getUser().getPhoneNumber().equals(editFormEvent.getPhoneNumber()))
         {
             return "There is already an account with this phone number.";

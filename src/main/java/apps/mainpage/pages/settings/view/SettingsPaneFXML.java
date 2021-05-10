@@ -173,12 +173,12 @@ public class SettingsPaneFXML
         this.listener.eventOccurred(new EditFormEvent(editButton, username, password, name, email, phoneNumber, bio, birthdate, privateState, infoState, lastSeenState, picPath));
     }
 
-    public void deleteAccount(ActionEvent actionEvent) // TODO
+    public void deleteAccount(ActionEvent actionEvent) // TODO add this
     {
 
     }
 
-    public void deactivate(ActionEvent actionEvent) // TODO
+    public void deactivate(ActionEvent actionEvent) // TODO add this
     {
 
     }

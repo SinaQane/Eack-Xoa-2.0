@@ -41,7 +41,7 @@ public class Validations
         return validations;
     }
 
-    // Search in file "where" for string "what". returns true if "what" isn't in "where".
+    // Search in file "where" for string "what". returns true if "what" is in "where".
     public boolean newLine(String where, String what)
     {
         File file = new File("./src/main/resources/database/" + where + ".txt");
@@ -53,10 +53,10 @@ public class Validations
                 String line = scanner.nextLine();
                 if(what.equals(line))
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         catch(FileNotFoundException e)
         {
@@ -64,44 +64,44 @@ public class Validations
         }
     }
 
-    public boolean usernameIsAvailable(String username)
+    public boolean usernameIsUnavailable(String username)
     {
         return newLine("Usernames", username);
     }
 
-    public boolean usernameIsValid(String username)
+    public boolean usernameIsInvalid(String username)
     {
         Matcher matcher = VALID_USERNAME_REGEX.matcher(username);
-        return matcher.find();
+        return !matcher.find();
     }
 
-    public boolean emailIsAvailable(String email)
+    public boolean emailIsUnavailable(String email)
     {
         return newLine("Emails", email);
     }
 
-    public boolean emailIsValid(String email)
+    public boolean emailIsInvalid(String email)
     {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-        return matcher.find();
+        return !matcher.find();
     }
 
-    public boolean phoneNumberIsAvailable(String phoneNumber)
+    public boolean phoneNumberIsUnavailable(String phoneNumber)
     {
         if (phoneNumber.equals(""))
         {
-            return true;
+            return false;
         }
         return newLine("PhoneNumbers", phoneNumber);
     }
 
-    public boolean phoneNumberIsValid(String phoneNumber)
+    public boolean phoneNumberIsInvalid(String phoneNumber)
     {
         if (phoneNumber.equals(""))
         {
-            return true;
+            return false;
         }
         Matcher matcher = VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
-        return matcher.find();
+        return !matcher.find();
     }
 }

@@ -16,7 +16,7 @@ public class SignUpAgent
 
     public String check()
     {
-        if (!Validations.getValidations().usernameIsValid(signUpFormEvent.getUsername()))
+        if (Validations.getValidations().usernameIsInvalid(signUpFormEvent.getUsername()))
         {
             return "Please enter a valid username.";
         }
@@ -28,23 +28,23 @@ public class SignUpAgent
         {
             return "Name cannot be empty.";
         }
-        if (!Validations.getValidations().emailIsValid(signUpFormEvent.getEmail()))
+        if (Validations.getValidations().emailIsInvalid(signUpFormEvent.getEmail()))
         {
             return "Please enter a valid email address.";
         }
-        if (!Validations.getValidations().phoneNumberIsValid(signUpFormEvent.getPhoneNumber()))
+        if (Validations.getValidations().phoneNumberIsInvalid(signUpFormEvent.getPhoneNumber()))
         {
             return "Please enter a valid phone number.";
         }
-        if (!Validations.getValidations().usernameIsAvailable(signUpFormEvent.getUsername()))
+        if (Validations.getValidations().usernameIsUnavailable(signUpFormEvent.getUsername()))
         {
             return "There is already an account with this username.";
         }
-        if (!Validations.getValidations().emailIsAvailable(signUpFormEvent.getEmail()))
+        if (Validations.getValidations().emailIsUnavailable(signUpFormEvent.getEmail()))
         {
             return "There is already an account with this email.";
         }
-        if (!Validations.getValidations().phoneNumberIsAvailable(signUpFormEvent.getPhoneNumber()))
+        if (Validations.getValidations().phoneNumberIsUnavailable(signUpFormEvent.getPhoneNumber()))
         {
             return "There is already an account with this phone number.";
         }

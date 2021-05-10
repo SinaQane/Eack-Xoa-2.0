@@ -1,16 +1,8 @@
 package apps.mainpage.listener;
 
 import apps.authentication.login.view.LoginPage;
-import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
-import apps.mainpage.pages.profile_viewuser.listener.ProfileListener;
-import apps.mainpage.pages.profile_viewuser.listener.UserViewListener;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
-import apps.mainpage.pages.profile_viewuser.view.ProfilePaneFXML;
-import apps.mainpage.pages.settings.listener.EditFormListener;
-import apps.mainpage.pages.settings.view.SettingsPaneFXML;
-import apps.mainpage.pages.timeline_bookmarks.listener.TimelineListener;
-import apps.mainpage.pages.timeline_bookmarks.view.TimelinePaneFXML;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
 import javafx.fxml.FXMLLoader;

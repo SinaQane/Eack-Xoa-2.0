@@ -4,7 +4,6 @@ import apps.authentication.login.event.LoginFormEvent;
 import db.UserDB;
 import models.User;
 
-
 public class LoginAgent
 {
     private final LoginFormEvent loginFormEvent;

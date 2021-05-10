@@ -51,7 +51,7 @@ public class Profile
         this.lastTweetId = lastTweetId;
     }
 
-    public long getOwnerId()
+    public long getOwnerId() // TODO remove this?
     {
         return this.ownerId;
     }
@@ -166,7 +166,7 @@ public class Profile
         this.requests.remove(user.getId());
     }
 
-    public List<Long> getRequests()
+    public List<Long> getRequests() // TODO notifications section
     {
         return this.requests;
     }
@@ -191,7 +191,7 @@ public class Profile
         this.userTweets.add(tweet.getId());
     }
 
-    public void removeFromUserTweets(Tweet tweet)
+    public void removeFromUserTweets(Tweet tweet) // TODO delete tweet?
     {
         this.userTweets.remove(tweet.getId());
     }
@@ -249,11 +249,6 @@ public class Profile
     public void addToReportedTweets(Tweet tweet)
     {
         this.reportedTweets.add(tweet.getId());
-    }
-
-    public void removeFromReportedTweets(Tweet tweet)
-    {
-        this.reportedTweets.remove(tweet.getId());
     }
 
     public List<String> getReportedTweets()

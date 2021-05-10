@@ -73,6 +73,16 @@ public class UsersListFXML
         }
     }
 
+    public Button getPreviousButton()
+    {
+        return previousButton;
+    }
+
+    public Button getNextButton()
+    {
+        return nextButton;
+    }
+
     public void previous()
     {
         PageFormEvent pageEvent = new PageFormEvent(this.user, this.page, this.pageKind);
