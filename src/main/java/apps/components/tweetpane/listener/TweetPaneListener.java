@@ -6,6 +6,8 @@ import apps.components.tweetpane.logic.TweetPaneAgent;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.logic.MainPageAgent;
+import apps.mainpage.logic.PanesController;
+import apps.mainpage.pages.profile_viewuser.listener.ProfileListener;
 import apps.mainpage.pages.profile_viewuser.listener.UserViewListener;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePaneFXML;
@@ -62,9 +64,7 @@ public class TweetPaneListener
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "viewUserButton":
-                ProfilePane userPane = new ProfilePane(otherUser);
-                ((ProfilePaneFXML) userPane.getLoader().getController()).setUserViewListener(new UserViewListener());
-                userPane.refresh(0);
+                ProfilePane userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(userPane.getProfilePane());
                 break;
             case "viewImageButton":

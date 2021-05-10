@@ -13,15 +13,15 @@
     "lastTweetId": 3,
     "picturePath": "",
     "followers": [
-      2,
       3
     ],
     "followings": [
-      3,
-      2,
-      4
+      4,
+      3
     ],
-    "blocked": [],
+    "blocked": [
+      2
+    ],
     "muted": [],
     "requests": [],
     "pending": [],
@@ -36,7 +36,8 @@
     ],
     "upvotedTweets": [
       "2-3",
-      "2-2"
+      "2-2",
+      "1-3"
     ],
     "downvotedTweets": [
       "2-1"

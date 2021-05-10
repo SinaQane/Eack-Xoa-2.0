@@ -5,6 +5,7 @@ import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.listener.ProfileListener;
 import apps.mainpage.pages.profile_viewuser.listener.UserViewListener;
+import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePaneFXML;
 import apps.mainpage.pages.settings.listener.EditFormListener;
 import apps.mainpage.pages.settings.view.SettingsPaneFXML;
@@ -31,7 +32,6 @@ public class MainPageListener
 
     public void eventOccurred(Object source)
     {
-        MainPageAgent.getMainPageAgent().refresh();
         FXMLLoader fxmlLoader = mainPage.getLoader();
         MainPageFXML fxmlController = fxmlLoader.getController();
         switch (((Button) source).getId())
@@ -42,31 +42,19 @@ public class MainPageListener
                 break;
             case "profileButton":
             {
-                FXMLLoader profilePaneLoader = PanesController.getPanesController().getProfilePane(0).getLoader();
-                ProfilePaneFXML profilePaneController = profilePaneLoader.getController();
-                profilePaneController.setProfileListener(new ProfileListener(PanesController.getPanesController().getProfilePane(0)));
-                profilePaneController.setUserViewListener(new UserViewListener());
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(0).getProfilePane());
+                ProfilePane profilePane = PanesController.getPanesController().getProfilePane(0);
+                fxmlController.setMainPane(profilePane.getProfilePane());
                 break;
             }
             case "settingsButton":
             {
-                FXMLLoader settingsPaneLoader = PanesController.getPanesController().getSettingsPane().getLoader();
-                SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
-                settingsPaneController.setListener(new EditFormListener(PanesController.getPanesController().getSettingsPane()));
                 fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
                 break;
             }
             case "homeButton":
-                FXMLLoader timelinePaneLoader = PanesController.getPanesController().getTimelinePane("timeline", 0).getLoader();
-                TimelinePaneFXML timelinePaneController = timelinePaneLoader.getController();
-                timelinePaneController.setListener(new TimelineListener());
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("timeline", 0).getTimelinePane());
                 break;
             case "bookmarksButton":
-                FXMLLoader bookmarksPaneLoader = PanesController.getPanesController().getTimelinePane("bookmarks", 0).getLoader();
-                TimelinePaneFXML bookmarksPaneController = bookmarksPaneLoader.getController();
-                bookmarksPaneController.setListener(new TimelineListener());
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("bookmarks", 0).getTimelinePane());
                 break;
             default:
