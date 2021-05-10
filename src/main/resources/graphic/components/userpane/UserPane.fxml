@@ -16,6 +16,6 @@
          <Font size="16.0" />
       </font>
    </Text>
-   <Text fx:id="statusText" fill="WHITE" layoutX="543.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Status" />
+   <Text fx:id="statusText" fill="WHITE" layoutX="524.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Status" />
    <Button fx:id="viewUserButton" layoutX="629.0" layoutY="33.0" mnemonicParsing="false" onAction="#viewUser" style="-fx-background-color: #1E2425;" text="View User" textFill="#352bff" />
 </Pane>

@@ -33,23 +33,17 @@ public class UserViewListener
         {
             case "statButton":
                 logicalAgent.changeStatus();
-                userPane = new ProfilePane(otherUser);
-                ((ProfilePaneFXML) userPane.getLoader().getController()).setUserViewListener(new UserViewListener());
-                userPane.refresh(0);
+                userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
                 fxmlController.setMainPane(userPane.getProfilePane());
                 break;
             case "blockButton":
                 logicalAgent.block();
-                userPane = new ProfilePane(otherUser);
-                ((ProfilePaneFXML) userPane.getLoader().getController()).setUserViewListener(new UserViewListener());
-                userPane.refresh(0);
+                userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
                 fxmlController.setMainPane(userPane.getProfilePane());
                 break;
             case "muteButton":
                 logicalAgent.mute();
-                userPane = new ProfilePane(otherUser);
-                ((ProfilePaneFXML) userPane.getLoader().getController()).setUserViewListener(new UserViewListener());
-                userPane.refresh(0);
+                userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
                 fxmlController.setMainPane(userPane.getProfilePane());
                 break;
             case "profilePicButton":

@@ -32,9 +32,4 @@ public class MainPageAgent
     {
         return UserDB.getUserDB().get(user.getId());
     }
-
-    public void refresh()
-    {
-        this.user = UserDB.getUserDB().get(user.getId());
-    }
 }

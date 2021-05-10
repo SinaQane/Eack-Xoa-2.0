@@ -1,5 +1,6 @@
 package apps.mainpage.pages.settings.view;
 
+import apps.mainpage.pages.settings.listener.EditFormListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
@@ -37,6 +38,7 @@ public class SettingsPane
     public void refresh()
     {
         SettingsPaneFXML fxmlController = this.loader.getController();
+        fxmlController.setListener(new EditFormListener(this));
         fxmlController.getMessageText().setVisible(false);
     }
 }

@@ -63,6 +63,9 @@ public class UserViewAgent
         }
         else
         {
+            ourUser.getProfile().removeFromFollowings(otherUser);
+            ourUser.getProfile().removeFromFollowers(otherUser);
+            otherUser.getProfile().removeFromFollowings(ourUser);
             ourUser.getProfile().addToBlocked(otherUser);
             logger.warn(ourUser.getId() + " blocked " + otherUser.getId());
         }
