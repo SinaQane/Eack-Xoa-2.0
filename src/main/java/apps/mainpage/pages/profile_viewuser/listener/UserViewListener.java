@@ -5,7 +5,6 @@ import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.event.UserViewEvent;
 import apps.mainpage.pages.profile_viewuser.logic.UserViewAgent;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
-import apps.mainpage.pages.profile_viewuser.view.ProfilePaneFXML;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
 import javafx.scene.control.Button;

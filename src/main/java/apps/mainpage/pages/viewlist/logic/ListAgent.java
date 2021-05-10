@@ -79,23 +79,6 @@ public class ListAgent
         return this.getUsers().get(page);
     }
 
-    public int numberOfUsers(int page)
-    {
-        int cnt = 0;
-        if (this.getPage(page) == null)
-        {
-            return 0;
-        }
-        for (Long user : this.getPage(page))
-        {
-            if (user != 0)
-            {
-                cnt++;
-            }
-        }
-        return cnt;
-    }
-
     public int getNumberOfPages()
     {
         if (this.getUsers() == null)

@@ -44,7 +44,7 @@ public class Tweet
         this.text = text;
         this.picturePath = picturePath;
         this.tweetDate = new Date();
-        owner.getProfile().getUserTweets().add(this.id);
+        owner.getProfile().addToUserTweets(this);
         TweetDB.getTweetDB().save(this);
         UserDB.getUserDB().save(owner);
     }

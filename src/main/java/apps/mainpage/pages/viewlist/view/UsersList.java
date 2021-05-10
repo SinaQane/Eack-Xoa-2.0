@@ -1,7 +1,5 @@
 package apps.mainpage.pages.viewlist.view;
 
-import apps.components.tweetpane.view.EmptyTweetPane;
-import apps.components.tweetpane.view.TweetPane;
 import apps.components.userpane.listener.UserPaneListener;
 import apps.components.userpane.view.EmptyUserPane;
 import apps.components.userpane.view.UserPane;
@@ -82,5 +80,8 @@ public class UsersList
                 fxmlController.setUserPane(i, userPane.getUserPane());
             }
         }
+
+        fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
+        fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
     }
 }

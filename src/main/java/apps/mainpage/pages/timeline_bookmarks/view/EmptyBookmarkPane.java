@@ -1,10 +1,10 @@
 package apps.mainpage.pages.timeline_bookmarks.view;
 
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.layout.Pane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
 
-        import java.io.IOException;
-        import java.util.Objects;
+import java.io.IOException;
+import java.util.Objects;
 
 public class EmptyBookmarkPane
 {

@@ -13,7 +13,7 @@ public class TweetPaneAgent
     private final Logger logger = LogManager.getLogger(TweetPaneAgent.class);
 
     private final User ourUser;
-    private final User otherUser;
+    private final User otherUser; // TODO use this
     private final Tweet tweet;
 
     public TweetPaneAgent(User ourUser, User otherUser, Tweet tweet)
