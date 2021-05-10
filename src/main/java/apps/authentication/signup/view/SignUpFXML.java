@@ -23,6 +23,7 @@ public class SignUpFXML
     public TextField emailTextField;
     public TextField phoneNumberTextField;
     public TextField bioTextField;
+    public TextField picPathField;
     public DatePicker birthDatePicker;
     public Button signUpButton;
     public Button loginButton;
@@ -41,6 +42,7 @@ public class SignUpFXML
         String email = emailTextField.getText();
         String phoneNumber = phoneNumberTextField.getText();
         String bio = bioTextField.getText();
+        String picPath = picPathField.getText();
         Date birthDate = null;
         try
         {
@@ -54,7 +56,7 @@ public class SignUpFXML
         {
             birthDate = java.sql.Date.valueOf(birthDatePicker.getValue());
         }
-        listener.eventOccurred(new SignUpFormEvent(signUpButton, username, password, name, email, phoneNumber, bio, birthDate));
+        listener.eventOccurred(new SignUpFormEvent(signUpButton, username, password, name, email, phoneNumber, bio, birthDate, picPath));
     }
 
     public void checkbox()

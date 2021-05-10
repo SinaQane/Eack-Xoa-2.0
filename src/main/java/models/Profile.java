@@ -3,23 +3,20 @@ package models;
 import java.util.*;
 
 import db.TweetDB;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 import utils.HashMapUtil;
 
 public class Profile
 {
-    static private final Logger logger = LogManager.getLogger(Profile.class); // TODO use logger
-
     private final long ownerId; // TODO find a way to save user after changes in profile
     private long lastTweetId = 0;
+
+    private String picturePath = "";
 
     // Interactions with other users
     private final List<Long> followers = new LinkedList<>();
     private final List<Long> followings = new LinkedList<>();
     private final List<Long> blocked = new LinkedList<>();
     private final List<Long> muted = new LinkedList<>();
-    private final List<Long> reported = new LinkedList<>();
     private final List<Long> requests = new LinkedList<>();
     private final List<Long> pending = new LinkedList<>();
 
@@ -52,6 +49,21 @@ public class Profile
     public void setLastTweetId(long lastTweetId)
     {
         this.lastTweetId = lastTweetId;
+    }
+
+    public long getOwnerId()
+    {
+        return this.ownerId;
+    }
+
+    public String getPicturePath()
+    {
+        return this.picturePath;
+    }
+
+    public void setPicturePath(String picturePath)
+    {
+        this.picturePath = picturePath; // TODO add logger
     }
 
     public boolean isPrivate()
@@ -142,21 +154,6 @@ public class Profile
     public List<Long> getMuted()
     {
         return this.muted;
-    }
-
-    public void addToReported(User user)
-    {
-        this.reported.add(user.getId());
-    }
-
-    public void removeFromReported(User user)
-    {
-        this.reported.remove(user.getId());
-    }
-
-    public List<Long> getReported()
-    {
-        return this.reported;
     }
 
     public void addToRequests(User user)

@@ -1,16 +1,19 @@
 package apps.components.tweetpane.view;
 
-import apps.mainpage.logic.MainPageAgent;
+import apps.components.tweetpane.event.TweetPaneEvent;
 import apps.components.tweetpane.listener.TweetPaneListener;
 import db.TweetDB;
 import db.UserDB;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import models.User;
+import models.Tweet;
 
 public class TweetPaneFXML
 {
     private TweetPaneListener listener;
+
+    private String tweetId;
+    private Long ownerId;
 
     public Text retweetText;
     public Text usernameText;
@@ -33,6 +36,11 @@ public class TweetPaneFXML
 
     public void setTweetPane(String[] tweetsId)
     {
+        Tweet tweet = TweetDB.getTweetDB().get(tweetsId[0]);
+
+        this.tweetId = tweet.getId();
+        this.ownerId = tweet.getOwner();
+
         if (tweetsId[1].equals("0"))
         {
             this.retweetText.setVisible(false);
@@ -40,64 +48,84 @@ public class TweetPaneFXML
         else
         {
             this.retweetText.setVisible(true);
-            this.retweetText.setText("retweeted by " + UserDB.getUserDB().get(tweetsId[1]).getUsername());
+            this.retweetText.setText("retweeted by " + UserDB.getUserDB().get(Long.parseLong(tweetsId[1])).getUsername());
         }
 
-        long ownerId = TweetDB.getTweetDB().get(tweetsId[0]).getOwner();
-        this.usernameText.setText("@" + UserDB.getUserDB().get(ownerId).getUsername());
+        this.usernameText.setText("@" + UserDB.getUserDB().get(this.ownerId).getUsername());
 
-        this.tweetText.setText(TweetDB.getTweetDB().get(tweetsId[0]).getText());
+        this.tweetText.setText(tweet.getText());
 
-        // TODO set picture
+        this.upvoteButton.setText("Upvote (" + tweet.getUpvotes().size() + ")");
+        this.downvoteButton.setText("Downvote (" + tweet.getDownvotes().size() + ")");
+        this.retweetButton.setText("Retweet (" + tweet.getRetweets().size() + ")");
+    }
+
+    public Long getOwnerId()
+    {
+        return ownerId;
+    }
+
+    public String getTweetId()
+    {
+        return tweetId;
+    }
+
+    public void refreshButtons()
+    {
+        Tweet tweet = TweetDB.getTweetDB().get(this.tweetId);
+
+        this.upvoteButton.setText("Upvote (" + tweet.getUpvotes().size() + ")");
+        this.downvoteButton.setText("Downvote (" + tweet.getDownvotes().size() + ")");
+        this.retweetButton.setText("Retweet (" + tweet.getRetweets().size() + ")");
     }
 
     public void viewImage()
     {
-        listener.eventOccurred(viewImageButton);
+        listener.eventOccurred(new TweetPaneEvent(viewImageButton));
     }
 
     public void upvote()
     {
-        listener.eventOccurred(upvoteButton);
+        listener.eventOccurred(new TweetPaneEvent(upvoteButton));
     }
 
     public void downvote()
     {
-        listener.eventOccurred(downvoteButton);
+        listener.eventOccurred(new TweetPaneEvent(downvoteButton));
     }
 
     public void retweet()
     {
-        listener.eventOccurred(retweetButton);
+        listener.eventOccurred(new TweetPaneEvent(retweetButton));
     }
 
     public void save()
     {
-        listener.eventOccurred(saveButton);
+        listener.eventOccurred(new TweetPaneEvent(saveButton));
     }
 
     public void send()
     {
-        listener.eventOccurred(sendButton);
+        listener.eventOccurred(new TweetPaneEvent(sendButton));
     }
 
     public void report()
     {
-        listener.eventOccurred(reportButton);
+        listener.eventOccurred(new TweetPaneEvent(reportButton));
     }
 
     public void viewTweet()
     {
-        listener.eventOccurred(viewTweetButton);
+        listener.eventOccurred(new TweetPaneEvent(viewTweetButton));
     }
 
     public void comment()
     {
-        listener.eventOccurred(commentButton);
+        listener.eventOccurred(new TweetPaneEvent(commentButton));
     }
 
     public void viewUser()
     {
-        listener.eventOccurred(viewUserButton);
+        listener.eventOccurred(new TweetPaneEvent(viewUserButton));
     }
 }

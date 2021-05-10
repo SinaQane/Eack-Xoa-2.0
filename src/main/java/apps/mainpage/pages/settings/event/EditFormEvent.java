@@ -12,6 +12,7 @@ public class EditFormEvent extends EventObject
     private final String email;
     private final String phoneNumber;
     private final String bio;
+    private final String picPath;
     private final Date birthDate;
     private final boolean privateState;
     private final boolean infoState;
@@ -19,7 +20,7 @@ public class EditFormEvent extends EventObject
 
     public EditFormEvent(Object source, String username, String password, String name,
                          String email, String phoneNumber, String bio, Date birthDate,
-                         boolean privateState, boolean infoState, int lastSeenState)
+                         boolean privateState, boolean infoState, int lastSeenState, String picPath)
     {
         super(source);
         this.username = username.toLowerCase(Locale.ROOT);
@@ -32,6 +33,7 @@ public class EditFormEvent extends EventObject
         this.privateState = privateState;
         this.infoState = infoState;
         this.lastSeenState = lastSeenState;
+        this.picPath = picPath;
     }
 
     public String getUsername()
@@ -82,5 +84,10 @@ public class EditFormEvent extends EventObject
     public int getLastSeenState()
     {
         return lastSeenState;
+    }
+
+    public String getPicPath()
+    {
+        return picPath;
     }
 }

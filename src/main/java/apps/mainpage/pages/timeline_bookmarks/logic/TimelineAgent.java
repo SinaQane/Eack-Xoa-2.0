@@ -24,7 +24,7 @@ public class TimelineAgent
 
     // A list containing Triple Lists containing three tweets, each for one page.
     // Double Strings for each tweet: 1. tweet's id - 2. is it retweeted? (0 for no and id of retweet-er for yes)
-    public List<List<String[]>> getTweets()
+    public List<List<String[]>> getTweets() // TODO check if the tweet is deleted, ...
     {
         List<String[]> tweets = new LinkedList<>();
 

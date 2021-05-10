@@ -2,8 +2,6 @@ package models;
 
 import db.TweetDB;
 import db.UserDB;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,8 +10,6 @@ import java.util.List;
 
 public class Tweet
 {
-    static private final Logger logger = LogManager.getLogger(Tweet.class); // TODO use logger
-
     // Tweet info
 
     /*
@@ -83,36 +79,6 @@ public class Tweet
         return this.visible;
     }
 
-    public void deleteTweet()
-    {
-        this.visible = false;
-    }
-
-    public void setUpperTweet(Tweet upperTweet)
-    {
-        this.upperTweetId = upperTweet.getId();
-    }
-
-    public Tweet getUpperTweet()
-    {
-        return TweetDB.getTweetDB().get(this.upperTweetId);
-    }
-
-    public void addComment(Tweet comment)
-    {
-        this.comments.add(comment.getId());
-    }
-
-    public void removeComment(Tweet comment)
-    {
-        this.comments.remove(comment.getId());
-    }
-
-    public List<String> getComments()
-    {
-        return this.comments;
-    }
-
     public void addUpvote(User user)
     {
         this.upvotes.add(user.getId());
@@ -143,12 +109,12 @@ public class Tweet
         return this.downvotes;
     }
 
-    public void addRetweets(User user)
+    public void addRetweet(User user)
     {
         this.retweets.add(user.getId());
     }
 
-    public void removeRetweets(User user)
+    public void removeRetweet(User user)
     {
         this.retweets.remove(user.getId());
     }
@@ -158,14 +124,43 @@ public class Tweet
         return this.retweets;
     }
 
-    public void reported()
-    {
-        this.reports++;
-        // TODO check the number of reports...
-    }
-
     public int getReports()
     {
         return this.reports;
+    }
+
+    public void addReport()
+    {
+        this.reports++;
+    }
+
+    public void deleteTweet()
+    {
+        this.visible = false;
+    }
+
+    public void setUpperTweet(Tweet upperTweet)
+    {
+        this.upperTweetId = upperTweet.getId();
+    }
+
+    public Tweet getUpperTweet()
+    {
+        return TweetDB.getTweetDB().get(this.upperTweetId);
+    }
+
+    public void addComment(Tweet comment)
+    {
+        this.comments.add(comment.getId());
+    }
+
+    public void removeComment(Tweet comment)
+    {
+        this.comments.remove(comment.getId());
+    }
+
+    public List<String> getComments()
+    {
+        return this.comments;
     }
 }

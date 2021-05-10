@@ -3,5 +3,4 @@
 <?import javafx.scene.layout.Pane?>
 
 <Pane prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425 ;"
-      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="apps.components.tweetpane.view.TweetPaneFXML"/>
+      xmlns="http://javafx.com/javafx/16"/>

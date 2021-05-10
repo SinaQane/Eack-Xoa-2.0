@@ -65,6 +65,7 @@ public class EditAgent
         MainPageAgent.getMainPageAgent().getUser().getProfile().setPrivate(editFormEvent.isPrivateState());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setInfoState(editFormEvent.isInfoState());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setLastSeenState(editFormEvent.getLastSeenState());
+        MainPageAgent.getMainPageAgent().getUser().getProfile().setPicturePath(editFormEvent.getPicPath());
         UserDB.getUserDB().save(MainPageAgent.getMainPageAgent().getUser());
     }
 }

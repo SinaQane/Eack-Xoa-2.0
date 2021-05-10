@@ -1,0 +1,16 @@
+{
+  "id": "3-1",
+  "owner": 3,
+  "text": "user 3 tweet 1",
+  "picturePath": "",
+  "tweetDate": "May 09, 2021  00:25:06.186",
+  "visible": true,
+  "upperTweetId": "",
+  "comments": [],
+  "upvotes": [
+    1
+  ],
+  "downvotes": [],
+  "retweets": [],
+  "reports": 1
+}
