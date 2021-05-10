@@ -139,9 +139,14 @@ public class Tweet
         this.visible = false;
     }
 
-    public void setUpperTweet(Tweet upperTweet)
+    public void setUpperTweetId(String upperTweet)
     {
-        this.upperTweetId = upperTweet.getId();
+        this.upperTweetId = upperTweet;
+    }
+
+    public String getUpperTweetId()
+    {
+        return this.upperTweetId;
     }
 
     public Tweet getUpperTweet()

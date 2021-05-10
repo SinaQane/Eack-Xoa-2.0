@@ -19,24 +19,26 @@ public class EditFormListener
 
     public void eventOccurred(EditFormEvent eventObject)
     {
-        if (((Button) eventObject.getSource()).getId().equals("editButton"))
-        {
-            EditAgent editAgent = new EditAgent(eventObject);
-            FXMLLoader settingsPaneLoader = settingsPane.getLoader();
-            SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
-            if (!editAgent.check().equals("Valid"))
-            {
-                settingsPaneController.getMessageText().setText(editAgent.check());
-                settingsPaneController.getMessageText().setFill(Color.RED);
-                settingsPaneController.getMessageText().setVisible(true);
-            }
-            else
-            {
-                settingsPaneController.getMessageText().setText("Edit successful!");
-                settingsPaneController.getMessageText().setFill(Color.GREEN);
-                settingsPaneController.getMessageText().setVisible(true);
-                editAgent.edit();
-            }
+        switch (((Button) eventObject.getSource()).getId()) {
+            case "editButton":
+                EditAgent editAgent = new EditAgent(eventObject);
+                FXMLLoader settingsPaneLoader = settingsPane.getLoader();
+                SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
+                if (!editAgent.check().equals("Valid")) {
+                    settingsPaneController.getMessageText().setText(editAgent.check());
+                    settingsPaneController.getMessageText().setFill(Color.RED);
+                    settingsPaneController.getMessageText().setVisible(true);
+                } else {
+                    settingsPaneController.getMessageText().setText("Edit successful!");
+                    settingsPaneController.getMessageText().setFill(Color.GREEN);
+                    settingsPaneController.getMessageText().setVisible(true);
+                    editAgent.edit();
+                }
+                break;
+            case "deleteAccountButton": // TODO Add this
+            case "deactivationButton": // TODO Add this
+                System.out.println(((Button) eventObject.getSource()).getId());
+                break;
         }
     }
 }

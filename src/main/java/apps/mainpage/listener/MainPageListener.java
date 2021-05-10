@@ -50,7 +50,7 @@ public class MainPageListener
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("bookmarks", 0).getTimelinePane());
                 break;
             default:
-                System.out.println("Not  added yet...");
+                System.out.println(((Button) source).getId());
                 break;
         }
     }

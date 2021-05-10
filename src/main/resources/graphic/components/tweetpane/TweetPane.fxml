@@ -23,4 +23,5 @@
    <Button fx:id="viewTweetButton" layoutX="651.0" layoutY="106.0" mnemonicParsing="false" onAction="#viewTweet" style="-fx-background-color: #1E2425 ;" text="View" textFill="#352bff" />
    <Button fx:id="commentButton" layoutX="406.0" layoutY="106.0" mnemonicParsing="false" onAction="#comment" style="-fx-background-color: #1E2425 ;" text="Comment" textFill="#352bff" />
    <Button fx:id="viewUserButton" layoutX="634.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewUser" style="-fx-background-color: #1E2425 ;" text="View User" textFill="#352bff" />
+   <Button fx:id="viewUpperTweetButton" layoutX="469.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewUpperTweet" style="-fx-background-color: #1E2425 ;" text="View Upper Tweet" textFill="#352bff" visible="false" />
 </Pane>

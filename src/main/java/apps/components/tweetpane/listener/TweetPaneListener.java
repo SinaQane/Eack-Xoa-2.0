@@ -1,12 +1,13 @@
 package apps.components.tweetpane.listener;
 
-import apps.components.imageframe.ImageFrame;
-import apps.components.tweetpane.event.TweetPaneEvent;
+import apps.imageframe.ImageFrame;
 import apps.components.tweetpane.logic.TweetPaneAgent;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
+import apps.newtweet.view.NewTweetFrame;
+import apps.newtweet.view.NewTweetFrameFXML;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
@@ -14,11 +15,13 @@ import db.TweetDB;
 import db.UserDB;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import models.Tweet;
 import models.User;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.EventObject;
 
 // A listener for TweetPane.fxml panes
 public class TweetPaneListener
@@ -30,7 +33,7 @@ public class TweetPaneListener
         this.tweetPane = tweetPane;
     }
 
-    public void eventOccurred(TweetPaneEvent eventObject)
+    public void eventOccurred(EventObject eventObject)
     {
         User ourUser = MainPageAgent.getMainPageAgent().getUser();
         User otherUser = UserDB.getUserDB().get(((TweetPaneFXML) tweetPane.getLoader().getController()).getOwnerId());
@@ -94,8 +97,18 @@ public class TweetPaneListener
 
                 break;
             case "viewTweetButton":
+                Pane viewTweet = PanesController.getPanesController().getTweetsListPane(tweet.getId(), 0).getListPane();
+                ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewTweet);
+                break;
+            case "viewUpperTweetButton":
+                Pane viewUpper = PanesController.getPanesController().getTweetsListPane(tweet.getUpperTweetId(), 0).getListPane();
+                ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewUpper);
+                break;
             case "commentButton":
-            case "sendButton":
+                NewTweetFrame tweetFrame = new NewTweetFrame(tweet.getId());
+                ((NewTweetFrameFXML) tweetFrame.getLoader().getController()).setUpperTweet(tweet.getId());
+                break;
+            case "sendButton": // TODO add this after adding direct messages
                 System.out.println(((Button) eventObject.getSource()).getId());
                 break;
         }
