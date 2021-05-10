@@ -1,6 +1,7 @@
 package apps.mainpage.pages.profile_viewuser.listener;
 
 import apps.components.imageframe.ImageFrame;
+import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.event.UserViewEvent;
 import apps.mainpage.pages.profile_viewuser.logic.UserViewAgent;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
@@ -71,7 +72,7 @@ public class UserViewListener
                 }
                 else
                 {
-                    imagePath = "src/main/resources/defaultPic.png";
+                    imagePath = "src/main/resources/images/defaultPic.png";
                 }
 
                 try
@@ -81,8 +82,14 @@ public class UserViewListener
 
                 break;
             case "viewFollowersButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followers", otherUser.getId(), 0).getListPane());
+                break;
             case "viewFollowingsButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followings", otherUser.getId(), 0).getListPane());
+                break;
             case "viewBlacklistButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getListPane());
+                break;
             case "sendMessageButton":
                 System.out.println(((Button) eventObject.getSource()).getId());
                 break;

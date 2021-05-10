@@ -7,11 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import models.User;
 
 public class TweetsPaneFXML
 {
     private ProfileListener listener;
 
+    private User user;
     private int page;
 
     public Pane tweetsPane;
@@ -27,6 +29,11 @@ public class TweetsPaneFXML
     public void setListener(ProfileListener listener)
     {
         this.listener = listener;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
     }
 
     public void setPage(int page)
@@ -68,13 +75,13 @@ public class TweetsPaneFXML
 
     public void previous()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.page);
+        PageFormEvent pageEvent = new PageFormEvent(this.user, this.page);
         listener.eventOccurred(new ProfileEvent(previousButton, pageEvent));
     }
 
     public void next()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.page);
+        PageFormEvent pageEvent = new PageFormEvent(this.user, this.page);
         listener.eventOccurred(new ProfileEvent(nextButton, pageEvent));
     }
 
