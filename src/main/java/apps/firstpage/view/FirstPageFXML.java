@@ -1,7 +1,7 @@
 package apps.firstpage.view;
 
 import javafx.fxml.Initializable;
-import listeners.StringListener;
+import listener.StringListener;
 
 import java.net.URL;
 import java.util.ResourceBundle;

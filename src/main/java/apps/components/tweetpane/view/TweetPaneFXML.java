@@ -1,12 +1,13 @@
 package apps.components.tweetpane.view;
 
-import apps.components.tweetpane.event.TweetPaneEvent;
 import apps.components.tweetpane.listener.TweetPaneListener;
 import db.TweetDB;
 import db.UserDB;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import models.Tweet;
+
+import java.util.EventObject;
 
 public class TweetPaneFXML
 {
@@ -28,6 +29,7 @@ public class TweetPaneFXML
     public Button viewTweetButton;
     public Button commentButton;
     public Button viewUserButton;
+    public Button viewUpperTweetButton;
 
     public void setListener(TweetPaneListener listener)
     {
@@ -55,6 +57,8 @@ public class TweetPaneFXML
 
         this.tweetText.setText(tweet.getText());
 
+        this.viewUpperTweetButton.setVisible(tweet.getUpperTweet() != null);
+
         this.upvoteButton.setText("Upvote (" + tweet.getUpvotes().size() + ")");
         this.downvoteButton.setText("Downvote (" + tweet.getDownvotes().size() + ")");
         this.retweetButton.setText("Retweet (" + tweet.getRetweets().size() + ")");
@@ -81,51 +85,56 @@ public class TweetPaneFXML
 
     public void viewImage()
     {
-        listener.eventOccurred(new TweetPaneEvent(viewImageButton));
+        listener.eventOccurred(new EventObject(viewImageButton));
     }
 
     public void upvote()
     {
-        listener.eventOccurred(new TweetPaneEvent(upvoteButton));
+        listener.eventOccurred(new EventObject(upvoteButton));
     }
 
     public void downvote()
     {
-        listener.eventOccurred(new TweetPaneEvent(downvoteButton));
+        listener.eventOccurred(new EventObject(downvoteButton));
     }
 
     public void retweet()
     {
-        listener.eventOccurred(new TweetPaneEvent(retweetButton));
+        listener.eventOccurred(new EventObject(retweetButton));
     }
 
     public void save()
     {
-        listener.eventOccurred(new TweetPaneEvent(saveButton));
+        listener.eventOccurred(new EventObject(saveButton));
     }
 
     public void send()
     {
-        listener.eventOccurred(new TweetPaneEvent(sendButton));
+        listener.eventOccurred(new EventObject(sendButton));
     }
 
     public void report()
     {
-        listener.eventOccurred(new TweetPaneEvent(reportButton));
+        listener.eventOccurred(new EventObject(reportButton));
     }
 
     public void viewTweet()
     {
-        listener.eventOccurred(new TweetPaneEvent(viewTweetButton));
+        listener.eventOccurred(new EventObject(viewTweetButton));
     }
 
     public void comment()
     {
-        listener.eventOccurred(new TweetPaneEvent(commentButton));
+        listener.eventOccurred(new EventObject(commentButton));
     }
 
     public void viewUser()
     {
-        listener.eventOccurred(new TweetPaneEvent(viewUserButton));
+        listener.eventOccurred(new EventObject(viewUserButton));
+    }
+
+    public void viewUpperTweet()
+    {
+        listener.eventOccurred(new EventObject(viewUpperTweetButton));
     }
 }

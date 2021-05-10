@@ -10,10 +10,14 @@
   "isActive": true,
   "profile": {
     "ownerId": 3,
-    "picturePath" : "",
     "lastTweetId": 3,
-    "followers": [1],
-    "followings": [1],
+    "picturePath": "",
+    "followers": [
+      1
+    ],
+    "followings": [
+      1
+    ],
     "blocked": [],
     "muted": [],
     "requests": [],

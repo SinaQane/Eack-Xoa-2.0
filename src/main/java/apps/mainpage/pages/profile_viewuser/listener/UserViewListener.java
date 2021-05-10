@@ -1,6 +1,6 @@
 package apps.mainpage.pages.profile_viewuser.listener;
 
-import apps.components.imageframe.ImageFrame;
+import apps.imageframe.ImageFrame;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.event.UserViewEvent;
 import apps.mainpage.pages.profile_viewuser.logic.UserViewAgent;
@@ -83,7 +83,7 @@ public class UserViewListener
             case "viewBlacklistButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getListPane());
                 break;
-            case "sendMessageButton":
+            case "sendMessageButton": // TODO add this after adding direct messages
                 System.out.println(((Button) eventObject.getSource()).getId());
                 break;
         }

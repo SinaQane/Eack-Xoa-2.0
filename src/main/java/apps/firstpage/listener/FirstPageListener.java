@@ -3,7 +3,7 @@ package apps.firstpage.listener;
 import apps.authentication.login.view.LoginPage;
 import apps.authentication.signup.view.SignUpPage;
 import javafx.stage.Stage;
-import listeners.StringListener;
+import listener.StringListener;
 
 public class FirstPageListener implements StringListener
 {

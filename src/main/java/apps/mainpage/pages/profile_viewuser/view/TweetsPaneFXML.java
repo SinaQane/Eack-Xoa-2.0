@@ -87,6 +87,7 @@ public class TweetsPaneFXML
 
     public void tweet()
     {
-        listener.eventOccurred(new ProfileEvent(tweetButton));
+        PageFormEvent pageEvent = new PageFormEvent(this.user, this.page);
+        listener.eventOccurred(new ProfileEvent(tweetButton, pageEvent));
     }
 }
