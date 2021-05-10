@@ -24,7 +24,9 @@ public class ProfileListener
     public void eventOccurred(ProfileEvent eventObject)
     {
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
-        int page;
+
+        long id = eventObject.getPageEvent().getUser().getId();
+        int page = eventObject.getPageEvent().getPage();
 
         switch (((Button) eventObject.getSource()).getId())
         {
@@ -35,12 +37,10 @@ public class ProfileListener
                 fxmlController.setMainPane(addTweetPane.getNewTweetPane());
                 break;
             case "nextButton":
-                page = eventObject.getPageEvent().getPage();
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(page + 1).getProfilePane());
+                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(id, page + 1).getProfilePane());
                 break;
             case "previousButton":
-                page = eventObject.getPageEvent().getPage();
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(page - 1).getProfilePane());
+                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(id, page - 1).getProfilePane());
                 break;
             case "sendTweetButton":
                 String tweetText = eventObject.getTweetEvent().getTweetText();

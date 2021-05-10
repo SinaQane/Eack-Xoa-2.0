@@ -3,6 +3,8 @@ package apps.mainpage.logic;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.pages.settings.view.SettingsPane;
 import apps.mainpage.pages.timeline_bookmarks.view.TimelinePane;
+import apps.mainpage.pages.viewlist.view.UsersList;
+import db.UserDB;
 
 // A singleton class to return every main pane.
 public class PanesController
@@ -25,10 +27,26 @@ public class PanesController
         return panesController;
     }
 
+    // Our user's profilePane
     public ProfilePane getProfilePane(int page)
     {
         this.profilePane.refresh(page);
         return this.profilePane;
+    }
+
+    // Other users' profilePane
+    public ProfilePane getProfilePane(long id, int page)
+    {
+        ProfilePane profilePane = new ProfilePane(UserDB.getUserDB().get(id));
+        profilePane.refresh(page);
+        return profilePane;
+    }
+
+    public UsersList getUserslistPane(String pageKind, long id, int page)
+    {
+        UsersList usersList = new UsersList(pageKind,UserDB.getUserDB().get(id));
+        usersList.refresh(page);
+        return usersList;
     }
 
     public SettingsPane getSettingsPane()

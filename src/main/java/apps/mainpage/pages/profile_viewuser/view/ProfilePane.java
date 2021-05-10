@@ -62,6 +62,7 @@ public class ProfilePane
 
         ProfilePaneFXML fxmlController = this.loader.getController();
         tweetsPaneFXML.setListener(fxmlController.getProfileListener());
+        tweetsPaneFXML.setUser(user);
         tweetsPaneFXML.setPage(page);
 
         ProfileAgent profileAgent = new ProfileAgent(UserDB.getUserDB().get(this.user.getId()));
@@ -143,7 +144,7 @@ public class ProfilePane
         }
         else
         {
-            imagePath = "src/main/resources/defaultPic.png";
+            imagePath = "src/main/resources/images/defaultPic.png";
         }
 
         Image image = null;

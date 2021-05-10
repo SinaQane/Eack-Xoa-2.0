@@ -87,7 +87,7 @@ public class TweetPaneListener
                 }
                 else
                 {
-                    imagePath = "src/main/resources/404.png";
+                    imagePath = "src/main/resources/images/404.png";
                 }
 
                 try
