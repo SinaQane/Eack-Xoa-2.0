@@ -59,6 +59,7 @@ public class SignUpAgent
         user.setBio(signUpFormEvent.getBio());
         user.setPhoneNumber(signUpFormEvent.getPhoneNumber());
         user.setBirthDate(signUpFormEvent.getBirthDate());
+        user.getProfile().setPicturePath(signUpFormEvent.getPicPath());
         UserDB.getUserDB().save(user);
         return user;
     }

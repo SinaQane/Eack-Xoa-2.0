@@ -1,0 +1,38 @@
+{
+  "id": 2,
+  "username": "nima",
+  "password": "11111111",
+  "name": "Nima",
+  "email": "nima@mail.com",
+  "phoneNumber": "",
+  "bio": "",
+  "birthDate": "Jan 01, 1970",
+  "isActive": true,
+  "profile": {
+    "ownerId": 2,
+    "lastTweetId": 3,
+    "picturePath": "",
+    "followers": [
+      1,
+      1
+    ],
+    "followings": [],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [],
+    "userTweets": [
+      "2-1",
+      "2-2",
+      "2-3"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "privateState": false,
+    "infoState": false,
+    "lastSeenState": 1
+  }
+}

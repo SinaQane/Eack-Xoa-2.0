@@ -13,16 +13,17 @@ public class SignUpFormEvent extends EventObject
     private final String phoneNumber;
     private final String bio;
     private final Date birthDate;
+    private final String picPath;
 
     public SignUpFormEvent(Object source)
     {
         super(source);
-        this.username = this.password = this.name = this.email = this.phoneNumber = this.bio = "";
+        this.username = this.password = this.name = this.email = this.phoneNumber = this.bio = this.picPath = "";
         this.birthDate = null;
     }
 
     public SignUpFormEvent(Object source, String username, String password, String name,
-                           String email, String phoneNumber, String bio, Date birthDate)
+            String email, String phoneNumber, String bio, Date birthDate, String picPath)
     {
         super(source);
         this.username = username.toLowerCase(Locale.ROOT);
@@ -32,40 +33,46 @@ public class SignUpFormEvent extends EventObject
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.bio = bio;
+        this.picPath = picPath;
     }
 
     public String getUsername()
     {
-        return username;
+        return this.username;
     }
 
     public String getPassword()
     {
-        return password;
+        return this.password;
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public String getEmail()
     {
-        return email;
+        return this.email;
     }
 
     public String getPhoneNumber()
     {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public Date getBirthDate()
     {
-        return birthDate;
+        return this.birthDate;
     }
 
     public String getBio()
     {
-        return bio;
+        return this.bio;
+    }
+
+    public String getPicPath()
+    {
+        return this.picPath;
     }
 }

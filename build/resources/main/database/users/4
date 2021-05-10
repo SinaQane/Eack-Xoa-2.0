@@ -1,0 +1,31 @@
+{
+  "id": 4,
+  "username": "hirbod",
+  "password": "11111111",
+  "name": "Hirbod",
+  "email": "hirbod@mail.com",
+  "phoneNumber": "",
+  "bio": "",
+  "birthDate": "Jan 01, 1970",
+  "isActive": true,
+  "profile": {
+    "ownerId": 4,
+    "lastTweetId": 0,
+    "picturePath": "path",
+    "followers": [],
+    "followings": [],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [],
+    "userTweets": [],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "privateState": false,
+    "infoState": false,
+    "lastSeenState": 1
+  }
+}

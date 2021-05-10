@@ -1,6 +1,6 @@
 package apps.mainpage.logic;
 
-import apps.mainpage.pages.profile.view.ProfilePane;
+import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.pages.settings.view.SettingsPane;
 import apps.mainpage.pages.timeline_bookmarks.view.TimelinePane;
 
@@ -9,7 +9,7 @@ public class PanesController
 {
     static PanesController panesController;
 
-    ProfilePane profilePane = new ProfilePane();
+    ProfilePane profilePane = new ProfilePane(MainPageAgent.getMainPageAgent().getUser());
     SettingsPane settingsPane = new SettingsPane();
     TimelinePane timelinePane = new TimelinePane("timeline");
     TimelinePane bookmarksPane = new TimelinePane("bookmarks");

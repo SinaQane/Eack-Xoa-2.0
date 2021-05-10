@@ -9,7 +9,7 @@ import java.util.*;
 
 public class User
 {
-    static private final Logger logger = LogManager.getLogger(User.class);
+    private final Logger logger = LogManager.getLogger(User.class);
 
     private final Long id;
     private String username;
@@ -22,9 +22,6 @@ public class User
 
     private boolean isActive = true; // "true" if the page is active, "false" if it's deactivated.
 
-    private long reportedUntil = 0; // 0 if the user isn't reported
-    private int reports = 0;
-
     private final Profile profile;
 
     public User(String username, String password)
@@ -34,8 +31,7 @@ public class User
         this.username = username;
         this.password = password;
         this.profile = new Profile(this.id);
-        // "0" is just a dummy number so that I don't write the same code over again for "setUsername" instead of "changeUsername".
-        UserDB.getUserDB().changeUsername("0", this.username);
+        UserDB.getUserDB().changeUsername("0", this.username); // "0" is just a dummy number.
         UserDB.getUserDB().save(this);
     }
 
@@ -182,35 +178,6 @@ public class User
     {
         this.isActive = true;
         logger.fatal(this.id + " reactivated their account.");
-        UserDB.getUserDB().save(this); // TODO
-    }
-
-    public boolean isReported()
-    {
-        return this.reportedUntil == 0;
-    }
-
-    public long getReportedUntil()
-    {
-        return this.reportedUntil;
-    }
-
-    public void setReportedUntil(long reportedUntil)
-    {
-        this.reportedUntil = reportedUntil;
-        logger.warn(this.id + " got reported until " + reportedUntil + ".");
-        UserDB.getUserDB().save(this); // TODO
-    }
-
-    public int getReports()
-    {
-        return this.reports;
-    }
-
-    public void setReports(int reports)
-    {
-        this.reports = reports;
-        logger.warn(this.id + "'s reports changed to " + reports + ".");
         UserDB.getUserDB().save(this); // TODO
     }
 
