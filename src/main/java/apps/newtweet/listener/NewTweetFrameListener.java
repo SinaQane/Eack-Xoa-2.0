@@ -1,6 +1,9 @@
 package apps.newtweet.listener;
 
 import apps.mainpage.logic.MainPageAgent;
+import apps.mainpage.logic.PanesController;
+import apps.mainpage.view.MainPage;
+import apps.mainpage.view.MainPageFXML;
 import apps.newtweet.event.NewTweetEvent;
 import db.TweetDB;
 import javafx.scene.control.Button;
@@ -10,6 +13,8 @@ public class NewTweetFrameListener
 {
     public void eventOccurred(NewTweetEvent eventObject)
     {
+        MainPageFXML mainPageController = MainPage.getMainPage().getLoader().getController();
+
         if (((Button) eventObject.getSource()).getId().equals("sendTweetButton"))
         {
             String upperTweetId = eventObject.getTweetFormEvent().getUpperTweet();
@@ -26,5 +31,7 @@ public class NewTweetFrameListener
                 TweetDB.getTweetDB().save(upperTweet);
             }
         }
+
+        mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(MainPageAgent.getMainPageAgent().getUser().getId(), 0).getProfilePane());
     }
 }

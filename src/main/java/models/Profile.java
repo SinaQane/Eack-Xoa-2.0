@@ -28,6 +28,9 @@ public class Profile
     private final List<String> reportedTweets = new LinkedList<>();
     private final List<String> savedTweets = new LinkedList<>();
 
+    // Notifications
+    private final List<Notification> notifications = new LinkedList<>();
+
     // Privacy
     private boolean privateState; // "true" if the page is private, "false" if if it's public.
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
@@ -264,6 +267,16 @@ public class Profile
     public void removeFromSavedTweets(Tweet tweet)
     {
         this.savedTweets.remove(tweet.getId());
+    }
+
+    public List<Notification> getNotifications()
+    {
+        return this.notifications;
+    }
+
+    public void addToNotifications(Notification notification)
+    {
+        this.notifications.add(notification);
     }
 
     public List<String> getSavedTweets()

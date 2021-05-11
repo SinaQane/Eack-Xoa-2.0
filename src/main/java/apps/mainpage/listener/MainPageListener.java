@@ -1,6 +1,7 @@
 package apps.mainpage.listener;
 
 import apps.authentication.login.view.LoginPage;
+import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.view.MainPage;
@@ -33,21 +34,20 @@ public class MainPageListener
                 stage.setScene(loginPage.getScene());
                 break;
             case "profileButton":
-            {
                 ProfilePane profilePane = PanesController.getPanesController().getProfilePane(0);
                 fxmlController.setMainPane(profilePane.getProfilePane());
                 break;
-            }
             case "settingsButton":
-            {
                 fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
                 break;
-            }
             case "homeButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("timeline", 0).getTimelinePane());
                 break;
             case "bookmarksButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("bookmarks", 0).getTimelinePane());
+                break;
+            case "notificationsButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("notifications", MainPageAgent.getMainPageAgent().getUser().getId(), 0).getListPane());
                 break;
             default:
                 System.out.println(((Button) source).getId());
