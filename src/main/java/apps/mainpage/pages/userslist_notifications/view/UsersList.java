@@ -27,7 +27,7 @@ public class UsersList
 
     public UsersList(String pageKind, User user)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/userslist/UsersList.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/userslist_notifications/UsersList.fxml")));
         try
         {
             listPane = loader.load();

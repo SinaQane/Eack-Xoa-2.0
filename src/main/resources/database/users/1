@@ -10,7 +10,7 @@
   "isActive": true,
   "profile": {
     "ownerId": 1,
-    "lastTweetId": 9,
+    "lastTweetId": 10,
     "picturePath": "",
     "followers": [
       3
@@ -33,7 +33,8 @@
       "1-6",
       "1-7",
       "1-8",
-      "1-9"
+      "1-9",
+      "1-10"
     ],
     "retweetedTweets": [
       "2-1",

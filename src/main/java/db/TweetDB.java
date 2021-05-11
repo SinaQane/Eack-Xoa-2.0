@@ -4,12 +4,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import models.Tweet;
 
+import models.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
 public class TweetDB implements DBSet<Tweet>
 {
@@ -44,6 +48,25 @@ public class TweetDB implements DBSet<Tweet>
         {
             result = null;
         }
+        return result;
+    }
+
+    @Override
+    public List<Tweet> getALl()
+    {
+        List<Tweet> result = new LinkedList<>();
+        String path = "./src/main/resources/database/tweets";
+        File usersDirectory = new File(path);
+
+        for (String tweetId : Objects.requireNonNull(usersDirectory.list()))
+        {
+            try
+            {
+                Tweet tempTweet = gson.fromJson(Files.readString(Paths.get(path + "/" + tweetId)), Tweet.class);
+                result.add(tempTweet);
+            } catch (IOException ignored) {}
+        }
+
         return result;
     }
 

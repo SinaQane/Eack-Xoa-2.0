@@ -49,6 +49,9 @@ public class MainPageListener
             case "notificationsButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("notifications", MainPageAgent.getMainPageAgent().getUser().getId(), 0).getListPane());
                 break;
+            case "exploreButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getExplorePane().getPane());
+                break;
             default:
                 System.out.println(((Button) source).getId());
                 break;

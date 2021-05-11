@@ -1,5 +1,7 @@
 package apps.mainpage.logic;
 
+import apps.mainpage.pages.explore.view.ExplorePane;
+import apps.mainpage.pages.explore.view.SearchResultsPane;
 import apps.mainpage.pages.profile_viewuser.listener.ProfileListener;
 import apps.mainpage.pages.profile_viewuser.listener.UserViewListener;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
@@ -94,5 +96,19 @@ public class PanesController
         ((TimelinePaneFXML) this.timelinePane.getLoader().getController()).setListener(new TimelineListener());
         this.timelinePane.refresh(page);
         return this.timelinePane;
+    }
+
+    public ExplorePane getExplorePane()
+    {
+        ExplorePane explorePane = new ExplorePane();
+        explorePane.refresh();
+        return explorePane;
+    }
+
+    public SearchResultsPane getSearchResultsPane(String searched, int page)
+    {
+        SearchResultsPane searchPane = new SearchResultsPane(searched);
+        searchPane.refresh(page);
+        return searchPane;
     }
 }

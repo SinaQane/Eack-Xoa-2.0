@@ -42,11 +42,11 @@ public class UserDB implements DBSet<User>
         String path = "./src/main/resources/database/users";
         File usersDirectory = new File(path);
         User result = null;
-        for (String userName : Objects.requireNonNull(usersDirectory.list()))
+        for (String userId : Objects.requireNonNull(usersDirectory.list()))
         {
             try
             {
-                User tempUser = gson.fromJson(Files.readString(Paths.get(path + "/" + userName)), User.class);
+                User tempUser = gson.fromJson(Files.readString(Paths.get(path + "/" + userId)), User.class);
                 if (tempUser.getUsername().equals(username))
                 {
                     result = tempUser;
@@ -69,6 +69,25 @@ public class UserDB implements DBSet<User>
         {
             result = null;
         }
+        return result;
+    }
+
+    @Override
+    public List<User> getALl()
+    {
+        List<User> result = new LinkedList<>();
+        String path = "./src/main/resources/database/users";
+        File usersDirectory = new File(path);
+
+        for (String userId : Objects.requireNonNull(usersDirectory.list()))
+        {
+            try
+            {
+                User tempUser = gson.fromJson(Files.readString(Paths.get(path + "/" + userId)), User.class);
+                result.add(tempUser);
+            } catch (IOException ignored) {}
+        }
+
         return result;
     }
 
