@@ -1,0 +1,18 @@
+2021-05-12 03:29:13.758 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
+2021-05-12 03:29:13.767 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:13.768 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 03:29:14.244 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
+2021-05-12 03:29:14.246 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:14.247 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 03:29:14.440 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
+2021-05-12 03:29:14.442 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:14.444 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 03:29:14.721 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
+2021-05-12 03:29:14.722 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:14.724 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 03:29:15.444 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
+2021-05-12 03:29:15.445 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:15.446 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 03:29:16.202 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
+2021-05-12 03:29:16.204 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 03:29:16.205 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.

@@ -24,6 +24,7 @@
     "downvotedTweets": [],
     "reportedTweets": [],
     "savedTweets": [],
+    "notifications": [],
     "privateState": false,
     "infoState": false,
     "lastSeenState": 1

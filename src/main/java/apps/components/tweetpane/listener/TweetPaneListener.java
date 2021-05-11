@@ -94,7 +94,6 @@ public class TweetPaneListener
                 {
                     new ImageFrame(new Image(new File(imagePath).toURI().toURL().toExternalForm()));
                 } catch (MalformedURLException ignored) {}
-
                 break;
             case "viewTweetButton":
                 Pane viewTweet = PanesController.getPanesController().getTweetsListPane(tweet.getId(), 0).getListPane();
