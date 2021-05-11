@@ -21,7 +21,7 @@ public class TweetsList
 
     public TweetsList(Tweet tweet)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/tweetslist/TweetsList.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/tweetslist/TweetsList.fxml")));
         try
         {
             listPane = loader.load();

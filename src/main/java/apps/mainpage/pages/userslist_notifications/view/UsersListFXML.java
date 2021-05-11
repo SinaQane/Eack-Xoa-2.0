@@ -1,8 +1,8 @@
-package apps.mainpage.pages.userslist.view;
+package apps.mainpage.pages.userslist_notifications.view;
 
-import apps.mainpage.pages.userslist.event.PageFormEvent;
-import apps.mainpage.pages.userslist.event.UsersListEvent;
-import apps.mainpage.pages.userslist.listener.UsersListListener;
+import apps.mainpage.pages.userslist_notifications.event.PageFormEvent;
+import apps.mainpage.pages.userslist_notifications.event.UsersListEvent;
+import apps.mainpage.pages.userslist_notifications.listener.UsersListListener;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import models.User;

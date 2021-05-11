@@ -23,7 +23,7 @@ public class TimelinePane
     {
         this.pageKind = pageKind;
 
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/timeline_bookmarks/Timeline.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/timeline_bookmarks/Timeline.fxml")));
         try
         {
             timelinePane = loader.load();

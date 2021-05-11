@@ -29,7 +29,7 @@ public class ProfilePane
 
     public ProfilePane(User user)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/profile_viewuser/Profile.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/profile_viewuser/Profile.fxml")));
         try
         {
             profilePane = loader.load();

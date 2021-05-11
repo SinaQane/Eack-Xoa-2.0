@@ -1,4 +1,4 @@
-package apps.mainpage.pages.userslist.logic;
+package apps.mainpage.pages.userslist_notifications.logic;
 
 import models.User;
 

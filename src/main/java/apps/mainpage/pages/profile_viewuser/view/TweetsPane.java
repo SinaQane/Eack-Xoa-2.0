@@ -13,7 +13,7 @@ public class TweetsPane
 
     public TweetsPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/profile_viewuser/TweetsPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/profile_viewuser/TweetsPane.fxml")));
         try
         {
             tweetsPane = loader.load();

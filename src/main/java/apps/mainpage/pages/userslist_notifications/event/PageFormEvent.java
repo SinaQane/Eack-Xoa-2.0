@@ -1,4 +1,4 @@
-package apps.mainpage.pages.userslist.event;
+package apps.mainpage.pages.userslist_notifications.event;
 
 import models.User;
 

@@ -14,7 +14,7 @@ public class SettingsPane
 
     public SettingsPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/pages/settings/Settings.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/settings/Settings.fxml")));
         try
         {
             settingsPane = loader.load();

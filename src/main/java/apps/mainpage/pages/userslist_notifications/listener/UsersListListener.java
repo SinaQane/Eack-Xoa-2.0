@@ -1,7 +1,7 @@
-package apps.mainpage.pages.userslist.listener;
+package apps.mainpage.pages.userslist_notifications.listener;
 
 import apps.mainpage.logic.PanesController;
-import apps.mainpage.pages.userslist.event.UsersListEvent;
+import apps.mainpage.pages.userslist_notifications.event.UsersListEvent;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
 import javafx.scene.control.Button;
