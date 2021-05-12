@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class UserViewAgent
 {
-    private final Logger logger = LogManager.getLogger(UserViewAgent.class);
+    private static final Logger logger = LogManager.getLogger(UserViewAgent.class);
 
     private final User ourUser;
     private final User otherUser;

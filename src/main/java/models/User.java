@@ -9,7 +9,7 @@ import java.util.*;
 
 public class User
 {
-    private final Logger logger = LogManager.getLogger(User.class);
+    private static final Logger logger = LogManager.getLogger(User.class);
 
     private final Long id;
     private String username;

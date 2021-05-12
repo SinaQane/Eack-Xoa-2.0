@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class NotificationPaneAgent
 {
-    private final Logger logger = LogManager.getLogger(NotificationPaneAgent.class);
+    private static final Logger logger = LogManager.getLogger(NotificationPaneAgent.class);
 
     private final long otherUser;
 

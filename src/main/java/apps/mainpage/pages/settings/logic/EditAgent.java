@@ -62,27 +62,27 @@ public class EditAgent
     {
         String oldUsername = MainPageAgent.getMainPageAgent().getUser().getUsername();
         String newUsername = editFormEvent.getUsername();
+        MainPageAgent.getMainPageAgent().getUser().setUsername(newUsername);
         if (!oldUsername.equals(newUsername))
         {
             UserDB.getUserDB().changeUsername(Objects.requireNonNullElse(oldUsername, "0"), newUsername);
         }
-        MainPageAgent.getMainPageAgent().getUser().setUsername(newUsername);
 
         String oldEmail = MainPageAgent.getMainPageAgent().getUser().getEmail();
         String newEmail = editFormEvent.getEmail();
+        MainPageAgent.getMainPageAgent().getUser().setEmail(newEmail);
         if (!oldEmail.equals(newEmail))
         {
             UserDB.getUserDB().changeEmail(Objects.requireNonNullElse(oldEmail, "0"), newEmail);
         }
-        MainPageAgent.getMainPageAgent().getUser().setEmail(newEmail);
 
         String oldPhoneNumber = MainPageAgent.getMainPageAgent().getUser().getPhoneNumber();
         String newPhoneNumber = editFormEvent.getPhoneNumber();
+        MainPageAgent.getMainPageAgent().getUser().setPhoneNumber(newPhoneNumber);
         if (!oldPhoneNumber.equals(newPhoneNumber))
         {
             UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(oldPhoneNumber, "0"), newPhoneNumber);
         }
-        MainPageAgent.getMainPageAgent().getUser().setPhoneNumber(newPhoneNumber);
 
         MainPageAgent.getMainPageAgent().getUser().setPassword(editFormEvent.getPassword());
         MainPageAgent.getMainPageAgent().getUser().setName(editFormEvent.getName());
@@ -119,6 +119,10 @@ public class EditAgent
             otherUser.getProfile().removeFromMuted(user);
             UserDB.getUserDB().save(otherUser);
         }
+
+        UserDB.getUserDB().changeUsername(user.getUsername(), "");
+        UserDB.getUserDB().changeEmail(user.getEmail(), "");
+        UserDB.getUserDB().changePhoneNumber(user.getPhoneNumber(), "");
 
         user.deleteAccount();
         UserDB.getUserDB().save(user);
