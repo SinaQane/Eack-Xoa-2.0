@@ -1,6 +1,7 @@
 package apps.mainpage.view;
 
 import apps.mainpage.listener.MainPageListener;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -12,6 +13,7 @@ public class MainPageFXML
     public Text mainPageLabel;
     public Pane mainPane;
 
+    public Button backButton;
     public Button homeButton;
     public Button exploreButton;
     public Button notificationsButton;
@@ -41,6 +43,11 @@ public class MainPageFXML
     public Pane getMainPane()
     {
         return this.mainPane;
+    }
+
+    public void back()
+    {
+        listener.eventOccurred(backButton);
     }
 
     public void home()

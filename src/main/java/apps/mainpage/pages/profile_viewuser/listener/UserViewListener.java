@@ -1,6 +1,9 @@
 package apps.mainpage.pages.profile_viewuser.listener;
 
 import apps.imageframe.ImageFrame;
+import apps.mainpage.event.PageMemory;
+import apps.mainpage.logic.BackButtonAgent;
+import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.event.UserViewEvent;
 import apps.mainpage.pages.profile_viewuser.logic.UserViewAgent;
@@ -78,12 +81,15 @@ public class UserViewListener
                 break;
             case "viewFollowersButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followers", otherUser.getId(), 0).getListPane());
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("followers", otherUser.getId()));
                 break;
             case "viewFollowingsButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followings", otherUser.getId(), 0).getListPane());
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("followings", otherUser.getId()));
                 break;
             case "viewBlacklistButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getListPane());
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("blacklist", otherUser.getId()));
                 break;
             case "sendMessageButton": // TODO direct messages
                 System.out.println(((Button) eventObject.getSource()).getId());

@@ -79,3 +79,7 @@
 2021-05-12 22:44:45.451 [JavaFX Application Thread] WARN  models.User - 1 reactivated their account.
 2021-05-12 22:44:45.455 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
 2021-05-12 22:44:45.457 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 01:40:57.162 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 01:40:57.167 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 02:04:47.066 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 02:04:47.072 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.

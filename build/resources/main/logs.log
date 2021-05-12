@@ -71,3 +71,13 @@
 2021-05-12 22:36:01.280 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
 2021-05-12 22:37:05.319 [JavaFX Application Thread] FATAL models.User - 1 deactivated their account.
 2021-05-12 22:37:05.321 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 22:44:38.786 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 22:44:38.793 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 22:44:43.119 [JavaFX Application Thread] FATAL models.User - 1 deactivated their account.
+2021-05-12 22:44:43.122 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 22:44:43.125 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 22:44:45.451 [JavaFX Application Thread] WARN  models.User - 1 reactivated their account.
+2021-05-12 22:44:45.455 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 22:44:45.457 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 01:40:57.162 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 01:40:57.167 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
