@@ -46,7 +46,6 @@ public class MainPageListener
                 break;
             case "settingsButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getSettingsPane().getSettingsPane());
-                BackButtonAgent.getBackButtonAgent().add(new PageMemory("settings"));
                 break;
             case "homeButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("timeline", 0).getTimelinePane());
