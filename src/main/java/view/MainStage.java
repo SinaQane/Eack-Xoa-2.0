@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import apps.firstpage.view.FirstPage;
 import apps.firstpage.view.FirstPageFXML;
+import utils.Config;
 
 public class MainStage
 {
@@ -40,7 +41,7 @@ public class MainStage
         MainPageFXML mainPageController = mainPageLoader.getController();
         mainPageController.setListener(new MainPageListener(stage));
 
-        stage.setTitle("Eack Xoa"); // TODO config
+        stage.setTitle(Config.getConfig("main").getProperty(String.class, "projectName"));
         stage.setScene(firstPage.getScene());
         stage.show();
     }

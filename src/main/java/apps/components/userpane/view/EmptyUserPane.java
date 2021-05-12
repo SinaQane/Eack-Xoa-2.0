@@ -2,13 +2,14 @@ package apps.components.userpane.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class EmptyUserPane
 {
-    private static final String EMPTY_USER = "../../../../graphic/components/userpane/EmptyUserPane.fxml"; // TODO config
+    private static final String EMPTY_USER = Config.getConfig("paths").getProperty(String.class, "emptyUserPane");
 
     private Pane emptyUserPane;
     private final FXMLLoader loader;

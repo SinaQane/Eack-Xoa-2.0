@@ -6,6 +6,7 @@ import apps.mainpage.pages.settings.listener.EditFormListener;
 
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import utils.Config;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,8 +14,8 @@ import java.util.Date;
 
 public class SettingsPaneFXML
 {
-    private static final String DATE_PATTERN = "yyyy-MM-dd"; // TODO config
-    private static final String DEFAULT_DATE = "1970-01-01"; // TODO config
+    private static final String DATE_PATTERN = Config.getConfig("patterns").getProperty(String.class, "tinyDate");
+    private static final String DEFAULT_DATE = Config.getConfig("patterns").getProperty(String.class, "defaultDate");
 
     private EditFormListener listener;
 

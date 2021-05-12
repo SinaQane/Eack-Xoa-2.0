@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import models.Tweet;
 import models.User;
+import utils.Config;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -25,7 +26,7 @@ import java.util.EventObject;
 
 public class TweetPaneListener
 {
-    private static final String NOT_FOUND = "src/main/resources/images/404.png"; // TODO config
+    private static final String NOT_FOUND = Config.getConfig("paths").getProperty(String.class, "notFound");
 
     private final TweetPane tweetPane;
 

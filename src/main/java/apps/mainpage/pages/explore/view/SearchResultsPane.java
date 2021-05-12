@@ -7,6 +7,7 @@ import apps.components.userpane.view.UserPaneFXML;
 import apps.mainpage.pages.explore.logic.SearchAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Objects;
 
 public class SearchResultsPane
 {
-    private static final String SEARCH_RESULTS = "../../../../../graphic/mainpage/explore/SearchResultsPane.fxml"; // TODO config
+    private static final String SEARCH_RESULTS = Config.getConfig("paths").getProperty(String.class, "searchResults");
 
     private Pane pane;
     private final FXMLLoader loader;

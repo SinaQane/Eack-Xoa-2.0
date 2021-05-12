@@ -3,6 +3,7 @@ package apps.authentication.signup.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -11,7 +12,7 @@ public class SignUpPage
 {
     static SignUpPage signUpPage;
 
-    private static final String SIGNUP_PAGE = "../../../../graphic/authentication/signup/SignUpPage.fxml"; // TODO config
+    private static final String SIGNUP_PAGE = Config.getConfig("paths").getProperty(String.class, "signUp");
 
     private final Scene scene;
     private final FXMLLoader loader;

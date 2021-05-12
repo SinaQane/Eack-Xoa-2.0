@@ -9,13 +9,14 @@ import apps.mainpage.pages.timeline_bookmarks.listener.TimelineListener;
 import apps.mainpage.pages.timeline_bookmarks.logic.TimelineAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class TimelinePane
 {
-    private static final String TIMELINE = "../../../../../graphic/mainpage/timeline_bookmarks/Timeline.fxml"; // TODO config
+    private static final String TIMELINE = Config.getConfig("paths").getProperty(String.class, "timeline");
 
     private Pane timelinePane;
     private final FXMLLoader loader;

@@ -2,13 +2,14 @@ package apps.components.tweetpane.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class EmptyTweetPane
 {
-    private static final String EMPTY_TWEET = "../../../../graphic/components/tweetpane/EmptyTweetPane.fxml"; // TODO config
+    private static final String EMPTY_TWEET = Config.getConfig("paths").getProperty(String.class, "emptyTweetPane");
 
     private Pane tweetPane;
     private final FXMLLoader loader;

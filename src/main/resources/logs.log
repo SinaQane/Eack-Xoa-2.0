@@ -30,3 +30,5 @@
 2021-05-12 17:35:27.583 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 removed their retweet for tweet 1-10
 2021-05-12 17:35:27.585 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
 2021-05-12 17:35:27.586 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.
+2021-05-12 20:31:59.021 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 20:31:59.027 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.

@@ -8,6 +8,7 @@ import apps.mainpage.pages.viewtweet.logic.TweetsListAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import models.Tweet;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Objects;
 
 public class TweetsList
 {
-    private static final String TWEETS_LIST = "../../../../../graphic/mainpage/tweetslist/TweetsList.fxml"; // TODO config
+    private static final String TWEETS_LIST = Config.getConfig("paths").getProperty(String.class, "tweetsList");
 
     private Pane listPane;
     private final FXMLLoader loader;
