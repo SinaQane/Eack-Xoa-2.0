@@ -4,6 +4,8 @@ import apps.imageframe.ImageFrame;
 import apps.components.tweetpane.logic.TweetPaneAgent;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
+import apps.mainpage.event.PageMemory;
+import apps.mainpage.logic.BackButtonAgent;
 import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.newtweet.view.NewTweetFrame;
@@ -68,6 +70,7 @@ public class TweetPaneListener
             case "viewUserButton":
                 ProfilePane userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(userPane.getProfilePane());
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("user", otherUser.getId()));
                 break;
             case "viewImageButton":
                 boolean correctPath;
@@ -100,10 +103,12 @@ public class TweetPaneListener
             case "viewTweetButton":
                 Pane viewTweet = PanesController.getPanesController().getTweetsListPane(tweet.getId(), 0).getListPane();
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewTweet);
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("tweet", tweet.getId()));
                 break;
             case "viewUpperTweetButton":
                 Pane viewUpper = PanesController.getPanesController().getTweetsListPane(tweet.getUpperTweetId(), 0).getListPane();
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewUpper);
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("tweet", tweet.getUpperTweetId()));
                 break;
             case "commentButton":
                 NewTweetFrame tweetFrame = new NewTweetFrame(tweet.getId());

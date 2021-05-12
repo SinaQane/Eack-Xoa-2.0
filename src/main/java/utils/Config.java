@@ -3,10 +3,7 @@ package utils;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class Config extends Properties
@@ -40,29 +37,6 @@ public class Config extends Properties
     public <E> E getProperty(Class<E> c, String propertyName)
     {
         return getObject(c, getProperty(propertyName));
-    }
-
-    public <E> List<E> getPropertyList(Class<E> c, String propertyName)
-    {
-        List<E> list = new ArrayList<>();
-        String[] values = getProperty(propertyName).split(",");
-        for (String value : values)
-        {
-            list.add(getObject(c, value));
-        }
-        return list;
-    }
-
-    @SuppressWarnings("unchecked")
-    public <E> E[] getPropertyArray(Class<E> c, String propertyName)
-    {
-        String[] values = getProperty(propertyName).split(",");
-        E[] result = (E[]) Array.newInstance(c, values.length);
-        for (int i = 0, valuesLength = values.length; i < valuesLength; i++)
-        {
-            result[i] = getObject(c, values[i]);
-        }
-        return result;
     }
 
     private <E> E getObject(Class<E> c, String value)

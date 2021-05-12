@@ -1,5 +1,7 @@
 package apps.components.userpane.listener;
 
+import apps.mainpage.event.PageMemory;
+import apps.mainpage.logic.BackButtonAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
@@ -15,6 +17,8 @@ public class UserPaneListener
         {
             MainPageFXML controller = MainPage.getMainPage().getLoader().getController();
             controller.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getProfilePane());
+            BackButtonAgent.getBackButtonAgent().add(new PageMemory("user", id));
+
         }
     }
 }
