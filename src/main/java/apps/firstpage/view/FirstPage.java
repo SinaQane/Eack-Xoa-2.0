@@ -3,13 +3,14 @@ package apps.firstpage.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class FirstPage
 {
-    private static final String FIRST_PAGE = "../../../graphic/firstpage/FirstPage.fxml"; // TODO config
+    private static final String FIRST_PAGE = Config.getConfig("paths").getProperty(String.class, "firstPage");
 
     private final Scene scene;
     private final FXMLLoader loader;

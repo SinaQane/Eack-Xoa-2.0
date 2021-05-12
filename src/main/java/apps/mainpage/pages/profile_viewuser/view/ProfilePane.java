@@ -14,6 +14,7 @@ import db.UserDB;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
+import utils.Config;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,13 +24,13 @@ import java.util.Objects;
 
 public class ProfilePane
 {
-    private static final String PROFILE_VIEWUSER = "../../../../../graphic/mainpage/profile_viewuser/Profile.fxml"; // TODO config
-    private static final String PROFILE_PIC = "src/main/resources/images/defaultPic.png"; // TODO config
-    private static final String DATE_PATTERN = "yyyy-MM-dd"; // TODO config
-    private static final String LIGHT_RED = "#AA0000"; // TODO config
-    private static final String DARK_RED = "#770000"; // TODO config
-    private static final String YELLOW = "#AA9900"; // TODO config
-    private static final String GREEN = "#00AA00"; // TODO config
+    private static final String PROFILE_VIEWUSER = Config.getConfig("paths").getProperty(String.class, "profile");
+    private static final String PROFILE_PIC = Config.getConfig("paths").getProperty(String.class, "profilePic");
+    private static final String DATE_PATTERN = Config.getConfig("patterns").getProperty(String.class, "tinyDate");
+    private static final String LIGHT_RED = Config.getConfig("colors").getProperty(String.class, "lightRed");
+    private static final String DARK_RED = Config.getConfig("colors").getProperty(String.class, "darkRed");
+    private static final String YELLOW = Config.getConfig("colors").getProperty(String.class, "yellow");
+    private static final String GREEN = Config.getConfig("colors").getProperty(String.class, "green");
 
     private Pane profilePane;
     private final FXMLLoader loader;

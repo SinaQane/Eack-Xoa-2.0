@@ -10,13 +10,14 @@ import apps.mainpage.view.MainPageFXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import models.User;
+import utils.Config;
 
 import java.io.File;
 import java.net.MalformedURLException;
 
 public class UserViewListener
 {
-    private static final String PROFILE_PIC = "src/main/resources/images/defaultPic.png"; // TODO config
+    private static final String PROFILE_PIC = Config.getConfig("paths").getProperty(String.class, "profilePic");
 
     public void eventOccurred(UserViewEvent eventObject)
     {

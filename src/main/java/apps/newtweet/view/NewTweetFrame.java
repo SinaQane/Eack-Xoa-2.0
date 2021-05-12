@@ -4,13 +4,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class NewTweetFrame
 {
-    private static final String NEW_TWEET = "graphic/newtweet/NewTweetFrame.fxml"; // TODO config
+    private static final String NEW_TWEET = Config.getConfig("paths").getProperty(String.class, "newTweet");
 
     private final FXMLLoader loader;
 

@@ -3,13 +3,14 @@ package apps.mainpage.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class MainPage
 {
-    private static final String MAIN_PAGE = "../../../graphic/mainpage/MainPage.fxml"; // TODO config
+    private static final String MAIN_PAGE = Config.getConfig("paths").getProperty(String.class, "mainPage");
 
     static MainPage mainPage;
 

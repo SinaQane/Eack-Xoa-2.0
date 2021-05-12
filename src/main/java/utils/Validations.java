@@ -9,14 +9,12 @@ import java.util.regex.Pattern;
 public class Validations
 {
     // Email regex
-    private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-            Pattern.compile("\\w+@[a-zA-Z]+.[a-z]+");  // TODO config
+    private static final String EMAIL_STRING = Config.getConfig("patterns").getProperty(String.class, "email.regexp");
+    private static final Pattern EMAIL_REGEX = Pattern.compile(EMAIL_STRING);
 
     // International phone number regex (like +989123456789)
-    private static final Pattern VALID_PHONE_NUMBER_REGEX =
-            Pattern.compile("\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|\n" +
-                    "2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|\n" +
-                    "4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$"); // TODO config
+    private static final String PHONE_NUMBER_STRING = Config.getConfig("patterns").getProperty(String.class, "phoneNumber.regexp");
+    private static final Pattern PHONE_NUMBER_REGEX = Pattern.compile(PHONE_NUMBER_STRING);
 
     /* Username regex with these rules:
         Only contains alphanumeric characters, underscore and dot.
@@ -25,10 +23,10 @@ public class Validations
         Underscore or dot can't be used multiple times in a row.
         Number of characters must be between 8 to 20.
      */
-    private static final Pattern VALID_USERNAME_REGEX =
-            Pattern.compile("^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"); // TODO config
+    private static final String USERNAME_STRING = Config.getConfig("patterns").getProperty(String.class, "username.regexp");
+    private static final Pattern USERNAME_REGEX = Pattern.compile(USERNAME_STRING);
 
-    private static final String DATABASE_PATH = "./src/main/resources/database/"; // TODO config
+    private static final String DATABASE_PATH = Config.getConfig("paths").getProperty(String.class, "database");
 
     static Validations validations;
 
@@ -73,7 +71,7 @@ public class Validations
 
     public boolean usernameIsInvalid(String username)
     {
-        Matcher matcher = VALID_USERNAME_REGEX.matcher(username);
+        Matcher matcher = USERNAME_REGEX.matcher(username);
         return !matcher.find();
     }
 
@@ -84,7 +82,7 @@ public class Validations
 
     public boolean emailIsInvalid(String email)
     {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
+        Matcher matcher = EMAIL_REGEX.matcher(email);
         return !matcher.find();
     }
 
@@ -103,7 +101,7 @@ public class Validations
         {
             return false;
         }
-        Matcher matcher = VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
+        Matcher matcher = PHONE_NUMBER_REGEX.matcher(phoneNumber);
         return !matcher.find();
     }
 }

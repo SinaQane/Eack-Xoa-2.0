@@ -2,13 +2,14 @@ package apps.mainpage.pages.timeline_bookmarks.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class EmptyBookmarkPane
 {
-    private static final String EMPTY_BOOKMARK = "../../../../../graphic/mainpage/timeline_bookmarks/EmptyBookmarkPane.fxml"; // TODO config
+    private static final String EMPTY_BOOKMARK = Config.getConfig("paths").getProperty(String.class, "emptyBookmark");
 
     private Pane emptyPane;
     private final FXMLLoader loader;

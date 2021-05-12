@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import utils.Config;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,8 +15,8 @@ import java.util.Date;
 
 public class SignUpFXML
 {
-    private static final String DATE_PATTERN = "yyyy-MM-dd"; // TODO config
-    private static final String DEFAULT_DATE = "1970-01-01"; // TODO config
+    private static final String DATE_PATTERN = Config.getConfig("patterns").getProperty(String.class, "tinyDate");
+    private static final String DEFAULT_DATE = Config.getConfig("patterns").getProperty(String.class, "defaultDate");
 
     private SignUpFormListener listener;
     public Text messageText;

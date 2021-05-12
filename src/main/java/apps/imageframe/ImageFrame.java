@@ -6,13 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class ImageFrame
 {
-    private static final String IMAGE_FRAME = "graphic/imageframe/ImageFrame.fxml"; // TODO config
+    private static final String IMAGE_FRAME = Config.getConfig("paths").getProperty(String.class, "imageFrame");
 
     public ImageFrame(Image image)
     {

@@ -3,13 +3,14 @@ package apps.mainpage.pages.settings.view;
 import apps.mainpage.pages.settings.listener.EditFormListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class SettingsPane
 {
-    private static final String SETTINGS = "../../../../../graphic/mainpage/settings/Settings.fxml"; // TODO config;
+    private static final String SETTINGS = Config.getConfig("paths").getProperty(String.class, "settings");
 
     private Pane settingsPane;
     private final FXMLLoader loader;

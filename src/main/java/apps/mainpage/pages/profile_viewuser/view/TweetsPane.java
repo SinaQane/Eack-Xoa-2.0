@@ -2,13 +2,14 @@ package apps.mainpage.pages.profile_viewuser.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class TweetsPane
 {
-    private static final String TWEETS_PANE = "../../../../../graphic/mainpage/profile_viewuser/TweetsPane.fxml"; // TODO config
+    private static final String TWEETS_PANE = Config.getConfig("paths").getProperty(String.class, "tweetsPane");
 
     private Pane tweetsPane;
     private final FXMLLoader loader;

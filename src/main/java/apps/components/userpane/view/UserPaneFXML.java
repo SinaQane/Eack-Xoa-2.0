@@ -7,15 +7,16 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import models.User;
+import utils.Config;
 
 import java.util.EventObject;
 
 public class UserPaneFXML
 {
-    private static final String LIGHT_RED = "#AA0000"; // TODO config
-    private static final String DARK_RED = "#770000"; // TODO config
-    private static final String YELLOW = "#AA9900"; // TODO config
-    private static final String GREEN = "#00AA00"; // TODO config
+    private static final String LIGHT_RED = Config.getConfig("colors").getProperty(String.class, "lightRed");
+    private static final String DARK_RED = Config.getConfig("colors").getProperty(String.class, "darkRed");
+    private static final String YELLOW = Config.getConfig("colors").getProperty(String.class, "yellow");
+    private static final String GREEN = Config.getConfig("colors").getProperty(String.class, "green");
 
     private UserPaneListener listener;
 

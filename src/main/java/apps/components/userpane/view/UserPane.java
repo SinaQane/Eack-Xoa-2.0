@@ -2,13 +2,14 @@ package apps.components.userpane.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class UserPane
 {
-    private static final String USER = "../../../../graphic/components/userpane/UserPane.fxml"; // TODO config
+    private static final String USER = Config.getConfig("paths").getProperty(String.class, "userPane");
 
     private Pane userPane;
     private final FXMLLoader loader;

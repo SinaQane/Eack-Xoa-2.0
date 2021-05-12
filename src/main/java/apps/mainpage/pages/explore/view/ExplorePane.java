@@ -2,13 +2,14 @@ package apps.mainpage.pages.explore.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class ExplorePane
 {
-    private static final String EXPLORE = "../../../../../graphic/mainpage/explore/Explore.fxml"; // TODO config
+    private static final String EXPLORE = Config.getConfig("paths").getProperty(String.class, "explore");
 
     private Pane explorePane;
     private final FXMLLoader loader;

@@ -2,13 +2,14 @@ package apps.components.notification.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class NotificationPane
 {
-    private static final String NOTIFICATION_PANE = "../../../../graphic/components/notification/NotificationPane.fxml"; // TODO config
+    private static final String NOTIFICATION_PANE = Config.getConfig("paths").getProperty(String.class, "notifications");
 
     private Pane notificationPane;
     private final FXMLLoader loader;

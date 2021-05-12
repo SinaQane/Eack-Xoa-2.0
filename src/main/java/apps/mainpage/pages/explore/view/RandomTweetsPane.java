@@ -7,6 +7,7 @@ import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.pages.explore.logic.RandomAgent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Objects;
 
 public class RandomTweetsPane
 {
-    private static final String RANDOM_TWEETS = "../../../../../graphic/mainpage/explore/RandomTweetsPane.fxml"; // TODO config
+    private static final String RANDOM_TWEETS = Config.getConfig("paths").getProperty(String.class, "randomTweets");
 
     private Pane pane;
     private final FXMLLoader loader;

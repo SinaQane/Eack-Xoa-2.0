@@ -2,13 +2,14 @@ package apps.components.tweetpane.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class TweetPane
 {
-    private static final String TWEET = "../../../../graphic/components/tweetpane/TweetPane.fxml"; // TODO config
+    private static final String TWEET = Config.getConfig("paths").getProperty(String.class, "tweetPane");
 
     private Pane tweetPane;
     private final FXMLLoader loader;

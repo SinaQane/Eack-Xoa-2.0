@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import models.Notification;
 import models.User;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.Objects;
 
 public class UsersList
 {
-    private static final String USERS_LIST = "../../../../../graphic/mainpage/userslist_notifications/UsersList.fxml"; // TODO config
+    private static final String USERS_LIST = Config.getConfig("paths").getProperty(String.class, "usersList");
 
     private Pane listPane;
     private final FXMLLoader loader;

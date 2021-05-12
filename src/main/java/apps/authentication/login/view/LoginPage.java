@@ -3,6 +3,7 @@ package apps.authentication.login.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import utils.Config;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -11,7 +12,7 @@ public class LoginPage
 {
     static LoginPage loginPage;
 
-    private static final String LOGIN_PAGE = "../../../../graphic/authentication/login/LoginPage.fxml"; // TODO config
+    private static final String LOGIN_PAGE = Config.getConfig("paths").getProperty(String.class, "login");
 
     private final Scene scene;
     private final FXMLLoader loader;

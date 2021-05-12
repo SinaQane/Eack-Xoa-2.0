@@ -6,6 +6,7 @@ import models.User;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import utils.Config;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -18,12 +19,19 @@ import java.util.Objects;
 
 public class UserDB implements DBSet<User>
 {
+    private static final String DATE_FORMAT = Config.getConfig("patterns").getProperty(String.class, "shortDate");
+    private static final String USERS_PATH = Config.getConfig("paths").getProperty(String.class, "users");
+    private static final String LAST_TWEET_PATH = Config.getConfig("paths").getProperty(String.class, "lastUserId");
+    private static final String USERNAMES_PATH = Config.getConfig("paths").getProperty(String.class, "usernames");
+    private static final String EMAILS_PATH = Config.getConfig("paths").getProperty(String.class, "emails");
+    private static final String PHONENUMBERS_PATH = Config.getConfig("paths").getProperty(String.class, "phoneNumbers");
+
     private static final Logger logger = LogManager.getLogger(UserDB.class);
 
     static UserDB userDB;
 
     private final GsonBuilder gsonBuilder = new GsonBuilder();
-    private final Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat("MMM dd, yyyy").create();
+    private final Gson gson = gsonBuilder.setPrettyPrinting().setDateFormat(DATE_FORMAT).create();
 
     private UserDB() {}
 
@@ -39,14 +47,13 @@ public class UserDB implements DBSet<User>
     @Override
     public User get(String username)
     {
-        String path = "./src/main/resources/database/users";
-        File usersDirectory = new File(path);
+        File usersDirectory = new File(USERS_PATH);
         User result = null;
         for (String userId : Objects.requireNonNull(usersDirectory.list()))
         {
             try
             {
-                User tempUser = gson.fromJson(Files.readString(Paths.get(path + "/" + userId)), User.class);
+                User tempUser = gson.fromJson(Files.readString(Paths.get(USERS_PATH + "/" + userId)), User.class);
                 if (tempUser.getUsername().equals(username))
                 {
                     result = tempUser;
@@ -59,7 +66,7 @@ public class UserDB implements DBSet<User>
 
     public User get(long id)
     {
-        String path = "./src/main/resources/database/users/" + id;
+        String path = USERS_PATH + "/" + id;
         User result;
         try
         {
@@ -76,14 +83,13 @@ public class UserDB implements DBSet<User>
     public List<User> getALl()
     {
         List<User> result = new LinkedList<>();
-        String path = "./src/main/resources/database/users";
-        File usersDirectory = new File(path);
+        File usersDirectory = new File(USERS_PATH);
 
         for (String userId : Objects.requireNonNull(usersDirectory.list()))
         {
             try
             {
-                User tempUser = gson.fromJson(Files.readString(Paths.get(path + "/" + userId)), User.class);
+                User tempUser = gson.fromJson(Files.readString(Paths.get(USERS_PATH + "/" + userId)), User.class);
                 result.add(tempUser);
             } catch (IOException ignored) {}
         }
@@ -94,7 +100,7 @@ public class UserDB implements DBSet<User>
     @Override
     public void save(User user)
     {
-        String path = "./src/main/resources/database/users/" + user.getId();
+        String path = USERS_PATH + "/" + user.getId();
         File file = new File(path);
 
         if(file.getParentFile().mkdirs())
@@ -124,13 +130,13 @@ public class UserDB implements DBSet<User>
     @Override
     public boolean exists(String username)
     {
-        File usersDirectory = new File("./src/main/resources/database/users");
+        File usersDirectory = new File(USERS_PATH);
         for (String userName : Objects.requireNonNull(usersDirectory.list()))
         {
             User tempUser;
             try
             {
-                tempUser = gson.fromJson(Files.readString(Paths.get("./src/main/resources/database/users/" + userName)), User.class);
+                tempUser = gson.fromJson(Files.readString(Paths.get(USERS_PATH + "/" + userName)), User.class);
                 if (tempUser.getUsername().equals(username))
                 {
                     return true;
@@ -145,7 +151,7 @@ public class UserDB implements DBSet<User>
         List<String> fileContent;
         try
         {
-            fileContent = new ArrayList<>(Files.readAllLines(Paths.get("./src/main/resources/database/LastUserId.txt"), StandardCharsets.UTF_8));
+            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(LAST_TWEET_PATH), StandardCharsets.UTF_8));
         }
         catch (IOException e)
         {
@@ -159,7 +165,7 @@ public class UserDB implements DBSet<User>
         List<String> fileContent = null;
         try
         {
-            fileContent = new ArrayList<>(Files.readAllLines(Paths.get("./src/main/resources/database/LastUserId.txt"), StandardCharsets.UTF_8));
+            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(LAST_TWEET_PATH), StandardCharsets.UTF_8));
         }
         catch (IOException e)
         {
@@ -168,7 +174,7 @@ public class UserDB implements DBSet<User>
         Objects.requireNonNull(fileContent).set(0, newId + "");
         try
         {
-            Files.write(Paths.get("./src/main/resources/database/LastUserId.txt"), fileContent, StandardCharsets.UTF_8);
+            Files.write(Paths.get(LAST_TWEET_PATH), fileContent, StandardCharsets.UTF_8);
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -210,19 +216,19 @@ public class UserDB implements DBSet<User>
 
     public void changeUsername(String oldUsername, String username)
     {
-        replaceLine( "./src/main/resources/database/Usernames.txt", oldUsername, username);
+        replaceLine(USERNAMES_PATH , oldUsername, username);
         logger.debug("usernames list was updated.");
     }
 
     public void changeEmail(String oldEmail, String email)
     {
-        replaceLine( "./src/main/resources/database/Emails.txt", oldEmail, email);
+        replaceLine(EMAILS_PATH , oldEmail, email);
         logger.debug("emails list was updated.");
     }
 
     public void changePhoneNumber(String oldPhoneNumber, String phoneNumber)
     {
-        replaceLine( "./src/main/resources/database/PhoneNumbers.txt", oldPhoneNumber, phoneNumber);
+        replaceLine(PHONENUMBERS_PATH , oldPhoneNumber, phoneNumber);
         logger.debug("phonenumbers list was updated.");
     }
 }
