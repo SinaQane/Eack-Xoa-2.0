@@ -26,6 +26,8 @@ public class EditFormListener
         EditAgent editAgent = new EditAgent(eventObject);
         FXMLLoader settingsPaneLoader = settingsPane.getLoader();
         SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
+        Button button = new Button();
+        button.setId("logoutButton");
         switch (((Button) eventObject.getSource()).getId())
         {
             case "editButton":
@@ -45,11 +47,11 @@ public class EditFormListener
                 break;
             case "deactivationButton":
                 editAgent.deactivate();
-                mainPageController.getListener().eventOccurred("logoutButton");
+                mainPageController.getListener().eventOccurred(button);
                 break;
             case "deleteAccountButton":
                 editAgent.deleteAccount();
-                mainPageController.getListener().eventOccurred("logoutButton");
+                mainPageController.getListener().eventOccurred(button);
                 break;
         }
     }

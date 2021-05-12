@@ -11,7 +11,7 @@ import utils.HashMapUtil;
 
 public class Profile
 {
-    private final Logger logger = LogManager.getLogger(Profile.class);
+    private static final Logger logger = LogManager.getLogger(Profile.class);
 
     private final long ownerId;
     private long lastTweetId = 0;

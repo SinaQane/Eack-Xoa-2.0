@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class LoginAgent
 {
-    private final Logger logger = LogManager.getLogger(LoginAgent.class);
+    private static final Logger logger = LogManager.getLogger(LoginAgent.class);
 
     private final LoginFormEvent loginFormEvent;
 

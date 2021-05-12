@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class SignUpAgent
 {
-    private final Logger logger = LogManager.getLogger(SignUpAgent.class);
+    private static final Logger logger = LogManager.getLogger(SignUpAgent.class);
 
     private final SignUpFormEvent signUpFormEvent;
 

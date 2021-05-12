@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 
 public class TweetPaneAgent
 {
-    private final Logger logger = LogManager.getLogger(TweetPaneAgent.class);
+    private static final Logger logger = LogManager.getLogger(TweetPaneAgent.class);
 
     private final User ourUser;
     private final User otherUser; // TODO direct messages
