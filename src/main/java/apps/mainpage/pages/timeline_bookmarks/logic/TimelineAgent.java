@@ -1,5 +1,6 @@
 package apps.mainpage.pages.timeline_bookmarks.logic;
 
+import apps.mainpage.logic.MainPageAgent;
 import db.TweetDB;
 import db.UserDB;
 import models.Tweet;
@@ -22,9 +23,9 @@ public class TimelineAgent
         this.pageKind = kind;
     }
 
-    // A list containing Triple Lists containing three tweets, each for one page.
-    // Double Strings for each tweet: 1. tweet's id - 2. is it retweeted? (0 for no and id of retweet-er for yes)
-    public List<List<String[]>> getTweets() // TODO check if the tweet is deleted, ...
+    /* A list containing Triple Lists containing three tweets, each for one page.
+    Double Strings for each tweet: 1. tweet's id - 2. is it retweeted? (0 for no and id of retweet-er for yes) */
+    public List<List<String[]>> getTweets()
     {
         List<String[]> tweets = new LinkedList<>();
 
@@ -41,13 +42,19 @@ public class TimelineAgent
                     for (String userTweet : otherUser.getProfile().getUserTweets())
                     {
                         Tweet tweet = TweetDB.getTweetDB().get(userTweet);
-                        tweetsMap.put(new String[]{userTweet, "0"}, tweet.getTweetDate().getTime());
+                        if (MainPageAgent.getMainPageAgent().isValid(tweet))
+                        {
+                            tweetsMap.put(new String[]{userTweet, "0"}, tweet.getTweetDate().getTime());
+                        }
                     }
 
                     for (String retweetedTweet : otherUser.getProfile().getRetweetedTweets())
                     {
                         Tweet tweet = TweetDB.getTweetDB().get(retweetedTweet);
-                        tweetsMap.put(new String[]{retweetedTweet, userId.toString()}, tweet.getTweetDate().getTime());
+                        if (MainPageAgent.getMainPageAgent().isValid(tweet))
+                        {
+                            tweetsMap.put(new String[]{retweetedTweet, userId.toString()}, tweet.getTweetDate().getTime());
+                        }
                     }
                 }
             }
@@ -61,7 +68,10 @@ public class TimelineAgent
         {
             for (String id : user.getProfile().getSavedTweets())
             {
-                tweets.add(new String[]{id, "0"});
+                if (MainPageAgent.getMainPageAgent().isValid(TweetDB.getTweetDB().get(id)))
+                {
+                    tweets.add(new String[]{id, "0"});
+                }
             }
         }
 

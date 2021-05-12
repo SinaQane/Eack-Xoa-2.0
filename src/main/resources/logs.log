@@ -1,18 +1,32 @@
-2021-05-12 03:29:13.758 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
-2021-05-12 03:29:13.767 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:13.768 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
-2021-05-12 03:29:14.244 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
-2021-05-12 03:29:14.246 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:14.247 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
-2021-05-12 03:29:14.440 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
-2021-05-12 03:29:14.442 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:14.444 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
-2021-05-12 03:29:14.721 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
-2021-05-12 03:29:14.722 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:14.724 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
-2021-05-12 03:29:15.444 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 unfollowed 2
-2021-05-12 03:29:15.445 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:15.446 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
-2021-05-12 03:29:16.202 [JavaFX Application Thread] INFO  apps.mainpage.pages.profile_viewuser.logic.UserViewAgent - 1 followed 2
-2021-05-12 03:29:16.204 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
-2021-05-12 03:29:16.205 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 12:51:03.049 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 12:51:05.087 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 upvoted tweet 1-10
+2021-05-12 12:51:05.094 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 12:51:05.095 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.
+2021-05-12 12:51:11.360 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 2 logged in.
+2021-05-12 12:51:19.327 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 2 downvoted tweet 2-3
+2021-05-12 12:51:19.329 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 12:51:19.330 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 2-3's file was saved.
+2021-05-12 12:51:24.930 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 2 upvoted tweet 2-3
+2021-05-12 12:51:24.932 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 12:51:24.933 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 2-3's file was saved.
+2021-05-12 12:51:26.867 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 2 downvoted tweet 2-3
+2021-05-12 12:51:26.869 [JavaFX Application Thread] DEBUG db.UserDB - 2th user's file was saved.
+2021-05-12 12:51:26.871 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 2-3's file was saved.
+2021-05-12 12:51:35.658 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 12:51:46.241 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 downvoted tweet 1-10
+2021-05-12 12:51:46.243 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 12:51:46.244 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.
+2021-05-12 12:51:47.252 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 upvoted tweet 1-10
+2021-05-12 12:51:47.254 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 12:51:47.255 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.
+2021-05-12 13:18:08.874 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 13:19:49.919 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 13:19:49.925 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 17:35:17.273 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 17:35:17.279 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-12 17:35:17.919 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 retweeted tweet 1-10
+2021-05-12 17:35:17.921 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 17:35:17.923 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.
+2021-05-12 17:35:27.583 [JavaFX Application Thread] DEBUG apps.components.tweetpane.logic.TweetPaneAgent - 1 removed their retweet for tweet 1-10
+2021-05-12 17:35:27.585 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-12 17:35:27.586 [JavaFX Application Thread] DEBUG db.TweetDB - tweet 1-10's file was saved.

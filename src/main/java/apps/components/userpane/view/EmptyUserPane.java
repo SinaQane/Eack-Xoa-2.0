@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class EmptyUserPane
 {
+    private static final String EMPTY_USER = "../../../../graphic/components/userpane/EmptyUserPane.fxml"; // TODO config
+
     private Pane emptyUserPane;
     private final FXMLLoader loader;
 
     public EmptyUserPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/components/userpane/EmptyUserPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_USER)));
         try
         {
             emptyUserPane = loader.load();

@@ -54,7 +54,8 @@ public class SignUpFormListener
                 fxmlController.profile();
                 signUpPage.clear();
                 stage.setScene(mainPage.getScene());
-                // TODO start timer
+
+                // TODO start timer for last seen update
             }
         }
     }

@@ -8,6 +8,7 @@
   "bio": "",
   "birthDate": "Jan 01, 1970",
   "isActive": true,
+  "isDeleted": false,
   "profile": {
     "ownerId": 3,
     "lastTweetId": 3,

@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class NewTweetFrameFXML
 {
     private final NewTweetFrameListener listener = new NewTweetFrameListener();
@@ -27,7 +26,7 @@ public class NewTweetFrameFXML
     public void tweet(ActionEvent event)
     {
         NewTweetFormEvent tweetEvent = new NewTweetFormEvent(this.upperTweet, tweetTextField.getText(), picsPathTextField.getText());
-         listener.eventOccurred(new NewTweetEvent(sendTweetButton, tweetEvent));
+        listener.eventOccurred(new NewTweetEvent(sendTweetButton, tweetEvent));
         ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
     }
 }

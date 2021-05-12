@@ -10,11 +10,13 @@ import java.util.Objects;
 
 public class NewTweetFrame
 {
+    private static final String NEW_TWEET = "graphic/newtweet/NewTweetFrame.fxml"; // TODO config
+
     private final FXMLLoader loader;
 
     public NewTweetFrame(String upperTweet)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("graphic/newtweet/NewTweetFrame.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource(NEW_TWEET)));
         try
         {
             Parent root = loader.load();

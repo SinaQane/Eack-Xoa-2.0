@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 
 public class UserViewListener
 {
+    private static final String PROFILE_PIC = "src/main/resources/images/defaultPic.png"; // TODO config
 
     public void eventOccurred(UserViewEvent eventObject)
     {
@@ -65,7 +66,7 @@ public class UserViewListener
                 }
                 else
                 {
-                    imagePath = "src/main/resources/images/defaultPic.png";
+                    imagePath = PROFILE_PIC;
                 }
 
                 try
@@ -83,7 +84,7 @@ public class UserViewListener
             case "viewBlacklistButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getListPane());
                 break;
-            case "sendMessageButton": // TODO add this after adding direct messages
+            case "sendMessageButton": // TODO direct messages
                 System.out.println(((Button) eventObject.getSource()).getId());
                 break;
         }

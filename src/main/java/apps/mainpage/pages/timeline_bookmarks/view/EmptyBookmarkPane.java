@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class EmptyBookmarkPane
 {
+    private static final String EMPTY_BOOKMARK = "../../../../../graphic/mainpage/timeline_bookmarks/EmptyBookmarkPane.fxml"; // TODO config
+
     private Pane emptyPane;
     private final FXMLLoader loader;
 
     public EmptyBookmarkPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/timeline_bookmarks/EmptyBookmarkPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_BOOKMARK)));
         try
         {
             emptyPane = loader.load();

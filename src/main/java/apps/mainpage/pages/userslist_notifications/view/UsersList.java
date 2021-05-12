@@ -20,6 +20,8 @@ import java.util.Objects;
 
 public class UsersList
 {
+    private static final String USERS_LIST = "../../../../../graphic/mainpage/userslist_notifications/UsersList.fxml"; // TODO config
+
     private Pane listPane;
     private final FXMLLoader loader;
     private final User user;
@@ -27,7 +29,7 @@ public class UsersList
 
     public UsersList(String pageKind, User user)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/userslist_notifications/UsersList.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(USERS_LIST)));
         try
         {
             listPane = loader.load();

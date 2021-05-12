@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class TweetPane
 {
+    private static final String TWEET = "../../../../graphic/components/tweetpane/TweetPane.fxml"; // TODO config
+
     private Pane tweetPane;
     private final FXMLLoader loader;
 
     public TweetPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/components/tweetpane/TweetPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TWEET)));
         try
         {
             tweetPane = loader.load();

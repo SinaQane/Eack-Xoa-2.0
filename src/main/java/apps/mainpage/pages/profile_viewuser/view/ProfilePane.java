@@ -23,13 +23,21 @@ import java.util.Objects;
 
 public class ProfilePane
 {
+    private static final String PROFILE_VIEWUSER = "../../../../../graphic/mainpage/profile_viewuser/Profile.fxml"; // TODO config
+    private static final String PROFILE_PIC = "src/main/resources/images/defaultPic.png"; // TODO config
+    private static final String DATE_PATTERN = "yyyy-MM-dd"; // TODO config
+    private static final String LIGHT_RED = "#AA0000"; // TODO config
+    private static final String DARK_RED = "#770000"; // TODO config
+    private static final String YELLOW = "#AA9900"; // TODO config
+    private static final String GREEN = "#00AA00"; // TODO config
+
     private Pane profilePane;
     private final FXMLLoader loader;
     private final User user;
 
     public ProfilePane(User user)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/profile_viewuser/Profile.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(PROFILE_VIEWUSER)));
         try
         {
             profilePane = loader.load();
@@ -114,7 +122,7 @@ public class ProfilePane
         }
         else
         {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
             fxmlController.setBirthdateText("Birthdate: " + dateFormat.format(this.user.getBirthDate()));
         }
         if (this.user.getPhoneNumber().equals(""))
@@ -144,7 +152,7 @@ public class ProfilePane
         }
         else
         {
-            imagePath = "src/main/resources/images/defaultPic.png";
+            imagePath = PROFILE_PIC;
         }
 
         Image image = null;
@@ -177,22 +185,22 @@ public class ProfilePane
             if (ourUser.getFollowings().contains(user.getId()))
             {
                 fxmlController.getStatButton().setText("Following");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf("#00AA00"));
+                fxmlController.getStatButton().setTextFill(Paint.valueOf(GREEN));
             }
             else if (ourUser.getPending().contains(user.getId()))
             {
                 fxmlController.getStatButton().setText("Pending");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf("#AA9900"));
+                fxmlController.getStatButton().setTextFill(Paint.valueOf(YELLOW));
             }
             else if (ourUser.getBlocked().contains(user.getId()))
             {
                 fxmlController.getStatButton().setText("Blocked");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf("#770000"));
+                fxmlController.getStatButton().setTextFill(Paint.valueOf(DARK_RED));
             }
             else
             {
                 fxmlController.getStatButton().setText("Not Following");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf("#AA0000"));
+                fxmlController.getStatButton().setTextFill(Paint.valueOf(LIGHT_RED));
             }
 
             fxmlController.getViewBlacklistButton().setVisible(false);

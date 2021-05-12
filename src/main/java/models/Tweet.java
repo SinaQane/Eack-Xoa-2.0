@@ -159,11 +159,6 @@ public class Tweet
         this.comments.add(comment.getId());
     }
 
-    public void removeComment(Tweet comment)
-    {
-        this.comments.remove(comment.getId());
-    }
-
     public List<String> getComments()
     {
         return this.comments;

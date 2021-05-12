@@ -1,5 +1,7 @@
 package apps.mainpage.pages.profile_viewuser.logic;
 
+import apps.mainpage.logic.MainPageAgent;
+import db.TweetDB;
 import models.User;
 
 import java.util.LinkedList;
@@ -14,11 +16,20 @@ public class ProfileAgent
         this.user = user;
     }
 
-    public List<List<String[]>> getTweets() // TODO check if the tweet is deleted, ... (Add a TweetUtil)
+    public List<List<String[]>> getTweets()
     {
-        List<String[]> userTweets = user.getProfile().getHomePageTweets();
+        List<String[]> allTweets = user.getProfile().getHomePageTweets();
 
+        List<String[]> userTweets = new LinkedList<>();
         List<List<String[]>> result = new LinkedList<>();
+
+        for (String[] tweet : allTweets)
+        {
+            if (MainPageAgent.getMainPageAgent().isValid(TweetDB.getTweetDB().get(tweet[0])))
+            {
+                userTweets.add(tweet);
+            }
+        }
 
         if (userTweets.size() == 0)
         {

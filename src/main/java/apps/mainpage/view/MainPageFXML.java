@@ -22,6 +22,27 @@ public class MainPageFXML
     public Button settingsButton;
     public Button logoutButton;
 
+    public void setListener(MainPageListener mainPageListener)
+    {
+        this.listener = mainPageListener;
+    }
+
+    public MainPageListener getListener()
+    {
+        return this.listener;
+    }
+
+    public void setMainPane(Pane mainPane)
+    {
+        this.mainPane.getChildren().clear();
+        this.mainPane.getChildren().add(mainPane);
+    }
+
+    public Pane getMainPane()
+    {
+        return this.mainPane;
+    }
+
     public void home()
     {
         listener.eventOccurred(homeButton);
@@ -65,21 +86,5 @@ public class MainPageFXML
     public void logout()
     {
         listener.eventOccurred(logoutButton);
-    }
-
-    public void setListener(MainPageListener mainPageListener)
-    {
-        this.listener = mainPageListener;
-    }
-
-    public Pane getMainPane()
-    {
-        return this.mainPane;
-    }
-
-    public void setMainPane(Pane mainPane)
-    {
-        this.mainPane.getChildren().clear();
-        this.mainPane.getChildren().add(mainPane);
     }
 }

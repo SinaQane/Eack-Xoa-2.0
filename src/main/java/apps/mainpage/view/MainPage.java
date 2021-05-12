@@ -9,6 +9,8 @@ import java.util.Objects;
 
 public class MainPage
 {
+    private static final String MAIN_PAGE = "../../../graphic/mainpage/MainPage.fxml"; // TODO config
+
     static MainPage mainPage;
 
     private final Scene scene;
@@ -16,7 +18,7 @@ public class MainPage
 
     private MainPage()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../graphic/mainpage/MainPage.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(MAIN_PAGE)));
         Parent root = null;
         try
         {

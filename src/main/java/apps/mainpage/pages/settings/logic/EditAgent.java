@@ -3,7 +3,11 @@ package apps.mainpage.pages.settings.logic;
 import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.pages.settings.event.EditFormEvent;
 import db.UserDB;
+import models.User;
 import utils.Validations;
+
+import java.util.List;
+import java.util.Objects;
 
 public class EditAgent
 {
@@ -56,16 +60,67 @@ public class EditAgent
 
     public void edit()
     {
-        MainPageAgent.getMainPageAgent().getUser().setUsername(editFormEvent.getUsername());
+        String oldUsername = MainPageAgent.getMainPageAgent().getUser().getUsername();
+        String newUsername = editFormEvent.getUsername();
+        if (!oldUsername.equals(newUsername))
+        {
+            UserDB.getUserDB().changeUsername(Objects.requireNonNullElse(oldUsername, "0"), newUsername);
+        }
+        MainPageAgent.getMainPageAgent().getUser().setUsername(newUsername);
+
+        String oldEmail = MainPageAgent.getMainPageAgent().getUser().getEmail();
+        String newEmail = editFormEvent.getEmail();
+        if (!oldEmail.equals(newEmail))
+        {
+            UserDB.getUserDB().changeEmail(Objects.requireNonNullElse(oldEmail, "0"), newEmail);
+        }
+        MainPageAgent.getMainPageAgent().getUser().setEmail(newEmail);
+
+        String oldPhoneNumber = MainPageAgent.getMainPageAgent().getUser().getPhoneNumber();
+        String newPhoneNumber = editFormEvent.getPhoneNumber();
+        if (!oldPhoneNumber.equals(newPhoneNumber))
+        {
+            UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(oldPhoneNumber, "0"), newPhoneNumber);
+        }
+        MainPageAgent.getMainPageAgent().getUser().setPhoneNumber(newPhoneNumber);
+
         MainPageAgent.getMainPageAgent().getUser().setPassword(editFormEvent.getPassword());
         MainPageAgent.getMainPageAgent().getUser().setName(editFormEvent.getName());
-        MainPageAgent.getMainPageAgent().getUser().setPhoneNumber(editFormEvent.getPhoneNumber());
         MainPageAgent.getMainPageAgent().getUser().setBio(editFormEvent.getBio());
         MainPageAgent.getMainPageAgent().getUser().setBirthDate(editFormEvent.getBirthDate());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setPrivate(editFormEvent.isPrivateState());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setInfoState(editFormEvent.isInfoState());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setLastSeenState(editFormEvent.getLastSeenState());
         MainPageAgent.getMainPageAgent().getUser().getProfile().setPicturePath(editFormEvent.getPicPath());
+
         UserDB.getUserDB().save(MainPageAgent.getMainPageAgent().getUser());
+    }
+
+    public void deactivate()
+    {
+        User user = MainPageAgent.getMainPageAgent().getUser();
+        user.deactivate();
+        UserDB.getUserDB().save(user);
+    }
+
+    public void deleteAccount()
+    {
+        User user = MainPageAgent.getMainPageAgent().getUser();
+        
+        List<User> users = UserDB.getUserDB().getALl();
+
+        for (User otherUser : users)
+        {
+            otherUser.getProfile().removeFromFollowings(user);
+            otherUser.getProfile().removeFromFollowers(user);
+            otherUser.getProfile().removeFromRequests(user);
+            otherUser.getProfile().removeFromPending(user);
+            otherUser.getProfile().removeFromBlocked(user);
+            otherUser.getProfile().removeFromMuted(user);
+            UserDB.getUserDB().save(otherUser);
+        }
+
+        user.deleteAccount();
+        UserDB.getUserDB().save(user);
     }
 }

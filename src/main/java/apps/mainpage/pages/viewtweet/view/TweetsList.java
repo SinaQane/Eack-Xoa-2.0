@@ -15,13 +15,15 @@ import java.util.Objects;
 
 public class TweetsList
 {
+    private static final String TWEETS_LIST = "../../../../../graphic/mainpage/tweetslist/TweetsList.fxml"; // TODO config
+
     private Pane listPane;
     private final FXMLLoader loader;
     private final Tweet tweet;
 
     public TweetsList(Tweet tweet)
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/tweetslist/TweetsList.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TWEETS_LIST)));
         try
         {
             listPane = loader.load();

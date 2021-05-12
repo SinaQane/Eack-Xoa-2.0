@@ -21,6 +21,7 @@ public class User
     private Date birthDate;
 
     private boolean isActive = true; // "true" if the page is active, "false" if it's deactivated.
+    private boolean isDeleted = false; // "false" in default state, "true" id the user deleted this account.
 
     private final Profile profile;
 
@@ -54,7 +55,6 @@ public class User
                 return;
             }
         }
-        UserDB.getUserDB().changeUsername(Objects.requireNonNullElse(this.username, "0"), username);
         this.username = username;
         logger.fatal(this.id + "'s username was changed.");
     }
@@ -102,7 +102,6 @@ public class User
                 return;
             }
         }
-        UserDB.getUserDB().changeEmail(Objects.requireNonNullElse(this.email, "0"), email);
         this.email = email;
         logger.fatal(this.id + "'s email was changed.");
     }
@@ -121,7 +120,6 @@ public class User
                 return;
             }
         }
-        UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(this.phoneNumber, "0"), phoneNumber);
         this.phoneNumber = phoneNumber;
         logger.fatal(this.id + "'s phonenumber was changed.");
     }
@@ -162,23 +160,32 @@ public class User
         logger.warn(this.id + "'s birthdate was changed.");
     }
 
-    public boolean isActive()
+    public boolean isDeactivated()
     {
-        return this.isActive;
+        return !this.isActive;
     }
 
     public void deactivate()
     {
         this.isActive = false;
         logger.fatal(this.id + " deactivated their account.");
-        UserDB.getUserDB().save(this); // TODO
     }
 
     public void reactivate()
     {
         this.isActive = true;
-        logger.fatal(this.id + " reactivated their account.");
-        UserDB.getUserDB().save(this); // TODO
+        logger.warn(this.id + " reactivated their account.");
+    }
+
+    public boolean isDeleted()
+    {
+        return this.isDeleted;
+    }
+
+    public void deleteAccount()
+    {
+        this.isDeleted = true;
+        logger.error(this.id + " deleted their account.");
     }
 
     public Profile getProfile()

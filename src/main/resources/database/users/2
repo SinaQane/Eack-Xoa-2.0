@@ -8,6 +8,7 @@
   "bio": "",
   "birthDate": "Jan 01, 1970",
   "isActive": true,
+  "isDeleted": false,
   "profile": {
     "ownerId": 2,
     "lastTweetId": 3,
@@ -27,7 +28,9 @@
     ],
     "retweetedTweets": [],
     "upvotedTweets": [],
-    "downvotedTweets": [],
+    "downvotedTweets": [
+      "2-3"
+    ],
     "reportedTweets": [],
     "savedTweets": [],
     "notifications": [],

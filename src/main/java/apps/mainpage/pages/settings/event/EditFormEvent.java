@@ -36,6 +36,15 @@ public class EditFormEvent extends EventObject
         this.picPath = picPath;
     }
 
+    public EditFormEvent(Object source)
+    {
+        super(source);
+        this.username = this.password = this.name = this.email = this.phoneNumber = this.bio = this.picPath = "";
+        this.privateState = this.infoState = false;
+        this.lastSeenState = 0;
+        this.birthDate = null;
+    }
+
     public String getUsername()
     {
         return username;

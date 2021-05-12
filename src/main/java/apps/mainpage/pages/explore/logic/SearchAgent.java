@@ -24,7 +24,10 @@ public class SearchAgent
         {
             if (user.getUsername().contains(this.searched) || user.getName().contains(this.searched))
             {
-                users.add(user);
+                if (!user.isDeactivated())
+                {
+                    users.add(user);
+                }
             }
         }
 

@@ -9,12 +9,14 @@ import java.util.Objects;
 
 public class FirstPage
 {
+    private static final String FIRST_PAGE = "../../../graphic/firstpage/FirstPage.fxml"; // TODO config
+
     private final Scene scene;
     private final FXMLLoader loader;
 
     public FirstPage()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../graphic/firstpage/FirstPage.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(FIRST_PAGE)));
         Parent root = null;
         try
         {
@@ -25,9 +27,7 @@ public class FirstPage
             e.printStackTrace();
         }
         assert root != null;
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("../../../graphic/firstpage/FirstPage.css")).toExternalForm());
-        this.scene = scene;
+        this.scene = new Scene(root);
     }
 
     public FXMLLoader getLoader()

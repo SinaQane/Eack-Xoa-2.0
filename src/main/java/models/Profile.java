@@ -3,11 +3,17 @@ package models;
 import java.util.*;
 
 import db.TweetDB;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import utils.HashMapUtil;
 
 public class Profile
 {
-    private final long ownerId; // TODO find a way to save user after changes in profile
+    private final Logger logger = LogManager.getLogger(Profile.class);
+
+    private final long ownerId;
     private long lastTweetId = 0;
 
     private String picturePath = "";
@@ -54,11 +60,6 @@ public class Profile
         this.lastTweetId = lastTweetId;
     }
 
-    public long getOwnerId() // TODO remove this?
-    {
-        return this.ownerId;
-    }
-
     public String getPicturePath()
     {
         return this.picturePath;
@@ -66,7 +67,15 @@ public class Profile
 
     public void setPicturePath(String picturePath)
     {
-        this.picturePath = picturePath; // TODO add logger
+        if (this.picturePath != null)
+        {
+            if (this.picturePath.equals(picturePath))
+            {
+                return;
+            }
+        }
+        this.picturePath = picturePath;
+        logger.warn(this.ownerId + "'s profile picture was changed.");
     }
 
     public boolean isPrivate()
@@ -169,7 +178,7 @@ public class Profile
         this.requests.remove(user.getId());
     }
 
-    public List<Long> getRequests() // TODO notifications section
+    public List<Long> getRequests()
     {
         return this.requests;
     }
@@ -192,11 +201,6 @@ public class Profile
     public void addToUserTweets(Tweet tweet)
     {
         this.userTweets.add(tweet.getId());
-    }
-
-    public void removeFromUserTweets(Tweet tweet) // TODO delete tweet?
-    {
-        this.userTweets.remove(tweet.getId());
     }
 
     public List<String> getUserTweets()

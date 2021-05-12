@@ -8,6 +8,7 @@
   "bio": "admin",
   "birthDate": "Jan 01, 1000",
   "isActive": true,
+  "isDeleted": false,
   "profile": {
     "ownerId": 0,
     "picturePath" : "",
