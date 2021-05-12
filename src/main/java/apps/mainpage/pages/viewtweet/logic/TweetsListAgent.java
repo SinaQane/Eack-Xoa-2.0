@@ -1,5 +1,7 @@
 package apps.mainpage.pages.viewtweet.logic;
 
+import apps.mainpage.logic.MainPageAgent;
+import db.TweetDB;
 import models.Tweet;
 
 import java.util.LinkedList;
@@ -17,9 +19,18 @@ public class TweetsListAgent
     public List<List<String>> getTweets()
     {
         List<List<String>> result = new LinkedList<>();
+        List<String> comments = new LinkedList<>();
         List<String> tweets = tweet.getComments();
 
-        if (tweets.size() == 0)
+        for (String tweet : tweets)
+        {
+            if (MainPageAgent.getMainPageAgent().isValid(TweetDB.getTweetDB().get(tweet)))
+            {
+                comments.add(tweet);
+            }
+        }
+
+        if (comments.size() == 0)
         {
             List<String> temp = new LinkedList<>();
             temp.add("null");
@@ -27,14 +38,14 @@ public class TweetsListAgent
             result.add(temp);
         }
 
-        for (int i = 0; i < tweets.size(); i = i+2)
+        for (int i = 0; i < comments.size(); i = i+2)
         {
             List<String> temp = new LinkedList<>();
-            temp.add(tweets.get(i));
+            temp.add(comments.get(i));
 
-            if (i + 1 < tweets.size())
+            if (i + 1 < comments.size())
             {
-                temp.add(tweets.get(i + 1));
+                temp.add(comments.get(i + 1));
             }
             else
             {

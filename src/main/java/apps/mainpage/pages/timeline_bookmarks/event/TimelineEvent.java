@@ -4,7 +4,6 @@ import java.util.EventObject;
 
 public class TimelineEvent extends EventObject
 {
-
     private final int page;
     private final String pageKind;
 

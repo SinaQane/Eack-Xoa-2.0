@@ -14,6 +14,8 @@ import java.util.Objects;
 
 public class SearchResultsPane
 {
+    private static final String SEARCH_RESULTS = "../../../../../graphic/mainpage/explore/SearchResultsPane.fxml"; // TODO config
+
     private Pane pane;
     private final FXMLLoader loader;
 
@@ -23,7 +25,7 @@ public class SearchResultsPane
     {
         this.searched = searched;
 
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/explore/SearchResultsPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(SEARCH_RESULTS)));
         try
         {
             pane = loader.load();

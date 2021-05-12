@@ -4,7 +4,6 @@ import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.pages.settings.event.EditFormEvent;
 import apps.mainpage.pages.settings.listener.EditFormListener;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -14,9 +13,12 @@ import java.util.Date;
 
 public class SettingsPaneFXML
 {
-    public Text messageText;
+    private static final String DATE_PATTERN = "yyyy-MM-dd"; // TODO config
+    private static final String DEFAULT_DATE = "1970-01-01"; // TODO config
 
     private EditFormListener listener;
+
+    public Text messageText;
 
     public TextField usernameTextField;
     public PasswordField passwordTextField;
@@ -127,7 +129,7 @@ public class SettingsPaneFXML
         {
             try
             {
-                birthdate = new SimpleDateFormat("yyyy-MM-dd").parse("1000-01-01");
+                birthdate = new SimpleDateFormat(DATE_PATTERN).parse(DEFAULT_DATE);
             }
             catch (ParseException e)
             {
@@ -173,13 +175,13 @@ public class SettingsPaneFXML
         this.listener.eventOccurred(new EditFormEvent(editButton, username, password, name, email, phoneNumber, bio, birthdate, privateState, infoState, lastSeenState, picPath));
     }
 
-    public void deleteAccount(ActionEvent actionEvent) // TODO add this
+    public void deleteAccount()
     {
-
+        this.listener.eventOccurred(new EditFormEvent(deleteAccountButton));
     }
 
-    public void deactivate(ActionEvent actionEvent) // TODO add this
+    public void deactivate()
     {
-
+        this.listener.eventOccurred(new EditFormEvent(deactivationButton));
     }
 }

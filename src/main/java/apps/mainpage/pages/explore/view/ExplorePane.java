@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class ExplorePane
 {
+    private static final String EXPLORE = "../../../../../graphic/mainpage/explore/Explore.fxml"; // TODO config
+
     private Pane explorePane;
     private final FXMLLoader loader;
 
     public ExplorePane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/explore/Explore.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EXPLORE)));
         try
         {
             explorePane = loader.load();

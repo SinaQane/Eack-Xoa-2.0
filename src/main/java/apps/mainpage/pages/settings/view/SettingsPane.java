@@ -9,12 +9,14 @@ import java.util.Objects;
 
 public class SettingsPane
 {
+    private static final String SETTINGS = "../../../../../graphic/mainpage/settings/Settings.fxml"; // TODO config;
+
     private Pane settingsPane;
     private final FXMLLoader loader;
 
     public SettingsPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/settings/Settings.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(SETTINGS)));
         try
         {
             settingsPane = loader.load();

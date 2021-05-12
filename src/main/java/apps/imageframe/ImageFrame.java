@@ -12,21 +12,21 @@ import java.util.Objects;
 
 public class ImageFrame
 {
-    Stage stage;
+    private static final String IMAGE_FRAME = "graphic/imageframe/ImageFrame.fxml"; // TODO config
 
     public ImageFrame(Image image)
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("graphic/imageframe/ImageFrame.fxml")));
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource(IMAGE_FRAME)));
 
             Parent root = loader.load();
-            this.stage = new Stage();
-            this.stage.setTitle("Image Viewer");
+            Stage stage = new Stage();
+            stage.setTitle("Image Viewer");
 
             final ImageView selectedImage = new ImageView();
 
-            this.stage.setScene(new Scene(root, image.getWidth(), image.getHeight()));
+            stage.setScene(new Scene(root, image.getWidth(), image.getHeight()));
 
             ((ImageFrameFXML) loader.getController()).getImagePane().setPrefSize(image.getWidth(), image.getHeight());
             ((ImageFrameFXML) loader.getController()).getImageView().setFitWidth(image.getWidth());
@@ -37,7 +37,7 @@ public class ImageFrame
 
             selectedImage.setImage(image);
 
-            this.stage.show();
+            stage.show();
         }
         catch (IOException e)
         {

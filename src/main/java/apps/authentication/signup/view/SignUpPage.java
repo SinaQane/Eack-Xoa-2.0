@@ -11,12 +11,14 @@ public class SignUpPage
 {
     static SignUpPage signUpPage;
 
+    private static final String SIGNUP_PAGE = "../../../../graphic/authentication/signup/SignUpPage.fxml"; // TODO config
+
     private final Scene scene;
     private final FXMLLoader loader;
 
     private SignUpPage()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/authentication/signup/SignUpPage.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(SIGNUP_PAGE)));
         Parent root = null;
         try
         {

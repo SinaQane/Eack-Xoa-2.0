@@ -8,6 +8,7 @@
   "bio": "",
   "birthDate": "Jan 01, 1970",
   "isActive": true,
+  "isDeleted": false,
   "profile": {
     "ownerId": 1,
     "lastTweetId": 10,
@@ -42,7 +43,8 @@
     ],
     "upvotedTweets": [
       "2-3",
-      "2-2"
+      "2-2",
+      "1-10"
     ],
     "downvotedTweets": [
       "2-1"
@@ -54,7 +56,18 @@
     "savedTweets": [
       "2-2"
     ],
-    "notifications": [],
+    "notifications": [
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Wed May 12 13:19:49 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Wed May 12 17:35:17 IRDT 2021"
+      }
+    ],
     "privateState": false,
     "infoState": false,
     "lastSeenState": 1

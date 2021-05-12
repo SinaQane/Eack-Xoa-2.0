@@ -14,12 +14,14 @@ import java.util.Objects;
 
 public class RandomTweetsPane
 {
+    private static final String RANDOM_TWEETS = "../../../../../graphic/mainpage/explore/RandomTweetsPane.fxml"; // TODO config
+
     private Pane pane;
     private final FXMLLoader loader;
 
     public RandomTweetsPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/explore/RandomTweetsPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(RANDOM_TWEETS)));
         try
         {
             pane = loader.load();

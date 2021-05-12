@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class NotificationPane
 {
+    private static final String NOTIFICATION_PANE = "../../../../graphic/components/notification/NotificationPane.fxml"; // TODO config
+
     private Pane notificationPane;
     private final FXMLLoader loader;
 
     public NotificationPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../graphic/components/notification/NotificationPane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(NOTIFICATION_PANE)));
         try
         {
             notificationPane = loader.load();

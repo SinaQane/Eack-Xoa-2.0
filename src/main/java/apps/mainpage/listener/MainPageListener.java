@@ -6,6 +6,7 @@ import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
+import db.UserDB;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class MainPageListener
         switch (((Button) source).getId())
         {
             case "logoutButton":
-                // TODO save and set lastSeen and close the app...
+                UserDB.getUserDB().save(MainPageAgent.getMainPageAgent().getUser());
                 stage.setScene(loginPage.getScene());
                 break;
             case "profileButton":

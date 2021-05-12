@@ -12,6 +12,11 @@ import java.util.EventObject;
 
 public class UserPaneFXML
 {
+    private static final String LIGHT_RED = "#AA0000"; // TODO config
+    private static final String DARK_RED = "#770000"; // TODO config
+    private static final String YELLOW = "#AA9900"; // TODO config
+    private static final String GREEN = "#00AA00"; // TODO config
+
     private UserPaneListener listener;
 
     private long id;
@@ -38,22 +43,22 @@ public class UserPaneFXML
         if (ourUser.getProfile().getFollowings().contains(user.getId()))
         {
             this.statusText.setText("Following");
-            this.statusText.setFill(Paint.valueOf("#00AA00"));
+            this.statusText.setFill(Paint.valueOf(GREEN));
         }
         else if (ourUser.getProfile().getPending().contains(user.getId()))
         {
             this.statusText.setText("Pending");
-            this.statusText.setFill(Paint.valueOf("#AA9900"));
+            this.statusText.setFill(Paint.valueOf(YELLOW));
         }
         else if (ourUser.getProfile().getBlocked().contains(user.getId()))
         {
             this.statusText.setText("Blocked");
-            this.statusText.setFill(Paint.valueOf("#770000"));
+            this.statusText.setFill(Paint.valueOf(DARK_RED));
         }
         else
         {
             this.statusText.setText("Not Following");
-            this.statusText.setFill(Paint.valueOf("#AA0000"));
+            this.statusText.setFill(Paint.valueOf(LIGHT_RED));
         }
     }
 

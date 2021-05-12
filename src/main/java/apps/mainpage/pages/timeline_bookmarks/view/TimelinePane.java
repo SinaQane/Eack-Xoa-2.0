@@ -15,6 +15,8 @@ import java.util.Objects;
 
 public class TimelinePane
 {
+    private static final String TIMELINE = "../../../../../graphic/mainpage/timeline_bookmarks/Timeline.fxml"; // TODO config
+
     private Pane timelinePane;
     private final FXMLLoader loader;
     private final String pageKind;
@@ -23,7 +25,7 @@ public class TimelinePane
     {
         this.pageKind = pageKind;
 
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/timeline_bookmarks/Timeline.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TIMELINE)));
         try
         {
             timelinePane = loader.load();

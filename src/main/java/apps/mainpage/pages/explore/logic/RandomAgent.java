@@ -1,5 +1,6 @@
 package apps.mainpage.pages.explore.logic;
 
+import apps.mainpage.logic.MainPageAgent;
 import db.TweetDB;
 import models.Tweet;
 
@@ -11,10 +12,17 @@ public class RandomAgent
 {
     public List<String> getTweets()
     {
-        List<Tweet> tweets = TweetDB.getTweetDB().getALl();
+        List<Tweet> allTweets = TweetDB.getTweetDB().getALl();
         List<String> result = new LinkedList<>();
+        List<Tweet> tweets = new LinkedList<>();
 
-        // TODO filter valid tweets
+        for (Tweet tweet : allTweets)
+        {
+            if (MainPageAgent.getMainPageAgent().isValid(tweet))
+            {
+                tweets.add(tweet);
+            }
+        }
 
         if (tweets.size() == 0)
         {

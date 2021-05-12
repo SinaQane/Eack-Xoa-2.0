@@ -23,10 +23,11 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.EventObject;
 
-// A listener for TweetPane.fxml panes
 public class TweetPaneListener
 {
-    TweetPane tweetPane;
+    private static final String NOT_FOUND = "src/main/resources/images/404.png"; // TODO config
+
+    private final TweetPane tweetPane;
 
     public TweetPaneListener(TweetPane tweetPane)
     {
@@ -87,7 +88,7 @@ public class TweetPaneListener
                 }
                 else
                 {
-                    imagePath = "src/main/resources/images/404.png";
+                    imagePath = NOT_FOUND;
                 }
 
                 try
@@ -107,7 +108,7 @@ public class TweetPaneListener
                 NewTweetFrame tweetFrame = new NewTweetFrame(tweet.getId());
                 ((NewTweetFrameFXML) tweetFrame.getLoader().getController()).setUpperTweet(tweet.getId());
                 break;
-            case "sendButton": // TODO add this after adding direct messages
+            case "sendButton": // TODO direct messages
                 System.out.println(((Button) eventObject.getSource()).getId());
                 break;
         }

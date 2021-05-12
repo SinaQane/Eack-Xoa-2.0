@@ -40,7 +40,7 @@ public class MainStage
         MainPageFXML mainPageController = mainPageLoader.getController();
         mainPageController.setListener(new MainPageListener(stage));
 
-        stage.setTitle("Eack Xoa");
+        stage.setTitle("Eack Xoa"); // TODO config
         stage.setScene(firstPage.getScene());
         stage.show();
     }

@@ -8,12 +8,14 @@ import java.util.Objects;
 
 public class EmptyTimelinePane
 {
+    private static final String EMPTY_TIMELINE = "../../../../../graphic/mainpage/timeline_bookmarks/EmptyTimelinePane.fxml"; // TODO config
+
     private Pane emptyPane;
     private final FXMLLoader loader;
 
     public EmptyTimelinePane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../../../../../graphic/mainpage/timeline_bookmarks/EmptyTimelinePane.fxml")));
+        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_TIMELINE)));
         try
         {
             emptyPane = loader.load();
