@@ -39,6 +39,7 @@ public class BackButtonAgent
             return;
         }
 
+        stack.remove(stack.size() - 1);
         PageMemory memory = stack.get(stack.size() - 1);
 
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
@@ -70,15 +71,22 @@ public class BackButtonAgent
         switch (memory.getPage())
         {
             case "profile":
-            case "explore":
-            case "timeline":
-            case "bookmarks":
-            case "notifications":
-                stack.clear();
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("profile", MainPageAgent.getMainPageAgent().getUser().getId()));
                 break;
-            default:
-                stack.remove(stack.size() - 1);
+            case "explore":
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("explore"));
+                break;
+            case "timeline":
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("timeline"));
+                break;
+            case "bookmarks":
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("bookmarks"));
+                break;
+            case "notifications":
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("notifications", MainPageAgent.getMainPageAgent().getUser().getId()));
                 break;
         }
+
+        stack.remove(stack.size() - 1);
     }
 }

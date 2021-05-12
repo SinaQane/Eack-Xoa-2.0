@@ -5,6 +5,8 @@ import apps.authentication.login.logic.LoginAgent;
 import apps.authentication.login.view.LoginFXML;
 import apps.authentication.login.view.LoginPage;
 import apps.authentication.signup.view.SignUpPage;
+import apps.mainpage.event.PageMemory;
+import apps.mainpage.logic.BackButtonAgent;
 import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.view.MainPage;
 import apps.mainpage.view.MainPageFXML;
@@ -54,6 +56,8 @@ public class LoginFormListener
                 fxmlController.profile();
                 loginPage.clear();
                 stage.setScene(mainPage.getScene());
+
+                BackButtonAgent.getBackButtonAgent().add(new PageMemory("profile", MainPageAgent.getMainPageAgent().getUser().getId()));
 
                 // TODO start timer for last seen update
             }
