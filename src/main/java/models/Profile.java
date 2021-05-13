@@ -37,6 +37,9 @@ public class Profile
     // Notifications
     private final List<Notification> notifications = new LinkedList<>();
 
+    // Chats
+    private final List<Long> chatIds = new LinkedList<>();
+
     // Privacy
     private boolean privateState; // "true" if the page is private, "false" if if it's public.
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
@@ -273,9 +276,9 @@ public class Profile
         this.savedTweets.remove(tweet.getId());
     }
 
-    public List<Notification> getNotifications()
+    public List<String> getSavedTweets()
     {
-        return this.notifications;
+        return this.savedTweets;
     }
 
     public void addToNotifications(Notification notification)
@@ -283,9 +286,19 @@ public class Profile
         this.notifications.add(notification);
     }
 
-    public List<String> getSavedTweets()
+    public List<Notification> getNotifications()
     {
-        return this.savedTweets;
+        return this.notifications;
+    }
+
+    public void addToChats(Chat chat)
+    {
+        this.chatIds.add(chat.getId());
+    }
+
+    public List<Long> getChats()
+    {
+        return this.chatIds;
     }
 
     /*

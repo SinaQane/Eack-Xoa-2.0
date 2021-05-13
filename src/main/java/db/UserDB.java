@@ -148,37 +148,12 @@ public class UserDB implements DBSet<User>
 
     public long getLastId()
     {
-        List<String> fileContent;
-        try
-        {
-            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(LAST_TWEET_PATH), StandardCharsets.UTF_8));
-        }
-        catch (IOException e)
-        {
-            return 0;
-        }
-        return Long.parseLong(fileContent.get(0));
+        return DBUtil.getLastId(LAST_TWEET_PATH);
     }
 
     public void setLastId(long newId)
     {
-        List<String> fileContent = null;
-        try
-        {
-            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(LAST_TWEET_PATH), StandardCharsets.UTF_8));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        Objects.requireNonNull(fileContent).set(0, newId + "");
-        try
-        {
-            Files.write(Paths.get(LAST_TWEET_PATH), fileContent, StandardCharsets.UTF_8);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        DBUtil.setLastId(newId, LAST_TWEET_PATH);
         logger.info("last id was changed.");
     }
 
