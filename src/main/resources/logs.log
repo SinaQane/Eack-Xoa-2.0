@@ -89,3 +89,19 @@
 2021-05-13 02:52:45.305 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
 2021-05-13 02:57:43.138 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
 2021-05-13 02:57:43.142 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:40:54.024 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:40:54.029 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:43:34.624 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:43:34.631 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:45:10.739 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:45:10.744 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:48:38.801 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:48:38.806 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:48:46.502 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:52:27.263 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 18:52:27.268 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 18:52:41.153 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 19:00:33.316 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 19:00:33.322 [JavaFX Application Thread] WARN  apps.authentication.login.logic.LoginAgent - 1 logged in.
+2021-05-13 19:00:47.644 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-13 19:00:58.866 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.

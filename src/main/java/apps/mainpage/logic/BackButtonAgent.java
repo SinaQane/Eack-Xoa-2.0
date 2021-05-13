@@ -89,4 +89,9 @@ public class BackButtonAgent
 
         stack.remove(stack.size() - 1);
     }
+
+    public void clear()
+    {
+        stack.clear();
+    }
 }

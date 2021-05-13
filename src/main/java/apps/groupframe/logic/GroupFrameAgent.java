@@ -14,16 +14,23 @@ public class GroupFrameAgent
         group.editTitle(title);
         for (String user : toAdd)
         {
-            group.addToGroup(UserDB.getUserDB().get(user));
+            if (UserDB.getUserDB().get(user) != null)
+            {
+                group.addToGroup(UserDB.getUserDB().get(user));
+            }
         }
         for (String user : roRemove)
         {
-            group.removeFromGroup(UserDB.getUserDB().get(user));
+            if (UserDB.getUserDB().get(user) != null)
+            {
+                group.removeFromGroup(UserDB.getUserDB().get(user));
+            }
         }
         User user = MainPageAgent.getMainPageAgent().getUser();
         user.getProfile().addToGroups(group);
         UserDB.getUserDB().save(user);
     }
+
     public void create(String title, List<String> toAdd)
     {
         Group group = new Group(title);
