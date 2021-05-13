@@ -17,9 +17,9 @@ public class NewTweetFrameListener
 
         if (((Button) eventObject.getSource()).getId().equals("sendTweetButton"))
         {
-            String upperTweetId = eventObject.getTweetFormEvent().getUpperTweet();
-            String tweetText = eventObject.getTweetFormEvent().getTweetText();
-            String tweetPic = eventObject.getTweetFormEvent().getPicPath();
+            String upperTweetId = eventObject.getTweetForm().getUpperTweet();
+            String tweetText = eventObject.getTweetForm().getTweetText();
+            String tweetPic = eventObject.getTweetForm().getPicPath();
             Tweet tweet = new Tweet(MainPageAgent.getMainPageAgent().getUser(), tweetText, tweetPic);
 
             if (!upperTweetId.equals(""))

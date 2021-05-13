@@ -1,7 +1,7 @@
 package apps.mainpage.pages.explore.view;
 
 import apps.components.userpane.listener.UserPaneListener;
-import apps.components.userpane.view.EmptyUserPane;
+import apps.components.emptypanes.emptypane.EmptyPane;
 import apps.components.userpane.view.UserPane;
 import apps.components.userpane.view.UserPaneFXML;
 import apps.mainpage.pages.explore.logic.SearchAgent;
@@ -42,11 +42,6 @@ public class SearchResultsPane
         return this.pane;
     }
 
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
-    }
-
     public void refresh(int page)
     {
         SearchAgent logicalAgent = new SearchAgent(this.searched);
@@ -61,7 +56,7 @@ public class SearchResultsPane
         {
             if (users.get(i) == 0)
             {
-                fxmlController.setUserPane(i, new EmptyUserPane().getUserPane());
+                fxmlController.setUserPane(i, new EmptyPane().getPane());
             }
             else
             {

@@ -1,6 +1,6 @@
 package apps.mainpage.pages.profile_viewuser.view;
 
-import apps.components.tweetpane.view.EmptyTweetPane;
+import apps.components.emptypanes.emptytweetpane.EmptyTweetPane;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.components.tweetpane.listener.TweetPaneListener;

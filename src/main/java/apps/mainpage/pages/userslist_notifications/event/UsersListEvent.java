@@ -4,16 +4,16 @@ import java.util.EventObject;
 
 public class UsersListEvent extends EventObject
 {
-    private final PageFormEvent pageEvent;
+    private final UsersListForm usersListForm;
 
-    public UsersListEvent(Object source, PageFormEvent pageEvent)
+    public UsersListEvent(Object source, UsersListForm usersListForm)
     {
         super(source);
-        this.pageEvent = pageEvent;
+        this.usersListForm = usersListForm;
     }
 
-    public PageFormEvent getPageEvent()
+    public UsersListForm getUsersListForm()
     {
-        return pageEvent;
+        return usersListForm;
     }
 }

@@ -14,8 +14,8 @@ public class ProfileListener
     {
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
 
-        long id = eventObject.getPageEvent().getUser().getId();
-        int page = eventObject.getPageEvent().getPage();
+        long id = eventObject.getProfileForm().getUser().getId();
+        int page = eventObject.getProfileForm().getPage();
 
         switch (((Button) eventObject.getSource()).getId())
         {

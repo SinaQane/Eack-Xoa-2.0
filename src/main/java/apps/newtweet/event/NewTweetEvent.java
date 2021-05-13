@@ -4,16 +4,16 @@ import java.util.EventObject;
 
 public class NewTweetEvent extends EventObject
 {
-    private final NewTweetFormEvent tweetFormEvent;
+    private final NewTweetForm tweetForm;
 
-    public NewTweetEvent(Object source, NewTweetFormEvent tweetFormEvent)
+    public NewTweetEvent(Object source, NewTweetForm tweetForm)
     {
         super(source);
-        this.tweetFormEvent = tweetFormEvent;
+        this.tweetForm = tweetForm;
     }
 
-    public NewTweetFormEvent getTweetFormEvent()
+    public NewTweetForm getTweetForm()
     {
-        return tweetFormEvent;
+        return tweetForm;
     }
 }

@@ -2,12 +2,12 @@ package apps.mainpage.pages.viewtweet.event;
 
 import models.Tweet;
 
-public class PageFormEvent
+public class TweetsListForm
 {
     private final Tweet tweet;
     private final int page;
 
-    public PageFormEvent(Tweet tweet, int page)
+    public TweetsListForm(Tweet tweet, int page)
     {
         this.tweet = tweet;
         this.page = page;

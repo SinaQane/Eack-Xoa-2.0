@@ -1,4 +1,4 @@
-package apps.components.tweetpane.view;
+package apps.components.emptypanes.emptytweetpane;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
@@ -12,11 +12,10 @@ public class EmptyTweetPane
     private static final String EMPTY_TWEET = Config.getConfig("paths").getProperty(String.class, "emptyTweetPane");
 
     private Pane tweetPane;
-    private final FXMLLoader loader;
 
     public EmptyTweetPane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_TWEET)));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_TWEET)));
         try
         {
             tweetPane = loader.load();
@@ -30,10 +29,5 @@ public class EmptyTweetPane
     public Pane getTweetPane()
     {
         return this.tweetPane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
     }
 }

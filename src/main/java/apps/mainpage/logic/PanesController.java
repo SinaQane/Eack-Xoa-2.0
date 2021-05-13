@@ -2,6 +2,7 @@ package apps.mainpage.logic;
 
 import apps.mainpage.pages.explore.view.ExplorePane;
 import apps.mainpage.pages.explore.view.SearchResultsPane;
+import apps.mainpage.pages.groups.view.GroupsPane;
 import apps.mainpage.pages.profile_viewuser.listener.ProfileListener;
 import apps.mainpage.pages.profile_viewuser.listener.UserViewListener;
 import apps.mainpage.pages.profile_viewuser.view.ProfilePane;
@@ -20,8 +21,7 @@ import db.TweetDB;
 import db.UserDB;
 
 // A singleton class to return every main pane.
-public class PanesController
-{
+public class PanesController {
     static PanesController panesController;
 
     ProfilePane profilePane;
@@ -29,20 +29,18 @@ public class PanesController
     TimelinePane timelinePane;
     TimelinePane bookmarksPane;
 
-    private PanesController() {}
+    private PanesController() {
+    }
 
-    public static PanesController getPanesController()
-    {
-        if (panesController == null)
-        {
+    public static PanesController getPanesController() {
+        if (panesController == null) {
             panesController = new PanesController();
         }
         return panesController;
     }
 
     // Our user's profilePane
-    public ProfilePane getProfilePane(int page)
-    {
+    public ProfilePane getProfilePane(int page) {
         this.profilePane = new ProfilePane(MainPageAgent.getMainPageAgent().getUser());
         ((ProfilePaneFXML) this.profilePane.getLoader().getController()).setUserViewListener(new UserViewListener());
         ((ProfilePaneFXML) this.profilePane.getLoader().getController()).setProfileListener(new ProfileListener());
@@ -51,8 +49,7 @@ public class PanesController
     }
 
     // Other users' profilePane
-    public ProfilePane getProfilePane(long id, int page)
-    {
+    public ProfilePane getProfilePane(long id, int page) {
         ProfilePane userProfilePane = new ProfilePane(UserDB.getUserDB().get(id));
         ((ProfilePaneFXML) userProfilePane.getLoader().getController()).setUserViewListener(new UserViewListener());
         ((ProfilePaneFXML) userProfilePane.getLoader().getController()).setProfileListener(new ProfileListener());
@@ -60,20 +57,25 @@ public class PanesController
         return userProfilePane;
     }
 
-    public UsersList getUserslistPane(String pageKind, long id, int page)
-    {
-        UsersList usersList = new UsersList(pageKind,UserDB.getUserDB().get(id));
+    public UsersList getUserslistPane(String pageKind, long id, int page) {
+        UsersList usersList = new UsersList(pageKind, UserDB.getUserDB().get(id));
         ((UsersListFXML) usersList.getLoader().getController()).setListener(new UsersListListener());
         usersList.refresh(page);
         return usersList;
     }
 
-    public TweetsList getTweetsListPane(String id, int page)
-    {
+    public TweetsList getTweetsListPane(String id, int page) {
         TweetsList tweetsList = new TweetsList(TweetDB.getTweetDB().get(id));
         ((TweetsListFXML) tweetsList.getLoader().getController()).setListener(new TweetsListListener());
         tweetsList.refresh(page);
         return tweetsList;
+    }
+
+    public GroupsPane getGroupsPane(int page)
+    {
+        GroupsPane groupsPane = new GroupsPane();
+        groupsPane.refresh(page);
+        return groupsPane;
     }
 
     public SettingsPane getSettingsPane()

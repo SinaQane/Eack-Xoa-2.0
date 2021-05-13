@@ -3,7 +3,6 @@ package apps.mainpage.pages.profile_viewuser.listener;
 import apps.imageframe.ImageFrame;
 import apps.mainpage.event.PageMemory;
 import apps.mainpage.logic.BackButtonAgent;
-import apps.mainpage.logic.MainPageAgent;
 import apps.mainpage.logic.PanesController;
 import apps.mainpage.pages.profile_viewuser.event.UserViewEvent;
 import apps.mainpage.pages.profile_viewuser.logic.UserViewAgent;

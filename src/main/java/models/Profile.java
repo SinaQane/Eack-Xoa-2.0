@@ -37,6 +37,9 @@ public class Profile
     // Notifications
     private final List<Notification> notifications = new LinkedList<>();
 
+    // Groups
+    private final List<Group> groups = new LinkedList<>();
+
     // Chats
     private final List<Long> chatIds = new LinkedList<>();
 
@@ -301,11 +304,33 @@ public class Profile
         return this.chatIds;
     }
 
+    public List<Group> getGroups()
+    {
+        return this.groups;
+    }
+
+    public void addToGroups(Group group)
+    {
+        int index = -1;
+        for (int i = 0; i < groups.size(); i++)
+        {
+            if (groups.get(i).getTitle().equals(group.getTitle()))
+            {
+                index = i;
+            }
+        }
+        if(index != -1)
+        {
+            groups.remove(index);
+        }
+        groups.add(group);
+    }
+
     /*
-    A HashMap that links every tweet to 2 variables:
-    1. A bit that shows that is this tweet a retweet ("1") or the user's tweet ("0").
-    2. A long that shows the time that this tweet was tweeted, in milliseconds.
-    */
+        A HashMap that links every tweet to 2 variables:
+        1. A bit that shows that is this tweet a retweet ("1") or the user's tweet ("0").
+        2. A long that shows the time that this tweet was tweeted, in milliseconds.
+        */
     public List<String[]> getHomePageTweets()
     {
         HashMap<String[], Long> homePageTweets = new HashMap<>();

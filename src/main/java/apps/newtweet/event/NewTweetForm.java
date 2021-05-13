@@ -1,12 +1,12 @@
 package apps.newtweet.event;
 
-public class NewTweetFormEvent
+public class NewTweetForm
 {
     private final String upperTweet;
     private final String tweetText;
     private final String picPath;
 
-    public NewTweetFormEvent(String upperTweet, String tweetText, String picPath)
+    public NewTweetForm(String upperTweet, String tweetText, String picPath)
     {
         this.upperTweet = upperTweet;
         this.tweetText = tweetText;

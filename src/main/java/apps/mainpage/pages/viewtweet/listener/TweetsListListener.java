@@ -12,8 +12,8 @@ public class TweetsListListener
     {
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
 
-        String id = eventObject.getPageEvent().getTweet().getId();
-        int page = eventObject.getPageEvent().getPage();
+        String id = eventObject.getTweetsListForm().getTweet().getId();
+        int page = eventObject.getTweetsListForm().getPage();
 
         if (((Button) eventObject.getSource()).getId().equals("previousButton"))
         {
