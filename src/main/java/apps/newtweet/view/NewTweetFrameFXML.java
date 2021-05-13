@@ -12,11 +12,18 @@ public class NewTweetFrameFXML
 {
     private final NewTweetFrameListener listener = new NewTweetFrameListener();
 
+    private long id = -1;
+
     public TextField tweetTextField;
     public TextField picsPathTextField;
     public Button sendTweetButton;
 
     private String upperTweet;
+
+    public void setId(long id)
+    {
+        this.id = id;
+    }
 
     public void setUpperTweet(String upperTweet)
     {
@@ -26,6 +33,7 @@ public class NewTweetFrameFXML
     public void tweet(ActionEvent actionEvent)
     {
         NewTweetForm tweetEvent = new NewTweetForm(this.upperTweet, tweetTextField.getText(), picsPathTextField.getText());
+        listener.setId(this.id);
         listener.eventOccurred(new NewTweetEvent(sendTweetButton, tweetEvent));
         ((Stage) (((Button) actionEvent.getSource()).getScene().getWindow())).close();
     }

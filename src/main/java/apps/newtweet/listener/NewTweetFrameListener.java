@@ -11,6 +11,13 @@ import models.Tweet;
 
 public class NewTweetFrameListener
 {
+    private long id = -1;
+
+    public void setId(long id)
+    {
+        this.id = id;
+    }
+
     public void eventOccurred(NewTweetEvent eventObject)
     {
         MainPageFXML mainPageController = MainPage.getMainPage().getLoader().getController();
@@ -31,7 +38,14 @@ public class NewTweetFrameListener
                 TweetDB.getTweetDB().save(upperTweet);
             }
         }
+        if (id != -1)
+        {
+            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getProfilePane());
+        }
+        else
+        {
+            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(MainPageAgent.getMainPageAgent().getUser().getId(), 0).getProfilePane());
 
-        mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(MainPageAgent.getMainPageAgent().getUser().getId(), 0).getProfilePane());
+        }
     }
 }

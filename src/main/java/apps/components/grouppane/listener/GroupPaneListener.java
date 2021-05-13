@@ -15,7 +15,6 @@ public class GroupPaneListener
         {
             GroupFrame groupFrame = new GroupFrame();
             ((GroupFrameFXML) groupFrame.getLoader().getController()).setGroup(group);
-            // TODO
         }
     }
 }

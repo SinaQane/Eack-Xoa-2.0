@@ -42,6 +42,7 @@ public class MainPageListener
             case "profileButton":
                 ProfilePane profilePane = PanesController.getPanesController().getProfilePane(0);
                 fxmlController.setMainPane(profilePane.getProfilePane());
+                BackButtonAgent.getBackButtonAgent().clear();
                 BackButtonAgent.getBackButtonAgent().add(new PageMemory("profile", MainPageAgent.getMainPageAgent().getUser().getId()));
                 break;
             case "settingsButton":
@@ -49,19 +50,26 @@ public class MainPageListener
                 break;
             case "homeButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("timeline", 0).getTimelinePane());
+                BackButtonAgent.getBackButtonAgent().clear();
                 BackButtonAgent.getBackButtonAgent().add(new PageMemory("timeline"));
                 break;
             case "bookmarksButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane("bookmarks", 0).getTimelinePane());
+                BackButtonAgent.getBackButtonAgent().clear();
                 BackButtonAgent.getBackButtonAgent().add(new PageMemory("bookmarks"));
                 break;
             case "notificationsButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("notifications", MainPageAgent.getMainPageAgent().getUser().getId(), 0).getListPane());
+                BackButtonAgent.getBackButtonAgent().clear();
                 BackButtonAgent.getBackButtonAgent().add(new PageMemory("notifications", MainPageAgent.getMainPageAgent().getUser().getId()));
                 break;
             case "exploreButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getExplorePane().getPane());
+                BackButtonAgent.getBackButtonAgent().clear();
                 BackButtonAgent.getBackButtonAgent().add(new PageMemory("explore"));
+                break;
+            case "groupsButton":
+                fxmlController.setMainPane(PanesController.getPanesController().getGroupsPane(0).getPane());
                 break;
             default: // TODO direct messages
                 System.out.println(((Button) source).getId());

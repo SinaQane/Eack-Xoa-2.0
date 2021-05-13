@@ -22,7 +22,7 @@ public class ProfileListener
             case "tweetButton":
                 NewTweetFrame tweetFrame = new NewTweetFrame("");
                 ((NewTweetFrameFXML) tweetFrame.getLoader().getController()).setUpperTweet("");
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getProfilePane());
+                ((NewTweetFrameFXML) tweetFrame.getLoader().getController()).setId(id);
                 break;
             case "nextButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(id, page + 1).getProfilePane());

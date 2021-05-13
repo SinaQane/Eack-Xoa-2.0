@@ -20,7 +20,6 @@ public class GroupsPaneListener
             case "newGroupButton":
                 GroupFrame groupFrame = new GroupFrame();
                 ((GroupFrameFXML) groupFrame.getLoader().getController()).setGroup(null);
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(0).getProfilePane());
                 break;
             case "previousButton":
                 fxmlController.setMainPane(PanesController.getPanesController().getGroupsPane(page - 1).getPane());
