@@ -4,6 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class DBUtil
 {
@@ -31,6 +37,41 @@ public class DBUtil
             fileOutputStream.close();
         }
         catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static long getLastId(String path)
+    {
+        List<String> fileContent;
+        try
+        {
+            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8));
+        }
+        catch (IOException e)
+        {
+            return 0;
+        }
+        return Long.parseLong(fileContent.get(0));
+    }
+
+    public static void setLastId(long newId, String path)
+    {
+        List<String> fileContent = null;
+        try
+        {
+            fileContent = new ArrayList<>(Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        Objects.requireNonNull(fileContent).set(0, newId + "");
+        try
+        {
+            Files.write(Paths.get(path), fileContent, StandardCharsets.UTF_8);
+        } catch (IOException e)
         {
             e.printStackTrace();
         }

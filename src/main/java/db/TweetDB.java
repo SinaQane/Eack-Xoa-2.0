@@ -101,7 +101,7 @@ public class TweetDB implements DBSet<Tweet>
         logger.debug("tweet " + tweet.getId() + "'s file was saved.");
     }
 
-    @Override
+    @Override // Unnecessary function but it was easy so I just wrote it.
     public boolean exists(String id)
     {
         return get(id) != null;
