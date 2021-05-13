@@ -4,16 +4,16 @@ import java.util.EventObject;
 
 public class ProfileEvent extends EventObject
 {
-    private final PageFormEvent pageEvent;
+    private final ProfileForm profileForm;
 
-    public ProfileEvent(Object source, PageFormEvent pageEvent)
+    public ProfileEvent(Object source, ProfileForm profileForm)
     {
         super(source);
-        this.pageEvent = pageEvent;
+        this.profileForm = profileForm;
     }
 
-    public PageFormEvent getPageEvent()
+    public ProfileForm getProfileForm()
     {
-        return pageEvent;
+        return profileForm;
     }
 }

@@ -4,7 +4,7 @@ import apps.components.notification.listener.NotificationPaneListener;
 import apps.components.notification.view.NotificationPane;
 import apps.components.notification.view.NotificationPaneFXML;
 import apps.components.userpane.listener.UserPaneListener;
-import apps.components.userpane.view.EmptyUserPane;
+import apps.components.emptypanes.emptypane.EmptyPane;
 import apps.components.userpane.view.UserPane;
 import apps.components.userpane.view.UserPaneFXML;
 import apps.mainpage.pages.userslist_notifications.logic.NotificationsAgent;
@@ -72,7 +72,7 @@ public class UsersList
             {
                 if (notifications.get(i).getOwner() == 0)
                 {
-                    fxmlController.setUserPane(i, new EmptyUserPane().getUserPane());
+                    fxmlController.setUserPane(i, new EmptyPane().getPane());
                 }
                 else
                 {
@@ -97,7 +97,7 @@ public class UsersList
             {
                 if (users.get(i) == 0)
                 {
-                    fxmlController.setUserPane(i, new EmptyUserPane().getUserPane());
+                    fxmlController.setUserPane(i, new EmptyPane().getPane());
                 }
                 else
                 {

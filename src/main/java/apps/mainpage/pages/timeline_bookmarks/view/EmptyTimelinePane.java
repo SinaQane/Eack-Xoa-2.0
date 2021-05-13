@@ -12,11 +12,10 @@ public class EmptyTimelinePane
     private static final String EMPTY_TIMELINE = Config.getConfig("paths").getProperty(String.class, "emptyTimeline");
 
     private Pane emptyPane;
-    private final FXMLLoader loader;
 
     public EmptyTimelinePane()
     {
-        this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_TIMELINE)));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_TIMELINE)));
         try
         {
             emptyPane = loader.load();
@@ -30,10 +29,5 @@ public class EmptyTimelinePane
     public Pane getEmptyPane()
     {
         return this.emptyPane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
     }
 }

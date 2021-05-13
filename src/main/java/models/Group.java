@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Group
 {
-    private String title;
+    private String title; // Group's title is a unique string, but not constant.
     private final List<Long> membersId = new LinkedList<>();
 
     public Group(String title)

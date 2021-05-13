@@ -2,12 +2,12 @@ package apps.mainpage.pages.profile_viewuser.event;
 
 import models.User;
 
-public class PageFormEvent
+public class ProfileForm
 {
     private final User user;
     private final int page;
 
-    public PageFormEvent(User user, int page)
+    public ProfileForm(User user, int page)
     {
         this.user = user;
         this.page = page;

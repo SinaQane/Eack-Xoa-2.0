@@ -4,16 +4,16 @@ import java.util.EventObject;
 
 public class TweetsListEvent extends EventObject
 {
-    private final PageFormEvent pageEvent;
+    private final TweetsListForm tweetsListForm;
 
-    public TweetsListEvent(Object source, PageFormEvent pageEvent)
+    public TweetsListEvent(Object source, TweetsListForm tweetsListForm)
     {
         super(source);
-        this.pageEvent = pageEvent;
+        this.tweetsListForm = tweetsListForm;
     }
 
-    public PageFormEvent getPageEvent()
+    public TweetsListForm getTweetsListForm()
     {
-        return pageEvent;
+        return tweetsListForm;
     }
 }

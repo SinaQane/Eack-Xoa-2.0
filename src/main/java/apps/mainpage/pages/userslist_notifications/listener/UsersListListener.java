@@ -12,9 +12,9 @@ public class UsersListListener
     {
         MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
 
-        long id = eventObject.getPageEvent().getUser().getId();
-        int page = eventObject.getPageEvent().getPage();
-        String pageKind = eventObject.getPageEvent().getPageKind();
+        long id = eventObject.getUsersListForm().getUser().getId();
+        int page = eventObject.getUsersListForm().getPage();
+        String pageKind = eventObject.getUsersListForm().getPageKind();
 
         if (((Button) eventObject.getSource()).getId().equals("previousButton"))
         {

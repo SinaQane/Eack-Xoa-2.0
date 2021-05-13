@@ -1,6 +1,6 @@
 package apps.mainpage.pages.userslist_notifications.view;
 
-import apps.mainpage.pages.userslist_notifications.event.PageFormEvent;
+import apps.mainpage.pages.userslist_notifications.event.UsersListForm;
 import apps.mainpage.pages.userslist_notifications.event.UsersListEvent;
 import apps.mainpage.pages.userslist_notifications.listener.UsersListListener;
 import javafx.scene.control.Button;
@@ -85,13 +85,13 @@ public class UsersListFXML
 
     public void previous()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.user, this.page, this.pageKind);
+        UsersListForm pageEvent = new UsersListForm(this.user, this.page, this.pageKind);
         listener.eventOccurred(new UsersListEvent(previousButton, pageEvent));
     }
 
     public void next()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.user, this.page, this.pageKind);
+        UsersListForm pageEvent = new UsersListForm(this.user, this.page, this.pageKind);
         listener.eventOccurred(new UsersListEvent(nextButton, pageEvent));
     }
 }

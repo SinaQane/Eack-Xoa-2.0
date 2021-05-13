@@ -1,7 +1,7 @@
 package apps.mainpage.pages.explore.view;
 
 import apps.components.tweetpane.listener.TweetPaneListener;
-import apps.components.tweetpane.view.EmptyTweetPane;
+import apps.components.emptypanes.emptytweetpane.EmptyTweetPane;
 import apps.components.tweetpane.view.TweetPane;
 import apps.components.tweetpane.view.TweetPaneFXML;
 import apps.mainpage.pages.explore.logic.RandomAgent;
@@ -36,11 +36,6 @@ public class RandomTweetsPane
     public Pane getPane()
     {
         return this.pane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
     }
 
     public void refresh()

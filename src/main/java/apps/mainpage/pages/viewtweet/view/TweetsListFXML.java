@@ -1,6 +1,6 @@
 package apps.mainpage.pages.viewtweet.view;
 
-import apps.mainpage.pages.viewtweet.event.PageFormEvent;
+import apps.mainpage.pages.viewtweet.event.TweetsListForm;
 import apps.mainpage.pages.viewtweet.event.TweetsListEvent;
 import apps.mainpage.pages.viewtweet.listener.TweetsListListener;
 import javafx.scene.control.Button;
@@ -66,13 +66,13 @@ public class TweetsListFXML
 
     public void previous()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.tweet, this.page);
+        TweetsListForm pageEvent = new TweetsListForm(this.tweet, this.page);
         listener.eventOccurred(new TweetsListEvent(previousButton, pageEvent));
     }
 
     public void next()
     {
-        PageFormEvent pageEvent = new PageFormEvent(this.tweet, this.page);
+        TweetsListForm pageEvent = new TweetsListForm(this.tweet, this.page);
         listener.eventOccurred(new TweetsListEvent(nextButton, pageEvent));
     }
 }

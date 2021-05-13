@@ -9,7 +9,7 @@ import java.util.Properties;
 public class Config extends Properties
 {
     private static final String DEFAULT_ADDRESS = "./src/main/resources/configurations/main.properties";
-    private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
+    private static final Config MAIN_CONFIG = new Config();
 
     public static Config getConfig(String name)
     {
@@ -20,12 +20,12 @@ public class Config extends Properties
         return MAIN_CONFIG.getProperty(Config.class, name);
     }
 
-    private Config(String address)
+    private Config()
     {
         super();
         try
         {
-            Reader fileReader = new FileReader(address);
+            Reader fileReader = new FileReader(Config.DEFAULT_ADDRESS);
             this.load(fileReader);
         }
         catch (IOException e)

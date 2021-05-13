@@ -53,11 +53,6 @@ public class ProfilePaneFXML
         return this.profileListener;
     }
 
-    public User getUser()
-    {
-        return otherUser;
-    }
-
     public void setUser(User user)
     {
         this.otherUser = user;
