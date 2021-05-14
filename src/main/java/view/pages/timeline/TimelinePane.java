@@ -11,7 +11,7 @@ import listener.pages.timeline.TimelineListener;
 import controller.pages.timeline.TimelineLogic;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.Objects;

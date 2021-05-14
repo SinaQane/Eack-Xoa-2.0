@@ -6,7 +6,7 @@ import model.User;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import util.Config;
+import config.Config;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -127,7 +127,6 @@ public class UserDB implements DBSet<User>
         logger.debug(user.getId() + "th user's file was saved.");
     }
 
-    @Override
     public boolean exists(String username)
     {
         File usersDirectory = new File(USERS_PATH);

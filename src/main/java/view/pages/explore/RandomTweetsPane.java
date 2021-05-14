@@ -7,7 +7,7 @@ import view.components.tweet.TweetPaneFXML;
 import controller.pages.explore.RandomTweetsLogic;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.List;

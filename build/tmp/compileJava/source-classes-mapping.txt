@@ -2,62 +2,66 @@ util/HashMapUtil.java
  util.HashMapUtil
 listener/login/LoginFormEvent.java
  listener.login.LoginFormEvent
-view/login/LoginPage.java
- view.login.LoginPage
-util/Validations.java
- util.Validations
-view/frames/managegroup/ManageGroupFrame.java
- view.frames.managegroup.ManageGroupFrame
+view/pages/explore/ExplorePaneFXML.java
+ view.pages.explore.ExplorePaneFXML
+view/pages/explore/RandomTweetsPaneFXML.java
+ view.pages.explore.RandomTweetsPaneFXML
+view/pages/messages/MessagesPaneFXML.java
+ view.pages.messages.MessagesPaneFXML
 model/Notification.java
  model.Notification
-MainApp.java
- MainApp
-view/frames/newtweet/NewTweetFrame.java
- view.frames.newtweet.NewTweetFrame
+view/pages/tweetslist/TweetsListFXML.java
+ view.pages.tweetslist.TweetsListFXML
+view/pages/groups/GroupsPaneFXML.java
+ view.pages.groups.GroupsPaneFXML
 listener/frames/newtweet/NewTweetForm.java
  listener.frames.newtweet.NewTweetForm
-view/signup/SignUpPage.java
- view.signup.SignUpPage
+listener/pages/tweetslist/TweetsListEvent.java
+ listener.pages.tweetslist.TweetsListEvent
 view/frames/viewimage/ViewImageFrameFXML.java
  view.frames.viewimage.ViewImageFrameFXML
-view/frames/viewimage/ViewImageFrame.java
- view.frames.viewimage.ViewImageFrame
-view/components/empty/emptytweet/EmptyTweetPane.java
- view.components.empty.emptytweet.EmptyTweetPane
-util/Config.java
- util.Config
-listener/firstpage/FirstPageListener.java
- listener.firstpage.FirstPageListener
+controller/mainpage/BackButtonMemory.java
+ controller.mainpage.BackButtonMemory
+view/pages/explore/SearchResultsPaneFXML.java
+ view.pages.explore.SearchResultsPaneFXML
+view/pages/timeline/TimelinePaneFXML.java
+ view.pages.timeline.TimelinePaneFXML
+view/components/notification/NotificationPaneFXML.java
+ view.components.notification.NotificationPaneFXML
 listener/StringListener.java
  listener.StringListener
-view/components/empty/emptymessage/EmptyMessagePane.java
- view.components.empty.emptymessage.EmptyMessagePane
+listener/pages/tweetslist/TweetsListForm.java
+ listener.pages.tweetslist.TweetsListForm
 view/firstpage/FirstPageFXML.java
  view.firstpage.FirstPageFXML
 listener/frames/newtweet/NewTweetEvent.java
  listener.frames.newtweet.NewTweetEvent
-view/frames/newchat/NewChatFrame.java
- view.frames.newchat.NewChatFrame
-view/firstpage/FirstPage.java
- view.firstpage.FirstPage
-view/components/empty/emptyuser/EmptyUserPane.java
- view.components.empty.emptyuser.EmptyUserPane
+view/frames/newchat/NewChatFrameFXML.java
+ view.frames.newchat.NewChatFrameFXML
+listener/pages/settings/EditFormEvent.java
+ listener.pages.settings.EditFormEvent
+view/frames/newtweet/NewTweetFrameFXML.java
+ view.frames.newtweet.NewTweetFrameFXML
 listener/signup/SignUpFormEvent.java
  listener.signup.SignUpFormEvent
 db/DBUtil.java
  db.DBUtil
-view/mainpage/MainPage.java
- view.mainpage.MainPage
-db/DBSet.java
- db.DBSet
+view/login/LoginPageFXML.java
+ view.login.LoginPageFXML
+view/mainpage/MainPageFXML.java
+ view.mainpage.MainPageFXML
+controller/frames/editmessage/EditMessageFrameLogic.java
+ controller.frames.editmessage.EditMessageFrameLogic
+listener/pages/timeline/TimelineEvent.java
+ listener.pages.timeline.TimelineEvent
 view/components/message/MessagePane.java
  view.components.message.MessagePane
-listener/pages/tweetslist/TweetsListListener.java
- listener.pages.tweetslist.TweetsListListener
 view/pages/settings/SettingsPaneFXML.java
  view.pages.settings.SettingsPaneFXML
-view/pages/messages/MessagesPaneFXML.java
- view.pages.messages.MessagesPaneFXML
+listener/pages/tweetslist/TweetsListListener.java
+ listener.pages.tweetslist.TweetsListListener
+view/frames/newtweet/NewTweetFrame.java
+ view.frames.newtweet.NewTweetFrame
 listener/pages/explore/SearchResultsListener.java
  listener.pages.explore.SearchResultsListener
 listener/frames/newtweet/NewTweetFrameListener.java
@@ -70,26 +74,26 @@ model/User.java
  model.User
 view/pages/explore/ExplorePane.java
  view.pages.explore.ExplorePane
+view/components/empty/emptymessage/EmptyMessagePane.java
+ view.components.empty.emptymessage.EmptyMessagePane
 controller/pages/userslist/NotificationsLogic.java
  controller.pages.userslist.NotificationsLogic
-listener/pages/settings/EditFormEvent.java
- listener.pages.settings.EditFormEvent
-controller/mainpage/BackButtonMemory.java
- controller.mainpage.BackButtonMemory
 listener/frames/addmember/AddMemberFrameListener.java
  listener.frames.addmember.AddMemberFrameListener
 listener/login/LoginListener.java
  listener.login.LoginListener
 listener/frames/managegroup/ManageGroupEvent.java
  listener.frames.managegroup.ManageGroupEvent
+util/ArrayListUtil.java
+ util.ArrayListUtil
 controller/mainpage/BackButtonHandler.java
  controller.mainpage.BackButtonHandler
 view/pages/messages/ChatsListPane.java
  view.pages.messages.ChatsListPane
-view/pages/explore/SearchResultsPaneFXML.java
- view.pages.explore.SearchResultsPaneFXML
 view/pages/profile/TweetsPane.java
  view.pages.profile.TweetsPane
+db/DBSet.java
+ db.DBSet
 db/UserDB.java
  db.UserDB
 listener/components/tweet/TweetPaneListener.java
@@ -98,14 +102,14 @@ controller/pages/timeline/TimelineLogic.java
  controller.pages.timeline.TimelineLogic
 view/pages/messages/ChatroomPane.java
  view.pages.messages.ChatroomPane
-listener/pages/tweetslist/TweetsListEvent.java
- listener.pages.tweetslist.TweetsListEvent
 view/pages/messages/MessagesPane.java
  view.pages.messages.MessagesPane
 view/pages/tweetslist/TweetsList.java
  view.pages.tweetslist.TweetsList
 view/pages/settings/SettingsPane.java
  view.pages.settings.SettingsPane
+util/Validations.java
+ util.Validations
 view/components/group/GroupPaneFXML.java
  view.components.group.GroupPaneFXML
 view/pages/profile/TweetsPaneFXML.java
@@ -120,10 +124,6 @@ view/pages/empty/EmptyTimelinePane.java
  view.pages.empty.EmptyTimelinePane
 listener/pages/userslist/UsersListEvent.java
  listener.pages.userslist.UsersListEvent
-view/components/notification/NotificationPaneFXML.java
- view.components.notification.NotificationPaneFXML
-view/frames/newtweet/NewTweetFrameFXML.java
- view.frames.newtweet.NewTweetFrameFXML
 view/pages/userslist/UsersList.java
  view.pages.userslist.UsersList
 view/pages/messages/ChatsListPaneFXML.java
@@ -158,6 +158,8 @@ controller/pages/profile/ViewUserLogic.java
  controller.pages.profile.ViewUserLogic
 view/pages/profile/ProfilePane.java
  view.pages.profile.ProfilePane
+view/components/empty/emptytweet/EmptyTweetPane.java
+ view.components.empty.emptytweet.EmptyTweetPane
 listener/components/group/GroupPaneListener.java
  listener.components.group.GroupPaneListener
 listener/pages/messages/ChatroomListener.java
@@ -166,14 +168,16 @@ listener/pages/explore/ExploreListener.java
  listener.pages.explore.ExploreListener
 model/Chat.java
  model.Chat
-controller/frames/editmessage/EditMessageFrameLogic.java
- controller.frames.editmessage.EditMessageFrameLogic
+view/mainpage/MainPage.java
+ view.mainpage.MainPage
 listener/frames/newchat/NewChatFrameListener.java
  listener.frames.newchat.NewChatFrameListener
-view/pages/groups/GroupsPaneFXML.java
- view.pages.groups.GroupsPaneFXML
-view/pages/timeline/TimelinePaneFXML.java
- view.pages.timeline.TimelinePaneFXML
+view/frames/sharetweet/ShareTweetFrame.java
+ view.frames.sharetweet.ShareTweetFrame
+view/login/LoginPage.java
+ view.login.LoginPage
+view/frames/managegroup/ManageGroupFrame.java
+ view.frames.managegroup.ManageGroupFrame
 listener/pages/userslist/UsersListForm.java
  listener.pages.userslist.UsersListForm
 model/Profile.java
@@ -186,44 +190,56 @@ view/components/user/UserPaneFXML.java
  view.components.user.UserPaneFXML
 view/pages/timeline/TimelinePane.java
  view.pages.timeline.TimelinePane
+view/firstpage/FirstPage.java
+ view.firstpage.FirstPage
 listener/pages/groups/GroupsListener.java
  listener.pages.groups.GroupsListener
 model/Tweet.java
  model.Tweet
 view/components/tweet/TweetPane.java
  view.components.tweet.TweetPane
+view/frames/viewimage/ViewImageFrame.java
+ view.frames.viewimage.ViewImageFrame
+MainApp.java
+ MainApp
 controller/pages/settings/SettingsLogic.java
  controller.pages.settings.SettingsLogic
 db/ChatDB.java
  db.ChatDB
 view/frames/editmessage/EditMessageFrameFXML.java
  view.frames.editmessage.EditMessageFrameFXML
+view/frames/newchat/NewChatFrame.java
+ view.frames.newchat.NewChatFrame
 controller/pages/explore/RandomTweetsLogic.java
  controller.pages.explore.RandomTweetsLogic
 view/pages/profile/ProfilePaneFXML.java
  view.pages.profile.ProfilePaneFXML
 listener/pages/userslist/UsersListListener.java
  listener.pages.userslist.UsersListListener
+view/frames/sharetweet/ShareTweetFrameFXML.java
+ view.frames.sharetweet.ShareTweetFrameFXML
 view/components/user/UserPane.java
  view.components.user.UserPane
-view/mainpage/MainPageFXML.java
- view.mainpage.MainPageFXML
+view/components/empty/emptyuser/EmptyUserPane.java
+ view.components.empty.emptyuser.EmptyUserPane
+listener/firstpage/FirstPageListener.java
+ listener.firstpage.FirstPageListener
+controller/pages/groups/GroupsLogic.java
+ controller.pages.groups.GroupsLogic
 view/frames/managegroup/ManageGroupFrameFXML.java
  view.frames.managegroup.ManageGroupFrameFXML
 view/pages/explore/SearchResultsPane.java
  view.pages.explore.SearchResultsPane
-view/frames/newchat/NewChatFrameFXML.java
- view.frames.newchat.NewChatFrameFXML
 listener/frames/editmessage/EditMessageFrameListener.java
  listener.frames.editmessage.EditMessageFrameListener
 listener/signup/SignUpFormListener.java
  listener.signup.SignUpFormListener
+view/signup/SignUpPage.java
+ view.signup.SignUpPage
 model/Message.java
  model.Message
 controller/login/LoginLogic.java
  controller.login.LoginLogic
-listener/pages/tweetslist/TweetsListForm.java
- listener.pages.tweetslist.TweetsListForm
 controller/pages/explore/UserSearchLogic.java
  controller.pages.explore.UserSearchLogic
 view/MainStage.java
@@ -244,22 +260,16 @@ listener/pages/profile/ViewUserListener.java
  listener.pages.profile.ViewUserListener
 controller/pages/tweetslist/TweetsListLogic.java
  controller.pages.tweetslist.TweetsListLogic
-view/pages/tweetslist/TweetsListFXML.java
- view.pages.tweetslist.TweetsListFXML
 view/pages/explore/RandomTweetsPane.java
  view.pages.explore.RandomTweetsPane
-view/pages/explore/RandomTweetsPaneFXML.java
- view.pages.explore.RandomTweetsPaneFXML
+config/Config.java
+ config.Config
 db/TweetDB.java
  db.TweetDB
-listener/pages/timeline/TimelineEvent.java
- listener.pages.timeline.TimelineEvent
 view/signup/SignUpPageFXML.java
  view.signup.SignUpPageFXML
 view/pages/messages/ChatroomPaneFXML.java
  view.pages.messages.ChatroomPaneFXML
-view/pages/explore/ExplorePaneFXML.java
- view.pages.explore.ExplorePaneFXML
 view/components/group/GroupPane.java
  view.components.group.GroupPane
 listener/frames/managegroup/ManageGroupForm.java
@@ -274,13 +284,13 @@ controller/pages/messages/MessagesLogic.java
  controller.pages.messages.MessagesLogic
 listener/pages/profile/ViewUserEvent.java
  listener.pages.profile.ViewUserEvent
-view/login/LoginPageFXML.java
- view.login.LoginPageFXML
 model/Group.java
  model.Group
 view/pages/empty/EmptyChatroomPane.java
  view.pages.empty.EmptyChatroomPane
 view/frames/editmessage/EditMessageFrame.java
  view.frames.editmessage.EditMessageFrame
-controller/pages/groups/GroupsLogic.java
- controller.pages.groups.GroupsLogic
+listener/frames/sharetweet/ShareTweetFrameListener.java
+ listener.frames.sharetweet.ShareTweetFrameListener
+controller/frames/sharetweet/ShareTweetFrameLogic.java
+ controller.frames.sharetweet.ShareTweetFrameLogic

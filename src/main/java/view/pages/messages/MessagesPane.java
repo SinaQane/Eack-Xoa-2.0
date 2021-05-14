@@ -2,7 +2,7 @@ package view.pages.messages;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import util.Config;
+import config.Config;
 import view.pages.empty.EmptyChatroomPane;
 
 import java.io.IOException;

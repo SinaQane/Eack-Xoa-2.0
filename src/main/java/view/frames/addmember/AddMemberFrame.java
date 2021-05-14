@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Chat;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.Objects;

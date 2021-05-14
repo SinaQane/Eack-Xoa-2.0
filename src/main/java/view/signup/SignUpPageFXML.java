@@ -7,7 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import util.Config;
+import config.Config;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

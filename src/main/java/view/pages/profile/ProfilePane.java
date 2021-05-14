@@ -14,7 +14,7 @@ import db.UserDB;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-import util.Config;
+import config.Config;
 
 import java.io.File;
 import java.io.IOException;

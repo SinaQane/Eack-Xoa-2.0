@@ -8,7 +8,7 @@ import controller.mainpage.BackButtonMemory;
 import controller.mainpage.PanesController;
 import model.Chat;
 import model.Message;
-import util.Config;
+import config.Config;
 import view.frames.editmessage.EditMessageFrame;
 import view.frames.viewimage.ViewImageFrame;
 import view.mainpage.MainPage;

@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import model.User;
-import util.Config;
+import config.Config;
 
 import java.util.EventObject;
 

@@ -1,5 +1,7 @@
 package util;
 
+import config.Config;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

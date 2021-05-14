@@ -7,7 +7,7 @@ import controller.pages.groups.GroupsLogic;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import model.Group;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.List;

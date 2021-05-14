@@ -13,13 +13,11 @@ public class TweetPaneLogic
     private static final Logger logger = LogManager.getLogger(TweetPaneLogic.class);
 
     private final User ourUser;
-    private final User otherUser; // TODO direct messages
     private final Tweet tweet;
 
-    public TweetPaneLogic(User ourUser, User otherUser, Tweet tweet)
+    public TweetPaneLogic(User ourUser, Tweet tweet)
     {
         this.ourUser = ourUser;
-        this.otherUser = otherUser;
         this.tweet = tweet;
     }
 

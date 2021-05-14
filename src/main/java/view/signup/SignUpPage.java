@@ -3,7 +3,7 @@ package view.signup;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.Objects;

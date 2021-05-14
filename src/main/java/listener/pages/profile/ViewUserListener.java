@@ -11,7 +11,7 @@ import view.mainpage.MainPageFXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import model.User;
-import util.Config;
+import config.Config;
 
 import java.io.File;
 import java.net.MalformedURLException;

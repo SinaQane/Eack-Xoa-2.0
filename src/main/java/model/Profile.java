@@ -309,6 +309,19 @@ public class Profile
         return this.groups;
     }
 
+    public Group getGroup(String groupName)
+    {
+        for (Group group : groups)
+        {
+            if (group.getTitle().equals(groupName))
+            {
+                return group;
+            }
+        }
+
+        return null;
+    }
+
     public void addToGroups(Group group)
     {
         int index = -1;

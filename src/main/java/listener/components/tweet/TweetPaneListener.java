@@ -1,6 +1,7 @@
 package listener.components.tweet;
 
 import controller.components.tweet.TweetPaneLogic;
+import view.frames.sharetweet.ShareTweetFrame;
 import view.frames.viewimage.ViewImageFrame;
 import view.components.tweet.TweetPane;
 import view.components.tweet.TweetPaneFXML;
@@ -20,7 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import model.Tweet;
 import model.User;
-import util.Config;
+import config.Config;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -43,7 +44,7 @@ public class TweetPaneListener
         User otherUser = UserDB.getUserDB().get(((TweetPaneFXML) tweetPane.getLoader().getController()).getOwnerId());
         Tweet tweet = TweetDB.getTweetDB().get(((TweetPaneFXML) tweetPane.getLoader().getController()).getTweetId());
 
-        TweetPaneLogic logicalAgent = new TweetPaneLogic(ourUser, otherUser, tweet);
+        TweetPaneLogic logicalAgent = new TweetPaneLogic(ourUser, tweet);
 
         switch (((Button) eventObject.getSource()).getId())
         {
@@ -114,8 +115,8 @@ public class TweetPaneListener
                 NewTweetFrame tweetFrame = new NewTweetFrame(tweet.getId());
                 ((NewTweetFrameFXML) tweetFrame.getLoader().getController()).setUpperTweet(tweet.getId());
                 break;
-            case "sendButton": // TODO direct messages
-                System.out.println(((Button) eventObject.getSource()).getId());
+            case "sendButton":
+                new ShareTweetFrame(tweet);
                 break;
         }
     }

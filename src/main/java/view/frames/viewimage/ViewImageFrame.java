@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.Objects;

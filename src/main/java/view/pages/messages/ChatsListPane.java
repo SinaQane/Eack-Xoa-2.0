@@ -4,7 +4,7 @@ import controller.pages.messages.MessagesLogic;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import model.Chat;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.List;

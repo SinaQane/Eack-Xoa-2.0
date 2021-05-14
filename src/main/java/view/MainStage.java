@@ -14,7 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import view.firstpage.FirstPage;
 import view.firstpage.FirstPageFXML;
-import util.Config;
+import config.Config;
 
 public class MainStage
 {

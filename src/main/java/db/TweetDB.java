@@ -6,7 +6,7 @@ import model.Tweet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import util.Config;
+import config.Config;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -99,12 +99,5 @@ public class TweetDB implements DBSet<Tweet>
         DBUtil.saveToGson(path, gson.toJson(tweet));
 
         logger.debug("tweet " + tweet.getId() + "'s file was saved.");
-    }
-
-    @Override
-    @SuppressWarnings("unused") // Unnecessary function but it was easy so I just wrote it.
-    public boolean exists(String id)
-    {
-        return get(id) != null;
     }
 }

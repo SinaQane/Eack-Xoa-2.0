@@ -286,3 +286,12 @@
 2021-05-14 21:59:07.531 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 2 logged in.
 2021-05-14 22:00:50.012 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
 2021-05-14 22:00:50.017 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 1 logged in.
+2021-05-14 23:11:18.065 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-14 23:11:18.070 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 1 logged in.
+2021-05-14 23:34:19.434 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-14 23:34:19.440 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 1 logged in.
+2021-05-14 23:35:05.946 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-14 23:35:05.953 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 1 logged in.
+2021-05-15 00:30:30.255 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-05-15 00:30:30.260 [JavaFX Application Thread] WARN  controller.login.LoginLogic - 1 logged in.
+2021-05-15 00:30:42.654 [JavaFX Application Thread] DEBUG db.ChatDB - chat 1's file was saved.

@@ -6,7 +6,7 @@ import listener.pages.settings.SettingsListener;
 
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-import util.Config;
+import config.Config;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

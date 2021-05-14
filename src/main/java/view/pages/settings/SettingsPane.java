@@ -3,7 +3,7 @@ package view.pages.settings;
 import listener.pages.settings.SettingsListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import util.Config;
+import config.Config;
 
 import java.io.IOException;
 import java.util.Objects;
