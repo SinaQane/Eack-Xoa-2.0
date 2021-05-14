@@ -9,7 +9,6 @@ import controller.mainpage.BackButtonHandler;
 import controller.mainpage.MainPageController;
 import view.mainpage.MainPage;
 import view.mainpage.MainPageFXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.User;
@@ -38,27 +37,25 @@ public class LoginListener
         }
         else if (((Button) eventObject.getSource()).getId().equals("enterButton"))
         {
-            LoginLogic loginLogic = new LoginLogic(eventObject);
-            if (loginLogic.check().equals("Invalid"))
+            LoginLogic logic = new LoginLogic(eventObject);
+            if (logic.check().equals("Invalid"))
             {
-                FXMLLoader loginPageLoader = loginPage.getLoader();
-                LoginPageFXML loginPageController = loginPageLoader.getController();
-                loginPageController.getMessageText().setText("The username or password is wrong.");
-                loginPageController.getMessageText().setVisible(true);
+                LoginPageFXML loginPageFXML = loginPage.getLoader().getController();
+                loginPageFXML.getMessageText().setText("The username or password is wrong.");
+                loginPageFXML.getMessageText().setVisible(true);
             }
             else
             {
-                User loggedInUser = loginLogic.login();
-                MainPageController.getMainPageAgent().setUser(loggedInUser);
-                FXMLLoader fxmlLoader = mainPage.getLoader();
-                MainPageFXML fxmlController = fxmlLoader.getController();
-                fxmlController.profile();
+                User loggedInUser = logic.login();
+                MainPageController.getMainPageController().setUser(loggedInUser);
+                MainPageFXML mainPageFXML = mainPage.getLoader().getController();
+                mainPageFXML.profile();
                 loginPage.clear();
                 stage.setScene(mainPage.getScene());
 
-                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageAgent().getUser().getId()));
+                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageController().getUser().getId()));
 
-                // TODO start timer for last seen update
+                MainPageController.getMainPageController().startTimer();
             }
         }
     }

@@ -54,7 +54,7 @@ public class LoginPage
 
     public void clear()
     {
-        LoginPageFXML fxmlController = this.loader.getController();
-        fxmlController.getMessageText().setVisible(false);
+        LoginPageFXML loginPageFXML = this.loader.getController();
+        loginPageFXML.getMessageText().setVisible(false);
     }
 }

@@ -40,24 +40,24 @@ public class RandomTweetsPane
 
     public void refresh()
     {
-        RandomTweetsLogic logicalAgent = new RandomTweetsLogic();
+        RandomTweetsLogic logic = new RandomTweetsLogic();
 
-        RandomTweetsPaneFXML fxmlController = this.loader.getController();
+        RandomTweetsPaneFXML randomTweetsPaneFXML = this.loader.getController();
 
-        List<String> tweets = logicalAgent.getTweets();
+        List<String> tweets = logic.getTweets();
 
         for (int i = 0; i < tweets.size(); i++)
         {
             if (tweets.get(i).equals(""))
             {
-                fxmlController.setTweetPane(i, new EmptyTweetPane().getTweetPane());
+                randomTweetsPaneFXML.setTweetPane(i, new EmptyTweetPane().getTweetPane());
             }
             else
             {
                 TweetPane tweetPane = new TweetPane();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).setListener(new TweetPaneListener(tweetPane));
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).setTweetPane(new String[]{tweets.get(i), "0"});
-                fxmlController.setTweetPane(i, tweetPane.getTweetPane());
+                randomTweetsPaneFXML.setTweetPane(i, tweetPane.getPane());
             }
         }
     }

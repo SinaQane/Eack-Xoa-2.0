@@ -25,7 +25,7 @@ public class ProfileLogic
 
         for (String[] tweet : allTweets)
         {
-            if (MainPageController.getMainPageAgent().isValid(TweetDB.getTweetDB().get(tweet[0])))
+            if (MainPageController.getMainPageController().isValid(TweetDB.getTweetDB().get(tweet[0])))
             {
                 userTweets.add(tweet);
             }

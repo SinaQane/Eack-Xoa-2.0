@@ -18,7 +18,7 @@ public class RandomTweetsLogic
 
         for (Tweet tweet : allTweets)
         {
-            if (MainPageController.getMainPageAgent().isValid(tweet))
+            if (MainPageController.getMainPageController().isValid(tweet))
             {
                 tweets.add(tweet);
             }

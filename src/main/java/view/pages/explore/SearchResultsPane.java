@@ -1,6 +1,5 @@
 package view.pages.explore;
 
-import listener.components.user.UserPaneListener;
 import view.components.empty.emptyuser.EmptyUserPane;
 import view.components.user.UserPane;
 import view.components.user.UserPaneFXML;
@@ -44,31 +43,30 @@ public class SearchResultsPane
 
     public void refresh(int page)
     {
-        UserSearchLogic logicalAgent = new UserSearchLogic(this.searched);
+        UserSearchLogic logic = new UserSearchLogic(this.searched);
 
-        SearchResultsPaneFXML fxmlController = this.loader.getController();
-        fxmlController.setSearched(this.searched);
-        fxmlController.setPage(page);
+        SearchResultsPaneFXML searchResultsPaneFXML = this.loader.getController();
+        searchResultsPaneFXML.setSearched(this.searched);
+        searchResultsPaneFXML.setPage(page);
 
-        List<Long> users = logicalAgent.getPage(page);
+        List<Long> users = logic.getPage(page);
 
         for (int i = 0; i<users.size(); i++)
         {
             if (users.get(i) == 0)
             {
-                fxmlController.setUserPane(i, new EmptyUserPane().getPane());
+                searchResultsPaneFXML.setUserPane(i, new EmptyUserPane().getPane());
             }
             else
             {
                 UserPane userPane = new UserPane();
                 UserPaneFXML userPaneFXML = userPane.getLoader().getController();
-                userPaneFXML.setListener(new UserPaneListener());
                 userPaneFXML.setData(users.get(i));
-                fxmlController.setUserPane(i, userPane.getUserPane());
+                searchResultsPaneFXML.setUserPane(i, userPane.getPane());
             }
         }
 
-        fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
-        fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
+        searchResultsPaneFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+        searchResultsPaneFXML.getNextButton().setDisable(!logic.hasNextPage(page));
     }
 }

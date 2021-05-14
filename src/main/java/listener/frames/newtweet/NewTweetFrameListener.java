@@ -26,7 +26,7 @@ public class NewTweetFrameListener
             String upperTweetId = eventObject.getTweetForm().getUpperTweet();
             String tweetText = eventObject.getTweetForm().getTweetText();
             String tweetPic = eventObject.getTweetForm().getPicPath();
-            Tweet tweet = new Tweet(MainPageController.getMainPageAgent().getUser(), tweetText, tweetPic);
+            Tweet tweet = new Tweet(MainPageController.getMainPageController().getUser(), tweetText, tweetPic);
 
             if (!upperTweetId.equals(""))
             {
@@ -39,11 +39,11 @@ public class NewTweetFrameListener
         }
         if (id != -1)
         {
-            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getProfilePane());
+            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getPane());
         }
         else
         {
-            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(MainPageController.getMainPageAgent().getUser().getId(), 0).getProfilePane());
+            mainPageController.setMainPane(PanesController.getPanesController().getProfilePane(MainPageController.getMainPageController().getUser().getId(), 0).getPane());
 
         }
     }

@@ -7,7 +7,6 @@ import view.components.empty.emptytweet.EmptyTweetPane;
 import view.components.tweet.TweetPane;
 import view.components.tweet.TweetPaneFXML;
 import controller.mainpage.MainPageController;
-import listener.pages.timeline.TimelineListener;
 import controller.pages.timeline.TimelineLogic;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
@@ -20,8 +19,9 @@ public class TimelinePane
 {
     private static final String TIMELINE = Config.getConfig("paths").getProperty(String.class, "timeline");
 
-    private Pane timelinePane;
+    private Pane pane;
     private final FXMLLoader loader;
+
     private final String pageKind;
 
     public TimelinePane(String pageKind)
@@ -31,7 +31,7 @@ public class TimelinePane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TIMELINE)));
         try
         {
-            timelinePane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -39,83 +39,77 @@ public class TimelinePane
         }
     }
 
-    public Pane getTimelinePane()
+    public Pane getPane()
     {
-        return this.timelinePane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        TimelineLogic timelineLogic = new TimelineLogic(MainPageController.getMainPageAgent().getUser(), this.pageKind);
+        TimelineLogic logic = new TimelineLogic(MainPageController.getMainPageController().getUser(), this.pageKind);
 
-        TimelinePaneFXML timelineController = this.loader.getController();
+        TimelinePaneFXML timelinePaneFXML = this.loader.getController();
 
-        timelineController.setPage(page);
-        timelineController.setPageKind(this.pageKind);
-        timelineController.setListener(new TimelineListener());
-        timelineController.getPreviousButton().setDisable(!timelineLogic.hasPreviousPage(page));
-        timelineController.getNextButton().setDisable(!timelineLogic.hasNextPage(page));
-        timelineController.getRefreshButton().setDisable(timelineLogic.getNumberOfPages() == 0);
+        timelinePaneFXML.setPage(page);
+        timelinePaneFXML.setPageKind(this.pageKind);
+        timelinePaneFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+        timelinePaneFXML.getNextButton().setDisable(!logic.hasNextPage(page));
+        timelinePaneFXML.getRefreshButton().setDisable(logic.getNumberOfPages() == 0);
 
-        int numberOfTweets = timelineLogic.numberOfTweets(page);
+        int numberOfTweets = logic.numberOfTweets(page);
 
         if (numberOfTweets == 0)
         {
-            timelineController.getMidLine1().setVisible(false);
-            timelineController.getMidLine2().setVisible(false);
-            timelineController.setFirstTweetPane(new EmptyTweetPane().getTweetPane());
-            timelineController.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
+            timelinePaneFXML.getMidLine1().setVisible(false);
+            timelinePaneFXML.getMidLine2().setVisible(false);
+            timelinePaneFXML.setFirstTweetPane(new EmptyTweetPane().getTweetPane());
+            timelinePaneFXML.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
             if (this.pageKind.equals("timeline"))
             {
-                timelineController.setSecondTweetPane(new EmptyTimelinePane().getEmptyPane());
+                timelinePaneFXML.setSecondTweetPane(new EmptyTimelinePane().getPane());
             }
             else if (this.pageKind.equals("bookmarks"))
             {
-                timelineController.setSecondTweetPane(new EmptyBookmarkPane().getEmptyPane());
+                timelinePaneFXML.setSecondTweetPane(new EmptyBookmarkPane().getPane());
             }
         }
         else
         {
-            timelineController.getMidLine1().setVisible(true);
+            timelinePaneFXML.getMidLine1().setVisible(true);
 
             TweetPane firstTweetPane = new TweetPane();
             TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
             firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
-            firstTweetFXML.setTweetPane(timelineLogic.getPage(page).get(0));
-            timelineController.setFirstTweetPane(firstTweetPane.getTweetPane());
+            firstTweetFXML.setTweetPane(logic.getPage(page).get(0));
+            timelinePaneFXML.setFirstTweetPane(firstTweetPane.getPane());
 
             if (numberOfTweets == 1)
             {
-                timelineController.getMidLine2().setVisible(false);
-                timelineController.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
-                timelineController.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
+                timelinePaneFXML.getMidLine2().setVisible(false);
+                timelinePaneFXML.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
+                timelinePaneFXML.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
             }
             else
             {
-                timelineController.getMidLine2().setVisible(true);
+                timelinePaneFXML.getMidLine2().setVisible(true);
 
                 TweetPane secondTweetPane = new TweetPane();
                 TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
                 secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
-                secondTweetFXML.setTweetPane(timelineLogic.getPage(page).get(1));
-                timelineController.setSecondTweetPane(secondTweetPane.getTweetPane());
+                secondTweetFXML.setTweetPane(logic.getPage(page).get(1));
+                timelinePaneFXML.setSecondTweetPane(secondTweetPane.getPane());
 
                 if (numberOfTweets == 2)
                 {
-                    timelineController.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
+                    timelinePaneFXML.setThirdTweetPane(new EmptyTweetPane().getTweetPane());
                 }
                 else
                 {
                     TweetPane thirdTweetPane = new TweetPane();
                     TweetPaneFXML thirdTweetFXML = thirdTweetPane.getLoader().getController();
                     thirdTweetFXML.setListener(new TweetPaneListener(thirdTweetPane));
-                    thirdTweetFXML.setTweetPane(timelineLogic.getPage(page).get(2));
-                    timelineController.setThirdTweetPane(thirdTweetPane.getTweetPane());
+                    thirdTweetFXML.setTweetPane(logic.getPage(page).get(2));
+                    timelinePaneFXML.setThirdTweetPane(thirdTweetPane.getPane());
                 }
             }
         }

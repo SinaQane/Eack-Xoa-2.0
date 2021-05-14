@@ -22,31 +22,31 @@ public class ViewUserListener
 
     public void eventOccurred(ViewUserEvent eventObject)
     {
-        MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
+        MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
 
         User ourUser = eventObject.getOurUser();
         User otherUser = eventObject.getOtherUser();
 
-        ViewUserLogic logicalAgent = new ViewUserLogic(ourUser, otherUser);
+        ViewUserLogic logic = new ViewUserLogic(ourUser, otherUser);
 
         ProfilePane userPane;
 
         switch (((Button) eventObject.getSource()).getId())
         {
             case "statButton":
-                logicalAgent.changeStatus();
+                logic.changeStatus();
                 userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
-                fxmlController.setMainPane(userPane.getProfilePane());
+                mainPageFXML.setMainPane(userPane.getPane());
                 break;
             case "blockButton":
-                logicalAgent.block();
+                logic.block();
                 userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
-                fxmlController.setMainPane(userPane.getProfilePane());
+                mainPageFXML.setMainPane(userPane.getPane());
                 break;
             case "muteButton":
-                logicalAgent.mute();
+                logic.mute();
                 userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
-                fxmlController.setMainPane(userPane.getProfilePane());
+                mainPageFXML.setMainPane(userPane.getPane());
                 break;
             case "profilePicButton":
                 boolean correctPath;
@@ -78,15 +78,15 @@ public class ViewUserListener
 
                 break;
             case "viewFollowersButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followers", otherUser.getId(), 0).getListPane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getUserslistPane("followers", otherUser.getId(), 0).getPane());
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("followers", otherUser.getId()));
                 break;
             case "viewFollowingsButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("followings", otherUser.getId(), 0).getListPane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getUserslistPane("followings", otherUser.getId(), 0).getPane());
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("followings", otherUser.getId()));
                 break;
             case "viewBlacklistButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getListPane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getUserslistPane("blacklist", otherUser.getId(), 0).getPane());
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("blacklist", otherUser.getId()));
                 break;
         }

@@ -41,17 +41,17 @@ public class SettingsLogic
             return "Please enter a valid phone number.";
         }
         if (Validations.getValidations().usernameIsUnavailable(editFormEvent.getUsername()) &&
-                !MainPageController.getMainPageAgent().getUser().getUsername().equals(editFormEvent.getUsername()))
+                !MainPageController.getMainPageController().getUser().getUsername().equals(editFormEvent.getUsername()))
         {
             return "There is already an account with this username.";
         }
         if (Validations.getValidations().emailIsUnavailable(editFormEvent.getEmail()) &&
-                !MainPageController.getMainPageAgent().getUser().getEmail().equals(editFormEvent.getEmail()))
+                !MainPageController.getMainPageController().getUser().getEmail().equals(editFormEvent.getEmail()))
         {
             return "There is already an account with this email.";
         }
         if (Validations.getValidations().phoneNumberIsUnavailable(editFormEvent.getPhoneNumber()) &&
-                !MainPageController.getMainPageAgent().getUser().getPhoneNumber().equals(editFormEvent.getPhoneNumber()))
+                !MainPageController.getMainPageController().getUser().getPhoneNumber().equals(editFormEvent.getPhoneNumber()))
         {
             return "There is already an account with this phone number.";
         }
@@ -60,52 +60,52 @@ public class SettingsLogic
 
     public void edit()
     {
-        String oldUsername = MainPageController.getMainPageAgent().getUser().getUsername();
+        String oldUsername = MainPageController.getMainPageController().getUser().getUsername();
         String newUsername = editFormEvent.getUsername();
-        MainPageController.getMainPageAgent().getUser().setUsername(newUsername);
+        MainPageController.getMainPageController().getUser().setUsername(newUsername);
         if (!oldUsername.equals(newUsername))
         {
             UserDB.getUserDB().changeUsername(Objects.requireNonNullElse(oldUsername, "0"), newUsername);
         }
 
-        String oldEmail = MainPageController.getMainPageAgent().getUser().getEmail();
+        String oldEmail = MainPageController.getMainPageController().getUser().getEmail();
         String newEmail = editFormEvent.getEmail();
-        MainPageController.getMainPageAgent().getUser().setEmail(newEmail);
+        MainPageController.getMainPageController().getUser().setEmail(newEmail);
         if (!oldEmail.equals(newEmail))
         {
             UserDB.getUserDB().changeEmail(Objects.requireNonNullElse(oldEmail, "0"), newEmail);
         }
 
-        String oldPhoneNumber = MainPageController.getMainPageAgent().getUser().getPhoneNumber();
+        String oldPhoneNumber = MainPageController.getMainPageController().getUser().getPhoneNumber();
         String newPhoneNumber = editFormEvent.getPhoneNumber();
-        MainPageController.getMainPageAgent().getUser().setPhoneNumber(newPhoneNumber);
+        MainPageController.getMainPageController().getUser().setPhoneNumber(newPhoneNumber);
         if (!oldPhoneNumber.equals(newPhoneNumber))
         {
             UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(oldPhoneNumber, "0"), newPhoneNumber);
         }
 
-        MainPageController.getMainPageAgent().getUser().setPassword(editFormEvent.getPassword());
-        MainPageController.getMainPageAgent().getUser().setName(editFormEvent.getName());
-        MainPageController.getMainPageAgent().getUser().setBio(editFormEvent.getBio());
-        MainPageController.getMainPageAgent().getUser().setBirthDate(editFormEvent.getBirthDate());
-        MainPageController.getMainPageAgent().getUser().getProfile().setPrivate(editFormEvent.isPrivateState());
-        MainPageController.getMainPageAgent().getUser().getProfile().setInfoState(editFormEvent.isInfoState());
-        MainPageController.getMainPageAgent().getUser().getProfile().setLastSeenState(editFormEvent.getLastSeenState());
-        MainPageController.getMainPageAgent().getUser().getProfile().setPicturePath(editFormEvent.getPicPath());
+        MainPageController.getMainPageController().getUser().setPassword(editFormEvent.getPassword());
+        MainPageController.getMainPageController().getUser().setName(editFormEvent.getName());
+        MainPageController.getMainPageController().getUser().setBio(editFormEvent.getBio());
+        MainPageController.getMainPageController().getUser().setBirthDate(editFormEvent.getBirthDate());
+        MainPageController.getMainPageController().getUser().getProfile().setPrivate(editFormEvent.isPrivateState());
+        MainPageController.getMainPageController().getUser().getProfile().setInfoState(editFormEvent.isInfoState());
+        MainPageController.getMainPageController().getUser().getProfile().setLastSeenState(editFormEvent.getLastSeenState());
+        MainPageController.getMainPageController().getUser().getProfile().setPicturePath(editFormEvent.getPicPath());
 
-        UserDB.getUserDB().save(MainPageController.getMainPageAgent().getUser());
+        UserDB.getUserDB().save(MainPageController.getMainPageController().getUser());
     }
 
     public void deactivate()
     {
-        User user = MainPageController.getMainPageAgent().getUser();
+        User user = MainPageController.getMainPageController().getUser();
         user.deactivate();
         UserDB.getUserDB().save(user);
     }
 
     public void deleteAccount()
     {
-        User user = MainPageController.getMainPageAgent().getUser();
+        User user = MainPageController.getMainPageController().getUser();
         
         List<User> users = UserDB.getUserDB().getALl();
 

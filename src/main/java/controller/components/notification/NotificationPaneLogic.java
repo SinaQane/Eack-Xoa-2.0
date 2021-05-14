@@ -20,7 +20,7 @@ public class NotificationPaneLogic
 
     public void accept()
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
         User otherUser = UserDB.getUserDB().get(this.otherUser);
 
         ourUser.getProfile().removeFromRequests(otherUser);
@@ -35,7 +35,7 @@ public class NotificationPaneLogic
 
     public void goodReject()
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
         User otherUser = UserDB.getUserDB().get(this.otherUser);
 
         ourUser.getProfile().removeFromRequests(otherUser);
@@ -48,7 +48,7 @@ public class NotificationPaneLogic
 
     public void badReject()
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
         User otherUser = UserDB.getUserDB().get(this.otherUser);
 
         ourUser.getProfile().removeFromRequests(otherUser);

@@ -9,7 +9,7 @@ import model.Tweet;
 
 public class TweetsListFXML
 {
-    private TweetsListListener listener;
+    private final TweetsListListener listener = new TweetsListListener();
 
     private Tweet tweet;
     private int page;
@@ -20,11 +20,6 @@ public class TweetsListFXML
 
     public Button previousButton;
     public Button nextButton;
-
-    public void setListener(TweetsListListener listener)
-    {
-        this.listener = listener;
-    }
 
     public void setTweet(Tweet tweet)
     {

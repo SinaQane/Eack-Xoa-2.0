@@ -40,37 +40,37 @@ public class TweetPaneListener
 
     public void eventOccurred(EventObject eventObject)
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
         User otherUser = UserDB.getUserDB().get(((TweetPaneFXML) tweetPane.getLoader().getController()).getOwnerId());
         Tweet tweet = TweetDB.getTweetDB().get(((TweetPaneFXML) tweetPane.getLoader().getController()).getTweetId());
 
-        TweetPaneLogic logicalAgent = new TweetPaneLogic(ourUser, tweet);
+        TweetPaneLogic logic = new TweetPaneLogic(ourUser, tweet);
 
         switch (((Button) eventObject.getSource()).getId())
         {
             case "upvoteButton":
-                logicalAgent.upvote();
+                logic.upvote();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "downvoteButton":
-                logicalAgent.downvote();
+                logic.downvote();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "retweetButton":
-                logicalAgent.retweet();
+                logic.retweet();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "saveButton":
-                logicalAgent.save();
+                logic.save();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "reportButton":
-                logicalAgent.report();
+                logic.report();
                 ((TweetPaneFXML) tweetPane.getLoader().getController()).refreshButtons();
                 break;
             case "viewUserButton":
                 ProfilePane userPane = PanesController.getPanesController().getProfilePane(otherUser.getId(), 0);
-                ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(userPane.getProfilePane());
+                ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(userPane.getPane());
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("user", otherUser.getId()));
                 break;
             case "viewImageButton":
@@ -102,12 +102,12 @@ public class TweetPaneListener
                 } catch (MalformedURLException ignored) {}
                 break;
             case "viewTweetButton":
-                Pane viewTweet = PanesController.getPanesController().getTweetsListPane(tweet.getId(), 0).getListPane();
+                Pane viewTweet = PanesController.getPanesController().getTweetsListPane(tweet.getId(), 0).getPane();
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewTweet);
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("tweet", tweet.getId()));
                 break;
             case "viewUpperTweetButton":
-                Pane viewUpper = PanesController.getPanesController().getTweetsListPane(tweet.getUpperTweetId(), 0).getListPane();
+                Pane viewUpper = PanesController.getPanesController().getTweetsListPane(tweet.getUpperTweetId(), 0).getPane();
                 ((MainPageFXML) MainPage.getMainPage().getLoader().getController()).setMainPane(viewUpper);
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("tweet", tweet.getUpperTweetId()));
                 break;

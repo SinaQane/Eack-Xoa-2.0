@@ -11,7 +11,7 @@ public class GroupPane
 {
     private static final String GROUP = Config.getConfig("paths").getProperty(String.class, "groupPane");
 
-    private Pane groupPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public GroupPane()
@@ -19,7 +19,7 @@ public class GroupPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(GROUP)));
         try
         {
-            groupPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -27,9 +27,9 @@ public class GroupPane
         }
     }
 
-    public Pane getGroupPane()
+    public Pane getPane()
     {
-        return this.groupPane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()

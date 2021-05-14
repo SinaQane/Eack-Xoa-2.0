@@ -117,13 +117,13 @@ public class SettingsPaneFXML
 
     public void edit()
     {
-        String username = usernameCheckBox.isSelected() ? usernameTextField.getText() : MainPageController.getMainPageAgent().getUser().getUsername();
-        String password = passwordCheckBox.isSelected() ? passwordTextField.getText() : MainPageController.getMainPageAgent().getUser().getPassword();
-        String name = nameCheckBox.isSelected() ? nameTextField.getText() : MainPageController.getMainPageAgent().getUser().getName();
-        String email = emailCheckBox.isSelected() ? emailTextField.getText() : MainPageController.getMainPageAgent().getUser().getEmail();
-        String phoneNumber = phoneNumberCheckBox.isSelected() ? phoneNumberTextField.getText() : MainPageController.getMainPageAgent().getUser().getPhoneNumber();
-        String bio = bioCheckBox.isSelected() ? bioTextField.getText() : MainPageController.getMainPageAgent().getUser().getBio();
-        String picPath = picPathCheckBox.isSelected() ? picPathTextField.getText() : MainPageController.getMainPageAgent().getUser().getProfile().getPicturePath();
+        String username = usernameCheckBox.isSelected() ? usernameTextField.getText() : MainPageController.getMainPageController().getUser().getUsername();
+        String password = passwordCheckBox.isSelected() ? passwordTextField.getText() : MainPageController.getMainPageController().getUser().getPassword();
+        String name = nameCheckBox.isSelected() ? nameTextField.getText() : MainPageController.getMainPageController().getUser().getName();
+        String email = emailCheckBox.isSelected() ? emailTextField.getText() : MainPageController.getMainPageController().getUser().getEmail();
+        String phoneNumber = phoneNumberCheckBox.isSelected() ? phoneNumberTextField.getText() : MainPageController.getMainPageController().getUser().getPhoneNumber();
+        String bio = bioCheckBox.isSelected() ? bioTextField.getText() : MainPageController.getMainPageController().getUser().getBio();
+        String picPath = picPathCheckBox.isSelected() ? picPathTextField.getText() : MainPageController.getMainPageController().getUser().getProfile().getPicturePath();
 
         Date birthdate = null;
         if (birthdateCheckBox.isSelected())
@@ -143,13 +143,13 @@ public class SettingsPaneFXML
         }
         else
         {
-            birthdate = MainPageController.getMainPageAgent().getUser().getBirthDate();
+            birthdate = MainPageController.getMainPageController().getUser().getBirthDate();
         }
 
         boolean privateState = privacyCheckBox.isSelected() ?
-                privacyChoiceBox.getSelectionModel().getSelectedItem().equals("private") : MainPageController.getMainPageAgent().getUser().getProfile().isPrivate();
+                privacyChoiceBox.getSelectionModel().getSelectedItem().equals("private") : MainPageController.getMainPageController().getUser().getProfile().isPrivate();
         boolean infoState = infoStateCheckBox.isSelected() ?
-                infoStateChoiceBox.getSelectionModel().getSelectedItem().equals("public") : MainPageController.getMainPageAgent().getUser().getProfile().getInfoState();
+                infoStateChoiceBox.getSelectionModel().getSelectedItem().equals("public") : MainPageController.getMainPageController().getUser().getProfile().getInfoState();
 
         int lastSeenState;
         if (lastSeenCheckBox.isSelected())
@@ -170,7 +170,7 @@ public class SettingsPaneFXML
         }
         else
         {
-            lastSeenState = MainPageController.getMainPageAgent().getUser().getProfile().getLastSeenState();
+            lastSeenState = MainPageController.getMainPageController().getUser().getProfile().getLastSeenState();
         }
 
         this.listener.eventOccurred(new EditFormEvent(editButton, username, password, name, email, phoneNumber, bio, birthdate, privateState, infoState, lastSeenState, picPath));

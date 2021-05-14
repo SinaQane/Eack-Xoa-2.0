@@ -18,7 +18,7 @@ public class ChatroomPane
 {
     private static final String CHATROOM = Config.getConfig("paths").getProperty(String.class, "chatroom");
 
-    private Pane chatroomPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public ChatroomPane()
@@ -26,7 +26,7 @@ public class ChatroomPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(CHATROOM)));
         try
         {
-            chatroomPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -36,39 +36,35 @@ public class ChatroomPane
 
     public Pane getPane()
     {
-        return this.chatroomPane;
+        return this.pane;
     }
 
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
-    }
 
     public void refresh(Chat chatroom, int page)
     {
-        ChatroomPaneFXML fxmlController = this.loader.getController();
-        fxmlController.setChat(chatroom);
-        fxmlController.setPage(page);
+        ChatroomPaneFXML chatroomPaneFXML = this.loader.getController();
+        chatroomPaneFXML.setChat(chatroom);
+        chatroomPaneFXML.setPage(page);
 
-        MessagesLogic messagesLogic = new MessagesLogic();
-        List<Message> messages = messagesLogic.getChatroomPage(chatroom, page);
+        MessagesLogic logic = new MessagesLogic();
+        List<Message> messages = logic.getChatroomPage(chatroom, page);
 
         for (int i = 0; i < 5; i++)
         {
             if (messages.get(i) == null)
             {
-                fxmlController.setMessagePane(i, new EmptyMessagePane().getMessagePane());
+                chatroomPaneFXML.setMessagePane(i, new EmptyMessagePane().getMessagePane());
             }
             else
             {
                 MessagePane messagePane = new MessagePane();
                 ((MessagePaneFXML) messagePane.getLoader().getController()).setData(messages.get(i));
-                fxmlController.setMessagePane(i, messagePane.getMessagePane());
+                chatroomPaneFXML.setMessagePane(i, messagePane.getPane());
             }
         }
 
-        fxmlController.getPreviousButton().setDisable(!messagesLogic.chatroomHasPreviousPage(chatroom, page));
-        fxmlController.getNextButton().setDisable(!messagesLogic.chatroomHasNextPage(chatroom, page));
-        fxmlController.getAddMemberButton().setVisible(chatroom.isGroup());
+        chatroomPaneFXML.getPreviousButton().setDisable(!logic.chatroomHasPreviousPage(chatroom, page));
+        chatroomPaneFXML.getNextButton().setDisable(!logic.chatroomHasNextPage(chatroom, page));
+        chatroomPaneFXML.getAddMemberButton().setVisible(chatroom.isGroup());
     }
 }

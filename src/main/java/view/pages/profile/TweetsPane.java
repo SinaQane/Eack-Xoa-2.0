@@ -11,7 +11,7 @@ public class TweetsPane
 {
     private static final String TWEETS_PANE = Config.getConfig("paths").getProperty(String.class, "tweetsPane");
 
-    private Pane tweetsPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public TweetsPane()
@@ -19,7 +19,7 @@ public class TweetsPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TWEETS_PANE)));
         try
         {
-            tweetsPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -27,9 +27,9 @@ public class TweetsPane
         }
     }
 
-    public Pane getTweetsPane()
+    public Pane getPane()
     {
-        return this.tweetsPane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()

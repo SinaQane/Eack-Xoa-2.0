@@ -32,8 +32,9 @@ public class ProfilePane
     private static final String YELLOW = Config.getConfig("colors").getProperty(String.class, "yellow");
     private static final String GREEN = Config.getConfig("colors").getProperty(String.class, "green");
 
-    private Pane profilePane;
+    private Pane pane;
     private final FXMLLoader loader;
+
     private final User user;
 
     public ProfilePane(User user)
@@ -41,7 +42,7 @@ public class ProfilePane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(PROFILE_VIEWUSER)));
         try
         {
-            profilePane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -51,26 +52,20 @@ public class ProfilePane
         ((ProfilePaneFXML) this.loader.getController()).setUser(user);
     }
 
-    public Pane getProfilePane()
+    public Pane getPane()
     {
-        return this.profilePane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        boolean profile = this.user.getId().equals(MainPageController.getMainPageAgent().getUser().getId());
+        boolean profile = this.user.getId().equals(MainPageController.getMainPageController().getUser().getId());
 
         TweetsPane tweetsPane = new TweetsPane();
         FXMLLoader fxmlLoader = tweetsPane.getLoader();
         TweetsPaneFXML tweetsPaneFXML = fxmlLoader.getController();
 
-        ProfilePaneFXML fxmlController = this.loader.getController();
-        tweetsPaneFXML.setListener(fxmlController.getProfileListener());
+        ProfilePaneFXML profilePaneFXML = this.loader.getController();
         tweetsPaneFXML.setUser(user);
         tweetsPaneFXML.setPage(page);
 
@@ -95,7 +90,7 @@ public class ProfilePane
             TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
             firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
             firstTweetFXML.setTweetPane(profileLogic.getPage(page).get(0));
-            tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getTweetPane());
+            tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getPane());
 
             if (!profileLogic.getPage(page).get(1)[0].equals("null"))
             {
@@ -103,7 +98,7 @@ public class ProfilePane
                 TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
                 secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
                 secondTweetFXML.setTweetPane(profileLogic.getPage(page).get(1));
-                tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getTweetPane());
+                tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getPane());
             }
             else
             {
@@ -111,28 +106,28 @@ public class ProfilePane
             }
         }
 
-        fxmlController.setNameText(this.user.getName());
-        fxmlController.setUsernameText("@" + this.user.getUsername());
-        fxmlController.setStatsText("Followers: " + this.user.getProfile().getFollowers().size() + " - " +
+        profilePaneFXML.setNameText(this.user.getName());
+        profilePaneFXML.setUsernameText("@" + this.user.getUsername());
+        profilePaneFXML.setStatsText("Followers: " + this.user.getProfile().getFollowers().size() + " - " +
                 "Followings: " + this.user.getProfile().getFollowings().size());
-        fxmlController.setBioText(this.user.getBio());
-        fxmlController.setEmailText("Email: " + this.user.getEmail());
+        profilePaneFXML.setBioText(this.user.getBio());
+        profilePaneFXML.setEmailText("Email: " + this.user.getEmail());
         if (this.user.getBirthDate().getTime() == -12600000) // (1970-01-01).getTime();
         {
-            fxmlController.setBirthdateText("Birthdate: N/A");
+            profilePaneFXML.setBirthdateText("Birthdate: N/A");
         }
         else
         {
             SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
-            fxmlController.setBirthdateText("Birthdate: " + dateFormat.format(this.user.getBirthDate()));
+            profilePaneFXML.setBirthdateText("Birthdate: " + dateFormat.format(this.user.getBirthDate()));
         }
         if (this.user.getPhoneNumber().equals(""))
         {
-            fxmlController.setPhoneNumberText("Phone Number: N/A");
+            profilePaneFXML.setPhoneNumberText("Phone Number: N/A");
         }
         else
         {
-            fxmlController.setPhoneNumberText("Phone Number: " + this.user.getPhoneNumber());
+            profilePaneFXML.setPhoneNumberText("Phone Number: " + this.user.getPhoneNumber());
         }
 
         boolean correctPath;
@@ -162,53 +157,53 @@ public class ProfilePane
             image = new Image(new File(imagePath).toURI().toURL().toExternalForm(), 115, 115, false, false);
         } catch (MalformedURLException ignored) {}
 
-        fxmlController.getProfilePicture().setImage(image);
+        profilePaneFXML.getProfilePicture().setImage(image);
 
         if (profile)
         {
-            fxmlController.getViewFollowersButton().setVisible(true);
-            fxmlController.getViewFollowingsButton().setVisible(true);
-            fxmlController.getViewBlacklistButton().setVisible(true);
+            profilePaneFXML.getViewFollowersButton().setVisible(true);
+            profilePaneFXML.getViewFollowingsButton().setVisible(true);
+            profilePaneFXML.getViewBlacklistButton().setVisible(true);
 
-            fxmlController.getStatButton().setVisible(false);
-            fxmlController.getBlockButton().setVisible(false);
-            fxmlController.getMuteButton().setVisible(false);
+            profilePaneFXML.getStatButton().setVisible(false);
+            profilePaneFXML.getBlockButton().setVisible(false);
+            profilePaneFXML.getMuteButton().setVisible(false);
 
-            fxmlController.setTweetsPane(tweetsPane.getTweetsPane());
+            profilePaneFXML.setTweetsPane(tweetsPane.getPane());
         }
         else
         {
-            fxmlController.getStatButton().setVisible(true);
+            profilePaneFXML.getStatButton().setVisible(true);
 
-            Profile ourUser = MainPageController.getMainPageAgent().getUser().getProfile();
+            Profile ourUser = MainPageController.getMainPageController().getUser().getProfile();
 
             if (ourUser.getFollowings().contains(user.getId()))
             {
-                fxmlController.getStatButton().setText("Following");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf(GREEN));
+                profilePaneFXML.getStatButton().setText("Following");
+                profilePaneFXML.getStatButton().setTextFill(Paint.valueOf(GREEN));
             }
             else if (ourUser.getPending().contains(user.getId()))
             {
-                fxmlController.getStatButton().setText("Pending");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf(YELLOW));
+                profilePaneFXML.getStatButton().setText("Pending");
+                profilePaneFXML.getStatButton().setTextFill(Paint.valueOf(YELLOW));
             }
             else if (ourUser.getBlocked().contains(user.getId()))
             {
-                fxmlController.getStatButton().setText("Blocked");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf(DARK_RED));
+                profilePaneFXML.getStatButton().setText("Blocked");
+                profilePaneFXML.getStatButton().setTextFill(Paint.valueOf(DARK_RED));
             }
             else
             {
-                fxmlController.getStatButton().setText("Not Following");
-                fxmlController.getStatButton().setTextFill(Paint.valueOf(LIGHT_RED));
+                profilePaneFXML.getStatButton().setText("Not Following");
+                profilePaneFXML.getStatButton().setTextFill(Paint.valueOf(LIGHT_RED));
             }
 
-            fxmlController.getViewBlacklistButton().setVisible(false);
+            profilePaneFXML.getViewBlacklistButton().setVisible(false);
 
-            fxmlController.getViewFollowersButton().setVisible(true);
-            fxmlController.getViewFollowingsButton().setVisible(true);
-            fxmlController.getBlockButton().setVisible(true);
-            fxmlController.getMuteButton().setVisible(true);
+            profilePaneFXML.getViewFollowersButton().setVisible(true);
+            profilePaneFXML.getViewFollowingsButton().setVisible(true);
+            profilePaneFXML.getBlockButton().setVisible(true);
+            profilePaneFXML.getMuteButton().setVisible(true);
         }
     }
 }

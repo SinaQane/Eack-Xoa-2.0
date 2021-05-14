@@ -11,7 +11,7 @@ public class MessagePane
 {
     private static final String MESSAGE = Config.getConfig("paths").getProperty(String.class, "messagePane");
 
-    private Pane messagePane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public MessagePane()
@@ -19,7 +19,7 @@ public class MessagePane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(MESSAGE)));
         try
         {
-            messagePane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -27,9 +27,9 @@ public class MessagePane
         }
     }
 
-    public Pane getMessagePane()
+    public Pane getPane()
     {
-        return this.messagePane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()

@@ -19,8 +19,8 @@ public class SignUpPageFXML
     private static final String DEFAULT_DATE = Config.getConfig("patterns").getProperty(String.class, "defaultDate");
 
     private SignUpFormListener listener;
-    public Text messageText;
 
+    public Text messageText;
     public TextField usernameTextField;
     public TextField passwordTextField;
     public TextField nameTextField;

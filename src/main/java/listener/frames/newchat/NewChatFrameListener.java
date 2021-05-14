@@ -16,7 +16,7 @@ public class NewChatFrameListener
     {
         NewChatFrameLogic newChatFrameLogic = new NewChatFrameLogic();
 
-        User user = MainPageController.getMainPageAgent().getUser();
+        User user = MainPageController.getMainPageController().getUser();
 
         if (((Button) eventObject.getSource()).getId().equals("doneButton"))
         {

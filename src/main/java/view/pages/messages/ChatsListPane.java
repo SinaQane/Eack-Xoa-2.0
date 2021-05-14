@@ -14,7 +14,7 @@ public class ChatsListPane
 {
     private static final String CHATS_LIST = Config.getConfig("paths").getProperty(String.class, "chatsList");
 
-    private Pane chatsListPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public ChatsListPane()
@@ -22,7 +22,7 @@ public class ChatsListPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(CHATS_LIST)));
         try
         {
-            chatsListPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -30,37 +30,32 @@ public class ChatsListPane
         }
     }
 
-    public Pane getListPane()
+    public Pane getPane()
     {
-        return this.chatsListPane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        ChatsListPaneFXML fxmlController = this.loader.getController();
-        fxmlController.setPage(page);
+        ChatsListPaneFXML chatsListPaneFXML = this.loader.getController();
+        chatsListPaneFXML.setPage(page);
 
-        MessagesLogic messagesLogic = new MessagesLogic();
-        List<Chat> chats = messagesLogic.getChatsListPage(page);
+        MessagesLogic logic = new MessagesLogic();
+        List<Chat> chats = logic.getChatsListPage(page);
 
         for (int i = 0; i < 7; i++)
         {
             if (chats.get(i) == null)
             {
-                fxmlController.getButton(i).setVisible(false);
+                chatsListPaneFXML.getButton(i).setVisible(false);
             }
             else
             {
-                fxmlController.setButton(i, chats.get(i));
+                chatsListPaneFXML.setButton(i, chats.get(i));
             }
         }
 
-        fxmlController.getPreviousButton().setDisable(!messagesLogic.chatsListHasPreviousPage(page));
-        fxmlController.getNextButton().setDisable(!messagesLogic.chatsListHasNextPage(page));
+        chatsListPaneFXML.getPreviousButton().setDisable(!logic.chatsListHasPreviousPage(page));
+        chatsListPaneFXML.getNextButton().setDisable(!logic.chatsListHasNextPage(page));
     }
 }

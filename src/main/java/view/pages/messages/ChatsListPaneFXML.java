@@ -1,8 +1,10 @@
 package view.pages.messages;
 
+import controller.mainpage.MainPageController;
 import listener.pages.messages.ChatsListListener;
 import javafx.scene.control.Button;
 import model.Chat;
+import model.User;
 
 import java.util.EventObject;
 import java.util.LinkedList;
@@ -39,45 +41,47 @@ public class ChatsListPaneFXML
 
     public void setButton(int i, Chat chat)
     {
+        User user = MainPageController.getMainPageController().getUser();
+
         if (i == 0)
         {
-            firstChatButton.setText(chat.getChatsName());
+            firstChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             firstChatButton.setVisible(true);
             firstChat = chat;
         }
         else if (i == 1)
         {
-            secondChatButton.setText(chat.getChatsName());
+            secondChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             secondChatButton.setVisible(true);
             secondChat = chat;
         }
         else if (i == 2)
         {
-            thirdChatButton.setText(chat.getChatsName());
+            thirdChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             thirdChatButton.setVisible(true);
             thirdChat = chat;
         }
         else if (i == 3)
         {
-            fourthChatButton.setText(chat.getChatsName());
+            fourthChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             fourthChatButton.setVisible(true);
             fourthChat = chat;
         }
         else if (i == 4)
         {
-            fifthChatButton.setText(chat.getChatsName());
+            fifthChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             fifthChatButton.setVisible(true);
             fifthChat = chat;
         }
         else if (i == 5)
         {
-            sixthChatButton.setText(chat.getChatsName());
+            sixthChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             sixthChatButton.setVisible(true);
             sixthChat = chat;
         }
         else if (i == 6)
         {
-            seventhChatButton.setText(chat.getChatsName());
+            seventhChatButton.setText(chat.getChatsName() + " (" + chat.getUnseenCount(user) + ")");
             seventhChatButton.setVisible(true);
             seventhChat = chat;
         }

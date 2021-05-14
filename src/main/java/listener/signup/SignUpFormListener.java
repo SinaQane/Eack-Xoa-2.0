@@ -9,7 +9,6 @@ import controller.mainpage.BackButtonHandler;
 import controller.mainpage.MainPageController;
 import view.mainpage.MainPage;
 import view.mainpage.MainPageFXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.User;
@@ -38,27 +37,25 @@ public class SignUpFormListener
         }
         else if (((Button) eventObject.getSource()).getId().equals("signUpButton"))
         {
-            SignUpLogic signUpLogic = new SignUpLogic(eventObject);
-            if (!signUpLogic.check().equals("Valid"))
+            SignUpLogic logic = new SignUpLogic(eventObject);
+            if (!logic.check().equals("Valid"))
             {
-                FXMLLoader signUpPageLoader = signUpPage.getLoader();
-                SignUpPageFXML signUpPageController = signUpPageLoader.getController();
-                signUpPageController.getMessageText().setText(signUpLogic.check());
-                signUpPageController.getMessageText().setVisible(true);
+                SignUpPageFXML signUpPageFXML = signUpPage.getLoader().getController();
+                signUpPageFXML.getMessageText().setText(logic.check());
+                signUpPageFXML.getMessageText().setVisible(true);
             }
             else
             {
-                User signedUpUser = signUpLogic.signUp();
-                MainPageController.getMainPageAgent().setUser(signedUpUser);
-                FXMLLoader fxmlLoader = mainPage.getLoader();
-                MainPageFXML fxmlController = fxmlLoader.getController();
-                fxmlController.profile();
+                User signedUpUser = logic.signUp();
+                MainPageController.getMainPageController().setUser(signedUpUser);
+                MainPageFXML mainPageFXML = mainPage.getLoader().getController();
+                mainPageFXML.profile();
                 signUpPage.clear();
                 stage.setScene(mainPage.getScene());
 
-                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageAgent().getUser().getId()));
+                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageController().getUser().getId()));
 
-                // TODO start timer for last seen update
+                MainPageController.getMainPageController().startTimer();
             }
         }
     }

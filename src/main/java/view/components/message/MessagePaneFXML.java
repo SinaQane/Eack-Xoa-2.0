@@ -44,7 +44,7 @@ public class MessagePaneFXML
             viewTweetButton.setVisible(false);
         }
 
-        if (message.getOwnerId() == MainPageController.getMainPageAgent().getUser().getId())
+        if (message.getOwnerId() == MainPageController.getMainPageController().getUser().getId())
         {
             editButton.setVisible(true);
             deleteButton.setVisible(true);

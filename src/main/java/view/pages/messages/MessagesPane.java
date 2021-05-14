@@ -12,7 +12,7 @@ public class MessagesPane
 {
     private static final String MESSAGES = Config.getConfig("paths").getProperty(String.class, "messages");
 
-    private Pane messagesPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public MessagesPane()
@@ -20,7 +20,7 @@ public class MessagesPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(MESSAGES)));
         try
         {
-            messagesPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -30,7 +30,7 @@ public class MessagesPane
 
     public Pane getPane()
     {
-        return this.messagesPane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()
@@ -40,12 +40,12 @@ public class MessagesPane
 
     public void refresh()
     {
-        MessagesPaneFXML messagesController = this.loader.getController();
+        MessagesPaneFXML messagesPaneFXML = this.loader.getController();
 
         ChatsListPane chatsListPane = new ChatsListPane();
         chatsListPane.refresh(0);
 
-        messagesController.setChatsListPane(chatsListPane.getListPane());
-        messagesController.setChatroomPane(new EmptyChatroomPane().getPane());
+        messagesPaneFXML.setChatsListPane(chatsListPane.getPane());
+        messagesPaneFXML.setChatroomPane(new EmptyChatroomPane().getPane());
     }
 }

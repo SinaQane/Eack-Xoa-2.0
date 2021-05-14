@@ -11,7 +11,7 @@ public class NotificationPane
 {
     private static final String NOTIFICATION_PANE = Config.getConfig("paths").getProperty(String.class, "notification");
 
-    private Pane notificationPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public NotificationPane()
@@ -19,7 +19,7 @@ public class NotificationPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(NOTIFICATION_PANE)));
         try
         {
-            notificationPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -27,13 +27,13 @@ public class NotificationPane
         }
     }
 
+    public Pane getPane()
+    {
+        return this.pane;
+    }
+
     public FXMLLoader getLoader()
     {
         return this.loader;
-    }
-
-    public Pane getNotificationPane()
-    {
-            return this.notificationPane;
     }
 }

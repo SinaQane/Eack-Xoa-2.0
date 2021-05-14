@@ -54,7 +54,7 @@ public class SignUpPage
 
     public void clear()
     {
-        SignUpPageFXML fxmlController = this.loader.getController();
-        fxmlController.getMessageText().setVisible(false);
+        SignUpPageFXML signUpPageFXML = this.loader.getController();
+        signUpPageFXML.getMessageText().setVisible(false);
     }
 }

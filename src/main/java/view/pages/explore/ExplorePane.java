@@ -11,7 +11,7 @@ public class ExplorePane
 {
     private static final String EXPLORE = Config.getConfig("paths").getProperty(String.class, "explore");
 
-    private Pane explorePane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public ExplorePane()
@@ -19,7 +19,7 @@ public class ExplorePane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EXPLORE)));
         try
         {
-            explorePane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -29,7 +29,7 @@ public class ExplorePane
 
     public Pane getPane()
     {
-        return this.explorePane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()
@@ -39,9 +39,9 @@ public class ExplorePane
 
     public void refresh()
     {
-        ExplorePaneFXML fxmlController = this.loader.getController();
+        ExplorePaneFXML explorePaneFXML = this.loader.getController();
         RandomTweetsPane randomTweetsPane = new RandomTweetsPane();
         randomTweetsPane.refresh();
-        fxmlController.setExplorePane(randomTweetsPane.getPane());
+        explorePaneFXML.setExplorePane(randomTweetsPane.getPane());
     }
 }

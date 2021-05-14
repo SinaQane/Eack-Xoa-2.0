@@ -13,7 +13,7 @@ public class GroupsListener
 {
     public void eventOccurred(EventObject eventObject, int page)
     {
-        MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
+        MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
 
         switch (((Button) eventObject.getSource()).getId())
         {
@@ -22,10 +22,10 @@ public class GroupsListener
                 ((ManageGroupFrameFXML) manageGroupFrame.getLoader().getController()).setGroup(null);
                 break;
             case "previousButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getGroupsPane(page - 1).getPane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getGroupsPane(page - 1).getPane());
                 break;
             case "nextButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getGroupsPane(page + 1).getPane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getGroupsPane(page + 1).getPane());
                 break;
         }
     }

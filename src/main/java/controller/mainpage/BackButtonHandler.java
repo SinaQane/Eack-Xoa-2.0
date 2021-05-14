@@ -52,31 +52,31 @@ public class BackButtonHandler
                 fxmlController.setMainPane(PanesController.getPanesController().getExplorePane().getPane());
                 break;
             case "tweet":
-                fxmlController.setMainPane(PanesController.getPanesController().getTweetsListPane(memory.getTweetId(), 0).getListPane());
+                fxmlController.setMainPane(PanesController.getPanesController().getTweetsListPane(memory.getTweetId(), 0).getPane());
                 break;
             case "profile":
             case "user":
-                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(memory.getUserId(), 0).getProfilePane());
+                fxmlController.setMainPane(PanesController.getPanesController().getProfilePane(memory.getUserId(), 0).getPane());
                 break;
             case "timeline":
             case "bookmarks":
-                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane(memory.getPage(), 0).getTimelinePane());
+                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane(memory.getPage(), 0).getPane());
                 break;
             case "notifications":
             case "followers":
             case "followings":
             case "blacklist":
-                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane(memory.getPage(), memory.getUserId(), 0).getListPane());
+                fxmlController.setMainPane(PanesController.getPanesController().getUserslistPane(memory.getPage(), memory.getUserId(), 0).getPane());
                 break;
         }
 
         switch (memory.getPage())
         {
             case "profile":
-                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageAgent().getUser().getId()));
+                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageController().getUser().getId()));
                 break;
             case "notifications":
-                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("notifications", MainPageController.getMainPageAgent().getUser().getId()));
+                BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("notifications", MainPageController.getMainPageController().getUser().getId()));
                 break;
             case "explore":
             case "timeline":

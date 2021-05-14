@@ -8,7 +8,8 @@ import javafx.scene.shape.Line;
 
 public class TimelinePaneFXML
 {
-    private TimelineListener listener;
+    private final TimelineListener listener = new TimelineListener();
+
     private int page;
     private String pageKind;
 
@@ -22,11 +23,6 @@ public class TimelinePaneFXML
     public Button previousButton;
     public Button nextButton;
     public Button refreshButton;
-
-    public void setListener(TimelineListener listener)
-    {
-        this.listener = listener;
-    }
 
     public void setPage(int page)
     {

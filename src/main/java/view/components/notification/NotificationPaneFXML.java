@@ -9,7 +9,7 @@ import java.util.EventObject;
 
 public class NotificationPaneFXML
 {
-    private NotificationPaneListener listener;
+    private final NotificationPaneListener listener = new NotificationPaneListener();
 
     private long otherUser = 0L;
 
@@ -17,11 +17,6 @@ public class NotificationPaneFXML
     public Button acceptButton;
     public Button goodRejectButton;
     public Button badRejectButton;
-
-    public void setListener(NotificationPaneListener notificationPaneListener)
-    {
-        this.listener = notificationPaneListener;
-    }
 
     public void setData(Notification notification)
     {

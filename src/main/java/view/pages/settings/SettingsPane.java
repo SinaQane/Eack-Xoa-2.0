@@ -12,7 +12,7 @@ public class SettingsPane
 {
     private static final String SETTINGS = Config.getConfig("paths").getProperty(String.class, "settings");
 
-    private Pane settingsPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public SettingsPane()
@@ -20,7 +20,7 @@ public class SettingsPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(SETTINGS)));
         try
         {
-            settingsPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -28,9 +28,9 @@ public class SettingsPane
         }
     }
 
-    public Pane getSettingsPane()
+    public Pane getPane()
     {
-        return settingsPane;
+        return pane;
     }
 
     public FXMLLoader getLoader()
@@ -40,8 +40,8 @@ public class SettingsPane
 
     public void refresh()
     {
-        SettingsPaneFXML fxmlController = this.loader.getController();
-        fxmlController.setListener(new SettingsListener(this));
-        fxmlController.getMessageText().setVisible(false);
+        SettingsPaneFXML settingsPaneFXML = this.loader.getController();
+        settingsPaneFXML.setListener(new SettingsListener(this));
+        settingsPaneFXML.getMessageText().setVisible(false);
     }
 }

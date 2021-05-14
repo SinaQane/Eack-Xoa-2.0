@@ -11,14 +11,14 @@ public class EmptyBookmarkPane
 {
     private static final String EMPTY_BOOKMARK = Config.getConfig("paths").getProperty(String.class, "emptyBookmark");
 
-    private Pane emptyPane;
+    private Pane pane;
 
     public EmptyBookmarkPane()
     {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(EMPTY_BOOKMARK)));
         try
         {
-            emptyPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -26,8 +26,8 @@ public class EmptyBookmarkPane
         }
     }
 
-    public Pane getEmptyPane()
+    public Pane getPane()
     {
-        return this.emptyPane;
+        return this.pane;
     }
 }

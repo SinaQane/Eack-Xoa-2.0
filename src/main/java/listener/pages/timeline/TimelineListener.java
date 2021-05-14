@@ -9,7 +9,7 @@ public class TimelineListener
 {
     public void eventOccurred(TimelineEvent eventObject)
     {
-        MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
+        MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
 
         int page = eventObject.getPage();
         String pageKind = eventObject.getPageKind();
@@ -17,13 +17,13 @@ public class TimelineListener
         switch (((Button) eventObject.getSource()).getId())
         {
             case "previousButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page - 1).getTimelinePane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page - 1).getPane());
                 break;
             case "nextButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page + 1).getTimelinePane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page + 1).getPane());
                 break;
             case "refreshButton":
-                fxmlController.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page).getTimelinePane());
+                mainPageFXML.setMainPane(PanesController.getPanesController().getTimelinePane(pageKind, page).getPane());
                 break;
         }
     }

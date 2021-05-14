@@ -11,7 +11,7 @@ public class UserPane
 {
     private static final String USER = Config.getConfig("paths").getProperty(String.class, "userPane");
 
-    private Pane userPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public UserPane()
@@ -19,7 +19,7 @@ public class UserPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(USER)));
         try
         {
-            userPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -27,9 +27,9 @@ public class UserPane
         }
     }
 
-    public Pane getUserPane()
+    public Pane getPane()
     {
-        return this.userPane;
+        return this.pane;
     }
 
     public FXMLLoader getLoader()

@@ -11,6 +11,7 @@ import java.util.EventObject;
 public class GroupPaneFXML
 {
     private final GroupPaneListener listener = new GroupPaneListener();
+
     private Group group;
 
     public Text groupNameText;

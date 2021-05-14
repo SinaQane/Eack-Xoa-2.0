@@ -48,12 +48,17 @@ public class Profile
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
     private int lastSeenState; // "0" for no one, "1" for followings only and "2" for everyone.
 
+    // Last seen date
+    @SuppressWarnings("unused")
+    private Date lastSeen;
+
     Profile(long ownerId)
     {
         this.ownerId = ownerId;
         this.privateState = false;
         this.infoState = false;
         this.lastSeenState = 1;
+        this.lastSeen = new Date();
     }
 
     public long getLastTweetId()
@@ -339,11 +344,16 @@ public class Profile
         groups.add(group);
     }
 
+    public void setLastSeen(Date lastSeen)
+    {
+        this.lastSeen = lastSeen;
+    }
+
     /*
-        A HashMap that links every tweet to 2 variables:
-        1. A bit that shows that is this tweet a retweet ("1") or the user's tweet ("0").
-        2. A long that shows the time that this tweet was tweeted, in milliseconds.
-        */
+                A HashMap that links every tweet to 2 variables:
+                1. A bit that shows that is this tweet a retweet ("1") or the user's tweet ("0").
+                2. A long that shows the time that this tweet was tweeted, in milliseconds.
+                */
     public List<String[]> getHomePageTweets()
     {
         HashMap<String[], Long> homePageTweets = new HashMap<>();

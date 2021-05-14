@@ -19,10 +19,10 @@ public class ChatsListListener
 {
     public void eventOccurred(EventObject eventObject, Chat chat, int page)
     {
-        MainPageFXML mainPageController = MainPage.getMainPage().getLoader().getController();
+        MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
 
         MessagesPane messagesPane = PanesController.getPanesController().getMessagesPane();
-        MessagesPaneFXML messagesController = messagesPane.getLoader().getController();
+        MessagesPaneFXML messagesPaneFXML = messagesPane.getLoader().getController();
 
         ChatsListPane chatsListPane = new ChatsListPane();
 
@@ -33,13 +33,13 @@ public class ChatsListListener
                 break;
             case "previousButton":
                 chatsListPane.refresh(page-1);
-                messagesController.setChatsListPane(chatsListPane.getListPane());
-                mainPageController.setMainPane(messagesPane.getPane());
+                messagesPaneFXML.setChatsListPane(chatsListPane.getPane());
+                mainPageFXML.setMainPane(messagesPane.getPane());
                 break;
             case "nextButton":
                 chatsListPane.refresh(page+1);
-                messagesController.setChatsListPane(chatsListPane.getListPane());
-                mainPageController.setMainPane(messagesPane.getPane());
+                messagesPaneFXML.setChatsListPane(chatsListPane.getPane());
+                mainPageFXML.setMainPane(messagesPane.getPane());
                 break;
             case "firstChatButton":
             case "secondChatButton":
@@ -55,12 +55,12 @@ public class ChatsListListener
 
                 for (Message message : chat.getMessages())
                 {
-                    message.addToSeen(MainPageController.getMainPageAgent().getUser());
+                    message.addToSeen(MainPageController.getMainPageController().getUser());
                 }
 
-                messagesController.setChatsListPane(chatsListPane.getListPane());
-                messagesController.setChatroomPane(chatroomPane.getPane());
-                mainPageController.setMainPane(messagesPane.getPane());
+                messagesPaneFXML.setChatsListPane(chatsListPane.getPane());
+                messagesPaneFXML.setChatroomPane(chatroomPane.getPane());
+                mainPageFXML.setMainPane(messagesPane.getPane());
                 break;
         }
     }

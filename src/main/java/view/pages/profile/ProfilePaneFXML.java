@@ -2,7 +2,6 @@ package view.pages.profile;
 
 import controller.mainpage.MainPageController;
 import listener.pages.profile.ViewUserEvent;
-import listener.pages.profile.ProfileListener;
 import listener.pages.profile.ViewUserListener;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -12,10 +11,9 @@ import model.User;
 
 public class ProfilePaneFXML
 {
-    private ViewUserListener viewUserListener = null;
-    private ProfileListener profileListener = null;
+    private final ViewUserListener listener = new ViewUserListener();
 
-    private final User ourUser = MainPageController.getMainPageAgent().getUser();
+    private final User ourUser = MainPageController.getMainPageController().getUser();
     private User otherUser;
 
     public ImageView profilePicture;
@@ -36,21 +34,6 @@ public class ProfilePaneFXML
     public Button viewBlacklistButton;
     public Button blockButton;
     public Button muteButton;
-
-    public void setUserViewListener(ViewUserListener viewUserListener)
-    {
-        this.viewUserListener = viewUserListener;
-    }
-
-    public void setProfileListener(ProfileListener profileListener)
-    {
-        this.profileListener = profileListener;
-    }
-
-    public ProfileListener getProfileListener()
-    {
-        return this.profileListener;
-    }
 
     public void setUser(User user)
     {
@@ -135,36 +118,36 @@ public class ProfilePaneFXML
 
     public void changeStatus()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.statButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.statButton, this.ourUser, this.otherUser));
     }
 
     public void profilePic()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.profilePicButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.profilePicButton, this.ourUser, this.otherUser));
     }
 
     public void block()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.blockButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.blockButton, this.ourUser, this.otherUser));
     }
 
     public void followers()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.viewFollowersButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.viewFollowersButton, this.ourUser, this.otherUser));
     }
 
     public void followings()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.viewFollowingsButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.viewFollowingsButton, this.ourUser, this.otherUser));
     }
 
     public void blacklist()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.viewBlacklistButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.viewBlacklistButton, this.ourUser, this.otherUser));
     }
 
     public void mute()
     {
-        this.viewUserListener.eventOccurred(new ViewUserEvent(this.muteButton, this.ourUser, this.otherUser));
+        listener.eventOccurred(new ViewUserEvent(this.muteButton, this.ourUser, this.otherUser));
     }
 }

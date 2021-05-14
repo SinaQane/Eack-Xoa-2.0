@@ -1,11 +1,11 @@
 package listener.pages.settings;
 
+import controller.mainpage.MainPageController;
 import controller.pages.settings.SettingsLogic;
 import view.pages.settings.SettingsPane;
 import view.pages.settings.SettingsPaneFXML;
 import view.mainpage.MainPage;
 import view.mainpage.MainPageFXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
@@ -20,37 +20,40 @@ public class SettingsListener
 
     public void eventOccurred(EditFormEvent eventObject)
     {
-        MainPageFXML mainPageController = MainPage.getMainPage().getLoader().getController();
+        MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
 
-        SettingsLogic settingsLogic = new SettingsLogic(eventObject);
-        FXMLLoader settingsPaneLoader = settingsPane.getLoader();
-        SettingsPaneFXML settingsPaneController = settingsPaneLoader.getController();
+        SettingsLogic logic = new SettingsLogic(eventObject);
+        SettingsPaneFXML settingsPaneFXML = settingsPane.getLoader().getController();
+
         Button button = new Button();
         button.setId("logoutButton");
+
         switch (((Button) eventObject.getSource()).getId())
         {
             case "editButton":
-                if (!settingsLogic.check().equals("Valid"))
+                if (!logic.check().equals("Valid"))
                 {
-                    settingsPaneController.getMessageText().setText(settingsLogic.check());
-                    settingsPaneController.getMessageText().setFill(Color.RED);
-                    settingsPaneController.getMessageText().setVisible(true);
+                    settingsPaneFXML.getMessageText().setText(logic.check());
+                    settingsPaneFXML.getMessageText().setFill(Color.RED);
+                    settingsPaneFXML.getMessageText().setVisible(true);
                 }
                 else
                 {
-                    settingsPaneController.getMessageText().setText("Edit successful!");
-                    settingsPaneController.getMessageText().setFill(Color.GREEN);
-                    settingsPaneController.getMessageText().setVisible(true);
-                    settingsLogic.edit();
+                    settingsPaneFXML.getMessageText().setText("Edit successful!");
+                    settingsPaneFXML.getMessageText().setFill(Color.GREEN);
+                    settingsPaneFXML.getMessageText().setVisible(true);
+                    logic.edit();
                 }
                 break;
             case "deactivationButton":
-                settingsLogic.deactivate();
-                mainPageController.getListener().eventOccurred(button);
+                MainPageController.getMainPageController().StopTimer();
+                logic.deactivate();
+                mainPageFXML.getListener().eventOccurred(button);
                 break;
             case "deleteAccountButton":
-                settingsLogic.deleteAccount();
-                mainPageController.getListener().eventOccurred(button);
+                MainPageController.getMainPageController().StopTimer();
+                logic.deleteAccount();
+                mainPageFXML.getListener().eventOccurred(button);
                 break;
         }
     }

@@ -10,7 +10,7 @@ public class GroupsLogic
 {
     public List<List<Group>> getGroups()
     {
-        List<Group> groups = MainPageController.getMainPageAgent().getUser().getProfile().getGroups();
+        List<Group> groups = MainPageController.getMainPageController().getUser().getProfile().getGroups();
         List<List<Group>> result = new LinkedList<>();
 
         if (groups.size() == 0)

@@ -11,14 +11,14 @@ public class EmptyChatroomPane
 {
     private static final String CHATROOM = Config.getConfig("paths").getProperty(String.class, "emptyChatroom");
 
-    private Pane chatroomPane;
+    private Pane pane;
 
     public EmptyChatroomPane()
     {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(CHATROOM)));
         try
         {
-            chatroomPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -28,6 +28,6 @@ public class EmptyChatroomPane
 
     public Pane getPane()
     {
-        return this.chatroomPane;
+        return this.pane;
     }
 }

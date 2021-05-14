@@ -55,8 +55,8 @@ public class MessagePaneListener
                 } catch (MalformedURLException ignored) {}
                 break;
             case "viewTweetButton":
-                MainPageFXML fxmlController = MainPage.getMainPage().getLoader().getController();
-                fxmlController.setMainPane(PanesController.getPanesController().getTweetsListPane(message.getTweetId(), 0).getListPane());
+                MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
+                mainPageFXML.setMainPane(PanesController.getPanesController().getTweetsListPane(message.getTweetId(), 0).getPane());
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("tweet", message.getTweetId()));
                 break;
             case "deleteButton":

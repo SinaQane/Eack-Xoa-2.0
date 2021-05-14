@@ -12,7 +12,7 @@ public class MessagesLogic
 {
     public List<List<Chat>> getChatsList()
     {
-        List<Long> chatIds = MainPageController.getMainPageAgent().getUser().getProfile().getChats();
+        List<Long> chatIds = MainPageController.getMainPageController().getUser().getProfile().getChats();
         List<List<Chat>> result = new LinkedList<>();
         HashMap<Chat, Long> tempChats = new HashMap<>();
         List<Chat> chats = new LinkedList<>();

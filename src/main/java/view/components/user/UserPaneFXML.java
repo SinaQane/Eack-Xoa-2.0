@@ -18,7 +18,7 @@ public class UserPaneFXML
     private static final String YELLOW = Config.getConfig("colors").getProperty(String.class, "yellow");
     private static final String GREEN = Config.getConfig("colors").getProperty(String.class, "green");
 
-    private UserPaneListener listener;
+    private final UserPaneListener listener = new UserPaneListener();
 
     private long id;
 
@@ -27,14 +27,9 @@ public class UserPaneFXML
     public Text nameText;
     public Text statusText;
 
-    public void setListener(UserPaneListener listener)
-    {
-        this.listener = listener;
-    }
-
     public void setData(long id)
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
         User user = UserDB.getUserDB().get(id);
         this.id = id;
 

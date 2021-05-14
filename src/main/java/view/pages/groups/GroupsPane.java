@@ -17,7 +17,7 @@ public class GroupsPane
 {
     private static final String GROUPS = Config.getConfig("paths").getProperty(String.class, "groups");
 
-    private Pane groupsPane;
+    private Pane pane;
     private final FXMLLoader loader;
 
     public GroupsPane()
@@ -25,7 +25,7 @@ public class GroupsPane
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(GROUPS)));
         try
         {
-            groupsPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -35,34 +35,34 @@ public class GroupsPane
 
     public Pane getPane()
     {
-        return this.groupsPane;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        GroupsPaneFXML fxmlController = this.loader.getController();
-        fxmlController.setPage(page);
+        GroupsPaneFXML groupsPaneFXML = this.loader.getController();
+        groupsPaneFXML.setPage(page);
 
-        GroupsLogic logicalAgent = new GroupsLogic();
+        GroupsLogic logic = new GroupsLogic();
 
-        List<Group> groups = logicalAgent.getPage(page);
+        List<Group> groups = logic.getPage(page);
 
         for (int i = 0; i < 5; i++)
         {
             if (groups.get(i) == null)
             {
-                fxmlController.setGroupPane(i, new EmptyUserPane().getPane());
+                groupsPaneFXML.setGroupPane(i, new EmptyUserPane().getPane());
             }
             else
             {
                 GroupPane groupPane = new GroupPane();
                 GroupPaneFXML groupPaneFXML = groupPane.getLoader().getController();
                 groupPaneFXML.setData(groups.get(i));
-                fxmlController.setGroupPane(i, groupPane.getGroupPane());
+                groupsPaneFXML.setGroupPane(i, groupPane.getPane());
             }
         }
 
-        fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
-        fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
+        groupsPaneFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+        groupsPaneFXML.getNextButton().setDisable(!logic.hasNextPage(page));
     }
 }

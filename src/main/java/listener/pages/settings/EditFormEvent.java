@@ -18,9 +18,9 @@ public class EditFormEvent extends EventObject
     private final boolean infoState;
     private final int lastSeenState;
 
-    public EditFormEvent(Object source, String username, String password, String name,
-                         String email, String phoneNumber, String bio, Date birthDate,
-                         boolean privateState, boolean infoState, int lastSeenState, String picPath)
+    public EditFormEvent(Object source, String username, String password, String name, String email,
+                         String phoneNumber, String bio, Date birthDate, boolean privateState,
+                         boolean infoState, int lastSeenState, String picPath)
     {
         super(source);
         this.username = username.toLowerCase(Locale.ROOT);

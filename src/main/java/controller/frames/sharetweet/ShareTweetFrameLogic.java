@@ -4,6 +4,8 @@ import controller.mainpage.MainPageController;
 import db.ChatDB;
 import db.UserDB;
 import model.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import util.ArrayListUtil;
 
 import java.util.ArrayList;
@@ -12,9 +14,11 @@ import java.util.List;
 
 public class ShareTweetFrameLogic
 {
+    private static final Logger logger = LogManager.getLogger(ShareTweetFrameLogic.class);
+
     public void shareTweet(Tweet tweet, String usernames, String groups)
     {
-        User ourUser = MainPageController.getMainPageAgent().getUser();
+        User ourUser = MainPageController.getMainPageController().getUser();
 
         String[] usernamesList = usernames.split(" ");
         String[] groupsList = groups.split(" ");
@@ -47,5 +51,7 @@ public class ShareTweetFrameLogic
             new Message(pv, ourUser, tweet);
             ChatDB.getChatDB().save(pv);
         }
+
+        logger.debug(tweet.getId() + " was shared with several users by " + ourUser.getId());
     }
 }

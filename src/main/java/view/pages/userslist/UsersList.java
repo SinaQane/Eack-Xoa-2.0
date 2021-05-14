@@ -1,9 +1,7 @@
 package view.pages.userslist;
 
-import listener.components.notification.NotificationPaneListener;
 import view.components.notification.NotificationPane;
 import view.components.notification.NotificationPaneFXML;
-import listener.components.user.UserPaneListener;
 import view.components.empty.emptyuser.EmptyUserPane;
 import view.components.user.UserPane;
 import view.components.user.UserPaneFXML;
@@ -23,8 +21,9 @@ public class UsersList
 {
     private static final String USERS_LIST = Config.getConfig("paths").getProperty(String.class, "usersList");
 
-    private Pane listPane;
+    private Pane pane;
     private final FXMLLoader loader;
+
     private final User user;
     private final String pageKind;
 
@@ -33,7 +32,7 @@ public class UsersList
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(USERS_LIST)));
         try
         {
-            listPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -44,73 +43,66 @@ public class UsersList
         this.pageKind = pageKind;
     }
 
-    public Pane getListPane()
+    public Pane getPane()
     {
-        return this.listPane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        UsersListFXML fxmlController = this.loader.getController();
+        UsersListFXML usersListFXML = this.loader.getController();
 
-        fxmlController.setPage(page);
-        fxmlController.setUser(this.user);
-        fxmlController.setPageKind(this.pageKind);
+        usersListFXML.setPage(page);
+        usersListFXML.setUser(this.user);
+        usersListFXML.setPageKind(this.pageKind);
 
         if (this.pageKind.equals("notifications"))
         {
-            NotificationsLogic logicalAgent = new NotificationsLogic(this.user);
+            NotificationsLogic logic = new NotificationsLogic(this.user);
 
-            List<Notification> notifications = logicalAgent.getPage(page);
+            List<Notification> notifications = logic.getPage(page);
 
             for (int i = 0; i < 5; i++)
             {
                 if (notifications.get(i).getOwner() == 0)
                 {
-                    fxmlController.setUserPane(i, new EmptyUserPane().getPane());
+                    usersListFXML.setUserPane(i, new EmptyUserPane().getPane());
                 }
                 else
                 {
                     NotificationPane notificationPane = new NotificationPane();
                     NotificationPaneFXML notificationPaneFXML = notificationPane.getLoader().getController();
-                    notificationPaneFXML.setListener(new NotificationPaneListener());
                     notificationPaneFXML.setData(notifications.get(i));
-                    fxmlController.setUserPane(i, notificationPane.getNotificationPane());
+                    usersListFXML.setUserPane(i, notificationPane.getPane());
                 }
             }
 
-            fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
-            fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
+            usersListFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+            usersListFXML.getNextButton().setDisable(!logic.hasNextPage(page));
         }
         else
         {
-            UsersListLogic logicalAgent = new UsersListLogic(this.user, this.pageKind);
+            UsersListLogic logic = new UsersListLogic(this.user, this.pageKind);
 
-            List<Long> users = logicalAgent.getPage(page);
+            List<Long> users = logic.getPage(page);
 
             for (int i = 0; i < 5; i++)
             {
                 if (users.get(i) == 0)
                 {
-                    fxmlController.setUserPane(i, new EmptyUserPane().getPane());
+                    usersListFXML.setUserPane(i, new EmptyUserPane().getPane());
                 }
                 else
                 {
                     UserPane userPane = new UserPane();
                     UserPaneFXML userPaneFXML = userPane.getLoader().getController();
-                    userPaneFXML.setListener(new UserPaneListener());
                     userPaneFXML.setData(users.get(i));
-                    fxmlController.setUserPane(i, userPane.getUserPane());
+                    usersListFXML.setUserPane(i, userPane.getPane());
                 }
             }
 
-            fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
-            fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
+            usersListFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+            usersListFXML.getNextButton().setDisable(!logic.hasNextPage(page));
         }
     }
 }

@@ -9,6 +9,7 @@ import java.util.EventObject;
 public class GroupsPaneFXML
 {
     private final GroupsListener listener = new GroupsListener();
+
     private int page;
 
     public Button newGroupButton;

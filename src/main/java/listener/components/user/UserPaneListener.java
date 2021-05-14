@@ -15,8 +15,8 @@ public class UserPaneListener
     {
         if (((Button) eventObject.getSource()).getId().equals("viewUserButton"))
         {
-            MainPageFXML controller = MainPage.getMainPage().getLoader().getController();
-            controller.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getProfilePane());
+            MainPageFXML mainPageFXML = MainPage.getMainPage().getLoader().getController();
+            mainPageFXML.setMainPane(PanesController.getPanesController().getProfilePane(id, 0).getPane());
             BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("user", id));
 
         }

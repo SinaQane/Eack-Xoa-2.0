@@ -9,7 +9,7 @@ import model.User;
 
 public class UsersListFXML
 {
-    private UsersListListener listener;
+    private final UsersListListener listener = new UsersListListener();
 
     private User user;
     private int page;
@@ -23,11 +23,6 @@ public class UsersListFXML
 
     public Button previousButton;
     public Button nextButton;
-
-    public void setListener(UsersListListener listener)
-    {
-        this.listener = listener;
-    }
 
     public void setUser(User user)
     {

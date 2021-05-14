@@ -9,8 +9,8 @@ import javafx.scene.text.Text;
 public class LoginPageFXML
 {
     private LoginListener listener;
-    public Text messageText;
 
+    public Text messageText;
     public TextField usernameTextField;
     public TextField passwordTextField;
     public Button enterButton;

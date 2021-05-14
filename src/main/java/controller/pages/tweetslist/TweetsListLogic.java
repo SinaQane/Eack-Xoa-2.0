@@ -24,7 +24,7 @@ public class TweetsListLogic
 
         for (String tweet : tweets)
         {
-            if (MainPageController.getMainPageAgent().isValid(TweetDB.getTweetDB().get(tweet)))
+            if (MainPageController.getMainPageController().isValid(TweetDB.getTweetDB().get(tweet)))
             {
                 comments.add(tweet);
             }

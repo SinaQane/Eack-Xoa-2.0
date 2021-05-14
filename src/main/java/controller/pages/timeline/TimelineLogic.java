@@ -42,7 +42,7 @@ public class TimelineLogic
                     for (String userTweet : otherUser.getProfile().getUserTweets())
                     {
                         Tweet tweet = TweetDB.getTweetDB().get(userTweet);
-                        if (MainPageController.getMainPageAgent().isValid(tweet))
+                        if (MainPageController.getMainPageController().isValid(tweet))
                         {
                             tweetsMap.put(new String[]{userTweet, "0"}, tweet.getTweetDate().getTime());
                         }
@@ -51,7 +51,7 @@ public class TimelineLogic
                     for (String retweetedTweet : otherUser.getProfile().getRetweetedTweets())
                     {
                         Tweet tweet = TweetDB.getTweetDB().get(retweetedTweet);
-                        if (MainPageController.getMainPageAgent().isValid(tweet))
+                        if (MainPageController.getMainPageController().isValid(tweet))
                         {
                             tweetsMap.put(new String[]{retweetedTweet, userId.toString()}, tweet.getTweetDate().getTime());
                         }
@@ -68,7 +68,7 @@ public class TimelineLogic
         {
             for (String id : user.getProfile().getSavedTweets())
             {
-                if (MainPageController.getMainPageAgent().isValid(TweetDB.getTweetDB().get(id)))
+                if (MainPageController.getMainPageController().isValid(TweetDB.getTweetDB().get(id)))
                 {
                     tweets.add(new String[]{id, "0"});
                 }

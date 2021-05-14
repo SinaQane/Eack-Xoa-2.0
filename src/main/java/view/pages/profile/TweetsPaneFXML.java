@@ -11,7 +11,7 @@ import model.User;
 
 public class TweetsPaneFXML
 {
-    private ProfileListener listener;
+    private final ProfileListener listener = new ProfileListener();
 
     private User user;
     private int page;
@@ -25,11 +25,6 @@ public class TweetsPaneFXML
 
     public Text noTweetsText;
     public Line midLine;
-
-    public void setListener(ProfileListener listener)
-    {
-        this.listener = listener;
-    }
 
     public void setUser(User user)
     {

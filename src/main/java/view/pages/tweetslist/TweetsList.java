@@ -18,8 +18,9 @@ public class TweetsList
 {
     private static final String TWEETS_LIST = Config.getConfig("paths").getProperty(String.class, "tweetsList");
 
-    private Pane listPane;
+    private Pane pane;
     private final FXMLLoader loader;
+
     private final Tweet tweet;
 
     public TweetsList(Tweet tweet)
@@ -27,7 +28,7 @@ public class TweetsList
         this.loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(TWEETS_LIST)));
         try
         {
-            listPane = loader.load();
+            pane = loader.load();
         }
         catch (IOException e)
         {
@@ -37,37 +38,32 @@ public class TweetsList
         this.tweet = tweet;
     }
 
-    public Pane getListPane()
+    public Pane getPane()
     {
-        return this.listPane;
-    }
-
-    public FXMLLoader getLoader()
-    {
-        return this.loader;
+        return this.pane;
     }
 
     public void refresh(int page)
     {
-        TweetsListFXML fxmlController = this.loader.getController();
+        TweetsListFXML tweetsListFXML = this.loader.getController();
 
-        fxmlController.setPage(page);
-        fxmlController.setTweet(this.tweet);
+        tweetsListFXML.setPage(page);
+        tweetsListFXML.setTweet(this.tweet);
 
-        TweetsListLogic logicalAgent = new TweetsListLogic(this.tweet);
+        TweetsListLogic logic = new TweetsListLogic(this.tweet);
 
-        List<String> tweets = logicalAgent.getPage(page);
+        List<String> tweets = logic.getPage(page);
 
         String[] mainTweet = new String[]{this.tweet.getId(), "0"};
         TweetPane mainTweetPane = new TweetPane();
         TweetPaneFXML mainTweetFXML = mainTweetPane.getLoader().getController();
         mainTweetFXML.setTweetPane(mainTweet);
         mainTweetFXML.setListener(new TweetPaneListener(mainTweetPane));
-        fxmlController.setTweetPane(mainTweetPane.getTweetPane());
+        tweetsListFXML.setTweetPane(mainTweetPane.getPane());
 
         if (tweets.get(0).equals("null"))
         {
-            fxmlController.setCommentPane1(new EmptyTweetPane().getTweetPane());
+            tweetsListFXML.setCommentPane1(new EmptyTweetPane().getTweetPane());
         }
         else
         {
@@ -76,12 +72,12 @@ public class TweetsList
             TweetPaneFXML firstCommentFXML = firstCommentPane.getLoader().getController();
             firstCommentFXML.setTweetPane(firstComment);
             firstCommentFXML.setListener(new TweetPaneListener(firstCommentPane));
-            fxmlController.setCommentPane1(firstCommentPane.getTweetPane());
+            tweetsListFXML.setCommentPane1(firstCommentPane.getPane());
         }
 
         if (tweets.get(1).equals("null"))
         {
-            fxmlController.setCommentPane2(new EmptyTweetPane().getTweetPane());
+            tweetsListFXML.setCommentPane2(new EmptyTweetPane().getTweetPane());
         }
         else
         {
@@ -90,10 +86,10 @@ public class TweetsList
             TweetPaneFXML secondCommentFXML = secondCommentPane.getLoader().getController();
             secondCommentFXML.setTweetPane(secondComment);
             secondCommentFXML.setListener(new TweetPaneListener(secondCommentPane));
-            fxmlController.setCommentPane2(secondCommentPane.getTweetPane());
+            tweetsListFXML.setCommentPane2(secondCommentPane.getPane());
         }
 
-        fxmlController.getPreviousButton().setDisable(!logicalAgent.hasPreviousPage(page));
-        fxmlController.getNextButton().setDisable(!logicalAgent.hasNextPage(page));
+        tweetsListFXML.getPreviousButton().setDisable(!logic.hasPreviousPage(page));
+        tweetsListFXML.getNextButton().setDisable(!logic.hasNextPage(page));
     }
 }

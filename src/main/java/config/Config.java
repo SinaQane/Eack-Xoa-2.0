@@ -20,6 +20,7 @@ public class Config extends Properties
         return MAIN_CONFIG.getProperty(Config.class, name);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private Config(String address)
     {
         super();
