@@ -34,9 +34,22 @@
     ],
     "reportedTweets": [],
     "savedTweets": [],
-    "notifications": [],
-    "groups" : [],
-    "chatIds" : [],
+    "notifications": [
+      {
+        "owner": 2,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri May 14 17:37:10 IRDT 2021"
+      },
+      {
+        "owner": 2,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri May 14 21:59:07 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [
+      2
+    ],
     "privateState": false,
     "infoState": false,
     "lastSeenState": 1

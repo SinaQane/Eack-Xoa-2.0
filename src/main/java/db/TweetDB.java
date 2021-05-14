@@ -2,11 +2,11 @@ package db;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import models.Tweet;
+import model.Tweet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.Config;
+import util.Config;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -1,20 +1,20 @@
 package view;
 
-import apps.authentication.login.listener.LoginFormListener;
-import apps.authentication.login.view.LoginFXML;
-import apps.authentication.login.view.LoginPage;
-import apps.authentication.signup.listener.SignUpFormListener;
-import apps.authentication.signup.view.SignUpFXML;
-import apps.authentication.signup.view.SignUpPage;
-import apps.firstpage.listener.FirstPageListener;
-import apps.mainpage.listener.MainPageListener;
-import apps.mainpage.view.MainPage;
-import apps.mainpage.view.MainPageFXML;
+import listener.login.LoginListener;
+import view.login.LoginPageFXML;
+import view.login.LoginPage;
+import listener.signup.SignUpFormListener;
+import view.signup.SignUpPageFXML;
+import view.signup.SignUpPage;
+import listener.firstpage.FirstPageListener;
+import listener.mainpage.MainPageListener;
+import view.mainpage.MainPage;
+import view.mainpage.MainPageFXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import apps.firstpage.view.FirstPage;
-import apps.firstpage.view.FirstPageFXML;
-import utils.Config;
+import view.firstpage.FirstPage;
+import view.firstpage.FirstPageFXML;
+import util.Config;
 
 public class MainStage
 {
@@ -30,11 +30,11 @@ public class MainStage
         firstPageController.setListener(new FirstPageListener(stage));
 
         FXMLLoader loginPageLoader = loginPage.getLoader();
-        LoginFXML loginPageController = loginPageLoader.getController();
-        loginPageController.setListener(new LoginFormListener(stage));
+        LoginPageFXML loginPageController = loginPageLoader.getController();
+        loginPageController.setListener(new LoginListener(stage));
 
         FXMLLoader signUpPageLoader = signUpPage.getLoader();
-        SignUpFXML signUpPageController = signUpPageLoader.getController();
+        SignUpPageFXML signUpPageController = signUpPageLoader.getController();
         signUpPageController.setListener(new SignUpFormListener(stage));
 
         FXMLLoader mainPageLoader = mainPage.getLoader();

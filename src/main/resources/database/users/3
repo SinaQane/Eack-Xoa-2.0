@@ -34,8 +34,10 @@
     "reportedTweets": [],
     "savedTweets": [],
     "notifications": [],
-    "groups" : [],
-    "chatIds" : [],
+    "groups": [],
+    "chatIds": [
+      1
+    ],
     "privateState": false,
     "infoState": false,
     "lastSeenState": 1

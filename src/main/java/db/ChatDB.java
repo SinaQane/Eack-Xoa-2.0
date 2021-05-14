@@ -2,10 +2,11 @@ package db;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import models.Chat;
+import model.Chat;
+import model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.Config;
+import util.Config;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class ChatDB implements DBSet<Chat>
     {
         File chatsDirectory = new File(CHATS_PATH);
         Chat result = null;
+
         for (String chatId : Objects.requireNonNull(chatsDirectory.list()))
         {
             try
@@ -54,6 +56,17 @@ public class ChatDB implements DBSet<Chat>
                 }
             } catch (IOException ignored) {}
         }
+
+        if (result != null)
+        {
+            if (! result.isGroup())
+            {
+                User firstUser = UserDB.userDB.get(result.getUsers().get(0));
+                User secondUser = UserDB.userDB.get(result.getUsers().get(1));
+                result.setChatsName(firstUser.getUsername() + " - " + secondUser.getUsername());
+            }
+        }
+
         return result;
     }
 
