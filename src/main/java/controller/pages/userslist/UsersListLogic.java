@@ -1,5 +1,6 @@
 package controller.pages.userslist;
 
+import db.UserDB;
 import model.User;
 
 import java.util.LinkedList;
@@ -24,13 +25,34 @@ public class UsersListLogic
         switch (listKind)
         {
             case "followers":
-                users = user.getProfile().getFollowers();
+                for (Long id : user.getProfile().getFollowers())
+                {
+                    User follower = UserDB.getUserDB().get(id);
+                    if (!follower.isDeleted() && !follower.isDeactivated())
+                    {
+                        users.add(id);
+                    }
+                }
                 break;
             case "followings":
-                users = user.getProfile().getFollowings();
+                for (Long id : user.getProfile().getFollowings())
+                {
+                    User following = UserDB.getUserDB().get(id);
+                    if (!following.isDeleted() && !following.isDeactivated())
+                    {
+                        users.add(id);
+                    }
+                }
                 break;
             case "blacklist":
-                users = user.getProfile().getBlocked();
+                for (Long id : user.getProfile().getBlocked())
+                {
+                    User blocked = UserDB.getUserDB().get(id);
+                    if (!blocked.isDeleted() && !blocked.isDeactivated())
+                    {
+                        users.add(id);
+                    }
+                }
                 break;
         }
 
