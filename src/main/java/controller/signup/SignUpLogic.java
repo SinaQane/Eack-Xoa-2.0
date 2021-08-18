@@ -73,6 +73,9 @@ public class SignUpLogic
         user.getProfile().setPicturePath(signUpFormEvent.getPicPath());
         user.getProfile().addToNotifications(new Notification(user.getId(), "New login to your account at " + new Date()));
 
+        UserDB.getUserDB().changeEmail("0", signUpFormEvent.getEmail());
+        if (!signUpFormEvent.getPhoneNumber().equals("")) UserDB.getUserDB().changePhoneNumber("0", signUpFormEvent.getPhoneNumber());
+
         UserDB.getUserDB().save(user);
 
         logger.warn(user.getId() + " signed up and entered the app.");
