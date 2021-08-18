@@ -11,11 +11,16 @@ public class NewChatFrameLogic
         if (UserDB.getUserDB().exists(username))
         {
             User otherUser = UserDB.getUserDB().get(username);
-            Chat chat = new Chat(ourUser, otherUser);
-            ourUser.getProfile().addToChats(chat);
-            otherUser.getProfile().addToChats(chat);
-            UserDB.getUserDB().save(ourUser);
-            UserDB.getUserDB().save(otherUser);
+
+            if (!otherUser.isDeactivated() && !otherUser.isDeleted() && !otherUser.getProfile().getBlocked().contains(otherUser.getId()) &&
+                    (otherUser.getProfile().getFollowings().contains(ourUser.getId()) || otherUser.getProfile().getFollowers().contains(ourUser.getId())))
+            {
+                Chat chat = new Chat(ourUser, otherUser);
+                ourUser.getProfile().addToChats(chat);
+                otherUser.getProfile().addToChats(chat);
+                UserDB.getUserDB().save(ourUser);
+                UserDB.getUserDB().save(otherUser);
+            }
         }
     }
 
