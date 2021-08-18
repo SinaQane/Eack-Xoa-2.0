@@ -24,7 +24,7 @@ public class UserSearchLogic
         {
             if (user.getUsername().contains(this.searched) || user.getName().contains(this.searched))
             {
-                if (!user.isDeactivated())
+                if (!user.isDeactivated() && !user.isDeleted())
                 {
                     users.add(user);
                 }

@@ -13,5 +13,5 @@
    <Button fx:id="tweetButton" layoutX="316.0" layoutY="317.0" mnemonicParsing="false" onAction="#tweet" text="Tweet Something..." />
    <Pane fx:id="firstTweetPane" layoutX="23.0" layoutY="6.0" prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425;" />
    <Pane fx:id="secondTweetPane" layoutX="23.0" layoutY="158.0" prefHeight="140.0" prefWidth="726.0" style="-fx-background-color: #1E2425;" />
-   <Text fx:id="noTweetsText" fill="RED" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You haven't tweeted anything yet... " textAlignment="CENTER" visible="false" wrappingWidth="777.0" />
+   <Text fx:id="noTweetsText" fill="RED" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No tweets here... " textAlignment="CENTER" visible="false" wrappingWidth="777.0" />
 </Pane>

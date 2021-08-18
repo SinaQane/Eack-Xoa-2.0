@@ -64,49 +64,62 @@ public class ProfilePane
     {
         boolean profile = this.user.getId().equals(MainPageController.getMainPageController().getUser().getId());
 
-        TweetsPane tweetsPane = new TweetsPane();
-        FXMLLoader fxmlLoader = tweetsPane.getLoader();
-        TweetsPaneFXML tweetsPaneFXML = fxmlLoader.getController();
-
         ProfilePaneFXML profilePaneFXML = this.loader.getController();
-        tweetsPaneFXML.setUser(user);
-        tweetsPaneFXML.setPage(page);
 
-        ProfileLogic profileLogic = new ProfileLogic(UserDB.getUserDB().get(this.user.getId()));
-
-        tweetsPaneFXML.getPreviousButton().setDisable(!profileLogic.hasPreviousPage(page));
-        tweetsPaneFXML.getNextButton().setDisable(!profileLogic.hasNextPage(page));
-
-        if (profileLogic.getNumberOfPages() == 0)
+        if (this.user.getProfile().getBlocked().contains(MainPageController.getMainPageController().getUser().getId()))
         {
-            tweetsPaneFXML.getMidLine().setVisible(false);
-            tweetsPaneFXML.getNoTweetsText().setVisible(true);
-            tweetsPaneFXML.setFirstTweetPane(new EmptyTweetPane().getTweetPane());
-            tweetsPaneFXML.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
+            profilePaneFXML.setTweetsPane(new BlockedPane().getPane());
+        }
+        else if (!profile && (this.user.getProfile().isPrivate() && !this.user.getProfile().getFollowers().contains(MainPageController.getMainPageController().getUser().getId())))
+        {
+            profilePaneFXML.setTweetsPane(new PrivatePane().getPane());
         }
         else
         {
-            tweetsPaneFXML.getMidLine().setVisible(true);
-            tweetsPaneFXML.getNoTweetsText().setVisible(false);
+            TweetsPane tweetsPane = new TweetsPane();
+            FXMLLoader fxmlLoader = tweetsPane.getLoader();
+            TweetsPaneFXML tweetsPaneFXML = fxmlLoader.getController();
 
-            TweetPane firstTweetPane = new TweetPane();
-            TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
-            firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
-            firstTweetFXML.setTweetPane(profileLogic.getPage(page).get(0));
-            tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getPane());
+            tweetsPaneFXML.setUser(user);
+            tweetsPaneFXML.setPage(page);
 
-            if (!profileLogic.getPage(page).get(1)[0].equals("null"))
+            ProfileLogic profileLogic = new ProfileLogic(UserDB.getUserDB().get(this.user.getId()));
+
+            tweetsPaneFXML.getPreviousButton().setDisable(!profileLogic.hasPreviousPage(page));
+            tweetsPaneFXML.getNextButton().setDisable(!profileLogic.hasNextPage(page));
+
+            if (profileLogic.getNumberOfPages() == 0)
             {
-                TweetPane secondTweetPane = new TweetPane();
-                TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
-                secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
-                secondTweetFXML.setTweetPane(profileLogic.getPage(page).get(1));
-                tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getPane());
+                tweetsPaneFXML.getMidLine().setVisible(false);
+                tweetsPaneFXML.getNoTweetsText().setVisible(true);
+                tweetsPaneFXML.setFirstTweetPane(new EmptyTweetPane().getTweetPane());
+                tweetsPaneFXML.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
             }
             else
             {
-                tweetsPaneFXML.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
+                tweetsPaneFXML.getMidLine().setVisible(true);
+                tweetsPaneFXML.getNoTweetsText().setVisible(false);
+
+                TweetPane firstTweetPane = new TweetPane();
+                TweetPaneFXML firstTweetFXML = firstTweetPane.getLoader().getController();
+                firstTweetFXML.setListener(new TweetPaneListener(firstTweetPane));
+                firstTweetFXML.setTweetPane(profileLogic.getPage(page).get(0));
+                tweetsPaneFXML.setFirstTweetPane(firstTweetPane.getPane());
+
+                if (!profileLogic.getPage(page).get(1)[0].equals("null"))
+                {
+                    TweetPane secondTweetPane = new TweetPane();
+                    TweetPaneFXML secondTweetFXML = secondTweetPane.getLoader().getController();
+                    secondTweetFXML.setListener(new TweetPaneListener(secondTweetPane));
+                    secondTweetFXML.setTweetPane(profileLogic.getPage(page).get(1));
+                    tweetsPaneFXML.setSecondTweetPane(secondTweetPane.getPane());
+                }
+                else
+                {
+                    tweetsPaneFXML.setSecondTweetPane(new EmptyTweetPane().getTweetPane());
+                }
             }
+            profilePaneFXML.setTweetsPane(tweetsPane.getPane());
         }
 
         profilePaneFXML.setNameText(this.user.getName());
@@ -209,8 +222,6 @@ public class ProfilePane
             profilePaneFXML.getStatButton().setVisible(false);
             profilePaneFXML.getBlockButton().setVisible(false);
             profilePaneFXML.getMuteButton().setVisible(false);
-
-            profilePaneFXML.setTweetsPane(tweetsPane.getPane());
         }
         else
         {

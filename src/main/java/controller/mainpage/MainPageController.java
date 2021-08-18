@@ -41,6 +41,11 @@ public class MainPageController
     {
         User owner = UserDB.getUserDB().get(tweet.getOwner());
 
+        if (owner.getId().equals(user.getId()))
+        {
+            return true;
+        }
+
         if (owner.isDeleted())
         {
             return false;
@@ -54,6 +59,10 @@ public class MainPageController
             return false;
         }
         if (owner.getProfile().getBlocked().contains(user.getId()))
+        {
+            return false;
+        }
+        if (user.getProfile().getMuted().contains(owner.getId()))
         {
             return false;
         }

@@ -1,5 +1,6 @@
 package view.pages.profile;
 
+import controller.mainpage.MainPageController;
 import listener.pages.profile.ProfileForm;
 import listener.pages.profile.ProfileEvent;
 import listener.pages.profile.ProfileListener;
@@ -82,7 +83,7 @@ public class TweetsPaneFXML
 
     public void tweet()
     {
-        ProfileForm profileForm = new ProfileForm(this.user, this.page);
+        ProfileForm profileForm = new ProfileForm(MainPageController.getMainPageController().getUser(), this.page);
         listener.eventOccurred(new ProfileEvent(tweetButton, profileForm));
     }
 }

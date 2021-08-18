@@ -371,7 +371,7 @@ public class Profile
         for (String retweetedTweet : retweetedTweets)
         {
             Tweet tweet = TweetDB.getTweetDB().get(retweetedTweet);
-            homePageTweets.put(new String[]{retweetedTweet, "1"}, tweet.getTweetDate().getTime());
+            homePageTweets.put(new String[]{retweetedTweet, "1"}, tweet.getTweetDate().getTime() + 1);
         }
 
         List<String[]> result = new LinkedList<>();
