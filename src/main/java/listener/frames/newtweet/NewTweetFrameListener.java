@@ -2,6 +2,7 @@ package listener.frames.newtweet;
 
 import controller.mainpage.MainPageController;
 import controller.mainpage.PanesController;
+import db.UserDB;
 import view.mainpage.MainPage;
 import view.mainpage.MainPageFXML;
 import db.TweetDB;
@@ -26,7 +27,7 @@ public class NewTweetFrameListener
             String upperTweetId = eventObject.getTweetForm().getUpperTweet();
             String tweetText = eventObject.getTweetForm().getTweetText();
             String tweetPic = eventObject.getTweetForm().getPicPath();
-            Tweet tweet = new Tweet(MainPageController.getMainPageController().getUser(), tweetText, tweetPic);
+            Tweet tweet = new Tweet(UserDB.getUserDB().get(MainPageController.getMainPageController().getUser().getId()), tweetText, tweetPic);
 
             if (!upperTweetId.equals(""))
             {

@@ -2,6 +2,7 @@ package listener.frames.newchat;
 
 import controller.mainpage.MainPageController;
 import controller.mainpage.PanesController;
+import db.UserDB;
 import view.mainpage.MainPage;
 import view.mainpage.MainPageFXML;
 import controller.frames.newchat.NewChatFrameLogic;
@@ -16,7 +17,7 @@ public class NewChatFrameListener
     {
         NewChatFrameLogic newChatFrameLogic = new NewChatFrameLogic();
 
-        User user = MainPageController.getMainPageController().getUser();
+        User user = UserDB.getUserDB().get(MainPageController.getMainPageController().getUser().getId());
 
         if (((Button) eventObject.getSource()).getId().equals("doneButton"))
         {

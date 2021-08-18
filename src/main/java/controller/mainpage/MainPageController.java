@@ -72,10 +72,11 @@ public class MainPageController
 
     public void startTimer()
     {
-        TimeTask timeTask = new TimeTask(10, () ->
+        TimeTask timeTask = new TimeTask(60, () ->
         {
             if (user != null)
             {
+                user = UserDB.getUserDB().get(user.getId());
                 user.getProfile().setLastSeen(new Date().getTime());
                 UserDB.getUserDB().save(user);
                 user = UserDB.getUserDB().get(user.getId());
