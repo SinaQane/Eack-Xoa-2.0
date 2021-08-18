@@ -1,0 +1,11 @@
+2021-08-18 12:42:08.849 [JavaFX Application Thread] INFO  db.UserDB - last id was changed.
+2021-08-18 12:42:08.852 [JavaFX Application Thread] DEBUG db.UserDB - usernames list was updated.
+2021-08-18 12:42:08.854 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was created.
+2021-08-18 12:42:08.866 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-08-18 12:42:08.866 [JavaFX Application Thread] WARN  model.User - 1's name was changed.
+2021-08-18 12:42:08.866 [JavaFX Application Thread] FATAL model.User - 1's email was changed.
+2021-08-18 12:42:08.867 [JavaFX Application Thread] INFO  model.User - 1 changed their bio.
+2021-08-18 12:42:08.867 [JavaFX Application Thread] FATAL model.User - 1's phonenumber was changed.
+2021-08-18 12:42:08.867 [JavaFX Application Thread] WARN  model.User - 1's birthdate was changed.
+2021-08-18 12:42:08.874 [JavaFX Application Thread] DEBUG db.UserDB - 1th user's file was saved.
+2021-08-18 12:42:08.874 [JavaFX Application Thread] WARN  controller.signup.SignUpLogic - 1 signed up and entered the app.
