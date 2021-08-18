@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class ProfilePane
@@ -145,7 +146,7 @@ public class ProfilePane
         SimpleDateFormat timeFormat = new SimpleDateFormat(DATETIME_PATTERN);
         if (this.user.getId().equals(MainPageController.getMainPageController().getUser().getId()))
         {
-            profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+            profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(new Date(this.user.getProfile().getLastSeen())));
         }
         else
         {
@@ -157,7 +158,7 @@ public class ProfilePane
                 case 1:
                     if (this.user.getProfile().getFollowings().contains(MainPageController.getMainPageController().getUser().getId()))
                     {
-                        profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+                        profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(new Date(this.user.getProfile().getLastSeen())));
                     }
                     else
                     {
@@ -165,7 +166,7 @@ public class ProfilePane
                     }
                     break;
                 case 2:
-                    profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+                    profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(new Date(this.user.getProfile().getLastSeen())));
                     break;
             }
         }

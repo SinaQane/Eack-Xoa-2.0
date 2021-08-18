@@ -48,8 +48,8 @@ public class Profile
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
     private int lastSeenState; // "0" for no one, "1" for followings only and "2" for everyone.
 
-    // Last seen date
-    private Date lastSeen;
+    // Last seen date time
+    private Long lastSeen;
 
     Profile(long ownerId)
     {
@@ -57,7 +57,7 @@ public class Profile
         this.privateState = false;
         this.infoState = false;
         this.lastSeenState = 2;
-        this.lastSeen = new Date();
+        this.lastSeen = new Date().getTime();
     }
 
     public long getLastTweetId()
@@ -343,12 +343,12 @@ public class Profile
         groups.add(group);
     }
 
-    public void setLastSeen(Date lastSeen)
+    public void setLastSeen(Long lastSeen)
     {
         this.lastSeen = lastSeen;
     }
 
-    public Date getLastSeen()
+    public Long getLastSeen()
     {
         return lastSeen;
     }

@@ -63,11 +63,13 @@ public class MainPageController
 
     public void startTimer()
     {
-        TimeTask timeTask = new TimeTask(10, () ->
+        TimeTask timeTask = new TimeTask(1, () ->
         {
             if (user != null)
             {
-                user.getProfile().setLastSeen(new Date());
+                user.getProfile().setLastSeen(new Date().getTime());
+                UserDB.getUserDB().save(user);
+                user = UserDB.getUserDB().get(user.getId());
             }
         });
         timeTask.start();
