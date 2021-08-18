@@ -72,7 +72,7 @@ public class MainPageController
 
     public void startTimer()
     {
-        TimeTask timeTask = new TimeTask(1, () ->
+        TimeTask timeTask = new TimeTask(10, () ->
         {
             if (user != null)
             {
