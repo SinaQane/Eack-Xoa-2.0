@@ -23,6 +23,7 @@ public class ProfilePaneFXML
     public Text bioText;
     public Text emailText;
     public Text birthdateText;
+    public Text lastSeenText;
     public Text phoneNumberText;
 
     public Pane tweetsPane;
@@ -79,6 +80,11 @@ public class ProfilePaneFXML
     public void setBirthdateText(String birthdateText)
     {
         this.birthdateText.setText(birthdateText);
+    }
+
+    public void setLastSeenText(String lastSeenText)
+    {
+        this.lastSeenText.setText(lastSeenText);
     }
 
     public void setPhoneNumberText(String phoneNumberText)

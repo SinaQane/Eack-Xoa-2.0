@@ -24,9 +24,11 @@ import java.util.Objects;
 
 public class ProfilePane
 {
+    private static final Long DEFAULT_DATETIME = Config.getConfig("patterns").getProperty(Long.class, "defaultDateTime");
     private static final String PROFILE_VIEWUSER = Config.getConfig("paths").getProperty(String.class, "profile");
     private static final String PROFILE_PIC = Config.getConfig("paths").getProperty(String.class, "profilePic");
     private static final String DATE_PATTERN = Config.getConfig("patterns").getProperty(String.class, "tinyDate");
+    private static final String DATETIME_PATTERN = Config.getConfig("patterns").getProperty(String.class, "longDate");
     private static final String LIGHT_RED = Config.getConfig("colors").getProperty(String.class, "lightRed");
     private static final String DARK_RED = Config.getConfig("colors").getProperty(String.class, "darkRed");
     private static final String YELLOW = Config.getConfig("colors").getProperty(String.class, "yellow");
@@ -111,8 +113,17 @@ public class ProfilePane
         profilePaneFXML.setStatsText("Followers: " + this.user.getProfile().getFollowers().size() + " - " +
                 "Followings: " + this.user.getProfile().getFollowings().size());
         profilePaneFXML.setBioText(this.user.getBio());
-        profilePaneFXML.setEmailText("Email: " + this.user.getEmail());
-        if (this.user.getBirthDate().getTime() == -12600000) // (1970-01-01).getTime();
+
+        if (!this.user.getProfile().getInfoState() && !this.user.getId().equals(MainPageController.getMainPageController().getUser().getId()))
+        {
+            profilePaneFXML.setEmailText("Email: N/A");
+        }
+        else
+        {
+            profilePaneFXML.setEmailText("Email: " + this.user.getEmail());
+        }
+
+        if (this.user.getBirthDate().getTime() == DEFAULT_DATETIME  || (!this.user.getProfile().getInfoState() && !this.user.getId().equals(MainPageController.getMainPageController().getUser().getId())))
         {
             profilePaneFXML.setBirthdateText("Birthdate: N/A");
         }
@@ -121,13 +132,42 @@ public class ProfilePane
             SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
             profilePaneFXML.setBirthdateText("Birthdate: " + dateFormat.format(this.user.getBirthDate()));
         }
-        if (this.user.getPhoneNumber().equals(""))
+
+        if (this.user.getPhoneNumber().equals("") || (!this.user.getProfile().getInfoState() && !this.user.getId().equals(MainPageController.getMainPageController().getUser().getId())))
         {
             profilePaneFXML.setPhoneNumberText("Phone Number: N/A");
         }
         else
         {
             profilePaneFXML.setPhoneNumberText("Phone Number: " + this.user.getPhoneNumber());
+        }
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat(DATETIME_PATTERN);
+        if (this.user.getId().equals(MainPageController.getMainPageController().getUser().getId()))
+        {
+            profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+        }
+        else
+        {
+            switch (this.user.getProfile().getLastSeenState())
+            {
+                case 0:
+                    profilePaneFXML.setLastSeenText("Last Seen: N/A");
+                    break;
+                case 1:
+                    if (this.user.getProfile().getFollowings().contains(MainPageController.getMainPageController().getUser().getId()))
+                    {
+                        profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+                    }
+                    else
+                    {
+                        profilePaneFXML.setLastSeenText("Last Seen: N/A");
+                    }
+                    break;
+                case 2:
+                    profilePaneFXML.setLastSeenText("Last Seen: " + timeFormat.format(this.user.getProfile().getLastSeen()));
+                    break;
+            }
         }
 
         boolean correctPath;

@@ -44,12 +44,11 @@ public class Profile
     private final List<Long> chatIds = new LinkedList<>();
 
     // Privacy
-    private boolean privateState; // "true" if the page is private, "false" if if it's public.
+    private boolean privateState; // "true" if the page is private, "false" if it's public.
     private boolean infoState; // For Email, Phone number and Birthdate. "true" for public and "false" for private.
     private int lastSeenState; // "0" for no one, "1" for followings only and "2" for everyone.
 
     // Last seen date
-    @SuppressWarnings("unused")
     private Date lastSeen;
 
     Profile(long ownerId)
@@ -57,7 +56,7 @@ public class Profile
         this.ownerId = ownerId;
         this.privateState = false;
         this.infoState = false;
-        this.lastSeenState = 1;
+        this.lastSeenState = 2;
         this.lastSeen = new Date();
     }
 
@@ -347,6 +346,11 @@ public class Profile
     public void setLastSeen(Date lastSeen)
     {
         this.lastSeen = lastSeen;
+    }
+
+    public Date getLastSeen()
+    {
+        return lastSeen;
     }
 
     /*
