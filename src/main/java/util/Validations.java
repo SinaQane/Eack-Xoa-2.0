@@ -23,7 +23,7 @@ public class Validations
         Underscore and dot can't be at the end or start of a username.
         Underscore and dot can't be next to each other.
         Underscore or dot can't be used multiple times in a row.
-        Number of characters must be between 8 to 20.
+        Number of characters must be between 8 and 20.
      */
     private static final String USERNAME_STRING = Config.getConfig("patterns").getProperty(String.class, "username.regexp");
     private static final Pattern USERNAME_REGEX = Pattern.compile(USERNAME_STRING);

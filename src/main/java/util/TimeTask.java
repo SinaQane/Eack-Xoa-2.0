@@ -2,7 +2,7 @@ package util;
 
 public class TimeTask
 {
-    private int time;
+    private final int time;
     protected Thread thread;
     private final Runnable task;
     private volatile boolean running = false;
@@ -17,11 +17,6 @@ public class TimeTask
     public void update()
     {
         if (task != null) task.run();
-    }
-
-    public void addTime(int time)
-    {
-        this.time += time;
     }
 
     private void run()
@@ -67,24 +62,5 @@ public class TimeTask
     {
         running = true;
         thread.start();
-    }
-
-    public void stop()
-    {
-        running = false;
-        if (Thread.currentThread().equals(thread)) return;
-        try
-        {
-            thread.join();
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public int getTime()
-    {
-        return time;
     }
 }
