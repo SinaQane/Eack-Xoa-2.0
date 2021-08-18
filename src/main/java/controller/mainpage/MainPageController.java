@@ -3,16 +3,13 @@ package controller.mainpage;
 import db.UserDB;
 import model.Tweet;
 import model.User;
+import util.TimeTask;
 
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainPageController
 {
     static MainPageController mainPageController;
-
-    static final Timer timer = new Timer();
 
     private User user;
 
@@ -66,19 +63,13 @@ public class MainPageController
 
     public void startTimer()
     {
-        TimerTask task = new TimerTask()
+        TimeTask timeTask = new TimeTask(10, () ->
         {
-            @Override
-            public void run()
+            if (user != null)
             {
                 user.getProfile().setLastSeen(new Date());
             }
-        };
-        timer.schedule(task, 60000, 10000);
-    }
-
-    public void StopTimer()
-    {
-        timer.cancel();
+        });
+        timeTask.start();
     }
 }

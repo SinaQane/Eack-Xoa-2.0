@@ -34,8 +34,8 @@ public class MainPageListener
                 BackButtonHandler.getBackButtonHandler().back();
                 break;
             case "logoutButton":
-                MainPageController.getMainPageController().StopTimer();
                 UserDB.getUserDB().save(MainPageController.getMainPageController().getUser());
+                MainPageController.getMainPageController().setUser(null);
                 stage.setScene(loginPage.getScene());
                 break;
             case "profileButton":

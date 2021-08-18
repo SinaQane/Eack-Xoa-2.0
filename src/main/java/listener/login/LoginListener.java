@@ -54,8 +54,6 @@ public class LoginListener
                 stage.setScene(mainPage.getScene());
 
                 BackButtonHandler.getBackButtonHandler().add(new BackButtonMemory("profile", MainPageController.getMainPageController().getUser().getId()));
-
-                MainPageController.getMainPageController().startTimer();
             }
         }
     }

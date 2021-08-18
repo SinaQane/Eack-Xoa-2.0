@@ -1,3 +1,4 @@
+import controller.mainpage.MainPageController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import view.MainStage;
@@ -12,6 +13,7 @@ public class MainApp extends Application
     @Override
     public void start(Stage stage)
     {
+        MainPageController.getMainPageController().startTimer();
         new MainStage(stage);
     }
 }

@@ -46,14 +46,14 @@ public class SettingsListener
                 }
                 break;
             case "deactivationButton":
-                MainPageController.getMainPageController().StopTimer();
                 logic.deactivate();
                 mainPageFXML.getListener().eventOccurred(button);
+                MainPageController.getMainPageController().setUser(null);
                 break;
             case "deleteAccountButton":
-                MainPageController.getMainPageController().StopTimer();
                 logic.deleteAccount();
                 mainPageFXML.getListener().eventOccurred(button);
+                MainPageController.getMainPageController().setUser(null);
                 break;
         }
     }
