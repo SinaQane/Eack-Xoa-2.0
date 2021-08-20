@@ -19,7 +19,7 @@ public class NotificationsLogic
     public List<List<Notification>> getNotifications()
     {
         List<List<Notification>> result = new LinkedList<>();
-        List<Notification> notifications = user.getProfile().getNotifications();
+        List<Notification> notifications = new LinkedList<>(user.getProfile().getNotifications());
 
         for (Long id : user.getProfile().getRequests())
         {
