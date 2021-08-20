@@ -1,0 +1,107 @@
+{
+  "id": 5,
+  "username": "reza",
+  "password": "11111111",
+  "name": "Reza",
+  "email": "reza@mail.com",
+  "phoneNumber": "+989361234567",
+  "bio": "reza\u0027s bio",
+  "birthDate": "Apr 01, 1980",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 5,
+    "lastTweetId": 3,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/5.png",
+    "followers": [
+      6
+    ],
+    "followings": [
+      1
+    ],
+    "blocked": [],
+    "muted": [],
+    "requests": [
+      3,
+      2
+    ],
+    "pending": [
+      4
+    ],
+    "userTweets": [
+      "5-1",
+      "5-2",
+      "5-3"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:53:00 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:11:46 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "mohammad rejected your follow request."
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:18:13 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:38:19 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:40:11 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:41:38 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:43:17 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:46:09 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:47:06 IRDT 2021"
+      },
+      {
+        "owner": 5,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:48:07 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [
+      1
+    ],
+    "privateState": true,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629479343471
+  }
+}

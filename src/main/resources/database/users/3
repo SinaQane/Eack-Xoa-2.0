@@ -1,0 +1,57 @@
+{
+  "id": 3,
+  "username": "mojtaba",
+  "password": "11111111",
+  "name": "Mojtaba",
+  "email": "mojtaba@mail.com",
+  "phoneNumber": "+989134567890",
+  "bio": "mojtaba\u0027s bio",
+  "birthDate": "Aug 01, 2001",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 3,
+    "lastTweetId": 2,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/3.png",
+    "followers": [],
+    "followings": [],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [
+      5
+    ],
+    "userTweets": [
+      "3-1",
+      "3-2"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 3,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:46:56 IRDT 2021"
+      },
+      {
+        "owner": 3,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:50:51 IRDT 2021"
+      },
+      {
+        "owner": 3,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:15:59 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [],
+    "privateState": false,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629476216546
+  }
+}

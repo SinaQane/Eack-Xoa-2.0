@@ -1,0 +1,86 @@
+{
+  "id": 1,
+  "group": false,
+  "chatsName": "reza - erfan",
+  "users": [
+    5,
+    1
+  ],
+  "messages": [
+    {
+      "chatId": "1",
+      "ownerId": 5,
+      "index": 0,
+      "text": "hello erfan",
+      "picturePath": "",
+      "tweetId": "",
+      "messageDate": 1629478257603,
+      "seenList": [
+        1,
+        5
+      ]
+    },
+    {
+      "chatId": "1",
+      "ownerId": 5,
+      "index": 1,
+      "text": "look at this meme",
+      "picturePath": "/home/sinaqane/Desktop/Pictures/2.jpg",
+      "tweetId": "",
+      "messageDate": 1629478298976,
+      "seenList": [
+        1,
+        5
+      ]
+    },
+    {
+      "chatId": "1",
+      "ownerId": 5,
+      "index": 2,
+      "text": "LOL :DDDD",
+      "picturePath": "",
+      "tweetId": "",
+      "messageDate": 1629478312723,
+      "seenList": [
+        1,
+        5
+      ]
+    },
+    {
+      "chatId": "1",
+      "ownerId": 1,
+      "index": 3,
+      "text": "Hi man",
+      "picturePath": "",
+      "tweetId": "",
+      "messageDate": 1629478353695,
+      "seenList": [
+        5
+      ]
+    },
+    {
+      "chatId": "1",
+      "ownerId": 1,
+      "index": 4,
+      "text": "LOL",
+      "picturePath": "",
+      "tweetId": "",
+      "messageDate": 1629478357566,
+      "seenList": [
+        5
+      ]
+    },
+    {
+      "chatId": "1",
+      "ownerId": 1,
+      "index": 5,
+      "text": "LMAO",
+      "picturePath": "",
+      "tweetId": "",
+      "messageDate": 1629478364186,
+      "seenList": [
+        5
+      ]
+    }
+  ]
+}

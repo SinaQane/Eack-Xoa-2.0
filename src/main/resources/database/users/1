@@ -1,0 +1,74 @@
+{
+  "id": 1,
+  "username": "erfan",
+  "password": "11111111",
+  "name": "Erfan",
+  "email": "erfan@mail.com",
+  "phoneNumber": "+989123456789",
+  "bio": "erfan\u0027s bio",
+  "birthDate": "Jan 01, 2000",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 1,
+    "lastTweetId": 2,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/1.png",
+    "followers": [
+      5
+    ],
+    "followings": [],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [],
+    "userTweets": [
+      "1-1",
+      "1-2"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:32:49 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:58:43 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:02:11 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:04:58 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:17:24 IRDT 2021"
+      },
+      {
+        "owner": 1,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:22:24 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [
+      1
+    ],
+    "privateState": true,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629478374751
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": 4,
+  "username": "mohammad",
+  "password": "11111111",
+  "name": "Mohammad",
+  "email": "mohammad@mail.com",
+  "phoneNumber": "+989212345678",
+  "bio": "torab\u0027s bio",
+  "birthDate": "Aug 31, 1999",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 4,
+    "lastTweetId": 2,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/4.png",
+    "followers": [
+      2
+    ],
+    "followings": [
+      2
+    ],
+    "blocked": [],
+    "muted": [],
+    "requests": [
+      5
+    ],
+    "pending": [],
+    "userTweets": [
+      "4-1",
+      "4-2"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 4,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:49:38 IRDT 2021"
+      },
+      {
+        "owner": 4,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:14:19 IRDT 2021"
+      },
+      {
+        "owner": 4,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:23:12 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [],
+    "privateState": true,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629478434758
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "1-2",
+  "owner": 1,
+  "text": "erfan\u0027s second tweet",
+  "picturePath": "",
+  "tweetDate": "Aug 20, 2021  20:33:49.456",
+  "visible": true,
+  "upperTweetId": "",
+  "comments": [
+    "5-3"
+  ],
+  "upvotes": [],
+  "downvotes": [],
+  "retweets": [],
+  "reports": 0
+}

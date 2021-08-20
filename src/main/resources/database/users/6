@@ -1,0 +1,52 @@
+{
+  "id": 6,
+  "username": "nima",
+  "password": "11111111",
+  "name": "Nima",
+  "email": "nima@mail.com",
+  "phoneNumber": "+989351234567",
+  "bio": "nima\u0027s bio",
+  "birthDate": "Dec 28, 1999",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 6,
+    "lastTweetId": 2,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/6.png",
+    "followers": [],
+    "followings": [
+      5
+    ],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [],
+    "userTweets": [
+      "6-1",
+      "6-2"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 6,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:55:04 IRDT 2021"
+      },
+      {
+        "owner": 6,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:11:01 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [],
+    "privateState": false,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629476765810
+  }
+}

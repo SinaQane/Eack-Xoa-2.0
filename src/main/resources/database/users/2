@@ -1,0 +1,56 @@
+{
+  "id": 2,
+  "username": "sadat",
+  "password": "11111111",
+  "name": "Sadat",
+  "email": "sadat@mail.com",
+  "phoneNumber": "+989112345678",
+  "bio": "sadat\u0027s bio",
+  "birthDate": "Feb 01, 2001",
+  "isActive": true,
+  "isDeleted": false,
+  "profile": {
+    "ownerId": 2,
+    "lastTweetId": 2,
+    "picturePath": "/home/sinaqane/Desktop/Profile Pictures/2.png",
+    "followers": [
+      4
+    ],
+    "followings": [
+      4
+    ],
+    "blocked": [],
+    "muted": [],
+    "requests": [],
+    "pending": [
+      5
+    ],
+    "userTweets": [
+      "2-1",
+      "2-2"
+    ],
+    "retweetedTweets": [],
+    "upvotedTweets": [],
+    "downvotedTweets": [],
+    "reportedTweets": [],
+    "savedTweets": [],
+    "notifications": [
+      {
+        "owner": 2,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 20:35:42 IRDT 2021"
+      },
+      {
+        "owner": 2,
+        "requestFrom": 0,
+        "text": "New login to your account at Fri Aug 20 21:16:29 IRDT 2021"
+      }
+    ],
+    "groups": [],
+    "chatIds": [],
+    "privateState": false,
+    "infoState": false,
+    "lastSeenState": 2,
+    "lastSeen": 1629478014710
+  }
+}
