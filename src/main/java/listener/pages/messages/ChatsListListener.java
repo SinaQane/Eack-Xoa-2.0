@@ -1,5 +1,6 @@
 package listener.pages.messages;
 
+import db.ChatDB;
 import view.pages.messages.ChatsListPane;
 import controller.mainpage.MainPageController;
 import controller.mainpage.PanesController;
@@ -57,6 +58,7 @@ public class ChatsListListener
                 {
                     message.addToSeen(MainPageController.getMainPageController().getUser());
                 }
+                ChatDB.getChatDB().save(chat);
 
                 messagesPaneFXML.setChatsListPane(chatsListPane.getPane());
                 messagesPaneFXML.setChatroomPane(chatroomPane.getPane());

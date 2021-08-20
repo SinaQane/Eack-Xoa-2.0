@@ -55,7 +55,7 @@ public class Profile
     {
         this.ownerId = ownerId;
         this.privateState = false;
-        this.infoState = false;
+        this.infoState = true;
         this.lastSeenState = 2;
         this.lastSeen = new Date().getTime();
     }

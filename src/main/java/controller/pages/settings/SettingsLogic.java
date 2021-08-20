@@ -84,16 +84,18 @@ public class SettingsLogic
             UserDB.getUserDB().changePhoneNumber(Objects.requireNonNullElse(oldPhoneNumber, "0"), newPhoneNumber);
         }
 
-        MainPageController.getMainPageController().getUser().setPassword(editFormEvent.getPassword());
-        MainPageController.getMainPageController().getUser().setName(editFormEvent.getName());
-        MainPageController.getMainPageController().getUser().setBio(editFormEvent.getBio());
-        MainPageController.getMainPageController().getUser().setBirthDate(editFormEvent.getBirthDate());
-        MainPageController.getMainPageController().getUser().getProfile().setPrivate(editFormEvent.isPrivateState());
-        MainPageController.getMainPageController().getUser().getProfile().setInfoState(editFormEvent.isInfoState());
-        MainPageController.getMainPageController().getUser().getProfile().setLastSeenState(editFormEvent.getLastSeenState());
-        MainPageController.getMainPageController().getUser().getProfile().setPicturePath(editFormEvent.getPicPath());
+        User user = UserDB.getUserDB().get(MainPageController.getMainPageController().getUser().getId());
 
-        UserDB.getUserDB().save(MainPageController.getMainPageController().getUser());
+        user.setPassword(editFormEvent.getPassword());
+        user.setName(editFormEvent.getName());
+        user.setBio(editFormEvent.getBio());
+        user.setBirthDate(editFormEvent.getBirthDate());
+        user.getProfile().setPrivate(editFormEvent.isPrivateState());
+        user.getProfile().setInfoState(editFormEvent.isInfoState());
+        user.getProfile().setLastSeenState(editFormEvent.getLastSeenState());
+        user.getProfile().setPicturePath(editFormEvent.getPicPath());
+
+        UserDB.getUserDB().save(user);
     }
 
     public void deactivate()

@@ -82,7 +82,7 @@ public class Chat
         int cnt = 0;
         for (Message message : this.messages)
         {
-            if (!message.getSeenList().contains(user.getId()))
+            if (!message.getSeenList().contains(user.getId()) && message.getOwnerId() != user.getId())
             {
                 cnt++;
             }
